@@ -2,10 +2,10 @@
 
 int CountChar(char * filename)
 {
-	std::fstream file;
-	file.open(filename, std::ios::in);
 	int count = 0;
 	char c;
+	std::fstream file;
+	file.open(filename, std::ios::in);
 	while (file.get(c)) {
 		count++;
 	}
