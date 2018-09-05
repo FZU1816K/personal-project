@@ -1,14 +1,18 @@
 #include "ArgumentParser.h"
 #include <iostream>
+#include <fstream>
 int Parse_Args(int argc, char ** argv)
 {
-	// argv[1]是否存在
 	if (argv[1] == NULL) {
 		std::cout << "No input file name" << std::endl;
 		return -1;
 	}
-		
-	// 是否是一个文件名
-
+	
+	std::fstream file;
+	file.open(argv[1]);
+	if (!file) {
+		std::cout << "Failed to open file: " << argv[1] << std::endl;
+		return -1;
+	}
 	return 0;
 }
