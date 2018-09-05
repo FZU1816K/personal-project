@@ -18,5 +18,28 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CountChar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ArgumentParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CountChar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountLines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountWords.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WordFrequency.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ArgumentParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
