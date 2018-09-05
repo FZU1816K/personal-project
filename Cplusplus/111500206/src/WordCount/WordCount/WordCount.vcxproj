@@ -121,6 +121,7 @@
     <ClCompile Include="ArgumentParser.cpp" />
     <ClCompile Include="CountChar.cpp" />
     <ClCompile Include="CountLines.cpp" />
+    <ClCompile Include="CountWords.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -27,6 +27,9 @@
     <ClCompile Include="CountLines.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CountWords.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CountChar.h">
