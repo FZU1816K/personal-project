@@ -5,8 +5,9 @@
 #define P2 2
 #define P3 3
 #define INWORD 4
+#define ERROR 5
 
-int transition(int state, char input, int * count)
+int Transition(int state, char input, int * count)
 {
 	switch (state)
 	{
@@ -30,6 +31,7 @@ int transition(int state, char input, int * count)
 		if (isalnum(input)) return INWORD;
 		else { (*count)++; return OUTWORD; }
 	}
+	return ERROR;
 }
 
 int CountWords(char * filename)
@@ -39,8 +41,11 @@ int CountWords(char * filename)
 	std::fstream file;
 	file.open(filename, std::ios::in);
 	int state = OUTWORD;
-	while (file.get(c)) {
-		state = transition(state, c, &count);
+	while (file.get(c) && state != ERROR) {
+		state = Transition(state, c, &count);
+	}
+	if (state == ERROR) {
+		std::cout << "DFA error state." << std::endl;
 	}
 	if (state == INWORD) {
 		count++;

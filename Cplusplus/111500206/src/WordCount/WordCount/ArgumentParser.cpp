@@ -1,6 +1,5 @@
 #include "ArgumentParser.h"
-#include <iostream>
-#include <fstream>
+
 int Parse_Args(int argc, char ** argv)
 {
 	if (argv[1] == NULL) {
