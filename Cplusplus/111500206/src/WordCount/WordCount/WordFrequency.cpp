@@ -6,14 +6,12 @@ priority_queue<pair<int, string>, vector<pair<int, string>>, greater<pair<int, s
 
 bool MySort(const pair<int, string>& word1, const pair<int, string>& word2)
 {
+	if (word1.first != word2.first) {  // Sort word with frequency, high to low
+		return word1.first > word2.first;
+	}
+	else // if words have the same frequency, output in dictionary order
 	{
-		if (word1.first != word2.first) {  // Sort word with frequency, high to low
-			return word1.first > word2.first;
-		}
-		else // if words have the same frequency, output in dictionary order
-		{
-			return word1.second < word2.second;
-		}
+		return word1.second < word2.second;
 	}
 }
 
@@ -71,6 +69,7 @@ void WordFrequency(char * filename)
 	file.open(filename, ios::in);
 	int state = OUTWORD;
 	while (file.get(c) && state != ERROR) {
+		c = tolower(c);
 		state = TransitionStoreWord(state, c, word);
 	}
 	if (state == INWORD) {

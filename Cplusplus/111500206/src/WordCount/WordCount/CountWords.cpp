@@ -35,6 +35,7 @@ int CountWords(char * filename)
 	file.open(filename, std::ios::in);
 	int state = OUTWORD;
 	while (file.get(c) && state != ERROR) {
+		c = tolower(c);
 		state = Transition(state, c, &count);
 	}
 	if (state == ERROR) {
