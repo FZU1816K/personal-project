@@ -12,8 +12,8 @@ public class Tools {
     public int WordCount(String data){
         int amount = 0;
         String data_l = data.toLowerCase(); // 全部字母转小写。
-        String regex = "[【】、.。,\"!--;:?\'\\]]"; // 正则表达式，过滤字符串中全部标点符号。
-        data_l = data_l.replaceAll(regex, ""); //清洗文本。
+        String regex = "[【】、.。,\"—!--;:?\'\\]]"; // 正则表达式，过滤字符串中全部标点符号。
+        data_l = data_l.replaceAll(regex, " "); //清洗文本。
         StringTokenizer words = new StringTokenizer(data_l); //分割文本成单词。
 
         while(words.hasMoreTokens()){
