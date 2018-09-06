@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-#include<map>
+#include<queue>
 #include<unordered_map>
 #include<fstream>
 #include<string>
@@ -14,17 +14,13 @@ using namespace std;
 #define INWORD 4
 #define ERROR 5
 
-struct MyCompare {
-	bool operator() (const pair<int, string>& word1, const pair<int, string>& word2) const {
-		if (word1.first != word2.first) { //  Sort word with frequency, high to low
-			return word1.first < word2.first;
-		}
-		else // if words have the same frequency, output in dictionary order
-		{
-			return word1.second > word2.second;
-		}
-	}
-};
+/* 
+* Function name: Transition
+* Description:
+*	Sort method of Top 10 words vector.
+*/
+bool MySort(const pair<int, string>& word1, const pair<int, string>& word2);
+
 
 /*
 * Function name: Transition

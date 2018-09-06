@@ -2,9 +2,20 @@
 
 unordered_map<string, int> hash_table;
 unordered_map<string, int>::iterator hash_iter;
+priority_queue<pair<int, string>, vector<pair<int, string>>, greater<pair<int, string>>> wordQueue;
 
-map<pair<int, string>, string, MyCompare> wordMap;
-map<pair<int, string>, string>::iterator map_iter;
+bool MySort(const pair<int, string>& word1, const pair<int, string>& word2)
+{
+	{
+		if (word1.first != word2.first) {  // Sort word with frequency, high to low
+			return word1.first > word2.first;
+		}
+		else // if words have the same frequency, output in dictionary order
+		{
+			return word1.second < word2.second;
+		}
+	}
+}
 
 int TransitionStoreWord(int state, char input, string & word)
 {
@@ -69,26 +80,31 @@ void WordFrequency(char * filename)
 
 void TopTenWords()
 {
-	// Traverse the hash table and insert the words inside into the red-black tree for proper sorting output.
 	for (hash_iter = hash_table.begin(); hash_iter != hash_table.end(); hash_iter++) {
-		wordMap.insert(make_pair(make_pair(hash_iter->second, hash_iter->first), hash_iter->first));
+		pair<int, string> currentWord = make_pair(hash_iter->second, hash_iter->first);
+		if (wordQueue.size() == 10) {
+			pair<int, string> minFreqWord = wordQueue.top();
+			if (currentWord.first > minFreqWord.first) {
+				wordQueue.pop();
+				wordQueue.push(currentWord);
+			}
+		}
+		else {
+			wordQueue.push(currentWord);
+		}
 	}
-	if (wordMap.size() == 0)
+	if (wordQueue.size() == 0) {
 		return;
-
-	if (wordMap.size() == 1) {
-		map_iter = wordMap.begin();
-		cout << map_iter->first.first << " " << map_iter->first.second << endl;
-		return;
 	}
-
-	// Use the properties of the binary search tree to output ten most frequently words.
-	map_iter = wordMap.end();
-	map_iter--;
-	int counter = 0;
-	for (; map_iter != wordMap.begin() && counter < 10; map_iter--, counter++) {
-		cout << map_iter->first.first << " " << map_iter->first.second << endl;
+	vector<pair<int, string>> Top10words;
+	while (!wordQueue.empty()) {
+		Top10words.push_back(wordQueue.top());
+		wordQueue.pop();
 	}
-	cout << map_iter->first.first << " " << map_iter->first.second << endl;
+	sort(Top10words.begin(), Top10words.end(), MySort);
+	vector<pair<int, string>>::iterator iter;
+	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
+		cout << iter->first << " " << iter->second << endl;
+	}
 	return;
 }
