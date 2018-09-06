@@ -123,6 +123,7 @@
     <ClCompile Include="CountLines.cpp" />
     <ClCompile Include="CountWords.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="WordFrequency.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CountChar.h" />

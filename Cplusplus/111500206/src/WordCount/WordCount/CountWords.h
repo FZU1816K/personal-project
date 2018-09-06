@@ -3,8 +3,16 @@
 #include <fstream>
 #include <string>
 #include <cctype>
+
+#define OUTWORD 0 // 5 DFA states
+#define P1 1
+#define P2 2
+#define P3 3
+#define INWORD 4
+#define ERROR 5
+
 /*
-* Function name: transition
+* Function name: Transition
 * Description: State transition process in DFA(Deterministic Finite Automaton) 
 *			and add the counter of words.
 * Parameter:

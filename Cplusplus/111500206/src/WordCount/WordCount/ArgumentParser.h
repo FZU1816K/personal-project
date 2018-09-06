@@ -5,7 +5,7 @@
 /*
 * Function name: Parse_Args
 * Description:
-*	Parse the argument given in the command line
+*	Parse the command line argument.
 * Parameter:
 *	@argc: command line argument
 *	@argv: command line argument
