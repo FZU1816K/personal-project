@@ -1,3 +1,4 @@
 ﻿  WordCount.cpp
+e:\all\github\personal-project\cplusplus\031602423\src\wordcount\wordcount.cpp(87): warning C4101: 'lines': unreferenced local variable
   WordCount.vcxproj -> E:\ALL\github\personal-project\Cplusplus\031602423\src\x64\Debug\WordCount.exe
   WordCount.vcxproj -> E:\ALL\github\personal-project\Cplusplus\031602423\src\x64\Debug\WordCount.pdb (Partial PDB)
