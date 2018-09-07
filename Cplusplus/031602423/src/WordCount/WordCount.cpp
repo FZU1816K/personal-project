@@ -2,6 +2,7 @@
 #include<string>
 #include<map>
 #include <fstream>
+#include <algorithm>
 using namespace std;
 
 char ff[1000];
@@ -9,6 +10,18 @@ int character(char* path);
 int word(char strr[]);
 int isstring(char* c);
 int splitlen(char* f);
+void mytolower(char *s);
+
+void mytolower(char *s) {
+	int len = strlen(s);
+	for (int i = 0; i<len; i++) {
+		if (s[i] >= 'A'&&s[i] <= 'Z') {
+			s[i] = tolower(s[i]);
+			//s[i]+=32;//+32转换为小写
+			//s[i]=s[i]-'A'+'a';
+		}
+	}
+}
 int splitlen(char* f) {
 	int cc = 0;
 	int i = 0;
@@ -35,12 +48,8 @@ int character(char* path) {
 		infile >> c;
 		if (c == '\n')
 			c = ' ';
-		if (c == '\0') {
-			cout << "s";
-			break;
-		}
 		ff[i] = c;
-		cout << ff[i] << endl;
+		//cout << ff[i] << endl;
 		count++;
 		i++;
 	}
@@ -56,11 +65,10 @@ int word(char strr[]) {
 	map <string, int>::iterator m1_Iter;
 
 	while (split) {
-		cout << split << " "<<endl;
 		//cout << "ok1";
 		if(splitlen(split)>=4 && isstring(split)==1){
 			count++;
-			cout <<"ok" <<split << endl;
+			cout <<"符合条件的字符串是：" <<split << endl;
 			if (m1.count(split) == 0)
 			{
 				m1.insert(pair <string, int>(split, 1));
@@ -86,9 +94,10 @@ int main(int argc,char* argv[])
 	a = argv[1];
 	int characters,words,lines;
 	characters = character(a);
-	cout << ff<<endl;
+	//cout << ff<<endl;
+	mytolower(ff);
+	//cout << ff << endl;
 	words = word(ff);
-	//lines = line(a);//统计文件的字符数
 	cout << "characters:" << characters << endl;
 	cout << "words:" << words << endl;
 	return 0;
