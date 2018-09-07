@@ -1,4 +1,7 @@
+import org.junit.Test;
+
 import java.util.*;
+
 
 public class Tools {
 
@@ -9,32 +12,30 @@ public class Tools {
      * @param data
      * @return amount
      */
-    public int WordCount(String data){
-
+    @Test
+    public void WordCount(){
+        String data = "abaklsjhdlaskjd";
         int amount = 0;
         String data_l = data.toLowerCase(); // 全部字母转小写。
         String regex = "[【】、.。,\"—!--;:?\'\\]]"; // 正则表达式，过滤字符串中全部标点符号。
         data_l = data_l.replaceAll(regex, " "); //清洗文本。
         StringTokenizer words = new StringTokenizer(data_l); //分割文本成单词。
-        try {
-            while (words.hasMoreTokens()) {
-                String word = words.nextToken();
-                if (word.length() >= 4) {  //判断单词长度是否大于等于4
-                    if (Character.isLetter(word.charAt(0)) && Character.isLetter(word.charAt(1)) && Character.isLetter(word.charAt(2)) && Character.isLetter(word.charAt(3))) {  //判断单词前4个是否为字母
-                        amount++;
-                        if (!wordCount.containsKey(word)) {
-                            wordCount.put(word, new Integer(1));
-                        } else {
-                            int count = wordCount.get(word) + 1;
-                            wordCount.put(word, count);
-                        }
+
+        while(words.hasMoreTokens()){
+            String word = words.nextToken();
+            if(word.length()>=4){  //判断单词长度是否大于等于4
+                if(Character.isLetter(word.charAt(0))&&Character.isLetter(word.charAt(1))&&Character.isLetter(word.charAt(2))&&Character.isLetter(word.charAt(3))){  //判断单词前4个是否为字母
+                    amount++;
+                    if(!wordCount.containsKey(word)){
+                        wordCount.put(word,new Integer(1));
+                    }else{
+                        int count = wordCount.get(word) + 1;
+                        wordCount.put(word,count);
                     }
                 }
             }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
         }
-        return amount;
+       //return amount;
     }
 
     /**

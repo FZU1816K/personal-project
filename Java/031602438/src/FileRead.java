@@ -11,13 +11,16 @@ public class FileRead {
      * @param file
      */
     public String Input(File file){
+        int len;
+
         try{
             FileInputStream data = new FileInputStream(file);
-            byte[] buf = new byte[1024*1024];
+            len = (int)file.length();
+            byte[] buf = new byte[len];
             int length = data.read(buf);
             return new String(buf,0,length);
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return "";
     }
@@ -46,7 +49,7 @@ public class FileRead {
             res.write(t.getBytes());
             res.close();
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
