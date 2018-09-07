@@ -105,5 +105,6 @@ void TopTenWords()
 	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
 		cout << iter->first << " " << iter->second << endl;
 	}
+	hash_table.clear();
 	return;
 }
