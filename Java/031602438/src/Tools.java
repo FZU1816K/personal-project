@@ -4,6 +4,11 @@ public class Tools {
 
     HashMap<String,Integer> wordCount = new HashMap<String, Integer>();
 
+    /**
+     * 统计有效行数
+     * @param data
+     * @return
+     */
     public int LineCount(String data){
         int lines=0;
         boolean flag = false;
@@ -29,7 +34,8 @@ public class Tools {
 
         int amount = 0;
         String data_l = data.toLowerCase(); // 全部字母转小写。
-        String regex = "[【】、.。,\"—!--;:?\'\\]]"; // 正则表达式，过滤字符串中全部标点符号。
+        //String regex = "[《》<>【】、.。,\"—!--;:?\'\\]]"; // 正则表达式，过滤字符串中全部标点符号。
+        String regex = "[^0-9a-zA-Z]"; //正则表达式，过滤非字母数字字符。
         data_l = data_l.replaceAll(regex, " "); //清洗文本。
         StringTokenizer words = new StringTokenizer(data_l); //分割文本成单词。
         try {
