@@ -1,4 +1,4 @@
-nihao,wshi
-i nihao
+windows95,windows98
+i windows95
 
-DAJIAHAO
+WINDOWS2000,
