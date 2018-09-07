@@ -4,6 +4,22 @@ public class Tools {
 
     HashMap<String,Integer> wordCount = new HashMap<String, Integer>();
 
+    public int LineCount(String data){
+        int lines=0;
+        boolean flag = false;
+        for(int i=0;i<data.length();i++){
+            if(data.charAt(i)!='\r'&&data.charAt(i)!='\n'){
+                flag=true;
+            }
+            else if(data.charAt(i)=='\n'){
+                if(flag) {
+                    lines++;
+                    flag=false;
+                }
+            }
+        }
+        return lines;
+    }
     /**
      * 词频统计
      * @param data

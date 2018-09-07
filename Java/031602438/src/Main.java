@@ -17,7 +17,7 @@ public class Main {
         Tools tools = new Tools();
         int length = data.length();
         int wordAmount = tools.WordCount(data);
-        int lines = data.split("\n").length;
+        int lines = tools.LineCount(data);
         List<HashMap.Entry<String, Integer>> wordList = tools.WordSort();
 
         //文本输出
