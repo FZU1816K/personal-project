@@ -81,7 +81,7 @@ int character(char* path) {
 	return count;
 }
 int word(char strr[]) {
-	char* split = strtok(strr, ", ;:¡¤~£¡@#£¤%¡­&*£¨£©-¡ª¡ª+=[]{}\|""''?/");
+	char* split = strtok(strr, "^, ;:¡¤~£¡@#£¤%¡­&*£¨£©-¡ª¡ª+=[]{}\|""''?/");
 	int i = 0,count=0;
 	map <string, int> m1;
 	map <string, int>::iterator m1_Iter;
