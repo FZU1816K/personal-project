@@ -1,28 +1,28 @@
-#include "Statistics.h"
+ï»¿#include "Statistics.h"
 
 
-Statistics::Statistics(vector<string> &file_lines)//¹¹Ôì£¬ÎÄ¼şÄÚÈİ°´vector<string>´«Èë
+Statistics::Statistics(vector<string> &file_lines)//æ„é€ ï¼Œæ–‡ä»¶å†…å®¹æŒ‰vector<string>ä¼ å…¥
 	:m_file_lines(file_lines), m_char_num(0), m_word_num(0), m_line_num(0), calculated(false)
 {
 
 }
 
-Statistics::~Statistics()//Îö¹¹
+Statistics::~Statistics()//ææ„
 {
 
 }
 
-bool Statistics::isLetter(const char &c)//ÅĞ¶Ï¸ø¶¨×Ö·ûÊÇ·ñÎª×ÖÄ¸
+bool Statistics::isLetter(const char &c)//åˆ¤æ–­ç»™å®šå­—ç¬¦æ˜¯å¦ä¸ºå­—æ¯
 {
 	return c >= 'a' && c <= 'z';
 }
 
-bool Statistics::isNumber(const char &c)//ÅĞ¶Ï¸ø¶¨×Ö·ûÊÇ·ñÎªÊı×Ö
+bool Statistics::isNumber(const char &c)//åˆ¤æ–­ç»™å®šå­—ç¬¦æ˜¯å¦ä¸ºæ•°å­—
 {
 	return c >= '0' && c <= '9';
 }
 
-void Statistics::calc()//Í³¼Æ¹¦ÄÜ£¬¿É²»±ØÊÖ¶¯µ÷ÓÃ
+void Statistics::calc()//ç»Ÿè®¡åŠŸèƒ½ï¼Œå¯ä¸å¿…æ‰‹åŠ¨è°ƒç”¨
 {
 	for (unsigned int i = 0; i < m_file_lines.size(); i++)
 	{
@@ -30,9 +30,9 @@ void Statistics::calc()//Í³¼Æ¹¦ÄÜ£¬¿É²»±ØÊÖ¶¯µ÷ÓÃ
 		m_char_num += thisline.size();
 
 		bool is_a_line = false;
-		for (unsigned int k = 0; k < thisline.size(); k++)//ÅĞ¶ÏÊÇ·ñÎª¿Õ°×ĞĞ
+		for (unsigned int k = 0; k < thisline.size(); k++)//åˆ¤æ–­æ˜¯å¦ä¸ºç©ºç™½è¡Œ
 		{
-			if (thisline[k] > 32)//´óÓÚ32Îª·Ç¿Õ°××Ö·û
+			if (thisline[k] > 32)//å¤§äº32ä¸ºéç©ºç™½å­—ç¬¦
 			{
 				is_a_line = true;
 				break;
@@ -43,7 +43,7 @@ void Statistics::calc()//Í³¼Æ¹¦ÄÜ£¬¿É²»±ØÊÖ¶¯µ÷ÓÃ
 
 		m_line_num++;
 		unsigned int j = 0;
-		while (j <= thisline.size() - 1)//Í³¼Æµ¥´Ê¸öÊı
+		while (j <= thisline.size() - 1)//ç»Ÿè®¡å•è¯ä¸ªæ•°
 		{
 			char c = thisline[j];
 			if (isLetter(c))
@@ -81,28 +81,28 @@ void Statistics::calc()//Í³¼Æ¹¦ÄÜ£¬¿É²»±ØÊÖ¶¯µ÷ÓÃ
 	calculated = true;
 }
 
-int Statistics::getCharNumber()//»ñÈ¡×Ö·û¸öÊı¡£ÈôÉĞÎ´½øĞĞÍ³¼Æ£¬»á×Ô¶¯µ÷ÓÃcalc()
+int Statistics::getCharNumber()//è·å–å­—ç¬¦ä¸ªæ•°ã€‚è‹¥å°šæœªè¿›è¡Œç»Ÿè®¡ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨calc()
 {
 	if (!calculated)
 		calc();
 	return m_char_num;
 }
 
-int Statistics::getWordNumber()//»ñÈ¡×Ö·û¸öÊı¡£ÈôÉĞÎ´½øĞĞÍ³¼Æ£¬»á×Ô¶¯µ÷ÓÃcalc()
+int Statistics::getWordNumber()//è·å–å­—ç¬¦ä¸ªæ•°ã€‚è‹¥å°šæœªè¿›è¡Œç»Ÿè®¡ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨calc()
 {
 	if (!calculated)
 		calc();
 	return m_word_num;
 }
 
-int Statistics::getLineNumber()//»ñÈ¡×Ö·û¸öÊı¡£ÈôÉĞÎ´½øĞĞÍ³¼Æ£¬»á×Ô¶¯µ÷ÓÃcalc()
+int Statistics::getLineNumber()//è·å–å­—ç¬¦ä¸ªæ•°ã€‚è‹¥å°šæœªè¿›è¡Œç»Ÿè®¡ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨calc()
 {
 	if (!calculated)
 		calc();
 	return m_line_num;
 }
 
-vector<map<string, int>::iterator> &Statistics::getTopWords(unsigned int top_num)//»ñÈ¡³öÏÖ´ÎÊıÅÅÃûÇ°¼¸µÄµ¥´Ê
+vector<map<string, int>::iterator> &Statistics::getTopWords(unsigned int top_num)//è·å–å‡ºç°æ¬¡æ•°æ’åå‰å‡ çš„å•è¯
 {
 	top_num = min(m_wd_mp.size(), top_num);
 	for (unsigned int i = 0; i < top_num; i++)
@@ -127,7 +127,7 @@ vector<map<string, int>::iterator> &Statistics::getTopWords(unsigned int top_num
 	return m_top_words;
 }
 
-map<string, int> Statistics::_getAllWords()//»ñÈ¡Õû¸ö×ÖµäµÄ¿½±´£¬½öÓÃÓÚµ÷ÊÔ¡£
+map<string, int> Statistics::_getAllWords()//è·å–æ•´ä¸ªå­—å…¸çš„æ‹·è´ï¼Œä»…ç”¨äºè°ƒè¯•ã€‚
 {
 	return m_wd_mp;
 }

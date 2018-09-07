@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 using namespace std;
 #include <string>
@@ -6,19 +6,19 @@ using namespace std;
 #include <map>
 #include <algorithm>
 
-class Statistics//Í³¼ÆÀà ·â×°ÁËÓÃÓÚÍ³¼ÆµÄ·½·¨
+class Statistics//ç»Ÿè®¡ç±» å°è£…äº†ç”¨äºç»Ÿè®¡çš„æ–¹æ³•
 {
 public:
-	Statistics(vector<string> &file_lines);	//¹¹Ôì£¬ÎÄ¼şÄÚÈİ°´vector<string>´«Èë
-	~Statistics();							//Îö¹¹
-	inline bool isLetter(const char &c);	//ÅĞ¶Ï¸ø¶¨×Ö·ûÊÇ·ñÎª×ÖÄ¸
-	inline bool isNumber(const char &c);	//ÅĞ¶Ï¸ø¶¨×Ö·ûÊÇ·ñÎªÊı×Ö
-	void calc();							//Í³¼Æ¹¦ÄÜ£¬¿É²»±ØÊÖ¶¯µ÷ÓÃ
-	int getCharNumber();					//»ñÈ¡×Ö·û¸öÊı¡£ÈôÉĞÎ´½øĞĞÍ³¼Æ£¬»á×Ô¶¯µ÷ÓÃcalc()
-	int getWordNumber();					//»ñÈ¡×Ö·û¸öÊı¡£ÈôÉĞÎ´½øĞĞÍ³¼Æ£¬»á×Ô¶¯µ÷ÓÃcalc()
-	int getLineNumber();					//»ñÈ¡×Ö·û¸öÊı¡£ÈôÉĞÎ´½øĞĞÍ³¼Æ£¬»á×Ô¶¯µ÷ÓÃcalc()
-	vector<map<string, int>::iterator> &getTopWords(unsigned int top_num);	//»ñÈ¡³öÏÖ´ÎÊıÅÅÃûÇ°¼¸µÄµ¥´Ê
-	map<string, int> _getAllWords();		//»ñÈ¡Õû¸ö×ÖµäµÄ¿½±´£¬½öÓÃÓÚµ÷ÊÔ¡£
+	Statistics(vector<string> &file_lines);	//æ„é€ ï¼Œæ–‡ä»¶å†…å®¹æŒ‰vector<string>ä¼ å…¥
+	~Statistics();							//ææ„
+	inline bool isLetter(const char &c);	//åˆ¤æ–­ç»™å®šå­—ç¬¦æ˜¯å¦ä¸ºå­—æ¯
+	inline bool isNumber(const char &c);	//åˆ¤æ–­ç»™å®šå­—ç¬¦æ˜¯å¦ä¸ºæ•°å­—
+	void calc();							//ç»Ÿè®¡åŠŸèƒ½ï¼Œå¯ä¸å¿…æ‰‹åŠ¨è°ƒç”¨
+	int getCharNumber();					//è·å–å­—ç¬¦ä¸ªæ•°ã€‚è‹¥å°šæœªè¿›è¡Œç»Ÿè®¡ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨calc()
+	int getWordNumber();					//è·å–å­—ç¬¦ä¸ªæ•°ã€‚è‹¥å°šæœªè¿›è¡Œç»Ÿè®¡ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨calc()
+	int getLineNumber();					//è·å–å­—ç¬¦ä¸ªæ•°ã€‚è‹¥å°šæœªè¿›è¡Œç»Ÿè®¡ï¼Œä¼šè‡ªåŠ¨è°ƒç”¨calc()
+	vector<map<string, int>::iterator> &getTopWords(unsigned int top_num);	//è·å–å‡ºç°æ¬¡æ•°æ’åå‰å‡ çš„å•è¯
+	map<string, int> _getAllWords();		//è·å–æ•´ä¸ªå­—å…¸çš„æ‹·è´ï¼Œä»…ç”¨äºè°ƒè¯•ã€‚
 private:
 	vector<string> &m_file_lines;
 	map<string, int> m_wd_mp;
