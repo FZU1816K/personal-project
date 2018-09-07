@@ -1,13 +1,13 @@
-//---------------------------------------------------------------------------------------------
-//³ÌĞò¹¦ÄÜ£º¶ÔÎÄ±¾ÎÄ¼şÎÄ¼şÖĞµÄµ¥´ÊµÄ´ÊÆµ½øĞĞÍ³¼Æ
-//ÔËĞĞ·½Ê½£ºÖ±½ÓÔËĞĞexe»òÕßÓÃÃüÁîĞĞ´«²Î´ò¿ª(WordCount.exe input.txt)¾ù¿É
-//Í³¼ÆÖ¸±ê£º
-//		×Ö·ûÊı(ËùÓĞascll×Ö·û£¬¿Õ¸ñ¡¢Ë®Æ½ÖÆ±í·û¡¢»»ĞĞ·û¶¼Ëã)
-//		µ¥´ÊÊı(µ¥´ÊÒÔ²»ÉÙÓÚ4¸ö×ÖÄ¸¿ªÍ·£¬ºóÃæ¿ÉÒÔ¸úÉÏ×ÖÄ¸Êı×Ö¡£µ¥´ÊÒÔ·Ö¸ô·û·Ö¸î£¬²»Çø·Ö´óĞ¡Ğ´)
-//		·Ö¸ô·û(³ıÁË×ÖÄ¸Êı×Ö¶¼ÊÇ·Ö¸ô·û)
-//		ÓĞĞ§ĞĞÊı£ºÈÎºÎ°üº¬·Ç¿Õ°××Ö·û(ascllÖµ´óÓÚ32)µÄĞĞ
-//		³öÏÖÆµÂÊ×î¸ßµÄ10¸öµ¥´Ê¡£ÆµÂÊÏàÍ¬µÄµ¥´Ê£¬ÓÅÏÈÊä³ö×ÖµäĞò¿¿Ç°µÄµ¥´Ê¡£
-//ÊäÈëÎÄ¼şÀ´×Ôinput.txt£¬Êä³öÖÁÎÄ¼şoutput.txt£¬Êä³ö¾ùÎªĞ¡Ğ´¡£
+ï»¿//---------------------------------------------------------------------------------------------
+//ç¨‹åºåŠŸèƒ½ï¼šå¯¹æ–‡æœ¬æ–‡ä»¶æ–‡ä»¶ä¸­çš„å•è¯çš„è¯é¢‘è¿›è¡Œç»Ÿè®¡
+//è¿è¡Œæ–¹å¼ï¼šç›´æ¥è¿è¡Œexeæˆ–è€…ç”¨å‘½ä»¤è¡Œä¼ å‚æ‰“å¼€(WordCount.exe input.txt)å‡å¯
+//ç»Ÿè®¡æŒ‡æ ‡ï¼š
+//		å­—ç¬¦æ•°(æ‰€æœ‰ascllå­—ç¬¦ï¼Œç©ºæ ¼ã€æ°´å¹³åˆ¶è¡¨ç¬¦ã€æ¢è¡Œç¬¦éƒ½ç®—)
+//		å•è¯æ•°(å•è¯ä»¥ä¸å°‘äº4ä¸ªå­—æ¯å¼€å¤´ï¼Œåé¢å¯ä»¥è·Ÿä¸Šå­—æ¯æ•°å­—ã€‚å•è¯ä»¥åˆ†éš”ç¬¦åˆ†å‰²ï¼Œä¸åŒºåˆ†å¤§å°å†™)
+//		åˆ†éš”ç¬¦(é™¤äº†å­—æ¯æ•°å­—éƒ½æ˜¯åˆ†éš”ç¬¦)
+//		æœ‰æ•ˆè¡Œæ•°ï¼šä»»ä½•åŒ…å«éç©ºç™½å­—ç¬¦(ascllå€¼å¤§äº32)çš„è¡Œ
+//		å‡ºç°é¢‘ç‡æœ€é«˜çš„10ä¸ªå•è¯ã€‚é¢‘ç‡ç›¸åŒçš„å•è¯ï¼Œä¼˜å…ˆè¾“å‡ºå­—å…¸åºé å‰çš„å•è¯ã€‚
+//è¾“å…¥æ–‡ä»¶æ¥è‡ªinput.txtï¼Œè¾“å‡ºè‡³æ–‡ä»¶output.txtï¼Œè¾“å‡ºå‡ä¸ºå°å†™ã€‚
 //---------------------------------------------------------------------------------------------
 #include <iostream>
 using namespace std;
@@ -22,18 +22,18 @@ using namespace std;
 #include <windows.h>
 #include "Statistics.h"
 
-string GetFileNameFromArgs(int argc, char *argv[]) ;			 // ÓÃÓÚ´ÓÃüÁîĞĞ´«ÈëµÄ²ÎÊıÖĞÌáÈ¡³öÊäÈëÎÄ¼şÃû
-bool ReadFileLines(string file_name, vector<string> &file_lines);//¸ø¶¨ÎÄ¼şÃû£¬ÒÔvector<string>ĞÎÊ½·µ»ØÎÄ¼şÄÚÈİ£¬Ã¿¸öÔªËØ´ú±íÒ»ĞĞ
+string GetFileNameFromArgs(int argc, char *argv[]) ;			 // ç”¨äºä»å‘½ä»¤è¡Œä¼ å…¥çš„å‚æ•°ä¸­æå–å‡ºè¾“å…¥æ–‡ä»¶å
+bool ReadFileLines(string file_name, vector<string> &file_lines);//ç»™å®šæ–‡ä»¶åï¼Œä»¥vector<string>å½¢å¼è¿”å›æ–‡ä»¶å†…å®¹ï¼Œæ¯ä¸ªå…ƒç´ ä»£è¡¨ä¸€è¡Œ
 bool Output(int char_num, int word_num, int line_num, vector<map<string, int>::iterator> &top10wd,
-			bool toConsole = true, bool toFile = true, string file_name = "result.txt");// ½á¹ûÊä³ö
+			bool toConsole = true, bool toFile = true, string file_name = "result.txt");// ç»“æœè¾“å‡º
 
 int main(int argc, char *argv[])//int argc,char **argv   
-{//argc²ÎÊı³¤¶È,args²ÎÊıÊı×é
+{//argcå‚æ•°é•¿åº¦,argså‚æ•°æ•°ç»„
 	try {
 		string file_name = GetFileNameFromArgs(argc, argv);
 		vector<string> file_lines;
 
-		if (ReadFileLines(file_name, file_lines))//Èô¶ÁÈ¡ÎÄ¼şÄÚÈİ³É¹¦£¬¾ÍÖ´ĞĞÍ³¼Æ¹¦ÄÜ
+		if (ReadFileLines(file_name, file_lines))//è‹¥è¯»å–æ–‡ä»¶å†…å®¹æˆåŠŸï¼Œå°±æ‰§è¡Œç»Ÿè®¡åŠŸèƒ½
 		{
 			Statistics stats(file_lines);
 			int char_num = stats.getCharNumber();
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])//int argc,char **argv
 			int line_num = stats.getLineNumber();
 			vector<map<string, int>::iterator> &top10wd = stats.getTopWords(10);
 			Output(char_num, word_num, line_num, top10wd, true, true, "result.txt");
-			//×îºóÈı¸ö²ÎÊıÎª£ºÊÇ·ñÊä³öµ½¿ØÖÆÌ¨¡¢ÊÇ·ñÊä³öµ½ÎÄ¼ş¡¢ÎÄ¼şÃû
+			//æœ€åä¸‰ä¸ªå‚æ•°ä¸ºï¼šæ˜¯å¦è¾“å‡ºåˆ°æ§åˆ¶å°ã€æ˜¯å¦è¾“å‡ºåˆ°æ–‡ä»¶ã€æ–‡ä»¶å
 		}
 	}
 	catch (const char* err)
@@ -53,28 +53,28 @@ int main(int argc, char *argv[])//int argc,char **argv
 	return 0;
 }
 
-string GetFileNameFromArgs(int argc, char *argv[]) // ÓÃÓÚ´ÓÃüÁîĞĞ´«ÈëµÄ²ÎÊıÖĞÌáÈ¡³öÊäÈëÎÄ¼şÃû
+string GetFileNameFromArgs(int argc, char *argv[]) // ç”¨äºä»å‘½ä»¤è¡Œä¼ å…¥çš„å‚æ•°ä¸­æå–å‡ºè¾“å…¥æ–‡ä»¶å
 {
-	if (argc == 1)//Ö±½ÓÔËĞĞ
+	if (argc == 1)//ç›´æ¥è¿è¡Œ
 	{
 		return "input.txt";
 	}
-	else if (argc == 2)//Í¨¹ıÃüÁîĞĞ´«²Î´ò¿ª
+	else if (argc == 2)//é€šè¿‡å‘½ä»¤è¡Œä¼ å‚æ‰“å¼€
 	{
 		return argv[1];
 	}
 	else
 	{
-		throw "²ÎÊı¹ı¶à£¬´íÎó";
+		throw "å‚æ•°è¿‡å¤šï¼Œé”™è¯¯";
 	}
 }
 
-bool ReadFileLines(string file_name, vector<string> &file_lines) //¸ø¶¨ÎÄ¼şÃû£¬ÒÔvector<string>ĞÎÊ½·µ»ØÎÄ¼şÄÚÈİ£¬Ã¿¸öÔªËØ´ú±íÒ»ĞĞ
+bool ReadFileLines(string file_name, vector<string> &file_lines) //ç»™å®šæ–‡ä»¶åï¼Œä»¥vector<string>å½¢å¼è¿”å›æ–‡ä»¶å†…å®¹ï¼Œæ¯ä¸ªå…ƒç´ ä»£è¡¨ä¸€è¡Œ
 {
 	ifstream ifs(file_name);
 	if (!ifs)
 	{
-		throw "¶ÁÈ¡ÎÄ¼şÊ±´ò¿ªÎÄ¼şÒì³£";
+		throw "è¯»å–æ–‡ä»¶æ—¶æ‰“å¼€æ–‡ä»¶å¼‚å¸¸";
 		//return false;
 	}
 	else
@@ -82,7 +82,7 @@ bool ReadFileLines(string file_name, vector<string> &file_lines) //¸ø¶¨ÎÄ¼şÃû£¬Ò
 		string line_buf, str_low;
 		char c;
 		int _cnum = 0;
-		while (true)//¶ÁÈ¡ÎÄ¼ş£¬°´×Ö·û¶ÁÈë£¬Æ´×°³ÉĞĞ£¬´æÓÚfile_linesÖĞ
+		while (true)//è¯»å–æ–‡ä»¶ï¼ŒæŒ‰å­—ç¬¦è¯»å…¥ï¼Œæ‹¼è£…æˆè¡Œï¼Œå­˜äºfile_linesä¸­
 		{
 			c = ifs.get();
 			if (c == EOF)
@@ -114,7 +114,7 @@ bool ReadFileLines(string file_name, vector<string> &file_lines) //¸ø¶¨ÎÄ¼şÃû£¬Ò
 }
 
 bool Output(int char_num, int word_num, int line_num, vector<map<string, int>::iterator> &top10wd,
-	bool toConsole, bool toFile, string file_name)// ½á¹ûÊä³ö¡£Í¨¹ıtoConsole¡¢toFileÉèÖÃ´Ó¿ØÖÆÌ¨¡¢ÎÄ¼şÊä³ö¡£
+	bool toConsole, bool toFile, string file_name)// ç»“æœè¾“å‡ºã€‚é€šè¿‡toConsoleã€toFileè®¾ç½®ä»æ§åˆ¶å°ã€æ–‡ä»¶è¾“å‡ºã€‚
 {
 	if (toConsole)// output to console
 	{
@@ -131,7 +131,7 @@ bool Output(int char_num, int word_num, int line_num, vector<map<string, int>::i
 		ofstream ofs(file_name);
 		if (!ofs)
 		{
-			throw "Êä³öÎÄ¼şÊ±´ò¿ªÎÄ¼şÒì³£";
+			throw "è¾“å‡ºæ–‡ä»¶æ—¶æ‰“å¼€æ–‡ä»¶å¼‚å¸¸";
 			//return false;
 		}
 		else
