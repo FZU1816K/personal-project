@@ -2,7 +2,7 @@ import java.util.*;import java.util.Map.*;import java.io.*;
 import java.util.regex.*;
 public class Main
 {
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	@SuppressWarnings({ "deprecation" })
 	public static void main(String[]S)throws Exception
 	{
 if(S.length!=1)System.out.println("请输入命令行参数,即要读的文件");
@@ -12,15 +12,17 @@ else
 	DataInputStream in=new DataInputStream(f);
 	HashMap<String,Integer>hm
 	=new HashMap<String,Integer>();
-	String s;int n=0,w=0;for(;(s=in.readLine())!=null;)
+	String s;int n=0,w=0,z=0;
+	for(;(s=in.readLine())!=null;)
 	{
+		Matcher m=Pattern.compile("[\\u0000-\\u007f]").matcher(s);
+		for(;m.find();z++);z++;
 		//统计包含非空白字符的行数n
 		if(!s.matches("\\s*"))
 		{
 	n++;s=s.toLowerCase();
 	//匹配单词
-	Matcher m=Pattern.compile
-	("[^a-z0-9]*([a-z]{4}[a-z0-9]*)").matcher(" "+s);
+	m=Pattern.compile("[^a-z0-9]*([a-z]{4}[a-z0-9]*)").matcher(" "+s);
 	for(;m.find();w++)
 	{
 		s=m.group(1);
@@ -43,11 +45,11 @@ else
 	};
 	Collections.sort(l,c);
 	PrintWriter o=new PrintWriter("result.txt");
-	o.println("characters: "+f.getChannel().size()
+	o.println("characters: "+z
 	+"\nwords: "+w+"\nlines: "+n);
 	int i;for(i=0;i<Math.min(10,l.size());i++)
 	o.println(l.get(i).getKey()+": "+l.get(i).getValue());
-	o.close();
+	o.close();in.close();
 }
 	}
 }
