@@ -7,20 +7,25 @@ public class WordsCount {
     private int sum = 0;
 
 
-    // @return the sum of words
+    /**
+     * @return the sum of words
+     */
     public int getSum() {
         return sum;
     }
 
-
-    // @return the HashMap<String, Integer> contain words and words's sum
+    
+    /**
+     * @return the HashMap contain words and words's sum
+     */
     public HashMap<String, Integer> getMap() {
         return map;
     }
 
 
-    // @param content the input
-    // @return the class
+    /**
+     * @param content the input
+     */
     public WordsCount(String content) {
 
         String[] temp = content.split("\\s+");

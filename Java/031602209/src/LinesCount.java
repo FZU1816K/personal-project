@@ -1,9 +1,13 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class LinesCount {
 
-    // @param filePath the file's path
-    // @return the sum of lines
+    /**
+    * @param filePath the file's path
+    * @return the sum of lines
+    */
     public int linesNumber(String filePath) {
         int sum = 0;
         try {

@@ -3,8 +3,11 @@ import java.util.regex.Pattern;
 
 public class CharsCount {
 
-    // @param content the input
-    // @return the amount of input
+
+    /**
+     * @param content the input
+     * @return the amount of characters
+     */
     public int charsNumber(String content) {
         String regex = "\\p{ASCII}";
         Pattern pattern = Pattern.compile(regex);
