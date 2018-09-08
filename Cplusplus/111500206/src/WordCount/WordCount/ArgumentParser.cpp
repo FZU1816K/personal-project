@@ -13,5 +13,6 @@ int Parse_Args(int argc, char ** argv)
 		std::cout << "Failed to open file: " << argv[1] << std::endl;
 		return -1;
 	}
+	file.close();
 	return 0;
 }

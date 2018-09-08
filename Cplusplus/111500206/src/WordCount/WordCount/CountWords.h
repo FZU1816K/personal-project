@@ -8,7 +8,7 @@
 #define P1 1
 #define P2 2
 #define P3 3
-#define INWORD 4
+#define VALIDWORD 4
 #define ERROR 5
 
 /*

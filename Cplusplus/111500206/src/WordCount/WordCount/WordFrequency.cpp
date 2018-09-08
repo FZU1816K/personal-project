@@ -32,14 +32,13 @@ int TransitionStoreWord(int state, char input, string & word)
 		else { word.clear(); return OUTWORD; }
 
 	case P3:
-		if (isalpha(input)) { word += input; return INWORD; }
+		if (isalpha(input)) { word += input; return VALIDWORD; }
 		else { word.clear(); return OUTWORD; }
 
-	case INWORD:
-		if (isalnum(input)) { word += input; return INWORD; }
+	case VALIDWORD:
+		if (isalnum(input)) { word += input; return VALIDWORD; }
 		else {
 			InsertToHashTable(word);
-			//cout << word << endl;
 			word.clear();
 			return OUTWORD;
 		}
@@ -50,14 +49,12 @@ int TransitionStoreWord(int state, char input, string & word)
 void InsertToHashTable(string & word)
 {
 	if ((hash_iter = hash_table.find(word)) == hash_table.end()) { // a new word
-		pair<string, int> newword = pair<string, int>(word, 1);
-		hash_table.insert(newword);
-		// cout << "insert word " << word << " into hashtable" << endl;
+		pair<string, int> newWord = pair<string, int>(word, 1);
+		hash_table.insert(newWord);
 	}
 	else { // A word previously appeared
 		hash_iter->second++;
 		pair<string, int> oldword = pair<string, int>(word, hash_iter->second);
-		// cout << "A word exited in table. Number of occurrences:" << hash_iter->second << endl;
 	}
 }
 
@@ -72,18 +69,19 @@ void WordFrequency(char * filename)
 		c = tolower(c);
 		state = TransitionStoreWord(state, c, word);
 	}
-	if (state == INWORD) {
+	if (state == VALIDWORD) {
 		InsertToHashTable(word);
 	}
 }
 
-void TopTenWords()
+int TopTenWords()
 {
 	for (hash_iter = hash_table.begin(); hash_iter != hash_table.end(); hash_iter++) {
 		pair<int, string> currentWord = make_pair(hash_iter->second, hash_iter->first);
 		if (wordQueue.size() == 10) {
 			pair<int, string> minFreqWord = wordQueue.top();
-			if (currentWord.first > minFreqWord.first) {
+			if (currentWord.first > minFreqWord.first || (currentWord.first == minFreqWord.first
+				&&currentWord.second > minFreqWord.second)) {
 				wordQueue.pop();
 				wordQueue.push(currentWord);
 			}
@@ -93,18 +91,23 @@ void TopTenWords()
 		}
 	}
 	if (wordQueue.size() == 0) {
-		return;
+		return -1;
 	}
+	int count = wordQueue.size();
 	vector<pair<int, string>> Top10words;
+	
 	while (!wordQueue.empty()) {
 		Top10words.push_back(wordQueue.top());
 		wordQueue.pop();
 	}
+	
 	sort(Top10words.begin(), Top10words.end(), MySort);
 	vector<pair<int, string>>::iterator iter;
 	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
-		cout << iter->first << " " << iter->second << endl;
+		//cout << iter->first << " " << iter->second << endl;
+		const char *word = iter->second.c_str();
+		printf("%s: %d\n", word, iter->first);
 	}
 	hash_table.clear();
-	return;
+	return count;
 }

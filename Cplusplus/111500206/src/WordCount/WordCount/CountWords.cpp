@@ -17,11 +17,11 @@ int Transition(int state, char input, int * count)
 		else return OUTWORD;
 
 	case P3:
-		if (isalpha(input)) return INWORD;
+		if (isalpha(input)) return VALIDWORD;
 		else return OUTWORD;
 
-	case INWORD:
-		if (isalnum(input)) return INWORD;
+	case VALIDWORD:
+		if (isalnum(input)) return VALIDWORD;
 		else { (*count)++; return OUTWORD; }
 	}
 	return ERROR;
@@ -41,7 +41,7 @@ int CountWords(char * filename)
 	if (state == ERROR) {
 		std::cout << "DFA error state." << std::endl;
 	}
-	if (state == INWORD) {
+	if (state == VALIDWORD) {
 		count++;
 	}
 	return count;

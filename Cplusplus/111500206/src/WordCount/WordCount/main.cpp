@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-	for (int i = 0; i < 10; i++) {
+	//for (int i = 0; i < 10000; i++) {
 		int ret = Parse_Args(argc, argv);
 		if (ret == -1) {
 			return -1;
@@ -19,14 +19,14 @@ int main(int argc, char **argv)
 		int numberOfLines = CountLines(argv[1]);
 		int numberOfWords = CountWords(argv[1]);
 
-		cout << "In this file:" << endl;
-		cout << "Number of characters: " << numberOfChar << endl;
-		cout << "Number of non-empty lines: " << numberOfLines << endl;
-		cout << "Number of words: " << numberOfWords << endl;
+		printf("In this file:\n");
+		printf("Number of characters : %d\n", numberOfChar);
+		printf("Number of non-empty lines: %d\n", numberOfLines);
+		printf("Number of words: : %d\n", numberOfWords); 
 
 		WordFrequency(argv[1]);
-		cout << "Top 10 words: " << endl;
+		printf("Top 10 words:\n");
 		TopTenWords();
-	}
+	//}
 	return 0;
 }

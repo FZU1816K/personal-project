@@ -1,1 +1,56 @@
+1234
+abcd
+  		
++-*/
+
+
+		
+
+	
+
+ a
+ +
+abcd
+   abcd
 abcde
+	abcde
+1234abcd
++*-/abcd
+file1234
+FILE1234
+a
+aa
+aaa
+123a
+1234aa
++-*/aaa
+aaa a
+aaa+a
+aaa123a
+abcd
+abcd1234
+abcd
+ abcd
+file
+FILE
+123file
+aaaallll
+mmmm
+cccc
+dddd
+eeee
+ffff
+gggg
+aaaa
+jjjj
+hhhh
+nnnn
+aaaa
+cccc
+bbbb
+aaaa
+bbbb
+cccc
+bbbb
+iiii
+kkkk
