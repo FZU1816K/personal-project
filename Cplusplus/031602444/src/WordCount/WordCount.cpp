@@ -57,7 +57,6 @@ void CountWord(ifstream& filemm, map<string, int>& mapp)//统计词数词频
 
 	while (filemm >> s) //一次读取一个字符串，读取字符串不包括换行和空格和制表符
 	{
-
 		ans.clear();
 
 		for (int i = 0; i < s.size(); i++)
