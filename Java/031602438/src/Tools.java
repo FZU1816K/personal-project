@@ -4,6 +4,7 @@ public class Tools {
 
     HashMap<String,Integer> wordCount = new HashMap<String, Integer>();
 
+
     /**
      * 统计有效行数
      * @param data
@@ -13,7 +14,7 @@ public class Tools {
         int lines=0;
         boolean flag = false;
         for(int i=0;i<data.length();i++){
-            if(data.charAt(i)!='\r'&&data.charAt(i)!='\n'){
+            if(data.charAt(i)!='\r'&&data.charAt(i)!='\n'&& data.charAt(i)!=' '){
                 flag=true;
             }
             else if(data.charAt(i)=='\n'){
@@ -23,6 +24,8 @@ public class Tools {
                 }
             }
         }
+        if(flag)
+            lines++;
         return lines;
     }
     /**
