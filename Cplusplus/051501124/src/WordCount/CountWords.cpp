@@ -1,10 +1,35 @@
 #include "pch.h"
-#include <iostream>
-#include <fstream>
 #include "CountWords.h"
-#include <string>
 
 using namespace std;
+
+unordered_map<string, int> WordFrequency;
+
+struct cmp {
+	template<typename T,typename U>
+	bool operator()(T const &left, U const &right) {
+		if (left.second < right.second) return true;
+		return false;
+	}
+
+};
+priority_queue<pair<string, int>, vector<pair<string, int>>, cmp > top10Word;
+
+
+void WordClassify(string word)
+{
+	if (WordFrequency.count(word) == 0)
+	{
+		WordFrequency[word] = 1;
+	}
+	else
+	{
+		WordFrequency[word] += 1;
+	}
+
+}
+
+
 int CountWords(char *filename)
 {
 	fstream f(filename);
@@ -47,6 +72,7 @@ int CountWords(char *filename)
 				if (word.length() >= 4)
 				{
 					cnt++;
+					WordClassify(word);
 				}
 				word = "";
 				continue;
@@ -57,6 +83,7 @@ int CountWords(char *filename)
 				if (word.length() >= 4)
 				{
 					cnt++;
+					WordClassify(word);
 				}
 			}
 
@@ -65,3 +92,9 @@ int CountWords(char *filename)
 	}
 	return cnt;
 }
+
+int getAns()
+{
+	return WordFrequency["hello"];
+}
+
