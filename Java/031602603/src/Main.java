@@ -17,13 +17,13 @@ else
 		//统计包含非空白字符的行数n
 		if(!s.matches("\\s*"))
 		{
-	n++;
+	n++;s=s.toLowerCase();
 	//匹配单词
 	Matcher m=Pattern.compile
-	("[^a-zA-Z0-9]*([a-zA-Z]{4}[a-zA-Z0-9]*)").matcher(s);
+	("[^a-z0-9]*([a-z]{4}[a-z0-9]*)").matcher(" "+s);
 	for(;m.find();w++)
 	{
-		s=m.group(1).toLowerCase();
+		s=m.group(1);
 		if(hm.containsKey(s))hm.put(s,hm.get(s)+1);
 		else hm.put(s,1);
 	}
