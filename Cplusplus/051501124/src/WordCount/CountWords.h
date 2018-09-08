@@ -4,5 +4,9 @@
 #include <fstream>
 #include <unordered_map>
 #include <queue>
+#include <vector>
+
+
 int CountWords(char *file);
-int getAns();
+
+void top10words();

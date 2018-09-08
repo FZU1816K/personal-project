@@ -8,11 +8,12 @@ unordered_map<string, int> WordFrequency;
 struct cmp {
 	template<typename T,typename U>
 	bool operator()(T const &left, U const &right) {
-		if (left.second < right.second) return true;
+		if (left.second > right.second) return true;
 		return false;
 	}
 
 };
+
 priority_queue<pair<string, int>, vector<pair<string, int>>, cmp > top10Word;
 
 
@@ -72,6 +73,7 @@ int CountWords(char *filename)
 				if (word.length() >= 4)
 				{
 					cnt++;
+					//cout << word << endl;
 					WordClassify(word);
 				}
 				word = "";
@@ -90,11 +92,65 @@ int CountWords(char *filename)
 		}
 		
 	}
+
+	WordFrequency.erase(" ");
 	return cnt;
 }
 
-int getAns()
+bool mysort(const pair<string, int> &left, const pair<string, int> &right)
 {
-	return WordFrequency["hello"];
+	if (left.second != right.second)
+	{
+		return left.second > right.second;
+	}
+	else
+	{
+		return left.first < right.first;
+	}
+}
+
+void top10words()
+{
+	unordered_map<string, int>::iterator it;
+	for (it = WordFrequency.begin(); it != WordFrequency.end(); it++)
+	{
+		pair<string, int> word = make_pair(it->first, it->second);
+		
+		if (top10Word.size() == 10)
+		{
+			pair<string, int> rareWord = top10Word.top();
+			if (word.second > rareWord.second ||(word.first < rareWord.first||word.second==rareWord.second))
+			{
+				top10Word.push(word);
+				top10Word.pop();
+			}
+			else
+			{
+				top10Word.push(word);
+			}
+		}
+		else
+		{
+			cout << word.first << endl;
+			top10Word.push(word);
+		}
+	}
+	vector<pair<string, int>> result;
+	for(int i = 0;i<=top10Word.size();i++)
+	{
+		result.push_back(top10Word.top());
+		top10Word.pop();
+
+	}
+	result.push_back(top10Word.top());
+
+	sort(result.begin(), result.end(), mysort);
+	
+	vector<pair<string, int>>::iterator vit;
+	
+	for (vit = result.begin(); vit != result.end(); vit++)
+	{
+		cout << vit->first << ": " << vit->second << endl;
+	}
 }
 
