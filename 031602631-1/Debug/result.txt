@@ -1,0 +1,13 @@
+characters:213
+words:20
+lines:7
+<that>: 3
+<chinese>: 2
+<give>: 2
+<some>: 2
+<test>: 2
+<begin>: 1
+<fine>: 1
+<first>: 1
+<second>: 1
+<sentence>: 1
