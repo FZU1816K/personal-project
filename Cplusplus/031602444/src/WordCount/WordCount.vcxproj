@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{065E79FA-BF90-4381-B5A4-9F3D047A0383}</ProjectGuid>
+    <ProjectGuid>{DAD5A867-BEED-495E-B865-37E4BDA922A5}</ProjectGuid>
     <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -115,11 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="WordCount.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="WordCount.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
