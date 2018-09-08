@@ -2,7 +2,7 @@
 #include<fstream>
 #include<string>
 #include<vector>
-#include<map>
+#include<unordered_map>
 #include<cassert>
 #include <algorithm>
 using namespace std;
@@ -11,7 +11,7 @@ bool cmp(int a, int b)
 {
 	return a>b;
 }
-void adjustDown(vector<map<string, int>::iterator> &top, int i)
+void adjustDown(vector<unordered_map<string, int>::iterator> &top, int i)
 {
 	int min = i;
 	int child = 2 * min + 1;
@@ -29,7 +29,7 @@ void adjustDown(vector<map<string, int>::iterator> &top, int i)
 			break;
 	}
 }
-void topK(map<string, int> &essay, vector<map<string, int>::iterator> &top)
+void topK(unordered_map<string, int> &essay, vector<unordered_map<string, int>::iterator> &top)
 {
 	auto it = essay.begin();
 	//  初始化完全二叉树
@@ -67,12 +67,12 @@ void topK(map<string, int> &essay, vector<map<string, int>::iterator> &top)
 	sort(a, a + 10, cmp);
 	for (int i = 0; i < 10; i++)
 	{
-		cout <<"<" << b[i] << ">: " << a[i] << endl;
+		cout << "<" << b[i] << ">: " << a[i] << endl;
 	}
 }
 int main()
 {
-	int num = 0, j = 0,p = 0;
+	int num = 0, j = 0, p = 0;
 	ifstream in("test.txt");          //  打开文件
 	if (!in)
 	{
@@ -81,7 +81,7 @@ int main()
 	}
 	char word[1000];
 	string ss;
-	map<string, int> essay;
+	unordered_map<string, int> essay;
 	while (in.getline(word, 1000))         //   istream &in 遇到空白字符（空格符、制表符和换行符）即停止读入。
 	{
 		num++;//统计行数
@@ -121,8 +121,8 @@ int main()
 		}
 		j += ss.length();//统计字符数
 	}
-	cout << "characters：" << j << endl << "words: " << p<<endl << "lines: " << num << endl;
-	vector < map<string, int> ::iterator> top(K, essay.begin());
+	cout << "characters：" << j << endl << "words: " << p << endl << "lines: " << num << endl;
+	vector < unordered_map<string, int> ::iterator> top(K, essay.begin());
 	topK(essay, top);
 	getchar();
 	getchar();
