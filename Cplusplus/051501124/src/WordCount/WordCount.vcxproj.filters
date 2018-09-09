@@ -24,6 +24,9 @@
     <ClInclude Include="CountLine.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Top10.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="CountWords.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -39,6 +42,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CountLine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Top10.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CountWords.cpp">
