@@ -1,0 +1,3 @@
+﻿  WordCount.cpp
+d:\personal-project\personal-project\cplusplus\031602215\src\wordcount\wordcount\countwords_words.h(27): warning C4018: “<”: 有符号/无符号不匹配
+  WordCount.vcxproj -> D:\personal-project\personal-project\Cplusplus\031602215\src\WordCount\Debug\WordCount.exe
