@@ -3,21 +3,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CharacterCount {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader( new InputStreamReader( new FileInputStream( new File("E:\\input.txt"))));
-        String line;
-        String temp = "";
-        while((line = reader.readLine()) != null) {
-            temp = temp + "\n" + line;
-        }
-        System.out.println(temp);
+    public int charCount(String string) throws IOException {
         int characters = 0;
         String regex = "\\p{ASCII}";
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(temp);
+        Matcher matcher = pattern.matcher(string);
         while (matcher.find()) {
             characters++;
         }
-        System.out.println(characters);
+        return characters;
+    }
+    public static void main(String[] args) {
+
+        CharacterCount test = new CharacterCount();
+        try {
+            System.out.println(test.charCount("abcd 12\nbv"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

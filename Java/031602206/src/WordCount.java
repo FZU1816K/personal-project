@@ -1,31 +1,38 @@
-import java.io.*;
+import java.util.HashMap;
 
 public class WordCount {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader( new InputStreamReader( new FileInputStream( new File("E:\\input.txt"))));
-        int words = 0;
-        String line;
-        String temp = "";
-        while((line = reader.readLine()) != null) {
-            temp = temp + line;
-            temp = temp + "\n";
-        }
-        temp = temp.toLowerCase();
-        System.out.println(temp);
-        String[] word = temp.split("\\s+");
+    HashMap<String, Integer> map = new HashMap<>();
+    int words = 0;
+
+    public int getWords() {
+        return words;
+    }
+
+    public HashMap<String, Integer> getMap() {
+        return map;
+    }
+
+    public WordCount(String string) {
+        String[] word = string.split("\\s+");
         String regex = "^[a-zA-Z]{4,}.*";
-        for (String i : word) {
-            if (i.matches(regex)) {
+        for (int i = 0; i < word.length; i++) {
+            String temp = word[i];
+            if (temp.matches(regex)) {
                 words++;
-                /*
-                if (!map.containsKey(lowCase)) {
-                    map.put(lowCase, 1);
+                String lowerCase = temp.toLowerCase();
+                if (!map.containsKey(lowerCase)) {
+                    map.put(lowerCase, 1);
                 } else {
-                    int num = map.get(lowCase);
-                    map.put(lowCase, num + 1);
-                }*/
+                    int num = map.get(lowerCase);
+                    map.put(lowerCase, num + 1);
+                    System.out.println(num);
+                }
             }
         }
-        System.out.println(words);
+    }
+    public static void main(String[] args) {
+        WordCount test = new WordCount("zxcs12\nmmmm2");
+        System.out.println(test.getWords());
+        System.out.println(test.getMap().toString());
     }
 }
