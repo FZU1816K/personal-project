@@ -1,9 +1,0 @@
-this is a test.txt ,and without chinese.
-now, that's begin, and I'll give you some sentence to test.
-first, 12324 will be fine.
-second, 1+9*7=64
-third:8%2=0
-that's all
-now£¬I'll give you some chinese: ÄãºÃ£¡that's
-now, give some special:
-*&%@#audb 1ag6a& ahsb*9 ~1v8?/
