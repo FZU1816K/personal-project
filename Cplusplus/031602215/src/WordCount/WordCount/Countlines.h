@@ -14,7 +14,7 @@ int Countlines()
 	while (!infile.eof())
 	{
 		infile >> c;  //°´ÕÕ×Ö·ûÊä³ö
-		if (c != 10 && c!=' ' && !infile.eof())
+		if (c != 10 && c!=' ' && infile.eof())
 		{
 			flag1 = 1;
 		}

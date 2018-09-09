@@ -18,7 +18,7 @@ void sortMapByValue(map<string, int>& tMap, vector<pair<string, int> >& tVector)
 	sort(tVector.begin(), tVector.end(), cmp);
 }
 
-int Countwords_words(map<string, int> strMap)
+void Countwords_words(map<string, int> strMap)
 {
 	map<string, int>::iterator iter;
 	int numwords = 0;
@@ -31,5 +31,5 @@ int Countwords_words(map<string, int> strMap)
 	//{
 	//	cout << iter->first << " " << iter->second << endl;
 //	}
-	return 0;
+	
 }

@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	cout << "characters: "<<CountChar() << endl;
 	cout << "words: " << Countwords_num(Countwords()) << endl;
 	cout << "lines: " << Countlines() << endl;
-	cout << Countwords_words(Countwords())<<endl;
+	Countwords_words(Countwords());
 	getchar();
 	
 	return 0;

@@ -57,7 +57,7 @@ map<string, int>  Countwords()
 			//cout << c << endl;
 			//cout << flag;
 			int i = 0;
-			while (c != 32 && c != 10 && c !=03&&!infile.eof()) //结尾会出现bug,循环无法退出
+			while (c != 32 && c != 10 && c !=03&&!infile.eof()) 
 			{
 				//cout << i++ << endl;
 				if (flag == 1)
