@@ -15,33 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\031602631\031602631\Ccharacter.h">
+    <ClInclude Include="Ccharacter.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\031602631\031602631\Clines.h">
+    <ClInclude Include="Clines.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\031602631\031602631\Cwords.h">
+    <ClInclude Include="Cwords.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\031602631\031602631\Swords.h">
+    <ClInclude Include="Swords.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\031602631\031602631\Ccharacters.cpp">
+    <ClCompile Include="Ccharacter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\031602631\031602631\Clines.cpp">
+    <ClCompile Include="Clines.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\031602631\031602631\Cwords.cpp">
+    <ClCompile Include="Cwords.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\031602631\031602631\Swords.cpp">
+    <ClCompile Include="Swords.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\031602631\031602631\WordCount.cpp">
+    <ClCompile Include="WordCount.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

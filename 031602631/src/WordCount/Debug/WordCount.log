@@ -1,11 +1,11 @@
-﻿  Ccharacters.cpp
-e:\users\lenovo\source\031602631\031602631\ccharacters.cpp(33): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+﻿  Ccharacter.cpp
+e:\users\lenovo\source\repos\wordcount\wordcount\ccharacter.cpp(33): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
   Clines.cpp
-e:\users\lenovo\source\031602631\031602631\clines.cpp(31): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+e:\users\lenovo\source\repos\wordcount\wordcount\clines.cpp(31): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
   Cwords.cpp
-e:\users\lenovo\source\031602631\031602631\cwords.cpp(51): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+e:\users\lenovo\source\repos\wordcount\wordcount\cwords.cpp(48): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
   Swords.cpp
-e:\users\lenovo\source\031602631\031602631\swords.cpp(63): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp(63): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
   WordCount.cpp
   正在生成代码...
-  WordCount.vcxproj -> E:\Users\lenovo\source\repos\WordCount\Debug\WordCount.exe
+  WordCount.vcxproj -> E:\Users\lenovo\Source\repos\WordCount\Debug\WordCount.exe

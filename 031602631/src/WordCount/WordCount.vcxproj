@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ccharacter.h" />
+    <ClInclude Include="Clines.h" />
+    <ClInclude Include="Cwords.h" />
+    <ClInclude Include="Swords.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ccharacter.cpp" />
+    <ClCompile Include="Clines.cpp" />
+    <ClCompile Include="Cwords.cpp" />
+    <ClCompile Include="Swords.cpp" />
+    <ClCompile Include="WordCount.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{45C5E235-C1BB-4428-A5B0-3A40D6092AA6}</ProjectGuid>
@@ -114,19 +127,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\031602631\031602631\Ccharacter.h" />
-    <ClInclude Include="..\..\..\031602631\031602631\Clines.h" />
-    <ClInclude Include="..\..\..\031602631\031602631\Cwords.h" />
-    <ClInclude Include="..\..\..\031602631\031602631\Swords.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\031602631\031602631\Ccharacters.cpp" />
-    <ClCompile Include="..\..\..\031602631\031602631\Clines.cpp" />
-    <ClCompile Include="..\..\..\031602631\031602631\Cwords.cpp" />
-    <ClCompile Include="..\..\..\031602631\031602631\Swords.cpp" />
-    <ClCompile Include="..\..\..\031602631\031602631\WordCount.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
