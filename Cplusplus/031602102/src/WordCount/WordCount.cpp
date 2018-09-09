@@ -1,5 +1,6 @@
 #include"stdafx.h"
-
+//#include<time.h>
+#include<set>
 using namespace std;
 
 int lines = 0, characters = 0, wordNum = 0;
@@ -8,6 +9,7 @@ void countWord(map<string, int>& words, string filename, ifstream& infile)//统计
 {
 	map<string, int>::iterator iter;
 	infile.open(filename);
+	set<string> WordSet;
 	string word;
 	while (infile >> word)
 	{
@@ -22,11 +24,11 @@ void countWord(map<string, int>& words, string filename, ifstream& infile)//统计
 			for (unsigned int i = 0; i < word.size(); i++)
 				if (word[i] >= 'A'&&word[i] <= 'Z')
 					word[i] += 32;
-			iter = words.find(word);
-			if (iter != words.end())
-				words[word]++;
-			else
+			pair<set<string>::iterator, bool> flag = WordSet.insert(word);
+			if (flag.second)
 				words[word] = 1;
+			else
+				words[word]++;
 		}
 	}
 }
@@ -65,6 +67,7 @@ void countLine(ifstream& infile)//统计行数
 
 int main(int argc, char* argv[])
 {
+	//long start = clock();
 	map<string, int> words;
 	ifstream infile;
 	ofstream outfile;
@@ -79,6 +82,8 @@ int main(int argc, char* argv[])
 	outfile << "lines:" << lines << endl;
 	wordSort(words, outfile);
 	outfile.close();
+	//long end = clock();
+	//cout << "程序执行结束,共花费秒数:" << ( end - start )/ CLOCKS_PER_SEC << endl;
 	system("pause");
 	return 0;
 }
