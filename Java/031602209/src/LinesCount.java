@@ -13,8 +13,11 @@ public class LinesCount {
         try {
             FileReader fileReader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            while (bufferedReader.readLine()!= null) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.length() != 0 && !line.matches("\\s+")) {
                     sum++;
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
