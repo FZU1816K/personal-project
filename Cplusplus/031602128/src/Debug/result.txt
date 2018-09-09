@@ -1,0 +1,5 @@
+character: 105
+words: 3
+lines: 13
+<qweee>: 2
+<asdf456>: 1
