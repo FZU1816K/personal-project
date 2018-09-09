@@ -47,6 +47,9 @@ public class WordsCount {
 
     public static void main(String[] args) {
 
+        String test = "hsfgfsd124  jkljkl32  321798  fjskl\n 6fshk  afjksl%&^  jflks  132\n\n\n";
+        WordsCount wordsCount = new WordsCount(test);
+        System.out.print(wordsCount.getSum());
     }
 
 }
