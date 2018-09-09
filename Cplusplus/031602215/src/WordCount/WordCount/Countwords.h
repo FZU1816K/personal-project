@@ -28,12 +28,12 @@ map<string, int>  Countwords()
 	infile >> noskipws;
 
 	map<string, int> strMap;
-
 	while (!infile.eof())
 	{
+		
 		infile >> c;  //按照字符输出
 		//cout << c << endl;
-		
+		//cout << i++ << endl;
 		if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))
 		{
 			c = lower(c);
@@ -56,9 +56,10 @@ map<string, int>  Countwords()
 			}
 			//cout << c << endl;
 			//cout << flag;
-			while (c != 32 && c != 10) //结尾会出现bug
+			int i = 0;
+			while (c != 32 && c != 10 && c !=03&&!infile.eof()) //结尾会出现bug,循环无法退出
 			{
-				//cout << c << endl;
+				//cout << i++ << endl;
 				if (flag == 1)
 				{
 					c = lower(c);
