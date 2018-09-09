@@ -18,7 +18,7 @@ int Countlines(char *filename)
 	infile >> noskipws;
 	while (!infile.eof())
 	{
-		infile >> c;  //°´ÕÕ×Ö·ûÊä³ö
+		infile >> c; 
 		if (c != 10 && c!=' ')
 		{
 			flag1 = 1;
