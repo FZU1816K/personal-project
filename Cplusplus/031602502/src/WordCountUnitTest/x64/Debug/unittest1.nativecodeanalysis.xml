@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>d:\app\vs2017_community\vs2017_ide\vc\auxiliary\vs\unittest\include\</FILEPATH>
+      <FILENAME>cppunittest.h</FILENAME>
+      <LINE>463</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Microsoft::VisualStudio::CppUnitTestFramework::TestClass&lt;WordCountUnitTest::UnitTest1&gt;::{dtor}</FUNCTION>
+    <DECORATED>??1?$TestClass@VUnitTest1@WordCountUnitTest@@@CppUnitTestFramework@VisualStudio@Microsoft@@UEAA@XZ</DECORATED>
+    <FUNCLINE>463</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
