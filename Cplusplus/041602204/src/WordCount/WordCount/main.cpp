@@ -12,10 +12,10 @@ int main(int argc,char **argv)
 		return 0;
 	}
 	//进行文件分析计算。 
-	chars_cnt=CountChar(argv[1]);
-	words_cnt=CountWords(argv[1]);
-	lines_cnt=CountLines(argv[1]);
-	top10=WordsTop10(argv[1]);
+	int chars_cnt=CountChar(argv[1]);
+	int words_cnt=CountWords(argv[1]);
+	int lines_cnt=CountLines(argv[1]);
+	??? top10=WordsTop10(argv[1]);
 	//
 	//输出结果。
 	cout<<"characters:"<<chars_cnt<<endl;
