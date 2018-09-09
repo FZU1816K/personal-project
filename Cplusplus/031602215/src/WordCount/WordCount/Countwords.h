@@ -8,6 +8,16 @@
 using namespace std;
 
 
+
+char lower(char c)
+{
+	if ((c >= 'A'&&c <= 'Z'))
+	{
+		return c + 32;
+	}
+	return c;
+}
+
 map<string, int>  Countwords()
 {
 	ifstream infile;
@@ -23,8 +33,10 @@ map<string, int>  Countwords()
 	{
 		infile >> c;  //°´ÕÕ×Ö·ûÊä³ö
 		//cout << c << endl;
+		
 		if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))
 		{
+			c = lower(c);
 			char word[20] = {};
 			int k = 0, c_count = 0;
 			int num = 0;
@@ -33,6 +45,7 @@ map<string, int>  Countwords()
 			{
 				word[k++] = c;
 				infile >> c;
+				c = lower(c);
 				num++;
 				if (num > 3)
 				{
@@ -48,6 +61,7 @@ map<string, int>  Countwords()
 				//cout << c << endl;
 				if (flag == 1)
 				{
+					c = lower(c);
 					word[k++] = c;
 				}
 				infile >> c;
