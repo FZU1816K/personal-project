@@ -5,8 +5,11 @@
 #include<fstream>
 #include<iostream>
 #include<string>
+#include<vector>
 #include"problem.h"
+#include"File.h"
 using namespace std;
+
 
 int main(int argc, char *argv[])//主函数参数 argc表示个数 argv为参数数组地址
 {
@@ -16,15 +19,9 @@ int main(int argc, char *argv[])//主函数参数 argc表示个数 argv为参数
 	else
 		cin >> infilepath;
 
-	Problem p(infilepath, "result.txt");
-	p.get_line();
-	//if (printresult)
-	//{
-	//	p.display();
-	//	cout << "--------------------------------" << endl;
-	//}
-	p._sort();
-	p.result();
+	File f(infilepath, "result.txt");
+	Problem p(f.readfile(), 10);
+	f.DrawText(p.getcharacters(), p.getwords(), p.getlines(), p.getmax_fre());
 	system("pause");
 	return 0;
 }

@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{79A2B994-1B62-4A39-955D-3F1F4FBA5567}</ProjectGuid>
+    <ProjectGuid>{15E472A0-5978-4123-92E2-E8942C84D51D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
@@ -151,10 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="File.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Problem.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
