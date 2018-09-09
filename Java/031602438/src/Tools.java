@@ -57,6 +57,7 @@ public class Tools {
                 }
             }
         }catch (Exception e){
+            System.out.println("词频统计报错：");
             System.out.println(e.getMessage());
         }
         return amount;
