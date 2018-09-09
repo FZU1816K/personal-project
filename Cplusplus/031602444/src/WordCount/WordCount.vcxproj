@@ -116,10 +116,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="core.h" />
+    <ClInclude Include="CountAndSort.h" />
+    <ClInclude Include="CountCharacters.h" />
+    <ClInclude Include="CountLines.h" />
+    <ClInclude Include="CountWords.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core.cpp" />
-    <ClCompile Include="WordCount.cpp" />
+    <ClCompile Include="CountAndSort.cpp" />
+    <ClCompile Include="CountCharacters.cpp" />
+    <ClCompile Include="CountLines.cpp" />
+    <ClCompile Include="CountWords.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
