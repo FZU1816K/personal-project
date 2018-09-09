@@ -81,8 +81,7 @@ void countChar(string u)//统计字符数、单词放在全局变量、优先队
 
 				temp_danci.word[k++] = ch;
 				ch = fin.get();
-				if (!fin.eof())
-					characters++;
+				characters++;
 			}
 			temp_danci.word[k++] = '\0';
 
