@@ -1,3 +1,6 @@
+
+#include "stdafx.h"
+using namespace std;
 #include "stdafx.h"
 using namespace std;
 string Conventor(int src)//转换itos
@@ -50,7 +53,7 @@ int WordCount(string fn)
 {
 	ifstream infile;
 	infile.open(fn);
-	string str[1000],str1[1000];
+	string str[1000], str1[1000];
 	int ch = 0, line = 0;
 	int words = 0;
 
@@ -78,7 +81,7 @@ int WordCount(string fn)
 		while (stream)stream >> str1[j++];
 	}
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
-	
+
 	j -= 1;
 	words = 0;
 	int k = 0;
@@ -106,7 +109,7 @@ int WordCount(string fn)
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
 	//cout << "words==" << words << endl;
 	//for (int i = 0; i<j - 1; i++)
-		//cout << str1[i] << endl;
+	//cout << str1[i] << endl;
 	//cout << "words: " << words << endl;
 	infile.close();
 	return words;
@@ -136,7 +139,7 @@ string WordFreq(string fn)
 			j++;
 		}
 	}
-	
+
 	int j = 0;
 
 	for (int i = 0; i<line; i++)//将空格处理后的文档转化为单词 
@@ -169,7 +172,7 @@ string WordFreq(string fn)
 			str1[i] = '\0';
 		}
 	}
-	
+
 	map<string, int> mymap;
 	map<string, int>::iterator it;
 
@@ -190,14 +193,14 @@ string WordFreq(string fn)
 	}
 	it = mymap.begin();
 	it++;
-//	for (; it != mymap.end(); it++)
+	//	for (; it != mymap.end(); it++)
 	//	cout << '<'<<it->first << ">: " << it->second << endl;
 	it = mymap.begin();
 	it++;
-	string temps="\0";
+	string temps = "\0";
 	stringstream ss;
 	int i = 0;
-	for ( i=0; it != mymap.end(); it++,i++)
+	for (i = 0; it != mymap.end(); it++, i++)
 	{
 		ss.clear();
 		temps = "\0";
@@ -206,32 +209,45 @@ string WordFreq(string fn)
 		ss >> temps;
 		str[i] = "<" + it->first + "" + ">: " + temps;
 	}
-	
+
 	str[i] = "\0";
-	for (i = 0; str[i]!="\0"; i++)
-		cout << str[i]<<endl;
+	for (i = 0; str[i] != "\0"; i++)
+		cout << str[i] << endl;
 	for (i = 0; str[i] != "\0"; i++)
 		result += str[i] + "\n";
 	infile.close();
 	return result;
 }
-void Write(string sfn,string dfn)
+void Write(string sfn, string dfn)
 {
 	stringstream ss;
 	ifstream infile;
-	
+
 	string result, temp;
 	int v = 0;
 
 	infile.open(sfn);
 	result += "characters: " + Conventor(CharCount(sfn)) + "\n";
 	result += "words: " + Conventor(WordCount(sfn)) + "\n";
-	result += "lines: " + Conventor(LineCount(sfn)) + "\n"; 
+	result += "lines: " + Conventor(LineCount(sfn)) + "\n";
 	result += WordFreq(sfn);
 	infile.close();
-	
+
 	ofstream outfile;
 	outfile.open(dfn);
 	outfile << result << endl;
 	outfile.close();
+}
+int main()
+{
+	string sfn = "test.txt";
+	string dfn = "result.txt";
+
+	CharCount(sfn);
+	WordCount(sfn);
+	LineCount(sfn);
+	WordFreq(sfn);
+	Write(sfn, dfn);
+	system("pause");
+	return 0;
 }
