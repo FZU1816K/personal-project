@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <queue>
 #include <vector>
-
+using namespace std;
 
 int CountWords(char *file);
 
-void top10words();
+vector< pair<string, int> > top10words();

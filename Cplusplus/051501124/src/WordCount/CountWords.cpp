@@ -70,6 +70,8 @@ int CountWords(char *filename)
 			{
 				
 				//cout << word << endl;
+				// 9/9mornring
+				not_a_word = false;
 				if (word.length() >= 4)
 				{
 					cnt++;
@@ -109,7 +111,7 @@ bool mysort(const pair<string, int> &left, const pair<string, int> &right)
 	}
 }
 
-void top10words()
+vector<pair<string, int>> top10words()
 {
 	unordered_map<string, int>::iterator it;
 	for (it = WordFrequency.begin(); it != WordFrequency.end(); it++)
@@ -131,26 +133,35 @@ void top10words()
 		}
 		else
 		{
-			cout << word.first << endl;
 			top10Word.push(word);
 		}
 	}
 	vector<pair<string, int>> result;
 	for(int i = 0;i<=top10Word.size();i++)
 	{
-		result.push_back(top10Word.top());
-		top10Word.pop();
+		if (top10Word.size() != 0)
+		{
+			result.push_back(top10Word.top());
+			top10Word.pop();
+		}
 
 	}
-	result.push_back(top10Word.top());
+
+	//9/9morning
+	if (top10Word.size() != 0)
+	{
+		result.push_back(top10Word.top());
+	}
+	
 
 	sort(result.begin(), result.end(), mysort);
 	
-	vector<pair<string, int>>::iterator vit;
+	/*vector<pair<string, int>>::iterator vit;
 	
 	for (vit = result.begin(); vit != result.end(); vit++)
 	{
 		cout << vit->first << ": " << vit->second << endl;
-	}
+	}*/
+	return result;
 }
 
