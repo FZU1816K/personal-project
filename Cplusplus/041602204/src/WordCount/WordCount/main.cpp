@@ -11,7 +11,7 @@ int main(int argc,char **argv)
 		cout<<"Sorry, something errors happened!"<<endl;
 		return 0;
 	}
-	//进行文件分析计算。 
+	//进行文件分析计算。  也是主要的框架所在
 	int chars_cnt=CountChar(argv[1]);
 	int words_cnt=CountWords(argv[1]);
 	int lines_cnt=CountLines(argv[1]);
