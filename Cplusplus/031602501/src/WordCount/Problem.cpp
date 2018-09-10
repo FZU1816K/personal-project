@@ -6,6 +6,11 @@
 #include<map>
 #include"problem.h"
 
+int min(int x,int y)
+{
+	if (x < y) return x;
+	else return y;
+}
 bool _ischar(char t)										//判断传入的字符是否为数字及字母（是则返回真）
 {
 	if (t<'0' || (t > '9'&&t < 'a') || t>'z')
@@ -50,6 +55,13 @@ int Problem::classify(string lines_buf)
 		}
 		else word += lines_buf[i];
 	}
+	if (_nonumber(word[0]) == true && _nonumber(word[1]) == true && _nonumber(word[2]) == true && _nonumber(word[3]) == true)
+			//判断前四位是否为字母（该单词是否为单词）
+		{
+			if (_word.find(word) == _word.end())		//查找单词是否出现过
+				_word[word] = 1;
+			else _word[word]++;							//对应单词频率加一
+		}
 	return flag;
 }
 void Problem::getrows()
@@ -69,7 +81,6 @@ void Problem::getrows()
 	}
 	int flag = classify(line);
 	if (flag != 0) lines++;
-	line = "";
 }
 //void Problem::display()
 //{
@@ -80,28 +91,25 @@ void Problem::getrows()
 //}
 void Problem::_sort()
 {
-	for (int i = 0; i < rage; i++)
+	int min_rage = min(_word.size(),rage);
+	for (int i = 0; i < min_rage; i++)
 	{
-		int max = 0;
-		string word;
+		vocabulary tem;
 		for (auto my_Itr = _word.begin(); my_Itr != _word.end(); ++my_Itr)//遍历文本中出现的所有单词及其频率
 		{
-			if (my_Itr->second > max)
+			if (my_Itr->second > tem.frequence[0])
 			{
-				max = my_Itr->second;
-				word = my_Itr->first;
+				tem.frequence[0] = my_Itr->second;
+				tem.word = my_Itr->first;
 			}
 			if (i == 0)
 				words += my_Itr->second;
 		}
-		_word[word] = -1;
-		vocabulary tem;
-		tem.word = word;
-		tem.frequence = max;
+		_word[tem.word] = -1;
 		last_list.push_back(tem);
 	}
 }
-void Problem::statistic()
+void Problem::statistic()		//统计功能
 {
 	getrows();
 	_sort();
@@ -144,21 +152,21 @@ vector<vocabulary> Problem::getmax_fre()
 	}
 }
 
-int get_characters(string infilepath, string outfilepath, int rage)
-{
-	File f(infilepath, outfilepath);
-	Problem p(f.readfile());
-	return p.getcharacters(); 
-}
-int get_words(string infilepath, string outfilepath, int rage)
-{
-	 File f(infilepath, outfilepath);
-	 Problem p(f.readfile());
-	 return  p.getwords();
-}
-vector<vocabulary> getmax_fre(string infilepath, string outfilepath, int rage)
-{
-	File f(infilepath, outfilepath);
-	Problem p(f.readfile());
-	return p.getmax_fre();
-}
+//int get_characters(string infilepath, string outfilepath, int rage)
+//{
+//	File f(infilepath, outfilepath);
+//	Problem p(f.readfile());
+//	return p.getcharacters(); 
+//}
+//int get_words(string infilepath, string outfilepath, int rage)
+//{
+//	 File f(infilepath, outfilepath);
+//	 Problem p(f.readfile());
+//	 return  p.getwords();
+//}
+//vector<vocabulary> getmax_fre(string infilepath, string outfilepath, int rage)
+//{
+//	File f(infilepath, outfilepath);
+//	Problem p(f.readfile());
+//	return p.getmax_fre();
+//}

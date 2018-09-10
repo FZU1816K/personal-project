@@ -1,7 +1,0 @@
-﻿  File.cpp
-c:\users\administrator\source\repos\wordcount\wordcount\file.cpp(36): warning C4018: “<”: 有符号/无符号不匹配
-  Problem.cpp
-c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp(59): warning C4018: “<”: 有符号/无符号不匹配
-  WordCount.cpp
-  正在生成代码...
-  WordCount.vcxproj -> C:\Users\Administrator\source\repos\WordCount\Debug\WordCount.exe

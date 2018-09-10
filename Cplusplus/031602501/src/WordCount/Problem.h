@@ -33,6 +33,6 @@ private:
 	int rage;										//输出频率前几（本题为十）可拓展
 };
 
-int get_characters(string infilepath, string outfilepath = "",int rage=10);	
-int get_words(string infilepath, string outfilepath = "", int rage = 10);
-vector<vocabulary> getmax_fre (string infilepath, string outfilepath = "", int rage = 10);
+//int get_characters(string infilepath, string outfilepath = "",int rage=10);	
+//int get_words(string infilepath, string outfilepath = "", int rage = 10);
+//vector<vocabulary> getmax_fre (string infilepath, string outfilepath = "", int rage = 10);
