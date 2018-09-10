@@ -111,7 +111,10 @@ int character(char* path) {
 	{
 		infile >> c;
 		if (c == '\n') {
-			lines++;
+			if (ff[i] != ' '&&i!=0) {
+				//cout << i << endl;
+				lines++;
+			}
 			c = ' ';
 		}
 		ff += c;
