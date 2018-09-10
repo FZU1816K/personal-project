@@ -7,7 +7,7 @@ using namespace std;
 int Countlines(char *filename)
 {	//
 	ifstream infile;
-	if (filename == nullptr)  //为了vs调试方便
+	if (filename == nullptr)  //Easy to debug
 	{
 		infile.open("input.txt");
 	}
@@ -19,14 +19,14 @@ int Countlines(char *filename)
 	while (!infile.eof())
 	{
 		infile >> c; 
-		if (c != 10 && c!=' '&&c!='\t') //空格、回车、水平制表符排除
+		if (c != 10 && c!=' '&&c!='\t') //Filter spaces, carriage returns, horizontal tabs
 		{
 			flag1 = 1;
 		}
 		if (infile.eof()&& flag1==1) row_count++;
 		if (c == 10)
 		{	
-	//		
+		
 			//cout << "1" << endl;
 			if (flag1 == 1)
 			{
