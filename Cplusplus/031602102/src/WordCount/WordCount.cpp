@@ -1,13 +1,12 @@
 #include"stdafx.h"
 //#include<time.h>
-#include<set>
 using namespace std;
 
 int lines = 0, characters = 0, wordNum = 0;
 
-void countWord(map<string, int>& words, string filename, ifstream& infile)//统计词频
+void countWord(unordered_map<string, int>& words, string filename, ifstream& infile)//统计词频
 {
-	map<string, int>::iterator iter;
+	unordered_map<string, int>::iterator iter;
 	infile.open(filename);
 	set<string> WordSet;
 	string word;
@@ -24,11 +23,7 @@ void countWord(map<string, int>& words, string filename, ifstream& infile)//统计
 			for (unsigned int i = 0; i < word.size(); i++)
 				if (word[i] >= 'A'&&word[i] <= 'Z')
 					word[i] += 32;
-			pair<set<string>::iterator, bool> flag = WordSet.insert(word);
-			if (flag.second)
-				words[word] = 1;
-			else
-				words[word]++;
+			words[word]++;
 		}
 	}
 }
@@ -38,9 +33,9 @@ int cmp(const pair<string, int>& a, const pair<string, int>& b) noexcept
 {
 	return a.second > b.second;
 }
-void wordSort(map<string, int>& words, ofstream& outfile)
+void wordSort(unordered_map<string, int>& words, ofstream& outfile)
 {
-	map<string, int>::iterator iter;
+	unordered_map<string, int>::iterator iter;
 	vector<pair<string, int>> tmp;
 	for (iter = words.begin(); iter != words.end(); iter++)
 		tmp.push_back(pair<string, int>(iter->first, iter->second));
@@ -68,7 +63,7 @@ void countLine(ifstream& infile)//统计行数
 int main(int argc, char* argv[])
 {
 	//long start = clock();
-	map<string, int> words;
+	unordered_map<string, int> words;
 	ifstream infile;
 	ofstream outfile;
 	countWord(words, "data.txt", infile);
