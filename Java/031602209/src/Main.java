@@ -21,7 +21,6 @@ public class Main {
             }
             String content = stringBuilder.toString();
 
-//            System.out.print(content);
 
             CharsCount charsCount = new CharsCount();
             WordsCount wordsCount = new WordsCount(content);
@@ -32,6 +31,9 @@ public class Main {
             int words = wordsCount.getSum();
             List<Map.Entry<String, Integer>> mostList = new CalMost().mostWords(wordsCount.getMap());
 
+            PrintStream printStream = new PrintStream("result.txt");
+            System.setOut(printStream);
+
             System.out.println("characters:" + characters);
             System.out.println("words:" + words);
             System.out.println("lines:" + lines);
@@ -39,8 +41,10 @@ public class Main {
                 System.out.println(i.getKey() + ":" + i.getValue());
             }
 
+            printStream.close();
+
         } catch (IOException e) {
-            System.out.println("文件不存在");
+            System.out.println("File do not exist.");
             e.printStackTrace();
         }
 
