@@ -5,13 +5,16 @@
 #include<string>
 #include<map>
 #include<vector>
-#include"Problem.h"
 using namespace std;
-
+struct vocabulary
+{
+	string word;
+	int frequence;
+};
 class File
 {
 public:
-	File(string infilepath, string outfilepath);
+	File(string infilepath, string outfilepath="");
 	~File() {}
 	string readfile();
 	void DrawText(int characters, int words, int _lines, vector<vocabulary> _list);//将题目要求的写入到目标文件中

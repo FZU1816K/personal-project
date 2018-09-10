@@ -143,3 +143,22 @@ vector<vocabulary> Problem::getmax_fre()
 		return last_list;
 	}
 }
+
+int get_characters(string infilepath, string outfilepath, int rage)
+{
+	File f(infilepath, outfilepath);
+	Problem p(f.readfile());
+	return p.getcharacters(); 
+}
+int get_words(string infilepath, string outfilepath, int rage)
+{
+	 File f(infilepath, outfilepath);
+	 Problem p(f.readfile());
+	 return  p.getwords();
+}
+vector<vocabulary> getmax_fre(string infilepath, string outfilepath, int rage)
+{
+	File f(infilepath, outfilepath);
+	Problem p(f.readfile());
+	return p.getmax_fre();
+}

@@ -8,10 +8,13 @@
 File::File(string infilepath, string outfilepath)		//构造函数初始化变量
 {
 	_infilepath = infilepath;
-	_outfilepath = outfilepath;
 	ifs.open(_infilepath.c_str(), ios::in);
-	ofs.open(_outfilepath.c_str(), ios::out);
 	if (!ifs) cout << "打开文件错误！" << endl;
+	if (outfilepath == "")
+	{
+		_outfilepath = outfilepath;
+		ofs.open(_outfilepath.c_str(), ios::out);
+	}
 }
 string File::readfile()
 {
