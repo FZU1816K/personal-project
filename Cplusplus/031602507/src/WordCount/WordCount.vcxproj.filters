@@ -15,7 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="wc.cpp">
+    <ClInclude Include="FileIO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Count.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WordCount.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Count.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIO.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
