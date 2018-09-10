@@ -1,0 +1,7 @@
+4
+characters:26
+words: 4
+lines:3
+<asdf>:2
+<asfhajr>:1
+<asfhajr12312aadsd>:1
