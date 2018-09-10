@@ -64,6 +64,29 @@ int chars_counter(istream &f, files &fn, words &wn)
 	return cnt;
 }
 
+int lines_counter(istream &f, files &fn, words &wn)
+{
+	int flag = 0;
+	int cnt = 0;
+	int len = wn.allwords.length();//文本长度
+	for (int i = 0; i < len; i++)
+	{
+		if (wn.allwords[i] >= 33 && wn.allwords[i] <= 126)//表示该行是有效行
+		{
+			flag = 1;
+			continue;
+		}
+		if (wn.allwords[i] == 10 && flag == 1)//当该行是有效行，并且遍历到1个换行符时，行数加1
+		{
+			cnt++;
+			flag = 0;
+		}
+	}
+	if (flag == 1)//最后一行如果没有换行符，也要加1
+		cnt++;
+
+	return cnt;
+}
 
 
 
@@ -85,9 +108,10 @@ int main(int argc, char *argv[])
 	}
 
 	file_input.chars_cnt = chars_counter(f, file_input, word);
-
+	file_input.lines_cnt = lines_counter(f, file_input, word);
 
 	cout << file_input.chars_cnt << endl;
+	cout << file_input.lines_cnt << endl;
 
 	system("pause");
 	return 0;
