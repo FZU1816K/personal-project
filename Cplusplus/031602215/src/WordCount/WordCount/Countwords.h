@@ -17,7 +17,11 @@ char lower(char c)
 	}
 	return c;
 }
-
+bool whether_char(char c)
+{
+	if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z')) return true;
+	else return false;
+}
 map<string, int>  Countwords(char *filename)
 {
 	ifstream infile;
@@ -60,7 +64,7 @@ map<string, int>  Countwords(char *filename)
 			//cout << c << endl;
 			//cout << flag;
 			//int i = 0;
-			while (c != 32 && c != 10 && c !=03&&!infile.eof()) 
+			while (whether_char(c)&&!infile.eof()) 
 			{
 				//cout << i++ << endl;
 				if (flag == 1)
