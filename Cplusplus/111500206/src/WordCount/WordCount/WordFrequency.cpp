@@ -74,7 +74,7 @@ void WordFrequency(char * filename)
 	}
 }
 
-int TopTenWords()
+vector<pair<int, string>> TopTenWords()
 {
 	for (hash_iter = hash_table.begin(); hash_iter != hash_table.end(); hash_iter++) {
 		pair<int, string> currentWord = make_pair(hash_iter->second, hash_iter->first);
@@ -90,10 +90,7 @@ int TopTenWords()
 			wordQueue.push(currentWord);
 		}
 	}
-	if (wordQueue.size() == 0) {
-		return -1;
-	}
-	int count = wordQueue.size();
+
 	vector<pair<int, string>> Top10words;
 	
 	while (!wordQueue.empty()) {
@@ -102,12 +99,46 @@ int TopTenWords()
 	}
 	
 	sort(Top10words.begin(), Top10words.end(), MySort);
+	//StandardOutput(Top10words);
+	//OutputToFile(Top10words);
+	hash_table.clear();
+	return Top10words;
+}
+
+int OutputToFile(vector<pair<int, string>>& Top10words)
+{
+	if (Top10words.size() == 0) {
+		return -1;
+	}
+
+	fstream file;
+	file.open("output.txt", ios::out);
+	if (!file) {
+		printf("Failed to create output file.\n");
+		return -1;
+	}
 	vector<pair<int, string>>::iterator iter;
 	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
-		//cout << iter->first << " " << iter->second << endl;
+		const char *word = iter->second.c_str();
+		file << word;
+		file << " ";
+		file << iter->first;
+		file << endl;
+	}
+	printf("Top 10 words have been stored in result.txt\n");
+	return 0;
+}
+
+int StandardOutput(vector<pair<int, string>>& Top10words)
+{
+	if (Top10words.size() == 0) {
+		return -1;
+	}
+
+	vector<pair<int, string>>::iterator iter;
+	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
 		const char *word = iter->second.c_str();
 		printf("%s: %d\n", word, iter->first);
 	}
-	hash_table.clear();
-	return count;
+	return 0;
 }

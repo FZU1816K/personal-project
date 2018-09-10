@@ -1,0 +1,10 @@
+abcd 8
+aaaa 3
+bbbb 3
+cccc 3
+file 3
+abcde 2
+file1234 2
+kkkk 1
+mmmm 1
+nnnn 1

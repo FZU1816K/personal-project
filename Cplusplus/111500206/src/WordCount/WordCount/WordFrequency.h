@@ -67,6 +67,28 @@ void WordFrequency(char * filename);
 * Parameter:
 *	none
 * Return:
-*	int: Total count of top ten words
+*	vector<pair<int, string>> & : List of top ten words with their counter.
 */
-int TopTenWords();
+vector<pair<int, string>> TopTenWords();
+
+/*
+* Function name: OutputToFile
+* Description:
+*	Output the Top 10 words to a file named "result.txt"
+* Parameter:
+*	@Top10words: Top 10 words list
+* Return:
+*	int: 0 if output correctly, -1 otherwise.
+*/
+int OutputToFile(vector<pair<int, string>> & Top10words);
+
+/*
+* Function name: StandardOutput
+* Description:
+*	Output the Top 10 words to standard output
+* Parameter:
+*	@Top10words: Top 10 words list
+* Return:
+*	int: 0 if output correctly, -1 otherwise.
+*/
+int StandardOutput(vector<pair<int, string>> & Top10words);
