@@ -92,6 +92,54 @@ int lines_counter(istream &f, files &fn, words &wn)
 
 
 
+int words_counter(ifstream &f, files &fn, words &wn)
+{
+	int flag = 0;
+	string temp = "";
+	int len = wn.allwords.length();
+	int cnt = 0;
+	for (int i = 0; i < len; i++)
+	{
+		if ((wn.allwords[i] >= 65 && wn.allwords[i] <= 90) || (wn.allwords[i] >= 97 && wn.allwords[i] <= 122))//找到第一个字母  判断是不是单词
+		{
+			flag = 0;
+			for (int j = i; j <= i + 3; j++)
+			{
+				if (wn.allwords[j] <= 64 || (wn.allwords[j] >= 91 && wn.allwords[j] <= 96) || wn.allwords[j] >= 123 || len - i < 4)
+				{
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 0)//如果是单词就提取单词到temp
+			{
+				temp = "";
+				for (; i < len && ((wn.allwords[i] >= 65 && wn.allwords[i] <= 90) || (wn.allwords[i] >= 97 && wn.allwords[i] <= 122) || (wn.allwords[i] >= 48 && wn.allwords[i] <= 57)); i++)
+				{
+					if (wn.allwords[i] >= 65 && wn.allwords[i] <= 90)
+						wn.allwords[i] += 32;
+					temp += wn.allwords[i];
+				}
+				cnt++;
+
+				//cout << temp << endl;
+			}
+			else//如果不是单词就跳到下一个单词的第一个字母
+			{
+				for (; (wn.allwords[i] >= 65 && wn.allwords[i] <= 90) || (wn.allwords[i] >= 97 && wn.allwords[i] <= 122); i++) {}
+			}
+		}
+		else if (wn.allwords[i] >= 48 && wn.allwords[i] <= 57)
+		{
+			for (; (wn.allwords[i] >= 65 && wn.allwords[i] <= 90) || (wn.allwords[i] >= 97 && wn.allwords[i] <= 122) || (wn.allwords[i] >= 48 && wn.allwords[i] <= 57); i++) {}
+		}
+	}
+
+	return cnt;
+}
+
+
+
 int main(int argc, char *argv[])
 {
 	ifstream f;
@@ -109,9 +157,12 @@ int main(int argc, char *argv[])
 
 	file_input.chars_cnt = chars_counter(f, file_input, word);
 	file_input.lines_cnt = lines_counter(f, file_input, word);
+	file_input.words_cnt = words_counter(f, file_input, word);
 
+	
 	cout << file_input.chars_cnt << endl;
 	cout << file_input.lines_cnt << endl;
+	cout << file_input.words_cnt << endl;
 
 	system("pause");
 	return 0;
