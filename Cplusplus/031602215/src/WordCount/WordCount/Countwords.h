@@ -4,11 +4,7 @@
 #include <cassert>
 #include <string>
 #include <map>
-
 using namespace std;
-
-
-
 char lower(char c)
 {
 	if ((c >= 'A'&&c <= 'Z'))
