@@ -19,7 +19,18 @@ int CountLine(char *filename)
 	{
 		while (getline(File, tmp))
 		{
-			cnt++;
+			bool is_empty = true;
+			for (auto c : tmp)
+			{
+				if ((c != ' ')&& (c != '\n')&&(c !='	'))
+				{
+					is_empty = false;
+				}
+			}
+			if (!is_empty)
+			{
+				cnt++;
+			}
 		}
 		return cnt;
 	}
