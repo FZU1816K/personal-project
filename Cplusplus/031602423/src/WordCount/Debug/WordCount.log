@@ -1,0 +1,6 @@
+﻿  WordCount.cpp
+e:\all\github\personal-project\cplusplus\031602423\src\wordcount\wordcount.cpp(134): error C2374: 'i': redefinition; multiple initialization
+  e:\all\github\personal-project\cplusplus\031602423\src\wordcount\wordcount.cpp(120): note: see declaration of 'i'
+e:\all\github\personal-project\cplusplus\031602423\src\wordcount\wordcount.cpp(176): error C2374: 'i': redefinition; multiple initialization
+  e:\all\github\personal-project\cplusplus\031602423\src\wordcount\wordcount.cpp(162): note: see declaration of 'i'
+e:\all\github\personal-project\cplusplus\031602423\src\wordcount\wordcount.cpp(202): warning C4018: '<': signed/unsigned mismatch
