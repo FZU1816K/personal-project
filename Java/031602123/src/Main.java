@@ -1,12 +1,10 @@
 import java.io.*; //File
-import java.util.*;//Scanner ArrayList Map
+import java.util.*;//Scanner Map
 import lib.*;
-//Main
 public class Main {
 	public static void main(String[] args) throws Exception {
 		Map<String, Integer> words = new TreeMap<String, Integer>();
 		String directory = "D:\\java\\031602123\\src";
-		//String filename = "input.txt";
 		if (args.length != 1) {
 			System.out.println("Please input any txt");
 			System.exit(0);
