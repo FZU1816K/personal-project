@@ -25,7 +25,11 @@ void Countwords_words(map<string, int> strMap)
 	vector<pair<string, int>> tVector;
 	sortMapByValue(strMap, tVector);
 	for (int i = 0; i < tVector.size(); i++)
+	{
 		cout << tVector[i].first << ": " << tVector[i].second << endl;
+		if (i == 9) break;
+	}
+		
 	//for (iter = strMap.begin(); iter != strMap.end(); iter++)
 
 	//{
