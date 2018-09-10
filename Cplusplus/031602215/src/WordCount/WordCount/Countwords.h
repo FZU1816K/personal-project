@@ -35,9 +35,8 @@ map<string, int>  Countwords(char *filename)
 	while (!infile.eof())
 	{
 		
-		infile >> c;  //按照字符输出
-		//cout << c << endl;
-		//cout << i++ << endl;
+		infile >> c;  //read character
+
 		if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))
 		{
 			c = lower(c);
@@ -45,7 +44,7 @@ map<string, int>  Countwords(char *filename)
 			int k = 0, c_count = 0;
 			int num = 0;
 			int flag = 0;
-			while ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))  //前四个是否为字母
+			while ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))  //Whether the first four are character
 			{
 				word[k++] = c;
 				infile >> c;
@@ -60,7 +59,7 @@ map<string, int>  Countwords(char *filename)
 			}
 			//cout << c << endl;
 			//cout << flag;
-			int i = 0;
+			//int i = 0;
 			while (c != 32 && c != 10 && c !=03&&!infile.eof()) 
 			{
 				//cout << i++ << endl;
