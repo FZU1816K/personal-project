@@ -20,11 +20,4 @@ public class CharsCount {
     }
 
 
-    public static void main(String[] args) {
-
-        CharsCount test = new CharsCount();
-        System.out.println(test.charsNumber("123 \n jlsg"));
-        System.out.println(test.charsNumber("[][]\t"));
-    }
-
 }
