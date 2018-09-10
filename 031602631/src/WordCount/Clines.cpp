@@ -4,6 +4,8 @@
 #include "Clines.h"
 using namespace std;
 
+Line::Line() {}
+
 Line::Line(string file)
 {
 	finname = file;
@@ -11,9 +13,19 @@ Line::Line(string file)
 	foutname = "result.txt";
 }
 
+int Line::get()
+{
+	return number;
+}
+
 void Line::count()
 {
 	ifstream fin;
+	if (finname == "")
+	{
+		printf("You must input file name first at initialization time.\n");
+		return;
+	}
 	fin.open(finname);
 	if (!fin.is_open())
 	{
@@ -24,21 +36,28 @@ void Line::count()
 	while (fin.good())
 	{
 		fin.getline(buffer, 1000, '\n');
-		if (buffer[0] != '\n')
-			number++;
+		int i = strlen(buffer);
+		if (i != 0)
+			while (--i)
+			{
+				if (buffer[i] != ' '&& buffer[i] != '\n')
+				{
+					number++; break;
+				}
+			}
 	}
 	if (fin.eof())
 		;
 	if (fin.fail())
-		cout << "Input terminated by data mismatch.\n";
+		printf("Input terminated by data mismatch.\n");
 	else
-		cout << "Input terminated for unknown reason.\n";
+		printf("Input terminated for unknown reason.\n");
 	fin.close();
 }
 
 void Line::show()
 {
-	cout << "lines:" << number << endl;
+	printf("lines:%d\n", number);
 }
 
 void Line::fwrite()

@@ -13,6 +13,8 @@ private:
 public:
 
 	Word(std::string file);
+	Word();
+	int get();  //提供获取number的方法
 	void fwrite(); //写入reault.txt
 	void count();  //计算单词数
 	void show();  //显示单词数

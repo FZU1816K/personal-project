@@ -4,11 +4,18 @@
 #include "Cwords.h"
 using namespace std;
 
+Word::Word() {}
+
 Word::Word(string file)
 {
 	finname = file;
 	number = 0;
 	foutname = "result.txt";
+}
+
+int Word::get()
+{
+	return number;
 }
 
 void Word::count()
@@ -47,15 +54,15 @@ void Word::count()
 	if (fin.eof())
 		;
 	if (fin.fail())
-		cout << "Input terminated by data mismatch.\n";
+		printf("Input terminated by data mismatch.\n");
 	else
-		cout << "Input terminated for unknown reason.\n";
+		printf("Input terminated for unknown reason.\n");
 	fin.close();
 }
 
 void Word::show()
 {
-	cout << "words:" << number << endl;
+	printf("words:%d\n", number);
 }
 
 void Word::fwrite()

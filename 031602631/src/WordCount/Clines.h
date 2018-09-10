@@ -11,6 +11,8 @@ private:
 
 public:
 	Line(std::string file);
+	Line();
+	int get();  //提供获取number的方法
 	void fwrite(); //写入reault.txt
 	void count();  //计算行数
 	void show();  //显示行数

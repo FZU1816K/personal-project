@@ -4,6 +4,8 @@
 #include "Ccharacter.h"
 using namespace std;
 
+Character::Character() {}
+
 Character::Character(string file)
 {
 	finname = file;
@@ -11,6 +13,10 @@ Character::Character(string file)
 	foutname = "result.txt";
 }
 
+int Character::get()
+{
+	return  number;
+}
 void Character::count()
 {
 	ifstream fin;
@@ -32,21 +38,21 @@ void Character::count()
 	if (fin.eof())
 		;
 	if (fin.fail())
-		cout << "Input terminated by data mismatch.\n";
+		printf("Input terminated by data mismatch.\n");
 	else
-		cout << "Input terminated for unknown reason.\n";
+		printf("Input terminated for unknown reason.\n");
 	fin.close();
 }
 
 void Character::show()
 {
-	cout << "characters:" << number << endl;
+	printf("characters:%d\n", number);
 }
 
 void Character::fwrite()
 {
 	ofstream fout;
-	fout.open(foutname, ios::out);
+	fout.open(foutname, ios::out | ios::app);
 	if (!fout.is_open())
 	{
 		cerr << "Cant't open" << foutname << endl;

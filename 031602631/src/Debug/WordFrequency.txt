@@ -1,0 +1,2 @@
+wordfrequency WORDfrequency
+WORDFREQUENCY WordFREQUENCY

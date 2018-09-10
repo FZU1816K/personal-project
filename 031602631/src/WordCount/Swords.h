@@ -17,6 +17,11 @@ private:
 public:
 
 	Wsort(std::string file);
+	Wsort();
+	/*************************************************/
+	bool get_empty();  //为了测试而额外写的函数，实际并不需要
+	int get();
+	/*************************************************/
 	void fwrite(); //写入reault.txt
 	void CS();  //计算单词频数并排序
 	void show();  //显示单词数

@@ -9,6 +9,7 @@
 using namespace std;
 
 
+Wsort::Wsort() {};
 
 Wsort::Wsort(string file)
 {
@@ -25,6 +26,19 @@ struct CmpByValue {
 		return lhs.second > rhs.second;
 	}
 };
+
+/*************************************************/
+ //为了测试而额外写的函数，实际并不需要
+bool Wsort::get_empty()
+{
+	return word_v.empty();
+}
+
+int Wsort::get()
+{
+	return word_v.at(0).second;
+}
+/*************************************************/
 
 void Wsort::CS()
 {
