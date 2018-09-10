@@ -19,33 +19,46 @@ string SwitchToLower(string words)
 void CutWord(string words)
 {
 	string temp;
+	temp.resize(words.size());
+	int count = 0;
 	int tempi = 0;
 	if (words.size() < 4)	return ;
 	for (int i = 0; i < (int)words.size(); i++)
 	{
-		if (('a' <= words[i] && words[i] <= 'z') || ('A' <= words[i] && words[i] <= 'Z') || ('0' <= words[i] && words[i] <= '9')) {
-			temp.resize(words.size());
+		if (tempi < 4 && (('a' <= words[i] && words[i] <= 'z') || ('A' <= words[i] && words[i] <= 'Z'))) {
 			temp[tempi++] = words[i];
 			if (i == words.size() - 1) {
-				if (tempi >= 3) {
-					//cout << temp << endl;
+				temp.resize(tempi);
+				word[++cnt] = SwitchToLower(temp);
+			}
+		}
+		else if (tempi >= 4) {
+			if (('a' <= words[i] && words[i] <= 'z') || ('A' <= words[i] && words[i] <= 'Z') || ('0' <= words[i] && words[i] <= '9')) {
+				temp[tempi++] = words[i];
+				if (i == words.size() - 1) {
 					temp.resize(tempi);
 					word[++cnt] = SwitchToLower(temp);
 				}
 			}
-		}
-		else {
-			if (tempi >= 3) {
-				//cout << temp << endl;
+			else {
 				temp.resize(tempi);
 				word[++cnt] = SwitchToLower(temp);
+				if (i + 4 >= (int)words.size()) {
+					//cout << words << "1:" << count << endl;
+					return ;
+				}
+				tempi = 0;
 			}
+		}
+		else {
 			if (i + 4 >= (int)words.size()) {
+				//cout << words << "3:" << count << endl;
 				return ;
 			}
 			tempi = 0;
 		}
 	}
+	//cout << words << "2:" << count << endl;
 	return ;
 }
 bool cmp(string a, string b)
@@ -88,7 +101,7 @@ void WordFrequency(char* file)
 	sort(wordFre + 1, wordFre + count2 + 1, cmp2);
 	for (int i = 1; i <= min(count2, 10); i++)
 	{
-		cout << wordFre[i].word << ":" << wordFre[i].frequency <<"_"<<wordFre[i].word.size()<<endl;
+		cout << wordFre[i].word << ":" << wordFre[i].frequency <<endl;
 	}
 	return;
 }
