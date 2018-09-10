@@ -29,8 +29,5 @@ private:
 	void crtCount();//求文件字符数及行数
 	void wordPair();//将文件中单词按要求排序
 	/*wordPair函数所需比较函数*/
-	static bool wordPair_cmp(pair<string, int> a, pair<string, int> b) {
-		if (a.second != b.second) return a.second > b.second;
-		else return a.first < b.first;
-	}
+	static bool wordPair_cmp(pair<string, int> a, pair<string, int> b);
 };

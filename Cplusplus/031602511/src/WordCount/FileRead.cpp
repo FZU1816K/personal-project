@@ -18,6 +18,11 @@ FileRead::~FileRead() {
 	readFile.close();
 }
 
+bool FileRead::wordPair_cmp(pair<string, int> a, pair<string, int> b) {
+	if (a.second != b.second) return a.second > b.second;
+	else return a.first < b.first;
+}
+
 /*遍历文件中的内容求字符数和行数*/
 void FileRead::crtCount() {
 	readFile.clear(ios::goodbit);
@@ -49,6 +54,7 @@ void FileRead::wordCount() {
 	int _wordNum = 0;
 	int alpLength = 0;
 	int start = 0;//用于分割单词
+	int flag = 0;//保证单词前不出现数字
 	char str[100];
 	string word;//暂时存储单词
 
@@ -59,16 +65,18 @@ void FileRead::wordCount() {
 			if ((c >= '0' && c <= '9') && (alpLength < 4)) {
 				alpLength = 0;
 				start = 0;
+				flag = 1;
 				continue;
 			}
 			else if (!(c >= '0' && c <= '9')) {
+				if (flag != 0) continue;
 				if (c >= 'A' && c <= 'Z') c = c - 'A' + 'a';
 				alpLength++;
 			}
 			str[start++] = c;
 		}
-		else if (start > 3) {//遇到分隔符且单词以四个以上字母开头时符合题意
-			_wordNum++;			
+		else if (alpLength > 3) {//遇到分隔符且单词以四个以上字母开头时符合题意
+			_wordNum++;
 			//cout << alpLength << ", " << start << "   ";		
 			alpLength = 0;
 			str[start] = 0;
@@ -87,6 +95,7 @@ void FileRead::wordCount() {
 		else {
 			alpLength = 0;
 			start = 0;
+			if (flag != 0) flag = 0;
 		}
 	}
 	if (start > 3) {//文件末尾的单词无法进入之前的while循环需要单独判断
