@@ -12,6 +12,9 @@
 
 using namespace std;
 
-void CountAndSort(char* filemm);//¥ ∆µ≈≈–Ú
+
+void CountAndSort(char* filemm, vector<pair<string, int>>& v);//¥ ∆µ≈≈–Ú
+
+int Display(vector<pair<string, int>>& v);// ‰≥ˆ
 
 #endif

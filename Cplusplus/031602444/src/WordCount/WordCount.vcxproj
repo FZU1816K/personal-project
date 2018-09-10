@@ -115,14 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="core.h" />
     <ClInclude Include="CountAndSort.h" />
     <ClInclude Include="CountCharacters.h" />
     <ClInclude Include="CountLines.h" />
     <ClInclude Include="CountWords.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="core.cpp" />
     <ClCompile Include="CountAndSort.cpp" />
     <ClCompile Include="CountCharacters.cpp" />
     <ClCompile Include="CountLines.cpp" />

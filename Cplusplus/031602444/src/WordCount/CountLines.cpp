@@ -4,47 +4,35 @@ using namespace std;
 
 int CountLines(char* filemm)//统计有效行数
 {
-	int lines = 0;
-	char c;
-	char lastline = '\0';
-	
 	ifstream f;
 
 	f.open(filemm, ios::in);
+	
+	int lines = 0;
+	char c;
+	int lineflag = 0;
+
 
 	while (f.get(c))
 	{
-		
-		if (lastline != '\n'&&c == '\n')
+
+		if (c != ' ' && c != '\t' && c != '\n')
 		{
+			lineflag = 1;
+		}
+		if (c == '\n'&&lineflag == 1) {
 			lines++;
+			lineflag = 0;
 		}
-		if (lastline == '\n' && (c == '\t' || c == ' '))
-		{
-			lastline = '\n';
-		}
-		else
-		{
-			lastline = c;
-		}
+
 	}
-
-
 	f.close();
 
-	if ((c == '\t' || c == ' ') && (lastline == '\t' || lastline == ' '))
-	{
-		lastline = c;
-	}
-	//如果文本最后一个字符是换行符或者前一个字符是换行符当前字符是空格要减去一行
-	else if (c == '\n' || (lastline = '\n' && (c == '\t' || c == ' ')))
-	{
-		lines--;
-	}
-
-	lines++;
-
+	if (lineflag == 1)lines++;
+	
 
 	return lines;
 
 }
+
+

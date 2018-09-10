@@ -10,7 +10,8 @@ struct SortByValue {
 	}
 };
 
-void CountAndSort(char* filemm)//Í³¼Æ´ÊÊý´ÊÆµ
+
+void CountAndSort(char* filemm,vector<pair<string, int>>& v)//Í³¼Æ´ÊÊý´ÊÆµ
 {
 	map<string, int> mapp;
 	string s;
@@ -73,20 +74,29 @@ void CountAndSort(char* filemm)//Í³¼Æ´ÊÊý´ÊÆµ
 
 
 	
-	vector<pair<string, int>> v(mapp.begin(), mapp.end());//´ÊÆµÅÅÐò
+	vector<pair<string, int>> w(mapp.begin(), mapp.end());//´ÊÆµÅÅÐò
+	v = w;
 	sort(v.begin(), v.end(), SortByValue());
 	
-	int vecflag = 0;
-		
-
-
-	for (vector<pair<string, int>>::iterator vec = v.begin(); vec != v.end(); vec++)
-	{
-		cout << "<" << vec->first << ">: " << vec->second << endl;
-		vecflag++;
-		if (vecflag == 10) break;
-	}
-
 	
 
 }
+
+int Display(vector<pair<string, int>>& v)
+{
+	int vecflag = 0;
+
+	for (vector<pair<string, int>>::iterator vec = v.begin(); vec != v.end(); vec++)
+	{
+		//cout << "<" << vec->first << ">: " << vec->second << endl;
+		printf("<%s>: %d\n", vec->first, vec->second);
+		
+
+		vecflag++;
+		if (vecflag == 10) break;
+
+	}
+
+	return vecflag;
+}
+		
