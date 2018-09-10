@@ -6,17 +6,55 @@
 #include<vector>
 using namespace std;
 
-vector<pair<string, int>> tVector;
-char ff[1000];
+string ff = ".";
 int lines=0;
 int character(char* path);
-int word(char strr[]);
-int isstring(char* c);
-int splitlen(char* f);
-void mytolower(char *s);
+int word(string strr);
+int isstring(string c);
+int splitlen(string f);
+string mytolower(string s);
 void reorder(map <string, int> m);
 int cmp(const pair<string, int>& x, const pair<string, int>& y);
+vector<string> splitt(const string &s);
+vector<pair<string, int>> tVector;
 
+//分隔符判断并切割字符串
+vector<string> splitt(const string &s) {
+	vector<string> result;
+	typedef string::size_type string_size;
+	string_size i = 0;
+
+	while (i != s.size()) {
+		//找到字符串中首个不等于分隔符的字母；
+		int flag = 0;
+		while (i != s.size() && flag == 0) {
+			flag = 1;
+			if (isalnum(s[i])==0) {
+					++i;
+					flag = 0;
+					break;
+			}
+		}
+
+		//找到又一个分隔符，将两个分隔符之间的字符串取出；
+		flag = 0;
+		string_size j = i;
+		while (j != s.size() && flag == 0) {
+			if (isalnum(s[j])==0) {//isalnum()判断输入参数是否为字母或者数字
+					flag = 1;
+					break;
+			}
+			if (flag == 0)
+				++j;
+		}
+		if (i != j) {
+			result.push_back(s.substr(i, j - i));
+			i = j;
+		}
+	}
+	return result;
+}
+//比较
 int cmp(const pair<string, int>& x, const pair<string, int>& y)
 {
 	if(x.second != y.second)
@@ -25,14 +63,17 @@ int cmp(const pair<string, int>& x, const pair<string, int>& y)
 		return x.first < y.first;//字典序靠前
 	}
 }
+//排序
 void reorder(map <string, int> m) {
 	//map <string, int>::iterator m1_temp;
 	for (map<string, int>::iterator curr = m.begin(); curr != m.end(); curr++)
 		tVector.push_back(make_pair(curr->first, curr->second));
 	sort(tVector.begin(), tVector.end(), cmp);
 }
-void mytolower(char *s) {
-	int len = strlen(s);
+//字符串转小写
+string mytolower(string s) {
+	int len = s.size();
+	//cout << len<<endl;
 	for (int i = 0; i<len; i++) {
 		if (s[i] >= 'A'&&s[i] <= 'Z') {
 			s[i] = tolower(s[i]);
@@ -40,8 +81,10 @@ void mytolower(char *s) {
 			//s[i]=s[i]-'A'+'a';
 		}
 	}
+	return s;
 }
-int splitlen(char* f) {
+//字符长度
+int splitlen(string f) {
 	int cc = 0;
 	int i = 0;
 	while (f[i]!='\0') {
@@ -50,12 +93,14 @@ int splitlen(char* f) {
 	}
 	return cc;
 }
-int isstring(char* c) {
+//判断字符串是否符合要求
+int isstring(string c) {
 	if (isdigit(c[0]) != NULL || isdigit(c[1]) != NULL || isdigit(c[2]) != NULL || isdigit(c[3]) != NULL)
 		return 0;
 	else
 		return 1;
 }
+//统计字符数
 int character(char* path) {
 	ifstream infile;
 	infile.open(path);   //将文件流对象与文件连接起来 
@@ -69,7 +114,7 @@ int character(char* path) {
 			lines++;
 			c = ' ';
 		}
-		ff[i] = c;
+		ff += c;
 		//cout << ff[i] << endl;
 		count++;
 		i++;
@@ -80,29 +125,29 @@ int character(char* path) {
 	lines++;
 	return count;
 }
-int word(char strr[]) {
-	char* split = strtok(strr, "^, ;:·~！@#￥%…&*（）-——+=[]{}\|""''?/");
-	int i = 0,count=0;
+//统计词频和单词数
+int word(string strr) {
+	int i = 0, count = 0;
 	map <string, int> m1;
 	map <string, int>::iterator m1_Iter;
+	vector<string> split = splitt(strr);
 
-	while (split) {
-		//cout << "ok1";
-		if(splitlen(split)>=4 && isstring(split)==1){
-			cout <<"符合条件的字符串是：" <<split << endl;
-			if (m1.count(split) == 0)
+	for (vector<string>::size_type i = 0; i != split.size(); ++i){
+		//cout << split[i] << endl;
+		string key = split[i];
+		if (key.size() >= 4 && isstring(key) == 1) {
+			cout << "符合条件的字符串是：" << key << endl;
+			if (m1.count(key) == 0)
 			{
 				count++;
-				m1.insert(pair <string, int>(split, 1));
+				m1.insert(pair <string, int>(key, 1));
 			}
 			else
 			{
-				m1[split]++;
+				m1[key]++;
 			}
 		}
-		split = strtok(NULL, ", ;:");
 	}
-	/**/
 	reorder(m1);
 	/*
 	for (m1_Iter = m1.begin(); m1_Iter != m1.end(); m1_Iter++)
@@ -123,7 +168,7 @@ int main(int argc,char* argv[])
 	int characters,words;
 	characters = character(a);
 	//cout << ff<<endl;
-	mytolower(ff);
+	ff=mytolower(ff);
 	//cout << ff << endl;
 	words = word(ff);
 	cout << "characters:" << characters << endl;

@@ -1,4 +1,4 @@
-windows95,windows98
+windows95+[][windows98
 i windows95
 
-WINDOWS2000,
+WINDOWS2000
