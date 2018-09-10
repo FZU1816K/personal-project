@@ -19,13 +19,15 @@ int Countlines(char *filename)
 	while (!infile.eof())
 	{
 		infile >> c; 
-		if (c != 10 && c!=' ')
+		if (c != 10 && c!=' '&&c!='\t') //空格、回车、水平制表符排除
 		{
 			flag1 = 1;
 		}
+		if (infile.eof()&& flag1==1) row_count++;
 		if (c == 10)
-		{
-			cout << "1" << endl;
+		{	
+	//		
+			//cout << "1" << endl;
 			if (flag1 == 1)
 			{
 				flag1 = 0;
@@ -34,5 +36,5 @@ int Countlines(char *filename)
 		}
 	}
 	infile.close();
-	return row_count + 1;
+	return row_count ;
 }
