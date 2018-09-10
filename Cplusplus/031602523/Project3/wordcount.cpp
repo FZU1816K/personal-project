@@ -74,18 +74,15 @@ struct words
 
 int chars_counter(istream &f, files &fn, words &wn)
 {
-	char temp;
+	char a;
 	int cnt = 0;
-	while (!f.eof())
+	while (f.get(a))//字符读取不成功就终止
 	{
-		f.get(temp);
-		if ((temp <= 126 && temp >= 32) || temp == 9 || temp == 10)
-		{
-			wn.allwords += temp;
+		if ((a >= 32 && a <= 126) || a == '\n' || a == '\t')
 			cnt++;
-		}
+		wn.allwords += a;//把每个字符传入all_string
 	}
-
+	//*outfile << "characters:" << count_char << endl;//结果输入result.txt文件
 	return cnt;
 }
 
@@ -234,7 +231,7 @@ int words_counter(ifstream &f, files &fn, words &wn)
 			}
 			else//如果不是单词就跳到下一个单词的第一个字母
 			{
-				for (; (wn.allwords[i] >= 65 && wn.allwords[i] <= 90) || (wn.allwords[i] >= 97 && wn.allwords[i] <= 122); i++) {}
+				for (; (wn.allwords[i] >= 65 && wn.allwords[i] <= 90) || (wn.allwords[i] >= 97 && wn.allwords[i] <= 122)||(wn.allwords[i] >= 48 && wn.allwords[i] <= 57); i++) {}
 			}
 		}
 		else if (wn.allwords[i] >= 48 && wn.allwords[i] <= 57)
