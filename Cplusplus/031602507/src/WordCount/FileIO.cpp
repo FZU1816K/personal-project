@@ -24,7 +24,7 @@ vector<string> FileIO::readLines(int argc, char *argv[])
 	}
 	return lineBuf;
 }
-void FileIO::outputToFile(int characterCount, int lineCount, int wordCount, vector<pair<string, int> > &top10Word)
+void FileIO::outputToFile(int characterCount, int wordCount,int lineCount, vector<pair<string, int> > &top10Word)
 {
 	ofstream wf("result.txt", ios::out);
 	wf << "characters:" << characterCount << endl

@@ -1,7 +1,7 @@
 /********************************************************************************
 * @File name: wc.cpp
 * @Author: ChenYuXin
-* @Version: 2.0
+* @Version: 2.1
 * @Date: 2018-09-11
 * @Description: Module Wrapping
 ********************************************************************************/
@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
 	wordCount = count.countWordNum(linesBuf);
 	vector<pair<string, int> > top10Word = count.countTop10Word();
 	
-	FileIO::outputToFile(characterCount, lineCount, wordCount, top10Word);
+	FileIO::outputToFile(characterCount, wordCount, lineCount, top10Word);
 
-	system("pause");
+	//system("pause");
 	return 0;
 }

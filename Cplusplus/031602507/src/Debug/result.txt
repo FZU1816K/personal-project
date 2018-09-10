@@ -1,7 +1,13 @@
-4
-characters:26
-words: 4
-lines:3
-<asdf>:2
-<asfhajr>:1
-<asfhajr12312aadsd>:1
+characters:1216
+words: 79
+lines:26
+<ccbqvl>: 7
+<kvbw0>: 7
+<flhhd6c>: 6
+<aotdk>: 5
+<dutr34>: 5
+<ijvi>: 5
+<smox3kk>: 5
+<gmfka>: 4
+<hzle>: 3
+<dmrtmi>: 2

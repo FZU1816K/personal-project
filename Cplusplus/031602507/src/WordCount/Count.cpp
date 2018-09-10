@@ -4,7 +4,7 @@ int Count::countCharNum(string &charBuf)
 {
 	return int(charBuf.size());
 }
-int Count::countWordNum(vector<string> &linesBuf)
+int Count::countLineNum(vector<string> &linesBuf)
 {
 	int lineCount = 0;
 	for (int i = 0; i != linesBuf.size(); i++) 
@@ -20,7 +20,7 @@ int Count::countWordNum(vector<string> &linesBuf)
 	}
 	return lineCount;
 }
-int Count::countLineNum(vector<string> &linesBuf)
+int Count::countWordNum(vector<string> &linesBuf)
 {
 	int wordCount = 0;
 	string wordBuf;
