@@ -11,35 +11,6 @@
 
 using namespace std;
 
-struct WordNode
-{
-	string word;
-	int count;
-
-	WordNode()
-	{
-		word = "";
-		count = 0;
-	}
-	WordNode(string _word, int _count) :word(_word), count(_count) {}
-
-	// overload < for using map and using sort
-	bool operator<(WordNode node_comp)
-	{
-		if (count == node_comp.count)
-			return (word < node_comp.word);
-		return count > node_comp.count;
-	}
-
-	// overload == for using map
-	bool operator==(WordNode node_comp)
-	{
-		if ((word.compare(node_comp.word) == 0 && count == node_comp.count))
-			return true;
-		return false;
-	}
-};
-
 // ×Ö·ûÊÇ·ñÊÇ×ÖÄ¸
 bool CharAlphaJudge(char ch);
 

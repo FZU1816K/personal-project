@@ -12,4 +12,4 @@
 
 using namespace std;
 
-void ShowResult(int characters, int words, int lines, vector<WordNode> first_ten_words);
+void ShowResult(int characters, int words, int lines, vector<map<string, int>::iterator> first_ten_words);

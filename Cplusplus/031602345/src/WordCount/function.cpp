@@ -22,6 +22,14 @@ extern int g_characters;
 extern int g_lines;
 extern map<string, int> g_word_count_map;
 
+// 两个map<string, int>迭代器的比较函数
+bool compare_bigger(map<string, int>::iterator it1, map<string, int>::iterator it2)
+{
+	if (it1->second == it2->second)
+		return (it1->first.compare(it2->first) < 0);
+	return it1->second > it2->second;
+}
+
 // 字符是否是字母
 bool CharAlphaJudge(char ch)
 {
@@ -78,8 +86,6 @@ void GetWordCountMap(string file_location)
 	{
 		bool have_next_line = GetLine(instream, line);
 
-		cout << line << '*' << endl;
-
 		int word_left_pos = 0;
 		int word_right_pos = 0;
 		int word_length = 0;
@@ -120,20 +126,36 @@ void GetWordCountMap(string file_location)
 }
 
 // return a orderd vector of WordNode
-vector<WordNode> GetFirstTenWords(string file_location)
+vector<map<string, int>::iterator> GetFirstTenWords(string file_location)
 {
 	if (g_has_got_map == false)
 		GetWordCountMap(file_location);
 
-	vector<WordNode> word_node_vectors;
+	vector<map<string, int>::iterator> word_node_vectors;
 
 	map<string, int>::iterator it = g_word_count_map.begin();
 
-	for (int i = 0; it != g_word_count_map.end(); i++, it++)
-		word_node_vectors.push_back(WordNode(it->first, it->second));
+	for (; it != g_word_count_map.end(); it++)
+		word_node_vectors.push_back(it);
 
-	// according to the overload function, sort the g_word_node_vectors
-	sort(word_node_vectors.begin(), word_node_vectors.end());
+	int length = word_node_vectors.size();
+	int num_show_node = min(10, length);
+
+	// 使用sort的话 产生的是O(N*Log(N))的复杂度 直接选的复杂度O(N*10)
+	for (int step = 0; step < num_show_node; step++)
+	{
+		int max_node_id = step;
+		map<string, int>::iterator max_node = word_node_vectors[step];
+		for (int i = step + 1; i < length; i++)
+		{
+			if (compare_bigger(word_node_vectors[i], max_node))
+			{
+				max_node = word_node_vectors[i];
+				max_node_id = i;
+			}
+		}
+		swap(word_node_vectors[step], word_node_vectors[max_node_id]);
+	}
 
 	return word_node_vectors;
 }
@@ -144,6 +166,7 @@ int CountLine(string file_location)
 	if (g_has_got_lines)
 		return g_lines;
 
+	// 直接使用文本格式打开文件
 	ifstream instream;
 	instream.open(file_location, ios::in);
 	assert(instream.is_open());
@@ -190,7 +213,7 @@ int CountWord(string file_location)
 	return count_word;
 }
 
-void ShowResult(int characters, int words, int lines, vector<WordNode> first_ten_words)
+void ShowResult(int characters, int words, int lines, vector<map<string, int>::iterator> first_ten_words)
 {
 	ofstream outstream;
 	outstream.open("result.txt");
@@ -198,9 +221,11 @@ void ShowResult(int characters, int words, int lines, vector<WordNode> first_ten
 	outstream << "words: " << words << endl;
 	outstream << "lines: " << lines << endl;
 
-	int num_should_show = min(words, 10);
-	for (int i = 0; i < num_should_show; i++)
-		outstream << first_ten_words[i].word << ": " << first_ten_words[i].count << endl;
+	int length = first_ten_words.size();
+	for (int i = 0; i < length; i++)
+	{
+		outstream << first_ten_words[i]->first << ": " << first_ten_words[i]->second << endl;
+	}
 
 	outstream.close();
 }

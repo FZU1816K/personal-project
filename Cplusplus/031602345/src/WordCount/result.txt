@@ -1,7 +1,8 @@
-characters: 59
-words: 4
-lines: 4
-word: 2
-file1: 1
-file2: 1
+characters: 90
+words: 5
+lines: 8
+word: 4
 word1: 1
+word2: 1
+word3: 1
+word4: 1

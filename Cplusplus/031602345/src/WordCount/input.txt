@@ -1,9 +1,17 @@
-file1 word1 file2 
-1234notword
+word Word wOrd
+
+not_word
+
+123notword
 
 
 
+     d
 
-1234
+word1
 
-word &word
+word4
+
+word3
+
+word2
