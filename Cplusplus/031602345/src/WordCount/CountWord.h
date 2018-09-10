@@ -13,10 +13,4 @@
 
 using namespace std;
 
-int CountWord(char* file_location)
-{
-	map<string,int> word_count_map = GetWordCountMap(file_location);
-	
-	int count_word = word_count_map.size();
-	return count_word;
-}
+int CountWord(char* file_location);
