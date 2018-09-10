@@ -22,9 +22,8 @@ public class CalMost {
     private class MapComparator implements Comparator<Map.Entry<String, Integer>> {
         @Override
         public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-            return o1.getValue().compareTo(o2.getValue()) != 0 ? o1.getValue().compareTo(o2.getValue()) : o1.getKey().compareTo(o2.getKey());
+            return o1.getValue().compareTo(o2.getValue()) != 0 ? o2.getValue().compareTo(o1.getValue()) : o1.getKey().compareTo(o2.getKey());
         }
     }
-
 
 }
