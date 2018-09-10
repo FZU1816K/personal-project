@@ -7,29 +7,14 @@
 #include<cctype>
 #include<regex>
 #include<io.h>
+#include<unordered_map>
+#include<iterator>
 using namespace std;
-/*宏定义*/
-#define		WORD_LIMIT 4
-#define     HASH_CAPACITY 456976
-#define     DIGIT_FIRST 17576
-#define     DIGIT_SECOND 676
-#define     DIGIT_THIRD 26
-#define     MOST_FREQUENT_NUM 10
 
-/*全局变量以及结构体定义*/
-typedef struct Word_Count
-{
-	string word;
-	string trimmed;//word without digital suffix and capital character
-	intptr_t number;
-	struct Word_Count *next;
-}MyWC;
-
-MyWC *(ptrOfWord[HASH_CAPACITY]);
-int numCharCount = 0;
-int numWordCount = 0;
-int numLineCount = 0;
-
+/*全局变量定义*/
+unordered_map<string, int> strMap;
+int numCharCount = 0, numLineCount = 0,numWordCount = 0;
+bool flag = false;
 /*逐个字符读入文件内容*/
 int CharCount(char* argv[])
 {
@@ -65,89 +50,76 @@ int LineCount(char* argv[])
 }
 
 /*统计单词个数*/
-MyWC *WordCount(string getWord)
+void CountWord(stringstream&ss)
 {
-	size_t offset = 0;
-	string trimmedWord;
-	MyWC *ptrTemp = NULL;
-	offset = (tolower(getWord[0]) - 97)*DIGIT_FIRST;
-	offset += (tolower(getWord[1]) - 97)*DIGIT_SECOND;
-	offset += (tolower(getWord[2]) - 97)*DIGIT_THIRD;
-	offset += tolower(getWord[3] - 97);
-
-	numWordCount++;
-	
-	for (size_t i = getWord.size() - 1; i >= 0; i--)
+	string strTmp;
+	while (ss >> strTmp)
 	{
-		if (isalpha(getWord[i]))
+		unordered_map<string, int>::iterator it = strMap.find(strTmp);
+		if (it == strMap.end())//strMap中如果不存在当前单词则插入一个新键值对，出现频率为1
 		{
-			trimmedWord = "";
-			for (size_t j = 0; j <= i; j++)
-			{
-				trimmedWord += tolower(getWord[j]);
-			}
+			strMap.insert(unordered_map<string, int>::value_type(strTmp, 1));
 
-			break;
 		}
+		else //如果存在则出现频率加1
+			strMap[strTmp]++;
 	}
-	if (ptrOfWord[offset] == NULL)
-	{
-		ptrOfWord[offset] = new MyWC;
-		ptrOfWord[offset]->word = getWord;
-		ptrOfWord[offset]->trimmed = trimmedWord;
-		ptrOfWord[offset]->number = 1;
-		ptrOfWord[offset]->next = NULL;
-		ptrTemp = ptrOfWord[offset];
-	}
-	else
-	{
-		ptrTemp = ptrOfWord[offset];
-		while (1)
-		{
-			if (ptrTemp->trimmed == trimmedWord)
-			{
-				if (strcmp(ptrTemp->word.c_str(), getWord.c_str()) == 1)
-					ptrTemp->word = getWord;
-				ptrTemp->number ++ ;
+}
 
-				break;
-			}
-			
-			if (ptrTemp->next == NULL)
-			{
-				ptrTemp->next = new MyWC;
-				ptrTemp = ptrTemp->next;
-				ptrTemp->word = getWord;
-				ptrTemp->trimmed = trimmedWord;
-				ptrTemp->number = 1;
-				ptrTemp->next = NULL;
-
-				break;
-			}
-			else
-			{
-				ptrTemp = ptrTemp->next;
-			}
-		}
-	}
-
-	return ptrTemp;
- }
+/*输出结果*/
 int main(int argc, char* argv[])
 {
-	ifstream file2;
-	string s;
+	//读入文档
+	fstream file2;
+	string strfile,stmp;
 	file2.open(argv[1]);
-	while (!file2.eof())
+	while (getline(file2, strfile))
 	{
-		file2 >> s;
-	}
+		strfile.append(stmp);
+		stmp.clear();
 
+
+
+		//去除间隔符
+		for (int i = 0; i < strfile.length(); i++)
+		{
+			if (ispunct(strfile[i]))
+			{
+				strfile[i] = ' ';
+				numWordCount++;
+			}
+		}
+
+		
+
+		//统计字符
+		stringstream ss(strfile);
+
+		CountWord(ss);
+	}
+	if (numWordCount > 0)
+		numWordCount++;
 	numCharCount = CharCount(argv);
 	numLineCount = LineCount(argv);
+	//Output();
+	ofstream OutputFile("result.txt");
+	if (OutputFile.is_open())
+	{
+		unordered_map<string, int>::const_iterator it;
+
+		OutputFile << "characters: " << numCharCount << endl;
+		OutputFile << "words: " << numWordCount << endl;
+		OutputFile << "lines: " << numLineCount << endl;
+
+		for (it = strMap.begin(); it != strMap.end(); ++it)
+		{
+			OutputFile<< it->first << ": " << it->second << endl;
+		}
+		
+
+	}
 	
-	printf("the char num is %d", numCharCount);
-	printf("the line num is %d", numLineCount);
+	file2.close();
 
 	return 0;
 }
