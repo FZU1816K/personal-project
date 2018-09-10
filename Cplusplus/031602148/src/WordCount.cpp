@@ -1,35 +1,44 @@
-#include<iostream>
-#include<map>
-#include<fstream>
-#include<string>
-#include<vector>
-#include<algorithm>
+#include "stdafx.h"
+
 using namespace std;
+
+class Statistics
+{
+public :
+	int cnum;//字符数
+	int wnum;//单词数
+	int lnum;//行数
+	vector<int>a;//排序用
+	map<string, int> word;//记录单词及词频
+	void set(ifstream& in);//统计
+	void output(ofstream& out);//输出
+	int characters(ifstream& in);//统计字符数
+	int	words(ifstream& in);//统计单词数
+	int lines(ifstream& in);//统计行数
+};
 
 bool cmp(int a, int b)
 {
 	return a > b;
 }
-void words(ifstream& in, ofstream& out)//词频统计 
+int Statistics::words(ifstream& in)//词频统计 
 {
-	map<string, int> word;
 	string str;
 	string temp;
-	vector<int>a;
 	int flag = 0;
 	int sum = 0;
 	int star = 0;
 	while (getline(in, str))
 	{
 		flag = 0;
-		for (int i = 0; i < str.length(); i++)//将大写字母转为小写字母 
+		for (unsigned i = 0; i < str.length(); i++)//将大写字母转为小写字母 
 		{
 			if (str[i] >= 'A'&&str[i] <= 'Z')
 			{
 				str[i] = str[i] + 32;
 			}
 		}
-		for (int j = 0; j < str.length(); j++)//提取合法单词并统计 
+		for (unsigned j = 0; j < str.length(); j++)//提取合法单词并统计 
 		{
 			if (str[j] >= 'a'&&str[j] <= 'z')
 			{
@@ -71,30 +80,11 @@ void words(ifstream& in, ofstream& out)//词频统计
 			}
 		}
 	}
-	map<string, int>::iterator it;
-	for (it = word.begin(); it != word.end(); it++)
-	{
-		int m = (*it).second;
-		a.push_back(m);
-	}
-	sort(a.begin(), a.end(), cmp);
-	for (int i = 0; i < sum; i++)
-	{
-		int m = a[i];
-		for (it = word.begin(); it != word.end(); it++)
-		{
-			if ((*it).second == m)
-			{
-				cout << "<"<<(*it).first<<"> :" << m << endl;
-				(*it).second = 0;
-				break;
-			}
-		}
-	}
 	in.clear();//指针重新定位至文件头部 
 	in.seekg(0, ios::beg);
+	return sum;
 }
-int characters(ifstream& in)//统计字符数
+int Statistics::characters(ifstream& in)//统计字符数
 {
 	int num = 0;
 	char ch;
@@ -110,7 +100,7 @@ int characters(ifstream& in)//统计字符数
 	in.seekg(0, ios::beg);
 	return num;
 }
-int lines(ifstream& in)	//统计有效行数
+int Statistics::lines(ifstream& in)	//统计有效行数
 {
 	int line = 0;
 	string str;
@@ -128,7 +118,38 @@ int lines(ifstream& in)	//统计有效行数
 	in.seekg(0, ios::beg);
 	return line;
 }
-
+void Statistics::set(ifstream& in)//调用统计功能
+{
+	cnum = characters(in);
+	lnum = lines(in);
+	wnum = words(in);
+}
+void Statistics::output(ofstream& out)//将结果输出至指定文档
+{
+	out << "characters: " << cnum << endl;
+	out << "words: " << wnum << endl;
+	out << "lines: " << lnum << endl;
+	map<string, int>::iterator it;
+	for (it = word.begin(); it != word.end(); it++)
+	{
+		int m = (*it).second;
+		a.push_back(m);
+	}
+	sort(a.begin(), a.end(), cmp);
+	for (int i = 0; i < wnum; i++)
+	{
+		int m = a[i];
+		for (it = word.begin(); it != word.end(); it++)
+		{
+			if ((*it).second == m)
+			{
+				out << "<" << (*it).first << "> :" << m << endl;
+				(*it).second = 0;
+				break;
+			}
+		}
+	}
+}
 int main(int argc, char *argv[])
 {
 	ifstream infile;
@@ -145,9 +166,9 @@ int main(int argc, char *argv[])
 		cout << "Open writefile failed!" << endl;
 		exit(1);
 	}
-	cout << characters(infile) << endl;	
-	words(infile, outfile);
-	cout << lines(infile) << endl;
+	Statistics	s;
+	s.set(infile);
+	s.output(outfile);
 	infile.close();
 	outfile.close();
 	system("pause");
