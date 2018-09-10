@@ -64,6 +64,8 @@ void CountWord(stringstream&ss)
 		else //如果存在则出现频率加1
 			strMap[strTmp]++;
 	}
+	
+
 }
 
 /*输出结果*/
@@ -101,6 +103,9 @@ int main(int argc, char* argv[])
 		numWordCount++;
 	numCharCount = CharCount(argv);
 	numLineCount = LineCount(argv);
+
+	
+
 	//Output();
 	ofstream OutputFile("result.txt");
 	if (OutputFile.is_open())
@@ -111,11 +116,22 @@ int main(int argc, char* argv[])
 		OutputFile << "words: " << numWordCount << endl;
 		OutputFile << "lines: " << numLineCount << endl;
 
-		for (it = strMap.begin(); it != strMap.end(); ++it)
+		//排序
+		vector<pair<string, int>>vtMap;
+		for (auto it = strMap.begin(); it != strMap.end(); it++)
+			vtMap.push_back(make_pair(it->first, it->second));
+
+		sort(vtMap.begin(), vtMap.end(),
+			[](const pair<string, int> &x, const pair<string, int> &y) -> int {
+			return y.second < x.second; });
+		int count = 1;
+		for (auto it = vtMap.begin(); it != vtMap.end(); it++)
 		{
-			OutputFile<< it->first << ": " << it->second << endl;
+			if (count > 10)
+				break;
+			OutputFile << it->first << ':' << it->second << endl;
+			count++;
 		}
-		
 
 	}
 	
