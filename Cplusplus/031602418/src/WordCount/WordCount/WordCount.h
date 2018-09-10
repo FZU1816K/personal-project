@@ -9,7 +9,6 @@
 #include<string.h>
 #include<stdlib.h>
 using namespace std;
-
 unordered_map<string, int>My;
 class file {
 public:
@@ -31,7 +30,7 @@ public:
 		FILE *fp;
 		if ((fopen_s(&fp, Filename, "r")) != NULL)
 		{
-			exit(1);
+			throw "文件打开失败";
 		}
 		ch = fgetc(fp);
 		if (ch != '\n')
