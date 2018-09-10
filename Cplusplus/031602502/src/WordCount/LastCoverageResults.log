@@ -1,50 +1,54 @@
-[2018-09-10 00:59:12] [info] Start Program:
-Path:"C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\x64\Debug\WordCount.exe"
+[2018-09-10 12:05:47] [info] Start Program:
+Path:"C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\Debug\WordCount.exe"
 Arguments:
 Working directory: "C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\WordCount\"
-Modules: Selected: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\x64\Debug\WordCount.exe Excluded: 
-Sources: Selected: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\WordCount Excluded: 
+Modules: Selected: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\Debug\WordCountUnitTest.dll C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\Debug\WordCount.exe Excluded: 
+Sources: Selected: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\WordCountUnitTest C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\WordCount Excluded: 
 Log Level: Normal
 Cover Children: 0
 Aggregate by file: 1
 Continue after C++ exception: 0
 Optimized build support: 0
-Export: Binary C:\Users\Administrator\AppData\Local\Temp\0f3m1pxg.rfs 
+Export: Binary C:\Users\Administrator\AppData\Local\Temp\prlduoxf.y1k 
 Input coverage: 
 Unified diff: 
 Excluded line regular expressions: 
 
-[2018-09-10 00:59:12] [info] Module: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\x64\Debug\WordCount.exe is selected because it matches selected pattern: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\x64\Debug\WordCount.exe
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\wordcount.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\myio.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\myio.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\myio.cpp line 15732480 does not exist, skipped
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\ntdll.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\kernel32.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\KernelBase.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\msvcp140d.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\vcruntime140d.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\ucrtbased.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\kernel.appcore.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\msvcrt.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] Module: C:\Windows\System32\rpcrt4.dll is skipped because it matches no selected patterns
-[2018-09-10 00:59:13] [info] ----------------------------------------------------
-[2018-09-10 00:59:13] [info] Coverage binary generated in file: C:\Users\Administrator\AppData\Local\Temp\0f3m1pxg.rfs
-[2018-09-10 00:59:13] [info] ----------------------------------------------------
+[2018-09-10 12:05:47] [info] Module: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\Debug\WordCount.exe is selected because it matches selected pattern: C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\Debug\WordCount.exe
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\wordcount.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 146 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\statistics.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\myio.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\myio.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [warning] c:\users\administrator\desktop\personal-project\cplusplus\031602502\src\wordcount\myio.cpp line 15732480 does not exist, skipped
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\ntdll.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\kernel32.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\KernelBase.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\vcruntime140d.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\ucrtbased.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\kernel.appcore.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\msvcrt.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\rpcrt4.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\sspicli.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\cryptbase.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\bcryptprimitives.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] Module: C:\Windows\SysWOW64\sechost.dll is skipped because it matches no selected patterns
+[2018-09-10 12:05:47] [info] ----------------------------------------------------
+[2018-09-10 12:05:47] [info] Coverage binary generated in file: C:\Users\Administrator\AppData\Local\Temp\prlduoxf.y1k
+[2018-09-10 12:05:47] [info] ----------------------------------------------------

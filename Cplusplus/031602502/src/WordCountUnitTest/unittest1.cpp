@@ -14,12 +14,12 @@ using namespace std;
 #include <algorithm>
 
 #define UNIT_TEST_CASE 100
-#define MAX_LINE_NUM 30
-#define MIN_LINE_NUM 20
+#define MAX_LINE_NUM 50
+#define MIN_LINE_NUM 0
 #define MAX_LINE_LEN 20
-#define MIN_LINE_LEN 10
+#define MIN_LINE_LEN 0
 #define MAX_WORD_LEN 8
-#define MIN_WORD_LEN 1
+#define MIN_WORD_LEN 0
 
 namespace WordCountUnitTest
 {
@@ -132,7 +132,14 @@ namespace WordCountUnitTest
 				line += getRandWord() + sign[getRandNum(0, int(sign.size()))];
 			}
 			line += '\n';
-			lineNum++;
+			for (unsigned int i=0;i<line.size();i++)
+			{
+				if (line[i] != ' '&& line[i] != '\n')
+				{
+					lineNum++;
+					break;
+				}
+			}
 			//string line_lower;
 			//line_lower.resize(line.size());
 			//transform(line.begin(), line.end(), line_lower.begin(), tolower);
@@ -204,8 +211,8 @@ namespace WordCountUnitTest
 				Statistics st(lines);
 				vector<map<string, int>::iterator> st_top10 = st.getTopWords(10);
 				vector<map<string, int>::iterator> dg_top10 = dg.getStdTop10();
-				//dg.outputDataToFile("input.txt");    //输出随机测试用例到文件
-				//dg.outputStdAnsToFile("std_ans.txt");//输出测试标准答案到文件
+				dg.outputDataToFile("input.txt");    //输出随机测试用例到文件
+				dg.outputStdAnsToFile("std_ans.txt");//输出测试标准答案到文件
 				Assert::AreEqual(dg.getStdCharNum(), st.getCharNumber());
 				Assert::AreEqual(dg.getStdWordNum(), st.getWordNumber());
 				Assert::AreEqual(dg.getStdLineNum(), st.getLineNumber());
@@ -216,17 +223,60 @@ namespace WordCountUnitTest
 				}
 			}
 			//------------------------------------------------------------
-//#else
 			vector<string> lines;
-			lines.push_back(string(""));
-			Statistics st(lines);
-			Assert::AreEqual(0, st.getCharNumber());
-			Assert::AreEqual(0, st.getWordNumber());
-			Assert::AreEqual(0, st.getLineNumber());
 			//------------------------------------------------------------
-			
-
-
+			//空文件
+			lines.clear();
+			lines.push_back(string(""));
+			Assert::AreEqual(0, Statistics(lines).getCharNumber());
+			Assert::AreEqual(0, Statistics(lines).getWordNumber());
+			Assert::AreEqual(0, Statistics(lines).getLineNumber());
+			//------------------------------------------------------------
+			//全是空行
+			lines.clear();
+			lines.push_back(string("\n"));
+			lines.push_back(string("\n"));
+			lines.push_back(string("\n"));
+			Assert::AreEqual(3, Statistics(lines).getCharNumber());
+			Assert::AreEqual(0, Statistics(lines).getWordNumber());
+			Assert::AreEqual(0, Statistics(lines).getLineNumber());
+			//------------------------------------------------------------
+			//最后一行没有换行
+			lines.clear();
+			lines.push_back(string("asdf123\n"));
+			lines.push_back(string("a v4w"));
+			Assert::AreEqual(13, Statistics(lines).getCharNumber());
+			Assert::AreEqual(1, Statistics(lines).getWordNumber());
+			Assert::AreEqual(2, Statistics(lines).getLineNumber());
+			//------------------------------------------------------------
+			//最后一行有换行
+			lines.clear();
+			lines.push_back(string("asdf123\n"));
+			lines.push_back(string("a v4w\n"));
+			Assert::AreEqual(14, Statistics(lines).getCharNumber());
+			Assert::AreEqual(1, Statistics(lines).getWordNumber());
+			Assert::AreEqual(2, Statistics(lines).getLineNumber());
+			//------------------------------------------------------------
+			/*
+			try
+			{
+				vector<string> buf;
+				myIO::ReadFileLines("fileNotExist.txt", buf);
+			}
+			catch (const const char *err)
+			{
+				cout << err << endl;
+			}*/
+			//------------------------------------------------------------
+			/*try 
+			{
+				vector<map<string, int>::iterator> tmp;
+				myIO::Output(0, 0, 0, tmp, false, true, "fileNotReadOnly.txt");
+			}
+			catch (const char *err)
+			{
+				cout << err << endl;
+			}*/
 #endif
 
 		}

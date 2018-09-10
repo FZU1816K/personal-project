@@ -1,5 +1,2 @@
-﻿  stdafx.cpp
-  unittest1.cpp
-d:\app\vs2017_community\vs2017_ide\vc\auxiliary\vs\unittest\include\cppunittest.h(333): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
-d:\app\vs2017_community\vs2017_ide\vc\auxiliary\vs\unittest\include\cppunittest.h(349): warning C26495: Variable 'Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::CrtHandlersSetter::oldReportFile' is uninitialized. Always initialize a member variable (type.6).
-d:\app\vs2017_community\vs2017_ide\vc\auxiliary\vs\unittest\include\cppunittest.h(463): warning C26439: This kind of function may not throw. Declare it 'noexcept' (f.6).
+﻿  unittest1.cpp
+  WordCountUnitTest.vcxproj -> C:\Users\Administrator\Desktop\personal-project\Cplusplus\031602502\src\Debug\WordCountUnitTest.dll
