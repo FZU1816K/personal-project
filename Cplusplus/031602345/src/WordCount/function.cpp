@@ -73,29 +73,37 @@ map<string, int> GetWordCountMap(char* file_location)
 		int word_length = 0;
 		int line_length = line.size();
 
-		// statistics words
 		while (word_left_pos < line_length)
 		{
-			while (!CharAlphaJudge(line[word_left_pos]) && word_left_pos < line_length)
+			while (!CharAlphaNumberJudge(line[word_left_pos]) && word_left_pos < line_length)
 				word_left_pos++;
-			word_right_pos = word_left_pos;
-			while ((word_right_pos < line_length) && (CharAlphaNumberJudge(line[word_right_pos + 1])))
-				word_right_pos++;
-
-			word_length = word_right_pos - word_left_pos + 1;
-			if (word_length >= 4)
+			if (CharAlphaJudge(line[word_left_pos]))
 			{
-				string word = line.substr(word_left_pos, word_length);
-				// transoform the word into lowercase
-				transform(word.begin(), word.end(), word.begin(), ::tolower);
-				if (WordCheck(word))
+				word_right_pos = word_left_pos;
+				while (((word_right_pos + 1) < line_length) && (CharAlphaNumberJudge(line[word_right_pos + 1])))
+					word_right_pos++;
+				word_length = word_right_pos - word_left_pos + 1;
+				if (word_length >= 4)
 				{
-					if (word_count_map.count(word) == 0)
-						word_count_map[word] = 1;
-					else word_count_map[word] += 1;
+					string word = line.substr(word_left_pos, word_length);
+					// transoform the word into lowercase
+					transform(word.begin(), word.end(), word.begin(), ::tolower);
+					if (WordCheck(word))
+					{
+						if (word_count_map.count(word) == 0)
+							word_count_map[word] = 1;
+						else word_count_map[word] += 1;
+					}
 				}
+				word_left_pos = word_right_pos + 1;
 			}
-			word_left_pos = word_right_pos + 1;
+			else
+			{
+				word_right_pos = word_left_pos;
+				while (((word_right_pos + 1) < line_length) && (CharAlphaNumberJudge(line[word_right_pos + 1])))
+					word_right_pos++;
+				word_left_pos = word_right_pos + 1;
+			}
 		}
 	}
 
