@@ -12,7 +12,6 @@ public class FileRead {
      * @param file
      */
     public String Input(File file){
-        int  len;
 
         try{
             FileInputStream data = new FileInputStream(file);
@@ -23,6 +22,7 @@ public class FileRead {
                 text += in.readLine();
                 text += "\r\n";
             }
+            in.close();
             return text;
         }catch (Exception e){
             System.out.println("文本读入失败！");
