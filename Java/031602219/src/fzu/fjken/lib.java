@@ -48,7 +48,6 @@ public class lib {
 	
 	public static int countVec(int count){
 		String regex ="[^0-9a-zA-Z]";	//剔除文本中的非字母和数字的部分并以！作为暂时的分隔符
-		System.out.println(text);
 		Pattern pat = Pattern.compile(regex);
 		Matcher mat = pat.matcher(text);
 		text = mat.replaceAll("！");				
@@ -77,12 +76,10 @@ public class lib {
 				ver.put(i, num+1);
 			}
 		}
-		System.out.println(ver);
 		List<Map.Entry<String,Integer>> verlist = new ArrayList<Map.Entry<String,Integer>>(ver.entrySet());
 		Collections.sort(verlist,new Comparator<Map.Entry<String, Integer>>(){
 			public int compare(Map.Entry<String, Integer> o1,Map.Entry<String, Integer> o2) {
 				if(o1.getValue()==o2.getValue()){
-					System.out.println(o1.getKey());
 					return (o1.getKey()).compareTo(o2.getKey());
 				}
 				return o2.getValue()-o1.getValue();
@@ -90,4 +87,5 @@ public class lib {
 		});
 		return verlist;
 	}
+
 }
