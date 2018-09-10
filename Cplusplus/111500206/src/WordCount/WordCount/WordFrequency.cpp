@@ -20,18 +20,26 @@ int TransitionStoreWord(int state, char input, string & word)
 	switch (state)
 	{
 	case OUTWORD:
-		if (!isalpha(input) || isspace(input)) return OUTWORD;
-		else if (isalpha(input)) { word += input; return P1; }
+		if (Separator(input)) return OUTWORD;
+		if (isalpha(input)) { word += input; return P1; }
+		if (IsNum(input)) return NotAWord;
+
+	case NotAWord:
+		if (Separator(input)) return OUTWORD;
+		else return NotAWord;
 
 	case P1:
+		if (IsNum(input)) { word.clear(); return NotAWord; }
 		if (isalpha(input)) { word += input; return  P2; }
 		else { word.clear(); return OUTWORD; }
 
 	case P2:
+		if (IsNum(input)) { word.clear(); return NotAWord; }
 		if (isalpha(input)) { word += input; return  P3; }
 		else { word.clear(); return OUTWORD; }
 
 	case P3:
+		if (IsNum(input)) { word.clear(); return NotAWord; }
 		if (isalpha(input)) { word += input; return VALIDWORD; }
 		else { word.clear(); return OUTWORD; }
 
@@ -39,6 +47,7 @@ int TransitionStoreWord(int state, char input, string & word)
 		if (isalnum(input)) { word += input; return VALIDWORD; }
 		else {
 			InsertToHashTable(word);
+			//cout << word << endl;
 			word.clear();
 			return OUTWORD;
 		}

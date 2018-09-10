@@ -7,12 +7,17 @@
 
 using namespace std;
 
-#define OUTWORD 0  // 5 DFA states
+#define Separator(x) (isspace(x) || (!IsNum(x) && !isalpha(x))) 
+#define IsNum(x) (x >= '0' && x <= '9')
+
+#define OUTWORD 0 // 6 DFA states
 #define P1 1
 #define P2 2
 #define P3 3
-#define VALIDWORD 4
-#define ERROR 5
+#define NotAWord 4 
+#define VALIDWORD 5
+
+#define ERROR 6
 
 /* 
 * Function name: Transition

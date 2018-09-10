@@ -5,18 +5,26 @@ int Transition(int state, char input, int * count)
 	switch (state)
 	{
 	case OUTWORD:
-		if (!isalpha(input) || isspace(input)) return OUTWORD;
-		else if (isalpha(input)) return P1;
-		
+		if (Separator(input)) return OUTWORD; 
+		if (isalpha(input)) return P1; 
+		if (IsNum(input)) return NotAWord;
+
+	case NotAWord:
+		if (Separator(input)) return OUTWORD;
+		else return NotAWord;
+
 	case P1:
+		if (IsNum(input)) return NotAWord;
 		if (isalpha(input)) return P2;
 		else return OUTWORD;
 
 	case P2:
+		if (IsNum(input)) return NotAWord;
 		if (isalpha(input)) return P3;
 		else return OUTWORD;
 
 	case P3:
+		if (IsNum(input)) return NotAWord;
 		if (isalpha(input)) return VALIDWORD;
 		else return OUTWORD;
 
