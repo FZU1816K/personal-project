@@ -40,17 +40,20 @@ struct WordNode
 	}
 };
 
-// check if the char appears in Alpha table
+// 字符是否是字母
 bool CharAlphaJudge(char ch);
 
-// check if char appears in Alpha table or Number table
+// 字符是否是字母 or 数字
 bool CharAlphaNumberJudge(char ch);
 
-// check the legality of one word
+// 检查word的合法性
 bool WordCheck(string word);
 
-// check if the line has visible char
+// 检查一行是否有可显示的字符
 bool HaveVisibleChar(string line);
 
-// get the word-count map
-map<string, int> GetWordCountMap(char* file_location);
+// 得到词频字典 并在这个过程中统计字符个数
+void GetWordCountMap(string file_location);
+
+// 自定义getline函数
+bool GetLine(ifstream &instream, string &line);

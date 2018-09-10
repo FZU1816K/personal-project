@@ -1,4 +1,7 @@
-characters: 11
-words: 1
-lines: 1
-windows: 1
+characters: 59
+words: 4
+lines: 4
+word: 2
+file1: 1
+file2: 1
+word1: 1

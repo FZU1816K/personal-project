@@ -13,4 +13,4 @@
 using namespace std;
 
 // return a orderd vector of WordNode
-vector<WordNode> GetFirstTenWords(char* file_location);
+vector<WordNode> GetFirstTenWords(string file_location);

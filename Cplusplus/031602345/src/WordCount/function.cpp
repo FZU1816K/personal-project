@@ -14,9 +14,15 @@
 #include "ShowResult.h"
 #include "GetFirstTenWords.h"
 
+extern bool g_has_got_map;
+extern bool g_has_got_lines;
+extern bool g_has_got_characters;
 
+extern int g_characters;
+extern int g_lines;
+extern map<string, int> g_word_count_map;
 
-// check if the char appears in Alpha table
+// 字符是否是字母
 bool CharAlphaJudge(char ch)
 {
 	if (('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z'))
@@ -24,7 +30,7 @@ bool CharAlphaJudge(char ch)
 	return false;
 }
 
-// check if char appears in Alpha table or Number table
+// 字符是否是字母 or 数字
 bool CharAlphaNumberJudge(char ch)
 {
 	if (('0' <= ch && ch <= '9') || ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z'))
@@ -32,7 +38,7 @@ bool CharAlphaNumberJudge(char ch)
 	return false;
 }
 
-// check the legality of one word
+// 检查word的合法性
 bool WordCheck(string word)
 {
 	if (word.size() < 4)
@@ -43,7 +49,7 @@ bool WordCheck(string word)
 	return true;
 }
 
-// check if the line has visible char
+// 检查一行是否有可显示的字符
 bool HaveVisibleChar(string line)
 {
 	int length = line.size();
@@ -54,20 +60,26 @@ bool HaveVisibleChar(string line)
 	return false;
 }
 
-
-map<string, int> GetWordCountMap(char* file_location)
+// 得到词频字典和字符数
+void GetWordCountMap(string file_location)
 {
 	ifstream instream;
-	instream.open(file_location, ios::in);
+	instream.open(file_location, ios::binary);
 	assert(instream.is_open());
 
 	string line;
-	map<string, int> word_count_map;
 
-	word_count_map.clear();
+	// 全局变量初始化
+	g_lines = 0;
+	g_characters = 0;
+	g_word_count_map.clear();
 
-	while (getline(instream, line))
+	while (true)
 	{
+		bool have_next_line = GetLine(instream, line);
+
+		cout << line << '*' << endl;
+
 		int word_left_pos = 0;
 		int word_right_pos = 0;
 		int word_length = 0;
@@ -77,51 +89,47 @@ map<string, int> GetWordCountMap(char* file_location)
 		{
 			while (!CharAlphaNumberJudge(line[word_left_pos]) && word_left_pos < line_length)
 				word_left_pos++;
-			if (CharAlphaJudge(line[word_left_pos]))
+			word_right_pos = word_left_pos;
+			while (((word_right_pos + 1) < line_length) && (CharAlphaNumberJudge(line[word_right_pos + 1])))
+				word_right_pos++;
+			word_length = word_right_pos - word_left_pos + 1;
+			if (word_length >= 4)
 			{
-				word_right_pos = word_left_pos;
-				while (((word_right_pos + 1) < line_length) && (CharAlphaNumberJudge(line[word_right_pos + 1])))
-					word_right_pos++;
-				word_length = word_right_pos - word_left_pos + 1;
-				if (word_length >= 4)
+				string word = line.substr(word_left_pos, word_length);
+				// word转小写
+				transform(word.begin(), word.end(), word.begin(), ::tolower);
+				if (WordCheck(word))
 				{
-					string word = line.substr(word_left_pos, word_length);
-					// transoform the word into lowercase
-					transform(word.begin(), word.end(), word.begin(), ::tolower);
-					if (WordCheck(word))
-					{
-						if (word_count_map.count(word) == 0)
-							word_count_map[word] = 1;
-						else word_count_map[word] += 1;
-					}
+					if (g_word_count_map.count(word) == 0)
+						g_word_count_map[word] = 1;
+					else g_word_count_map[word] += 1;
 				}
-				word_left_pos = word_right_pos + 1;
 			}
-			else
-			{
-				word_right_pos = word_left_pos;
-				while (((word_right_pos + 1) < line_length) && (CharAlphaNumberJudge(line[word_right_pos + 1])))
-					word_right_pos++;
-				word_left_pos = word_right_pos + 1;
-			}
+			word_left_pos = word_right_pos + 1;
 		}
+		if (!have_next_line) break;
 	}
 
-	instream.close();
+	// 修改标记位
+	g_has_got_map = true;
+	g_has_got_lines = true;
+	g_has_got_characters = true;
 
-	return word_count_map;
+	// 关闭文件
+	instream.close();
 }
 
 // return a orderd vector of WordNode
-vector<WordNode> GetFirstTenWords(char* file_location)
+vector<WordNode> GetFirstTenWords(string file_location)
 {
+	if (g_has_got_map == false)
+		GetWordCountMap(file_location);
+
 	vector<WordNode> word_node_vectors;
-	map<string, int> word_count_map = GetWordCountMap(file_location);
 
-	// extract words from g_word_count_map, then save them into g_word_node_vectors
-	map<string, int>::iterator it = word_count_map.begin();
+	map<string, int>::iterator it = g_word_count_map.begin();
 
-	for (int i = 0; it != word_count_map.end(); i++, it++)
+	for (int i = 0; it != g_word_count_map.end(); i++, it++)
 		word_node_vectors.push_back(WordNode(it->first, it->second));
 
 	// according to the overload function, sort the g_word_node_vectors
@@ -130,8 +138,12 @@ vector<WordNode> GetFirstTenWords(char* file_location)
 	return word_node_vectors;
 }
 
-int CountLine(char* file_location)
+int CountLine(string file_location)
 {
+	// 如果已经得到 直接返回
+	if (g_has_got_lines)
+		return g_lines;
+
 	ifstream instream;
 	instream.open(file_location, ios::in);
 	assert(instream.is_open());
@@ -140,7 +152,6 @@ int CountLine(char* file_location)
 	int valid_lines = 0;
 	while (getline(instream, line))
 	{
-		// statistics valid lines
 		if (HaveVisibleChar(line)) valid_lines++;
 	}
 
@@ -149,11 +160,15 @@ int CountLine(char* file_location)
 	return valid_lines;
 }
 
-int CountChar(char* file_location)
+int CountChar(string file_location)
 {
+	// 如果已经得到 就直接返回
+	if (g_has_got_characters)
+		return g_characters;
+
 	ifstream instream;
 
-	// load file in binary mode to statistics characters(inclcude '\r' '\n')
+	// 通过二进制形式载入文件
 	instream.open(file_location, ios::binary);
 	assert(instream.is_open());
 
@@ -165,11 +180,13 @@ int CountChar(char* file_location)
 	return count_char;
 }
 
-int CountWord(char* file_location)
+int CountWord(string file_location)
 {
-	map<string, int> word_count_map = GetWordCountMap(file_location);
+	// 如果没有获得字典 就获得一次字典
+	if (!g_has_got_map)
+		GetWordCountMap(file_location);
 
-	int count_word = word_count_map.size();
+	int count_word = g_word_count_map.size();
 	return count_word;
 }
 
@@ -186,4 +203,32 @@ void ShowResult(int characters, int words, int lines, vector<WordNode> first_ten
 		outstream << first_ten_words[i].word << ": " << first_ten_words[i].count << endl;
 
 	outstream.close();
+}
+
+// 自定义getline函数 返回后续还有没有字符
+bool GetLine(ifstream &instream, string &line)
+{
+	char ch;
+	bool have_visible_char = false;
+	line.clear();
+	while (instream.get(ch))
+	{
+		g_characters++;
+		if (ch == '\n')
+		{
+			if (have_visible_char) g_lines++;
+			return true;
+		}
+		else if (ch == '\r')
+		{
+			continue;
+		}
+		else
+		{
+			if (ch != ' ') have_visible_char = true;
+			line += ch;
+		}
+	}
+	if (have_visible_char) g_lines++;
+	return false;
 }

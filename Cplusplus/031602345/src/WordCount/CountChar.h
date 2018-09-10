@@ -11,4 +11,4 @@
 #include "share.h"
 using namespace std;
 
-int CountChar(char* file_location);
+int CountChar(string file_location);

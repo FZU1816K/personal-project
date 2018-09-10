@@ -12,4 +12,4 @@
 
 using namespace std;
 
-int CountLine(char* file_location);
+int CountLine(string file_location);

@@ -13,4 +13,4 @@
 
 using namespace std;
 
-int CountWord(char* file_location);
+int CountWord(string file_location);
