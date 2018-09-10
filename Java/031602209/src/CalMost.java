@@ -27,19 +27,4 @@ public class CalMost {
     }
 
 
-    public static void main(String[] args) {
-
-        HashMap<String, Integer> test = new HashMap<>();
-        test.put("aaa1", 543);
-        test.put("fshdi", 1343);
-        test.put("fshda", 1343);
-        test.put("hsdf31", 654);
-        test.put("aaa2", 543);
-
-        CalMost calMost = new CalMost();
-
-        List<Map.Entry<String, Integer>> list = calMost.mostWords(test);
-        list.forEach(System.out::println);
-    }
-
 }
