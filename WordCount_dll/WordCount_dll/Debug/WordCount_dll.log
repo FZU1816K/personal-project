@@ -1,4 +1,0 @@
-﻿  Swords.cpp
-e:\users\lenovo\source\repos\wordcount_dll\wordcount_dll\swords.cpp(55): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
-    正在创建库 E:\Users\lenovo\Source\repos\WordCount_dll\Debug\WordCount_dll.lib 和对象 E:\Users\lenovo\Source\repos\WordCount_dll\Debug\WordCount_dll.exp
-  WordCount_dll.vcxproj -> E:\Users\lenovo\Source\repos\WordCount_dll\Debug\WordCount_dll.dll

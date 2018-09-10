@@ -40,6 +40,7 @@ namespace CountWordscorrect   //能正确正确统计单词数，测试
 	};
 }
 
+
 namespace NullFile   //打开内容为空的文件   测试全部
 {
 	TEST_CLASS(UnitTest1)
@@ -92,6 +93,7 @@ namespace Countcorrect_c   //正确统计字符
 	};
 }
 
+
 namespace Countcorrect_l   //正确统计行数
 {
 	TEST_CLASS(UnitTest1)
@@ -132,6 +134,7 @@ namespace Countcorrect_l   //正确统计行数
 		}
 	};
 }
+
 
 namespace WordFrequency   //正确统计大小写英文单词的词频
 {

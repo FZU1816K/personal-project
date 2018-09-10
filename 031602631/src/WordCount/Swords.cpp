@@ -48,7 +48,7 @@ void Wsort::CS()
 	fin.open(finname);
 	if (!fin.is_open())
 	{
-		cerr << "Could not open" << finname << endl;
+		cerr << "Could not open " << finname << endl;
 		fin.clear();
 	}
 	string word;
@@ -67,18 +67,17 @@ void Wsort::CS()
 		{
 			if (word.length() >= 4)
 			{
-				if ((word[0] >= 97 && word[0] <= 122) && (word[1] >= 97 && word[1] <= 122) && (word[1] >= 97 && word[1] <= 122) && (word[1] >= 97 && word[1] <= 122))
+				if ((word[0] >= 97 && word[0] <= 122) && (word[1] >= 97 && word[1] <= 122) && (word[2] >= 97 && word[2] <= 122) && (word[3] >= 97 && word[3] <= 122))
 					++word_count[word]; //将单词相关联的计数器加 1
 			}
 			word = "";
 		}
 	}
-	if (fin.eof())
-		;
-	if (fin.fail())
-		cout << "Input terminated by data mismatch.\n";
+	if (fin.eof()) {}
+	else if (fin.fail())
+		printf("Input terminated by data mismatch.\n");
 	else
-		cout << "Input terminated for unknown reason.\n";
+		printf("Input terminated for unknown reason.\n");
 	fin.close();
 
 	//*********排序**********//

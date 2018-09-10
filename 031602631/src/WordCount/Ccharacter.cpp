@@ -23,7 +23,7 @@ void Character::count()
 	fin.open(finname);
 	if (!fin.is_open())
 	{
-		cerr << "Could not open" << finname << endl;
+		cerr << "Could not open " << finname << endl;
 		fin.clear();
 	}
 	fin >> noskipws;
@@ -35,9 +35,8 @@ void Character::count()
 			++number;
 		fin >> c;
 	}
-	if (fin.eof())
-		;
-	if (fin.fail())
+	if (fin.eof()) {}
+	else if (fin.fail())
 		printf("Input terminated by data mismatch.\n");
 	else
 		printf("Input terminated for unknown reason.\n");

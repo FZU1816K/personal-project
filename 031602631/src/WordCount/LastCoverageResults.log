@@ -1,0 +1,70 @@
+[2018-09-10 22:44:30] [info] Start Program:
+Path:"E:\Users\lenovo\Source\repos\WordCount\Debug\WordCount.exe"
+Arguments:
+Working directory: "E:\Users\lenovo\Source\repos\WordCount\WordCount\"
+Modules: Selected: E:\Users\lenovo\Source\repos\WordCount\Debug\WordCount.exe E:\Users\lenovo\Source\repos\WordCount\Debug\UnitTest1.dll Excluded: 
+Sources: Selected: E:\Users\lenovo\Source\repos\WordCount\WordCount E:\Users\lenovo\Source\repos\WordCount\UnitTest1 Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\lenovo\AppData\Local\Temp\3p1e3dci.elv 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+
+[2018-09-10 22:44:30] [info] Module: E:\Users\lenovo\Source\repos\WordCount\Debug\WordCount.exe is selected because it matches selected pattern: 
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\wordcount.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 109 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 109 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 109 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 109 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 109 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 109 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\swords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\cwords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\cwords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\cwords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\cwords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\cwords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\cwords.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\clines.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\clines.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\clines.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\clines.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\clines.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\clines.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\ccharacter.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\ccharacter.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\ccharacter.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\ccharacter.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\ccharacter.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [warning] e:\users\lenovo\source\repos\wordcount\wordcount\ccharacter.cpp line 15732480 does not exist, skipped
+[2018-09-10 22:44:30] [info] Module: C:\Windows\SysWOW64\ntdll.dll is skipped because it matches no selected patterns
+[2018-09-10 22:44:30] [info] Module: C:\Windows\SysWOW64\kernel32.dll is skipped because it matches no selected patterns
+[2018-09-10 22:44:30] [info] Module: C:\Windows\SysWOW64\KernelBase.dll is skipped because it matches no selected patterns
+[2018-09-10 22:44:30] [info] Module: C:\Windows\SysWOW64\vcruntime140d.dll is skipped because it matches no selected patterns
+[2018-09-10 22:44:30] [info] Module: C:\Windows\SysWOW64\ucrtbased.dll is skipped because it matches no selected patterns
+[2018-09-10 22:44:30] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-10 22:44:30] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] Module: C:\Windows\SysWOW64\kernel.appcore.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] Module: C:\Windows\SysWOW64\msvcrt.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] Module: C:\Windows\SysWOW64\rpcrt4.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] Module: C:\Windows\SysWOW64\sspicli.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] Module: C:\Windows\SysWOW64\cryptbase.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] Module: C:\Windows\SysWOW64\bcryptprimitives.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] Module: C:\Windows\SysWOW64\sechost.dll is skipped because it matches no selected patterns
+[2018-09-10 22:45:25] [info] ----------------------------------------------------
+[2018-09-10 22:45:25] [info] Coverage binary generated in file: C:\Users\lenovo\AppData\Local\Temp\3p1e3dci.elv
+[2018-09-10 22:45:25] [info] ----------------------------------------------------
