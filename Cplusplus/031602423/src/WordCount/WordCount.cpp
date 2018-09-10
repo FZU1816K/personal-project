@@ -163,7 +163,6 @@ int word(string strr) {
 	return count;
 }
 
-
 int main(int argc,char* argv[])
 {
 	char* a = NULL;
@@ -174,14 +173,16 @@ int main(int argc,char* argv[])
 	ff=mytolower(ff);
 	//cout << ff << endl;
 	words = word(ff);
-	cout << "characters:" << characters << endl;
-	cout << "words:" << words << endl;
-	cout << "lines:" << lines << endl;
+	ofstream fout("result.txt");
+	fout << "characters: " << characters << endl;
+	fout << "words: " << words << endl;
+	fout << "lines: " << lines << endl;
 	for (int i = 0; i<tVector.size(); i++)
 	{
 		if (i == 10)
 			break;
-		cout << "<" << tVector[i].first << ">" << ":" << tVector[i].second << endl;
+		fout << "<" << tVector[i].first << ">" << ": " << tVector[i].second << endl;
 	}
+	fout.close();
 	return 0;
 }
