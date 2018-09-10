@@ -3,8 +3,14 @@
 #include<sstream>
 #include<string>
 #include<ctype.h>
+#include<algorithm>
 #include<map>
 using namespace std;
+struct WF
+{
+	int value;
+	string key;
+};
 class Counter
 {
 private:int Line;

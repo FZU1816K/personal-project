@@ -1,5 +1,9 @@
 #include "stdafx.h"
 using namespace std;
+bool cmp(const struct WF& a, const struct WF& b)
+{
+	return a.value > b.value;
+}
 string Conventor(int src)//×ª»»itos
 {
 	stringstream ss;
@@ -197,26 +201,36 @@ string Counter::WordFreq()
 	string temps = "\0";
 	stringstream ss;
 	int i = 0;
+	
+	WF a[100];
 	for (i = 0; it != mymap.end(); it++, i++)
+	{
+		a[i].key = it->first;
+		a[i].value = it->second;
+	}
+	stable_sort(&a[0], &a[i+1], cmp);
+	for (j = 0; j<i;  j++)
 	{
 		ss.clear();
 		temps = "\0";
-		str[i] = "\0";
-		ss << it->second;
+		str[j] = "\0";
+		ss << a[j].value;
 		ss >> temps;
-		str[i] = "<" + it->first + "" + ">: " + temps;
+		str[j] = "<" + a[j].key + "" + ">: " + temps;
 	}
+	cout << "i==" << i;
 
 	//str[i] = "\0";
 	//for (i = 0; str[i] != "\0"; i++)
 	//	cout << str[i] << endl;
 	for (i = 0; str[i] != "\0"; i++)
 	{
+		if (i >= 10)break;
 		if(str[i][0]=='<')
 			result += str[i] + "\n";
 		else break;
 	}
-		infile.close();
+	infile.close();
 	return result;
 }
 void Counter::Write()
