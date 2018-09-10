@@ -1,6 +1,3 @@
-
-#include "stdafx.h"
-using namespace std;
 #include "stdafx.h"
 using namespace std;
 string Conventor(int src)//转换itos
@@ -12,10 +9,10 @@ string Conventor(int src)//转换itos
 	ss >> dst;
 	return dst;
 }
-int LineCount(string fn)//统计行数
+int Counter::LineCount()//统计行数
 {
 	ifstream infile;
-	infile.open(fn);
+	infile.open(sfn);
 	string str[1000];
 	int line = 0;
 	while (infile)//文件处理 
@@ -24,14 +21,14 @@ int LineCount(string fn)//统计行数
 		if (str[line] != "\0")//统计行数，不计算空行
 			line++;
 	}
-	cout << "lines: " << line << endl;
+	//cout << "lines: " << line << endl;
 	infile.close();
 	return line;
 }
-int CharCount(string fn)
+int Counter::CharCount()
 {
 	ifstream infile;
-	infile.open(fn);
+	infile.open(sfn);
 	string str[1000];
 	int ch = 0, line = 0;
 
@@ -45,14 +42,14 @@ int CharCount(string fn)
 		ch += str[i].size();
 	}
 	ch += line;
-	cout << "characters: " << ch << endl;
+	//cout << "characters: " << ch << endl;
 	infile.close();
 	return ch;
 }
-int WordCount(string fn)
+int Counter::WordCount()
 {
 	ifstream infile;
-	infile.open(fn);
+	infile.open(sfn);
 	string str[1000], str1[1000];
 	int ch = 0, line = 0;
 	int words = 0;
@@ -115,10 +112,10 @@ int WordCount(string fn)
 	return words;
 }
 
-string WordFreq(string fn)
+string Counter::WordFreq()
 {
 	ifstream infile;
-	infile.open(fn);
+	infile.open(sfn);
 	string str[1000], str1[1000], result;
 	int ch = 0, line = 0;
 	int words = 0;
@@ -210,15 +207,19 @@ string WordFreq(string fn)
 		str[i] = "<" + it->first + "" + ">: " + temps;
 	}
 
-	str[i] = "\0";
+	//str[i] = "\0";
+	//for (i = 0; str[i] != "\0"; i++)
+	//	cout << str[i] << endl;
 	for (i = 0; str[i] != "\0"; i++)
-		cout << str[i] << endl;
-	for (i = 0; str[i] != "\0"; i++)
-		result += str[i] + "\n";
-	infile.close();
+	{
+		if(str[i][0]=='<')
+			result += str[i] + "\n";
+		else break;
+	}
+		infile.close();
 	return result;
 }
-void Write(string sfn, string dfn)
+void Counter::Write()
 {
 	stringstream ss;
 	ifstream infile;
@@ -227,10 +228,10 @@ void Write(string sfn, string dfn)
 	int v = 0;
 
 	infile.open(sfn);
-	result += "characters: " + Conventor(CharCount(sfn)) + "\n";
-	result += "words: " + Conventor(WordCount(sfn)) + "\n";
-	result += "lines: " + Conventor(LineCount(sfn)) + "\n";
-	result += WordFreq(sfn);
+	result += "characters: " + Conventor(CharCount()) + "\n";
+	result += "words: " + Conventor(WordCount()) + "\n";
+	result += "lines: " + Conventor(LineCount()) + "\n";
+	result += WordFreq();
 	infile.close();
 
 	ofstream outfile;
@@ -238,16 +239,18 @@ void Write(string sfn, string dfn)
 	outfile << result << endl;
 	outfile.close();
 }
-int main()
+int main(int argc, char* argv[])
 {
-	string sfn = "test.txt";
-	string dfn = "result.txt";
+	string sfn = argv[1];
+	string dfn = "F:\\软工\\WordCount\\WordCount\\WordCount\\result.txt";
+	Counter Cou(sfn, dfn);
 
-	CharCount(sfn);
-	WordCount(sfn);
-	LineCount(sfn);
-	WordFreq(sfn);
-	Write(sfn, dfn);
+	//Cou.CharCount();
+	//Cou.WordCount();
+	//Cou.LineCount();
+	//Cou.WordFreq();
+	//cout << Cou.WordFreq();
+	Cou.Write();
 	system("pause");
 	return 0;
 }

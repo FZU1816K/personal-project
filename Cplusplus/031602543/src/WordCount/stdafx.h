@@ -5,9 +5,28 @@
 #include<ctype.h>
 #include<map>
 using namespace std;
-int LineCount(string fn);
-int CharCount(string fn);
-int WordCount(string fn);
-string WordFreq(string fn);
-void Write(string sfn, string dfn);
+class Counter
+{
+private:int Line;
+		int Ch;
+		int Words;
+		string Freq;
+		string sfn, dfn;
+public:Counter(){}
+	   Counter(string sfn,string dfn)
+	   {
+		   this->sfn = sfn;
+		   this->dfn = dfn;
+		   Line = 0;
+		   Ch = 0;
+		   Words = 0;
+		   Freq = "\0";
+	   }
+	   int LineCount();
+	   int CharCount();
+	   int WordCount();
+	   string WordFreq();
+	   void Write();
+};
+
 string Conventor(int src);
