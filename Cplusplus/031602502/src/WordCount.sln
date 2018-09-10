@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WordCount", "WordCount\WordCount.vcxproj", "{FC4D3981-2CD0-49B6-BC90-B26DBE0EEA99}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WordCountUnitTest", "WordCountUnitTest\WordCountUnitTest.vcxproj", "{C48C0344-25D9-476A-9E6F-440722B65172}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,11 +23,19 @@ Global
 		{FC4D3981-2CD0-49B6-BC90-B26DBE0EEA99}.Release|x64.Build.0 = Release|x64
 		{FC4D3981-2CD0-49B6-BC90-B26DBE0EEA99}.Release|x86.ActiveCfg = Release|Win32
 		{FC4D3981-2CD0-49B6-BC90-B26DBE0EEA99}.Release|x86.Build.0 = Release|Win32
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Debug|x64.ActiveCfg = Debug|x64
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Debug|x64.Build.0 = Debug|x64
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Debug|x86.ActiveCfg = Debug|Win32
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Debug|x86.Build.0 = Debug|Win32
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Release|x64.ActiveCfg = Release|x64
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Release|x64.Build.0 = Release|x64
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Release|x86.ActiveCfg = Release|Win32
+		{C48C0344-25D9-476A-9E6F-440722B65172}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7D6B1CBE-391F-49D5-ABD5-18245033DE3D}
+		SolutionGuid = {9BA73645-0E8C-4069-B81F-A1E7AA5E5DB3}
 	EndGlobalSection
 EndGlobal

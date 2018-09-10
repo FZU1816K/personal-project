@@ -1,4 +1,7 @@
-﻿#include "stdafx.h"
+﻿//----------------------------------------------------------------------------
+//要运行单元测试，先以Debug x86方式运行WordCount，确保有在指定路径下有.obj文件
+//----------------------------------------------------------------------------
+#include "stdafx.h"
 #include "CppUnitTest.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -13,7 +16,7 @@ using namespace std;
 #include <fstream>
 #include <algorithm>
 
-#define UNIT_TEST_CASE 100
+#define UNIT_TEST_CASE 20
 #define MAX_LINE_NUM 50
 #define MIN_LINE_NUM 0
 #define MAX_LINE_LEN 20
