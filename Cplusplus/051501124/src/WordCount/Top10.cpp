@@ -95,7 +95,7 @@ void CountWords(char *filename)
 		
 	}
 
-	WordFrequency.erase(" ");
+	//WordFrequency.erase(" ");
 	
 }
 
@@ -114,12 +114,16 @@ bool mysort(const pair<string, int> &left, const pair<string, int> &right)
 
 vector<pair<string, int>> top10words(char *filename)
 {
-	CountWords(filename);
+	CountWords(filename); //count all words
 	unordered_map<string, int>::iterator it;
-	for (it = WordFrequency.begin(); it != WordFrequency.end(); it++)
+	for (it = WordFrequency.begin(); it != WordFrequency.end(); it++) // iterate all words in WordFrequency
 	{
 		pair<string, int> word = make_pair(it->first, it->second);
-		
+		if (it->first == " ")
+		{
+			continue;
+		}
+
 		if (top10Word.size() == 10)
 		{
 			pair<string, int> rareWord = top10Word.top();

@@ -10,11 +10,12 @@ int CountAllWords(char *filename)
 	int cnt = 0;
 	while (f >> temp)
 	{
-		bool is_head = true;//at the beginning of a word
-		bool not_a_word = false;
+		
 		string word = "";
 		int i;
 		int slen = temp.length();
+		bool is_head = true;//at the beginning of a word
+		bool not_a_word = false;
 		for (i = 0; i < slen; i++)  //todo:avoid digit-first-word
 		{
 			if ((temp[i] <= '9') && (temp[i]) >= '0') // deal with digit
@@ -40,31 +41,23 @@ int CountAllWords(char *filename)
 
 			if (ispunct(temp[i]))//deal with punctions (i.e ',')
 			{
-
-				//cout << word << endl;
 				// 9/9mornring
 				not_a_word = false;
 				if (word.length() >= 4)
 				{
 					cnt++;
-
-
 				}
 				word = "";
 				continue;
 			}
 			if (i == slen - 1)
 			{
-				//cout << word << endl;
 				if (word.length() >= 4)
 				{
 					cnt++;
-
 				}
 			}
-
 		}
-		
 	}
 	return cnt;
 }
