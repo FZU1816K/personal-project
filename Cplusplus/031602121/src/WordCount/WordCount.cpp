@@ -17,7 +17,5 @@ int main(int argc,char **argv)
 	int CharNum = CountChars(argv[1]);
 	cout << "characters£º" << CharNum << endl << "words: " << WordNum << endl << "lines: "<< LineNum << endl;
 	CountWF(argv[1]);
-	getchar();
-	getchar();
 	return 0;
 }
