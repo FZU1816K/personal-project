@@ -24,6 +24,7 @@ namespace UnitTest1
 			Char_counter cc;
 			Line_counter lc;
 			Word_operater wo;
+			ofstream outfile;
 			string std[10];
 			int std1[10];
 			int a, b, c;
@@ -43,7 +44,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo, outfile);
 
 
 			Assert::AreEqual(1560, a);
@@ -96,6 +97,7 @@ namespace UnitTest1
 			Char_counter cc;
 			Line_counter lc;
 			Word_operater wo;
+			ofstream outfile;
 			string std[10];
 			int std1[10];
 			int a, b, c;
@@ -115,7 +117,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo, outfile);
 
 
 			Assert::AreEqual(1560, a);
@@ -163,6 +165,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod3)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -187,7 +190,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(1216, a);
@@ -235,6 +238,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod4)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -259,7 +263,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(1399, a);
@@ -307,6 +311,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod5)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -331,7 +336,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(1026, a);
@@ -379,6 +384,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod6)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -403,7 +409,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(380, a);
@@ -449,6 +455,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod7)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -473,7 +480,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(2323, a);
@@ -521,6 +528,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod8)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -545,7 +553,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(1893, a);
@@ -593,6 +601,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod9)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -617,7 +626,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(1706, a);
@@ -665,6 +674,7 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod10)
 		{
 			ifstream f;
+			ofstream outfile;
 			Files file_input;
 			int u = 1;
 			Char_counter cc;
@@ -689,7 +699,7 @@ namespace UnitTest1
 			cc.set_chrcnt(a);
 			lc.set_lnecnt(b);
 			wo.set_wrdcnt(c);
-			wo.file_rank(file_input, wo);
+			wo.file_rank(file_input, wo,outfile);
 
 
 			Assert::AreEqual(1065, a);
@@ -730,5 +740,6 @@ namespace UnitTest1
 		}
 
 	};
+
 	
 }

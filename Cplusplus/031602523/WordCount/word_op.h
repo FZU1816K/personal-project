@@ -55,5 +55,5 @@ public:
 	}
 	void insert(string w);
 	int words_counter(ifstream &f, Files &fn);
-	void file_rank(Files &fn, Word_operater &wn);
+	void file_rank(Files &fn, Word_operater &wn, ofstream &outfile);
 };

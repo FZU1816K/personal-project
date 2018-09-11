@@ -68,7 +68,7 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 				}
 				cnt++;
 				insert(thisword);
-				//cout << temp << endl;
+				
 			}
 			else//如果不是单词就跳到下一个单词的第一个字母
 			{
@@ -84,11 +84,9 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 	return cnt;
 }
 
-void Word_operater::file_rank(Files &fn, Word_operater &wn)//统计词频
+void Word_operater::file_rank(Files &fn, Word_operater &wn, ofstream &outfile)//统计词频
 {
 	int num;
-	ofstream outfile;
-	outfile.open("result.txt", ios::out);
 	int flag = 0;//判断出现次数最大的结点是不是表首 0不是 1是
 	node *max, *q, *p, *front_max;
 	front_max = new node("", 0);
