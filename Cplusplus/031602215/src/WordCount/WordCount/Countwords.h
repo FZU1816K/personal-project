@@ -27,7 +27,7 @@ map<string, int>  Countwords(char *filename)
 	}
 
 	else infile.open(filename);
-	assert(infile.is_open());
+	if (!infile) exit(1);
 
 	int count = 0, row_count = 1;
 	char c;
