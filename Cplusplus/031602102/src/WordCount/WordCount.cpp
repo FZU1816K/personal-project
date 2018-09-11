@@ -1,5 +1,5 @@
 #include"stdafx.h"
-//#include<time.h>
+#include<time.h>
 using namespace std;
 
 int lines = 0, characters = 0, wordNum = 0;
@@ -8,9 +8,8 @@ void countWord(unordered_map<string, int>& words, string filename, ifstream& inf
 {
 	unordered_map<string, int>::iterator iter;
 	infile.open(filename);
-	set<string> WordSet;
 	string word;
-	while (infile >> word)
+	while (infile >> word)//利用文件输入流将字符串与分隔符分离，将字符串输入到word里面，再来判断是否属于单词与统计
 	{
 		if (word.size() < 4)
 			continue;
@@ -44,7 +43,7 @@ void wordSort(unordered_map<string, int>& words, ofstream& outfile)
 		outfile << "<" << tmp[i].first << ">:" << " " << tmp[i].second << endl;
 }
 
-void countLine(ifstream& infile)//统计行数
+void countLine(ifstream& infile)//统计行数以及字符数
 {
 	string s;
 	while (getline(infile, s))
@@ -62,11 +61,12 @@ void countLine(ifstream& infile)//统计行数
 
 int main(int argc, char* argv[])
 {
-	//long start = clock();
+	long start = clock();
 	unordered_map<string, int> words;
 	ifstream infile;
 	ofstream outfile;
-	countWord(words, "data.txt", infile);
+	//string filename = argv[1];//这句是在进行控制台操作时使用
+	countWord(words, "input.txt", infile);
 	infile.clear();
 	infile.seekg(0, ios::beg);//将指针重新定位到文件头
 	countLine(infile);
@@ -77,8 +77,8 @@ int main(int argc, char* argv[])
 	outfile << "lines:" << lines << endl;
 	wordSort(words, outfile);
 	outfile.close();
-	//long end = clock();
-	//cout << "程序执行结束,共花费秒数:" << ( end - start )/ CLOCKS_PER_SEC << endl;
+	long end = clock();
+	cout << "程序执行结束,共花费秒数:" << ( end - start )/ CLOCKS_PER_SEC << endl;
 	system("pause");
 	return 0;
 }
