@@ -13,12 +13,29 @@ string Conventor(int src)//转换itos
 	ss >> dst;
 	return dst;
 }
+int DetectFileOpen(ifstream &infile)
+{
+	if (!infile.is_open())
+	{
+		cout << "Cannot open the file, please input right filename!";
+		system("pause");
+		return 0;
+	}
+}
+int DetectOutfileOpen(ofstream &outfile)
+{
+	if (!outfile.is_open())
+	{
+		cout << "Cannot open the file!";
+		system("pause");
+		return 0;
+	}
+}
 int Counter::LineCount()//统计行数
 {
 	ifstream infile;
-	DetectFileOpen(infile);
 	infile.open(sfn);
-	
+	DetectFileOpen(infile);
 	string str[Linethreshold];
 	int line = 0;
 	while (infile)//文件处理 
@@ -34,8 +51,8 @@ int Counter::LineCount()//统计行数
 int Counter::CharCount()
 {
 	ifstream infile;
-	DetectFileOpen( infile);
 	infile.open(sfn);
+	DetectFileOpen(infile);
 	string str[Linethreshold];
 	int ch = 0, line = 0;
 
@@ -58,8 +75,8 @@ int Counter::CharCount()
 int Counter::WordCount()
 {
 	ifstream infile;
-	DetectFileOpen(infile);
 	infile.open(sfn);
+	DetectFileOpen(infile);
 	string str[Linethreshold], str1[Wordthreshold];
 	int ch = 0, line = 0;
 	int words = 0;
@@ -127,8 +144,8 @@ int Counter::WordCount()
 string Counter::WordFreq()
 {
 	ifstream infile;
-	DetectFileOpen(infile);
 	infile.open(sfn);
+	DetectFileOpen(infile);
 	string str[Linethreshold], str1[Wordthreshold], result;
 	int ch = 0, line = 0;
 	int words = 0;
@@ -251,11 +268,13 @@ void Counter::Write()
 {
 	stringstream ss;
 	ifstream infile;
-	DetectFileOpen(infile);
+
 	string result, temp;
 	int v = 0;
 
 	infile.open(sfn);
+	DetectFileOpen(infile);
+	
 	result += "characters: " + Conventor(CharCount()) + "\n";
 	result += "words: " + Conventor(WordCount()) + "\n";
 	result += "lines: " + Conventor(LineCount()) + "\n";
@@ -265,27 +284,13 @@ void Counter::Write()
 	ofstream outfile;
 	outfile.open(dfn);
 	DetectOutfileOpen(outfile);
+	
 	outfile << result << endl;
 	outfile.close();
 }
-int DetectFileOpen(ifstream &infile)
-{
-	if (!infile.is_open())
-	{
-		cout << "Cannot open the file, please input right filename!";
-		system("pause");
-		return 0;
-	}
-}
-int DetectOutfileOpen(ofstream &outfile)
-{
-	if (outfile.is_open())
-	{
-		cout << "Cannot open the file!";
-		system("pause");
-		return 0;
-	}
-}
+//int DetectFileOpen(ifstream &infile)
+//int DetectOutfileOpen(ofstream &outfile)
+
 int main(int argc, char* argv[])//
 {
 	if (argc != 2)
@@ -294,7 +299,7 @@ int main(int argc, char* argv[])//
 		system("pause");
 	}
 	string sfn = argv[1];
-	string dfn = "F:\\软工\\WordCount\\WordCount\\WordCount\\result.txt";
+	string dfn = "result.txt";
 	Counter Cou(sfn, dfn);
 
 	//Cou.CharCount();
@@ -302,7 +307,7 @@ int main(int argc, char* argv[])//
 	//Cou.LineCount();
 	//Cou.WordFreq();
 	//cout << Cou.WordFreq();
-	for(int i=0;i<100;i++)
+	//for(int i=0;i<100;i++)
 		Cou.Write();
 	return 0;
 }
