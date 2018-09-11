@@ -41,11 +41,13 @@ int Counter::CharCount()
 		getline(infile, str[line]);//按行读取
 		line++;
 	}
-	for (int i = 0; i <= line; i++)
+	line--;
+	cout << line;
+	for (int i = 0; i < line; i++)
 	{
 		ch += str[i].size();
 	}
-	ch += line;
+	ch += line-1;
 	//cout << "characters: " << ch << endl;
 	infile.close();
 	return ch;
@@ -83,26 +85,28 @@ int Counter::WordCount()
 	}
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
 
-	j -= 1;
+	j --;
 	words = 0;
 	int k = 0;
-	bool isword = true;
-	for (int i = 0; i<j - 1; i++)//单词统计 
+	int isword = 1;
+	for (int i = 0; i<j ; i++)//单词统计 
 	{
-		isword = true;
+		isword = 1; 
+		if (isword)
 		for (k = 0; k<4; k++)//除去数字开头
 		{
 			if (str1[i][0] == '\0')
 			{
-				isword = false;
-				break;
+				isword = 0;
+				break; 
 			}
 			if (str1[i][k] == '\0')break;
 			else if (!isalpha(str1[i][k])) {
-				isword = false;
+				isword = 0;
 				break;
 			}
 		}
+
 		if (isword) {
 			words++;
 		}
@@ -142,18 +146,22 @@ string Counter::WordFreq()
 	}
 
 	int j = 0;
-
+	
 	for (int i = 0; i<line; i++)//将空格处理后的文档转化为单词 
 	{
-		istringstream stream(str[i]);
-		while (stream)stream >> str1[j++];
+		if (str[i]!="\0") {
+			istringstream stream(str[i]);
+			while (stream)stream >> str1[j];
+			j++;
+		}
 	}
+
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
-	j -= 1;
+	
 	words = 0;
 	int k = 0;
 
-	for (int i = 0; i<j - 1; i++)//单词筛选
+	for (int i = 0; i<j; i++)//单词筛选
 	{
 		isword = true;
 		for (k = 0; k<4; k++)//除去数字开头
@@ -173,12 +181,11 @@ string Counter::WordFreq()
 			str1[i] = '\0';
 		}
 	}
-
+	
 	map<string, int> mymap;
 	map<string, int>::iterator it;
 
-
-	for (int i = 0; i<j - 1; i++)
+	for (int i = 0; i<j ; i++)
 	{
 		//查找 是否有key 有的话 value++
 		//否则加入这个key 
@@ -191,23 +198,24 @@ string Counter::WordFreq()
 		{
 			mymap[str1[i]]++;
 		}
-	}
-	it = mymap.begin();
-	it++;
+	}	
+
 	//	for (; it != mymap.end(); it++)
 	//	cout << '<'<<it->first << ">: " << it->second << endl;
 	it = mymap.begin();
-	it++;
+
 	string temps = "\0";
 	stringstream ss;
 	int i = 0;
 	
 	WF a[100];
+
 	for (i = 0; it != mymap.end(); it++, i++)
-	{
+	{	
 		a[i].key = it->first;
 		a[i].value = it->second;
 	}
+	
 	stable_sort(&a[0], &a[i+1], cmp);
 	for (j = 0; j<i;  j++)
 	{
@@ -218,11 +226,11 @@ string Counter::WordFreq()
 		ss >> temps;
 		str[j] = "<" + a[j].key + "" + ">: " + temps;
 	}
-	cout << "i==" << i;
+	//cout << "i==" << i;
 
 	//str[i] = "\0";
 	//for (i = 0; str[i] != "\0"; i++)
-	//	cout << str[i] << endl;
+		//cout << str[i] << endl<<endl;
 	for (i = 0; str[i] != "\0"; i++)
 	{
 		if (i >= 10)break;
@@ -230,6 +238,7 @@ string Counter::WordFreq()
 			result += str[i] + "\n";
 		else break;
 	}
+	//cout << result;
 	infile.close();
 	return result;
 }
@@ -260,11 +269,11 @@ int main(int argc, char* argv[])
 	Counter Cou(sfn, dfn);
 
 	//Cou.CharCount();
-	//Cou.WordCount();
+	//cout<<"word="<<Cou.WordCount();
 	//Cou.LineCount();
 	//Cou.WordFreq();
-	//cout << Cou.WordFreq();
-	Cou.Write();
+	cout << Cou.WordFreq();
+	//Cou.Write();
 	system("pause");
 	return 0;
 }
