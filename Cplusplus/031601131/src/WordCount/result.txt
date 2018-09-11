@@ -1,5 +1,0 @@
-<dddd>:3
-<ffff>:3
-<abcabc>:2
-<fffff>:1
-<sadqwe>:1
