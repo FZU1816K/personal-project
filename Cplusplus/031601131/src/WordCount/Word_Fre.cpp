@@ -64,7 +64,7 @@ int Word_Fre(char * filename)
 		}
 		*/
 	ofstream outfile("result.txt", ios::out);
-	printf("The Top 10:\n:");
+	printf("The Top 10:\n");
 	if(Word_Num_vec.size()<10)
 		for (int i = 0; i != Word_Num_vec.size(); ++i) {
 			const char *ss = Word_Num_vec[i].first.c_str();
