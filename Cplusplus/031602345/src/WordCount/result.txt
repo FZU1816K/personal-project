@@ -1,8 +1,0 @@
-characters: 90
-words: 5
-lines: 8
-word: 4
-word1: 1
-word2: 1
-word3: 1
-word4: 1
