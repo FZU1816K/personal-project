@@ -28,6 +28,10 @@ public:
         return lineNum;
     }
 
+	map<string,int>* getStrMapPointer() {
+		return strMap;
+	}
+
 
 
 private:

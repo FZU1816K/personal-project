@@ -72,9 +72,8 @@ int ScanProcesser::processChar(char c){
 }
 
 int ScanProcesser::checkWordValid(string str){
-	cout << str;
 	unsigned int preCharCounts = 0;
-	while (preCharCounts < str.length() || isalpha(str[preCharCounts]))
+	while (preCharCounts < str.length() && isalpha(str[preCharCounts]))
 		preCharCounts++;
 	if (preCharCounts >= 4)
 		return 1;//True

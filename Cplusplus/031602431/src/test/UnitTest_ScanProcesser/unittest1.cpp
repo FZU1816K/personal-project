@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../WordCount/ScanProcesser.h"
-#include "../WordCount/ScanProcesser.cpp"
+#include "../../WordCount/ScanProcesser.h"
+#include "../../WordCount/ScanProcesser.cpp"
 #include <map>
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest_ScanProcesser
@@ -54,7 +53,6 @@ namespace UnitTest_ScanProcesser
 			if (iter != strMap.end()) {
 				Assert::AreEqual<int>(2, iter->second);
 			}
-
 		}
 
 	};
