@@ -30,7 +30,7 @@ void adjustDown(vector<unordered_map<string, int>::iterator> &top, int i)
 			break;
 	}
 }
-void topK(unordered_map<string, int> &essay, vector<unordered_map<string, int>::iterator> &top)
+void topK(unordered_map<string, int> &essay, vector<unordered_map<string, int>::iterator> &top, ofstream &fout)
 {
 	auto it = essay.begin();
 	//  初始化完全二叉树
@@ -66,13 +66,16 @@ void topK(unordered_map<string, int> &essay, vector<unordered_map<string, int>::
 		adjustDown(top, 0);              //  重新调整为小根堆；
 	}
 	sort(a, a + 10, cmp);
+	fout.open("result.txt", ios::app);
 	for (int i = 0; i < 10; i++)
 	{
-		cout << "<" << b[i] << ">: " << a[i] << endl;
+		fout << "<" << b[i] << ">: " << a[i] << endl;
 	}
+	fout.close();
 }
-void CountWF(char *filename)
+void CountWF(char *filename, ofstream &fout)
 {
+	int num = 0;
 	ifstream in(filename);          //  打开文件
 	if (!in)
 	{
@@ -106,20 +109,29 @@ void CountWF(char *filename)
 			if (count >= 4) //若符合要求，则记录
 			{
 				char words[100] = { '\0' };
+				
 				for (int k = i; k < i + count; k++)
 				{
 					words[k - i] = ss[k];
+					
 				}
 				string s;
 				s = words;
-				essay[s]++;
+				essay[s]++; num++;
 				i += count - 1;
 			}
 			else if (count>0 && count<4)i += count - 1;
 			else continue;
 		}
 
+	} 
+	if (num < 10) 
+	{ 
+		cout << "文本中不同的单词不足10个，无法统计前十词频" << endl;
 	}
-	vector < unordered_map<string, int> ::iterator> top(K, essay.begin());
-	topK(essay, top);
+	else
+	{
+		vector < unordered_map<string, int> ::iterator> top(K, essay.begin());
+		topK(essay, top, fout);
+	}
 }

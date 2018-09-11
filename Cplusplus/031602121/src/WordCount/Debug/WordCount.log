@@ -1,2 +1,5 @@
 ﻿  WordCount.cpp
+c:\users\kami\desktop\wordcount\wordcount\countwf.h(92): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\kami\desktop\wordcount\wordcount\countwords.h(24): warning C4018: “<”: 有符号/无符号不匹配
+    正在创建库 C:\Users\KAMI\Desktop\WordCount\Debug\WordCount.lib 和对象 C:\Users\KAMI\Desktop\WordCount\Debug\WordCount.exp
   WordCount.vcxproj -> C:\Users\KAMI\Desktop\WordCount\Debug\WordCount.exe

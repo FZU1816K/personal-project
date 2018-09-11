@@ -169,9 +169,6 @@
     <ClInclude Include="CountWords.h" />
     <ClInclude Include="CountWF.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="Dll1.lib" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
