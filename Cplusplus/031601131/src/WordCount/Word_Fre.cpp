@@ -1,7 +1,7 @@
 #include"Word_Fre.h"
 
 
-typedef pair<string, double> PAIR;
+typedef pair<string, int> PAIR;
 struct CmpByValue {
 	bool operator()(const PAIR& lhs, const PAIR& rhs) {
 		return lhs.second > rhs.second;
@@ -68,14 +68,15 @@ int Word_Fre(char * filename)
 	if(Word_Num_vec.size()<10)
 		for (int i = 0; i != Word_Num_vec.size(); ++i) {
 			const char *ss = Word_Num_vec[i].first.c_str();
-			cout << ss << ":" << Word_Num_vec[i].second << endl;
-			outfile << ss << ":" << Word_Num_vec[i].second << endl;
+			printf("<%s>: %d\n", ss, Word_Num_vec[i].second);
+			outfile <<"<"<< ss << ">"<<":" << Word_Num_vec[i].second << endl;
 		}
 	else
 		for (int i = 0; i != 10; ++i) {
 			const char *ss = Word_Num_vec[i].first.c_str();
-			cout << ss << ":" << Word_Num_vec[i].second << endl;
-			outfile << ss << ":" << Word_Num_vec[i].second << endl;
+			printf("%s: %d\n", ss, Word_Num_vec[i].second);
+			outfile << "<" << ss << ">" << ":" << Word_Num_vec[i].second << endl;
 		}
+	fclose(file);
 	return 0;
 }
