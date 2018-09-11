@@ -6,6 +6,7 @@ using namespace std;
 
 int CountChar(char *filename)
 {	//char *filename
+
 	ifstream infile;
 	
 	if (filename == nullptr)
@@ -14,8 +15,12 @@ int CountChar(char *filename)
 	}
 	else infile.open(filename);
 
-	if (!infile) exit(1);
-
+	if (!infile)
+	{ 
+		cout << "no input you file" << endl;
+		getchar();
+		return 0;
+	}
 	infile >> noskipws; //To force read in each character, do not filter whitespace, including line breaks
 	char c;
 	int count = 0;
