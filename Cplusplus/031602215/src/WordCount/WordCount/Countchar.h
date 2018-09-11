@@ -13,6 +13,9 @@ int CountChar(char *filename)
 		infile.open("input.txt");
 	}
 	else infile.open(filename);
+
+	if (!infile) exit(1);
+
 	infile >> noskipws; //To force read in each character, do not filter whitespace, including line breaks
 	char c;
 	int count = 0;
