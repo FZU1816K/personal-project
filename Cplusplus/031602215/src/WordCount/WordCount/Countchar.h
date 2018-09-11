@@ -17,10 +17,10 @@ int CountChar(char *filename)
 
 	if (!infile)
 	{ 
-		cout << "no input you file" << endl;
-		getchar();
+		cout << "you file is error" << endl;
 		return 0;
 	}
+
 	infile >> noskipws; //To force read in each character, do not filter whitespace, including line breaks
 	char c;
 	int count = 0;
