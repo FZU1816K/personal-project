@@ -11,15 +11,18 @@ using namespace std;
 
 int main(int argc, char *argv[])//主函数参数 argc表示个数 argv为参数数组地址
 {
-	string infilepath ;
-	if (argc == 2)				//判断主函数参数是否为两个
-		infilepath = argv[1];
-	else if (argc == 1)
-		cin >> infilepath;
-	else cout << "输入参数过多，错误！" << endl;
-	File f(infilepath, "result.txt");
-	Problem p(f.readfile());
-	f.DrawText(p.getcharacters(), p.getwords(), p.getlines(), p.getmax_fre());
-//	system("pause");
+	try
+	{
+		string infilepath;
+		infilepath = Parameters_judgment(argc,argv);
+		File f(infilepath, "result.txt");
+		f.OpenFile();
+		Problem p(f.readfile());
+		f.DrawText(p.getcharacters(), p.getwords(), p.getlines(), p.getmax_fre());
+	}
+	catch (string Err)
+	{
+		cout << Err << endl;
+	}
 	return 0;
 }

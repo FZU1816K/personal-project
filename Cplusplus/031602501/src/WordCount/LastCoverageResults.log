@@ -1,0 +1,57 @@
+[2018-09-11 22:12:01] [info] Start Program:
+Path:"C:\Users\Administrator\source\repos\WordCount\Debug\WordCount.exe"
+Arguments:
+Working directory: "C:\Users\Administrator\source\repos\WordCount\WordCount\"
+Modules: Selected: C:\Users\Administrator\source\repos\WordCount\Debug\WordCount.exe Excluded: 
+Sources: Selected: C:\Users\Administrator\source\repos\WordCount\WordCount Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\Administrator\AppData\Local\Temp\nnnbyedd.eon 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+
+[2018-09-11 22:12:01] [info] Module: C:\Users\Administrator\source\repos\WordCount\Debug\WordCount.exe is selected because it matches selected pattern: C:\Users\Administrator\source\repos\WordCount\Debug\WordCount.exe
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\wordcount.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.h line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\file.h line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 173 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 173 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\problem.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\file.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\file.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\file.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\file.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [warning] c:\users\administrator\source\repos\wordcount\wordcount\file.cpp line 15732480 does not exist, skipped
+[2018-09-11 22:12:01] [info] Module: C:\Windows\SysWOW64\ntdll.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:01] [info] Module: C:\Windows\SysWOW64\kernel32.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:01] [info] Module: C:\Windows\SysWOW64\KernelBase.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:01] [info] Module: C:\Windows\SysWOW64\vcruntime140d.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:01] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:01] [info] Module: C:\Windows\SysWOW64\ucrtbased.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:01] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] Module: C:\Windows\SysWOW64\kernel.appcore.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] Module: C:\Windows\SysWOW64\msvcrt.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] Module: C:\Windows\SysWOW64\rpcrt4.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] Module: C:\Windows\SysWOW64\sspicli.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] Module: C:\Windows\SysWOW64\cryptbase.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] Module: C:\Windows\SysWOW64\bcryptprimitives.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] Module: C:\Windows\SysWOW64\sechost.dll is skipped because it matches no selected patterns
+[2018-09-11 22:12:05] [info] ----------------------------------------------------
+[2018-09-11 22:12:05] [info] Coverage binary generated in file: C:\Users\Administrator\AppData\Local\Temp\nnnbyedd.eon
+[2018-09-11 22:12:06] [info] ----------------------------------------------------
