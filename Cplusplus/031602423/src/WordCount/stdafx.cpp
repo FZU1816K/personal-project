@@ -99,7 +99,8 @@ int character(char* path) {
 	ff[i] = '\0';
 	infile.close();
 	count--;
-	lines++;
+	if(count !=0)
+		lines++;
 	ofstream fout("lines.txt");
 	fout << "lines: " << lines << endl;
 	return count;
