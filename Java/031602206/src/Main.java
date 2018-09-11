@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+        //String path = "input.txt";
         String path = "";
         if (args == null) {
             System.out.println("Error: No input file name!");
@@ -46,6 +47,6 @@ public class Main {
             } catch(IOException e) {
                 e.printStackTrace();
             }
-        //}
-    }
+        }
+    //}
 }

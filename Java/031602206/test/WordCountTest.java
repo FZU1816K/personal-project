@@ -23,7 +23,7 @@ public class WordCountTest {
             s = s + line + "\n";
         }
         WordCount wordsCount = new WordCount(s);
-        assertEquals(1, wordsCount.getWords());
+        assertEquals(2, wordsCount.getWords());
     }
 
     @Test

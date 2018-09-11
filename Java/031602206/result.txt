@@ -1,5 +1,4 @@
-characters: 15
+characters: 9
 words: 2
 lines: 2
-abcd��ancb: 1
-sjshj: 1
+abcd: 2

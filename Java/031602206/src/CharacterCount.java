@@ -17,7 +17,7 @@ public class CharacterCount {
 
         CharacterCount test = new CharacterCount();
         try {
-            System.out.println(test.charCount("abcd\n"));
+            System.out.println(test.charCount("abcd"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -28,16 +28,9 @@ public class most {
     public static void main(String[] args) {
 
         HashMap<String, Integer> test = new HashMap<>();
-        test.put("aaa1", 543);
-        test.put("fshdi", 1343);
-        test.put("fshda", 1342);
-        test.put("hsdf31", 654);
-        test.put("aaa2", 541);
-
+        test.put("abcd", 2);
         most most = new most();
-
         List<Map.Entry<String, Integer>> list = most.mostWord(test);
-        //System.out.println(list);
         list.forEach(System.out::println);
     }
 

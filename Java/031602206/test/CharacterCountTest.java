@@ -17,6 +17,6 @@ public class CharacterCountTest {
         while ((line = bufferedReader.readLine()) != null) {
             s = s + line + "\n";
         }
-        assertEquals(4, new CharacterCount().charCount(s));
+        assertEquals(9, new CharacterCount().charCount(s));
     }
 }
