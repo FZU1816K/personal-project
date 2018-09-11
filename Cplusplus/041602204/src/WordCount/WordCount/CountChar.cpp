@@ -1,4 +1,5 @@
 #include"CountChar.h"
+
 int CountChar(char * filename)
 {
 	int cnt = 0;

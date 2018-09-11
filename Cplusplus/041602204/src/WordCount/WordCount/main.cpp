@@ -3,25 +3,29 @@
 #include<string>
 #include"CountChar.h"
 #include"CountLines.h"
+#include"init.h"
+#include"WordFrequency.h"
+#include"Sort.h"
 using namespace std;
-int main(int argc,char **argv)
-{
-	int temp=initialization(argc,argv);
-	if(temp==-1) {                               //è¯´æ˜cmdçª—å£è¾“å…¥é”™è¯¯ã€‚ 
-		cout<<"Sorry, something errors happened!"<<endl;
+
+
+int main(int argc, char **argv)
+{    
+	//³õÊ¼»¯
+	int temp = init(argc, argv);
+	if (temp == -1) {                               //ËµÃ÷cmd´°¿ÚÊäÈë´íÎó¡£ 
+		cout << "Sorry, something errors happened!" << endl;
 		return 0;
 	}
-	//è¿›è¡Œæ–‡ä»¶åˆ†æè®¡ç®—ã€‚  ä¹Ÿæ˜¯ä¸»è¦çš„æ¡†æ¶æ‰€åœ¨
-	int chars_cnt=CountChar(argv[1]);
-	int words_cnt=CountWords(argv[1]);
-	int lines_cnt=CountLines(argv[1]);
-	??? top10=WordsTop10(argv[1]);
+	//½øĞĞÎÄ¼ş·ÖÎö¼ÆËã¡£  Ò²ÊÇÖ÷ÒªµÄ¿ò¼ÜËùÔÚ
+	int chars_cnt = CountChar(argv[1]);
+	int lines_cnt = CountLines(argv[1]);
 	//
-	//è¾“å‡ºç»“æœã€‚
-	cout<<"characters:"<<chars_cnt<<endl;
-	cout<<"words:"<<words_cnt<<endl;
-	cout<<"lines:"<<lines_cnt<<endl;
-	
-	return 0; 
-	
+	//Êä³ö½á¹û¡£
+	cout << "characters:" << chars_cnt << endl;
+	cout << "lines:" << lines_cnt << endl;
+	WordFrequency(argv[1]);                        //top10 = WordsTop10(argv[1]);
+	//½áÊø
+	return 0;
+
 }

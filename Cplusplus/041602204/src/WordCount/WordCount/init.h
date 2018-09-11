@@ -3,4 +3,4 @@
 #include<fstream>
 #include<string>
 using namespace std;
-int CountLines(char *filename);
+int init(int argc, char **argv);
