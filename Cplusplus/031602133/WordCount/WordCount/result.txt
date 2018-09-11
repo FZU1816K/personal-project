@@ -1,0 +1,12 @@
+character: 60
+words: 9
+lines: 7
+<bcvvzxc>: 1
+<bfdb>: 1
+<cnbc>: 1
+<dbsdvc>: 1
+<gdxcvx>: 1
+<vxdfbx>: 1
+<xgvxc>: 1
+<xvfdx>: 1
+<zxcnnji>: 1
