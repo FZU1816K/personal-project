@@ -1,5 +1,6 @@
 #include "word_op.h"
 #include "file.h"
+#include "pre.h"
 
 void Word_operater::insert(string w)//把单词插入哈希表
 {
@@ -56,7 +57,7 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 					break;
 				}
 			}
-			if (flag == 0)//如果是单词就提取单词到temp
+			if (flag == 0)//如果是单词就提取单词到thisword
 			{
 				thisword = "";
 				for (; i < len && ((temp[i] >= 65 && temp[i] <= 90) || (temp[i] >= 97 && temp[i] <= 122) || (temp[i] >= 48 && temp[i] <= 57)); i++)
@@ -83,13 +84,15 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 	return cnt;
 }
 
-void Word_operater::file_rank(Files &fn)//统计词频
+void Word_operater::file_rank(Files &fn, Word_operater &wn)//统计词频
 {
 	int num;
+	ofstream outfile;
+	outfile.open("result.txt", ios::out);
 	int flag = 0;//判断出现次数最大的结点是不是表首 0不是 1是
 	node *max, *q, *p, *front_max;
 	front_max = new node("", 0);
-	for (int j = 0; j < 10 && j < fn.get_wrdcnt(); j++)//遍历10次哈希表
+	for (int j = 0; j < 10 && j < wn.get_wrdcnt(); j++)//遍历10次哈希表
 	{
 		max = new node("", 0);//初始化max
 		for (int i = 0; i <= 18279; i++)
@@ -119,8 +122,11 @@ void Word_operater::file_rank(Files &fn)//统计词频
 		}
 		if (max->times != 0)
 		{
-			cout << "<" << max->name << ">:" << max->times << endl;//输出一个结果
-			//*outfile << "<" << max->name << ">:" << max->times << endl;//输出一个结果
+			//cout << "<" << max->name << ">:" << max->times << endl;//输出一个结果
+			wn.word_times[j] = max->times;
+			wn.word_str[j] = max->name;
+			//cout << wn.word_times[j] << " " << wn.word_str[j] << endl;
+			outfile << "<" << max->name << ">:" << max->times << endl;//输出一个结果
 		}
 		else  break;//如果max没有被替换，则此时哈希表是空的，不需要输出
 
