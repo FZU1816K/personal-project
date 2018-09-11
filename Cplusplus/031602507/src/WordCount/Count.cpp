@@ -29,8 +29,7 @@ int Count::countWordNum(vector<string> &linesBuf)
 	string wordBuf;
 	for (int i = 0; i != linesBuf.size(); i++) 
 	{
-		bool flag = false;
-		for (string::iterator it = linesBuf[i].begin(); it != linesBuf[i].end(); it++) 
+		for (string::iterator it = linesBuf[i].begin(); it != linesBuf[i].end(); it++)
 		{
 			if (isLetter(it) || isDigit(it)) 
 			{

@@ -54,7 +54,7 @@ void FileIO::outputToFile(int characterCount, int wordCount,int lineCount, vecto
 		}
 	}
 	wf.close();
-	cout << "Output Completed";
+	//cout << "Output Completed";
 }
 //获取文件名
 string FileIO::getFileName(int argc, char *argv[])
@@ -65,7 +65,7 @@ string FileIO::getFileName(int argc, char *argv[])
 	}
 	else
 	{
-		cout << "Wrong Parameter! trying open default file:input.txt" << endl;
+		//cout << "Wrong Parameter! trying open default file:input.txt" << endl;
 		return "input.txt";
 	}
 }
