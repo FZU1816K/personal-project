@@ -58,6 +58,7 @@ int Count::countWordNum(vector<string> &linesBuf)
 			}
 			wordCount++;
 		}
+		wordBuf = "";
 
 	}
 	return wordCount;

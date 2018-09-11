@@ -1,9 +1,9 @@
 /********************************************************************************
 * @File name: wc.cpp
 * @Author: ChenYuXin
-* @Version: 2.1
+* @Version: 2.2
 * @Date: 2018-09-11
-* @Description: Module Wrapping
+* @Description: Module Wrapping and Fix some bug
 ********************************************************************************/
 
 
