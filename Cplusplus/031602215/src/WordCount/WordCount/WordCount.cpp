@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-
 #include <cassert>
 #include <string>
 #include <map>
@@ -24,10 +23,10 @@ int main(int argc, char *argv[])
 	 //getchar();
 	for (int i = 0; i < tVector.size(); i++)
 	{
-		fout << tVector[i].first << ": " << tVector[i].second << endl;
+		fout << "<"<<tVector[i].first << ">: " << tVector[i].second << endl;
 		if (i == 9) break;
 	}
 	fout.close();
-	
+	//getchar();
 	return 0;
 }
