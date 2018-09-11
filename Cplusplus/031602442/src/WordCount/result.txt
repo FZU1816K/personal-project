@@ -1,0 +1,13 @@
+characters £º 1259
+words £º 123
+lines £º 6
+<fifty> £º1
+<mosquito> £º4
+<repellent> £º5
+<products> £º6
+<including> £º1
+<patches> £º2
+<wristbands> £º2
+<prove> £º1
+<little> £º2
+<help> £º1
