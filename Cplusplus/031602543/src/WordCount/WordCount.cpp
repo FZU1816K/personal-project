@@ -16,7 +16,9 @@ string Conventor(int src)//转换itos
 int Counter::LineCount()//统计行数
 {
 	ifstream infile;
+	DetectFileOpen(infile);
 	infile.open(sfn);
+	
 	string str[Linethreshold];
 	int line = 0;
 	while (infile)//文件处理 
@@ -32,6 +34,7 @@ int Counter::LineCount()//统计行数
 int Counter::CharCount()
 {
 	ifstream infile;
+	DetectFileOpen( infile);
 	infile.open(sfn);
 	string str[Linethreshold];
 	int ch = 0, line = 0;
@@ -55,6 +58,7 @@ int Counter::CharCount()
 int Counter::WordCount()
 {
 	ifstream infile;
+	DetectFileOpen(infile);
 	infile.open(sfn);
 	string str[Linethreshold], str1[Wordthreshold];
 	int ch = 0, line = 0;
@@ -123,6 +127,7 @@ int Counter::WordCount()
 string Counter::WordFreq()
 {
 	ifstream infile;
+	DetectFileOpen(infile);
 	infile.open(sfn);
 	string str[Linethreshold], str1[Wordthreshold], result;
 	int ch = 0, line = 0;
@@ -246,7 +251,7 @@ void Counter::Write()
 {
 	stringstream ss;
 	ifstream infile;
-
+	DetectFileOpen(infile);
 	string result, temp;
 	int v = 0;
 
@@ -259,12 +264,36 @@ void Counter::Write()
 
 	ofstream outfile;
 	outfile.open(dfn);
+	DetectOutfileOpen(outfile);
 	outfile << result << endl;
 	outfile.close();
 }
-int main()//int argc, char* argv[]
+int DetectFileOpen(ifstream &infile)
 {
-	string sfn = "F:\\软工\\WordCount\\WordCount\\WordCount\\test.txt";//argv[1];
+	if (!infile.is_open())
+	{
+		cout << "Cannot open the file, please input right filename!";
+		system("pause");
+		return 0;
+	}
+}
+int DetectOutfileOpen(ofstream &outfile)
+{
+	if (outfile.is_open())
+	{
+		cout << "Cannot open the file!";
+		system("pause");
+		return 0;
+	}
+}
+int main(int argc, char* argv[])//
+{
+	if (argc != 2)
+	{
+		cout << "Uncorrect parameters, Please attach .exe and .txt file in order.";
+		system("pause");
+	}
+	string sfn = argv[1];
 	string dfn = "F:\\软工\\WordCount\\WordCount\\WordCount\\result.txt";
 	Counter Cou(sfn, dfn);
 
@@ -275,6 +304,5 @@ int main()//int argc, char* argv[]
 	//cout << Cou.WordFreq();
 	for(int i=0;i<100;i++)
 		Cou.Write();
-	system("pause");
 	return 0;
 }

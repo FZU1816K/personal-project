@@ -37,5 +37,6 @@ public:Counter(){}
 	   string WordFreq();
 	   void Write();
 };
-
+int DetectFileOpen(ifstream &infile);
+int DetectOutfileOpen(ofstream &outfile);
 string Conventor(int src);
