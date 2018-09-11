@@ -14,7 +14,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-	ofstream fout("result.txt"); //output
+	ofstream fout("result.txt"); //output---->result
 	fout << "characters: "<<CountChar(argv[1]) << endl;   //no. of characters
 	fout << "words: " << Countwords_num(Countwords(argv[1])) << endl;  //no. of words
 	fout << "lines: " << Countlines(argv[1]) << endl;  //no. of lines
