@@ -37,15 +37,15 @@ namespace wordTest
 		TEST_METHOD(TestMethod1)//测试字符统计功能
 		{
 			Count count;
-			string testStr = readChar("test1.txt");
-			Assert::AreEqual(0, count.countCharNum(testStr));
+			string wordBuf = readChar("test1.txt");
+			Assert::AreEqual(0, count.countCharNum(wordBuf));
 
 		}
 		TEST_METHOD(TestMethod2)//测试字符统计功能
 		{
 			Count count;
-			string testStr = readChar("test2.txt");
-			Assert::AreEqual(1560, count.countCharNum(testStr));
+			string wordBuf = readChar("test2.txt");
+			Assert::AreEqual(1560, count.countCharNum(wordBuf));
 		}
 		TEST_METHOD(TestMethod3)//测试行数统计功能
 		{
@@ -111,6 +111,23 @@ namespace wordTest
 				Assert::AreEqual(stdAns[i].first, top10Word[i].first);
 				Assert::AreEqual(stdAns[i].second, top10Word[i].second);
 			}
+		}
+		TEST_METHOD(TestMethod9)//测试文末无换行
+		{
+			Count count;
+			string wordBuf = readChar("test9.txt");
+			vector<string> linesBuf = readLines("test9.txt");
+			Assert::AreEqual(4, count.countCharNum(wordBuf));
+			Assert::AreEqual(1, count.countLineNum(linesBuf));
+			
+		}
+		TEST_METHOD(TestMethod10)//测试文末有换行
+		{
+			Count count;
+			string wordBuf = readChar("test10.txt");
+			vector<string> linesBuf = readLines("test10.txt");
+			Assert::AreEqual(5, count.countCharNum(wordBuf));
+			Assert::AreEqual(1, count.countLineNum(linesBuf));
 		}
 	};
 }
