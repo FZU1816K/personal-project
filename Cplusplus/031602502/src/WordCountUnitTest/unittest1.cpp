@@ -15,6 +15,8 @@ using namespace std;
 #include <time.h>
 #include <fstream>
 #include <algorithm>
+#include <functional>
+#include <string>
 
 #define UNIT_TEST_CASE 20
 #define MAX_LINE_NUM 50
@@ -197,15 +199,11 @@ namespace WordCountUnitTest
 		}
 	};
 
-	TEST_CLASS(UnitTest1)
+	TEST_CLASS(UnitTestFor_Statistics_h)
 	{
 	public:
-		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(RandomTest)
 		{
-#if true
-			// TODO: 在此输入测试代码
-			//------------------------------------------------------------
 			srand(unsigned int(time(0)));
 			DataGenerator dg;
 			for(int i=0;i < UNIT_TEST_CASE;i++)
@@ -225,9 +223,10 @@ namespace WordCountUnitTest
 					Assert::AreEqual(dg_top10[i]->second, st_top10[i]->second);
 				}
 			}
-			//------------------------------------------------------------
+		}
+		TEST_METHOD(SpecialData)
+		{
 			vector<string> lines;
-			//------------------------------------------------------------
 			//空文件
 			lines.clear();
 			lines.push_back(string(""));
@@ -260,28 +259,41 @@ namespace WordCountUnitTest
 			Assert::AreEqual(1, Statistics(lines).getWordNumber());
 			Assert::AreEqual(2, Statistics(lines).getLineNumber());
 			//------------------------------------------------------------
-			/*
-			try
-			{
+		}
+	};
+
+	TEST_CLASS(UnitTestFor_myIO_h)
+	{
+	public:
+		TEST_METHOD(GetFileNameFromArgs)
+		{
+			char *argv_1[] = {"file_path"};
+			char *argv_2[] = { "file_path","input.txt" };
+			
+			Assert::AreEqual(myIO::GetFileNameFromArgs(1, argv_1), string("input.txt"));//1个参数，默认返回input.txt
+			Assert::AreEqual(myIO::GetFileNameFromArgs(2, argv_2), string("input.txt"));//2个参数，正确提取input.txt
+
+			//auto func = [this] {
+			//	char *argv_3[] = {"file_path", "input.txt", "asadaasd" };
+			//	myIO::GetFileNameFromArgs(3, argv_3);
+			//};
+			//Assert::ExpectException<const char *>(func);//3个参数，参数过多，抛出异常
+		}
+		TEST_METHOD(ReadFileLines)
+		{
+			auto func = [this] {
 				vector<string> buf;
 				myIO::ReadFileLines("fileNotExist.txt", buf);
-			}
-			catch (const const char *err)
-			{
-				cout << err << endl;
-			}*/
-			//------------------------------------------------------------
-			/*try 
-			{
+			};
+			Assert::ExpectException<const char *>(func);//读取文件时文件异常，抛出异常
+		}
+		TEST_METHOD(Output)
+		{
+			auto func = [this] {
 				vector<map<string, int>::iterator> tmp;
-				myIO::Output(0, 0, 0, tmp, false, true, "fileNotReadOnly.txt");
-			}
-			catch (const char *err)
-			{
-				cout << err << endl;
-			}*/
-#endif
-
+				myIO::Output(0, 0, 0, tmp, false, true, "/////");
+			};
+			Assert::ExpectException<const char *>(func);//输出时打开文件异常，抛出异常
 		}
 	};
 }

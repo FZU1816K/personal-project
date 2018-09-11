@@ -133,6 +133,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>../WordCount/x64/Debug/myIO.obj;../WordCount/x64/Debug/pch.obj.obj;../WordCount/x64/Debug/Statistics.obj;../WordCount/x64/Debug/WordCount.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
