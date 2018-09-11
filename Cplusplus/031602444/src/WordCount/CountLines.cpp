@@ -20,7 +20,7 @@ int CountLines(char* filemm)//统计有效行数
 		{
 			lineflag = 1;
 		}
-		if (c == '\n'&&lineflag == 1) {
+		else if (c == '\n'&&lineflag == 1) {
 			lines++;
 			lineflag = 0;
 		}

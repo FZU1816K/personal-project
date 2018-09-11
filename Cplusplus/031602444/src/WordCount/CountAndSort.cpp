@@ -88,9 +88,9 @@ int Display(vector<pair<string, int>>& v)
 
 	for (vector<pair<string, int>>::iterator vec = v.begin(); vec != v.end(); vec++)
 	{
-		//cout << "<" << vec->first << ">: " << vec->second << endl;
+
 		printf("<%s>: %d\n", vec->first, vec->second);
-		
+
 
 		vecflag++;
 		if (vecflag == 10) break;
