@@ -85,10 +85,6 @@ int character(char* path) {
 	while (!infile.eof())
 	{
 		infile >> c;
-		if (c == '\0'){
-			//printf("¿Õ°×ÎÄ±¾£¡");
-			return 0;
-		}
 			
 		if (c == '\n') {
 			if (ff[i] != ' '&&i != 0) {
