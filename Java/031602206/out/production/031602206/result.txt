@@ -1,0 +1,4 @@
+characters: 4
+words: 1
+lines: 1
+abcd: 1

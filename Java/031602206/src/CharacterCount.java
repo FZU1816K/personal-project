@@ -11,13 +11,13 @@ public class CharacterCount {
         while (matcher.find()) {
             characters++;
         }
-        return characters;
+        return characters - 1;
     }
     public static void main(String[] args) {
 
         CharacterCount test = new CharacterCount();
         try {
-            System.out.println(test.charCount("abcd 12\nbv"));
+            System.out.println(test.charCount("abcd\n"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,5 @@
+characters: 15
+words: 2
+lines: 2
+abcd��ancb: 1
+sjshj: 1

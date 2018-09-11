@@ -16,7 +16,7 @@ public class most {
     private class MapComparator implements Comparator<Map.Entry<String, Integer>> {
         public int compare(Map.Entry<String, Integer> word1, Map.Entry<String, Integer> word2) {
             if (word1.getValue().compareTo(word2.getValue()) != 0) {
-                return word1.getValue().compareTo(word2.getValue());
+                return word2.getValue().compareTo(word1.getValue());
             }
             else {
                 return word1.getKey().compareTo(word2.getKey());

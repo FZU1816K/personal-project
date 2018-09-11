@@ -13,6 +13,10 @@ public class WordCount {
     }
 
     public WordCount(String string) {
+        for (int i = 0; i < string.length(); i++) {
+            char s = string.charAt(i);
+            if (s >= 19968 && s <= 40869) string = string.replace(s, ' ');
+        }
         String[] word = string.split("\\s+");
         String regex = "^[a-zA-Z]{4,}.*";
         for (int i = 0; i < word.length; i++) {
@@ -25,13 +29,13 @@ public class WordCount {
                 } else {
                     int num = map.get(lowerCase);
                     map.put(lowerCase, num + 1);
-                    System.out.println(num);
                 }
             }
         }
     }
+
     public static void main(String[] args) {
-        WordCount test = new WordCount("zxcs12\nmmmm2");
+        WordCount test = new WordCount("abcd\nabcd   mancd及bvcx1");
         System.out.println(test.getWords());
         System.out.println(test.getMap().toString());
     }

@@ -11,12 +11,12 @@ public class LineCount {
         }
         return lines;
     }
- /*   public static void main(String[] args) {
+    public static void main(String[] args) {
         LineCount test = new LineCount();
         try {
-            System.out.println(test.lineCount("E:\\input.txt"));
+            System.out.println(test.lineCount("input.txt"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 }
