@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{AFEDDFD6-F32C-49E9-800F-F07CD870F2CB}</ProjectGuid>
+    <ProjectGuid>{4426E4DD-702F-484A-8C54-6DD1CC0EE660}</ProjectGuid>
     <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

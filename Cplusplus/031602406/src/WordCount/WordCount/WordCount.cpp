@@ -13,7 +13,7 @@ using namespace std;
 
 /*全局变量定义*/
 unordered_map<string, int> strMap;
-int numCharCount = 0, numLineCount = 0,numWordCount = 0;
+int numCharCount = 0, numLineCount = 0, numWordCount = 0;
 bool flag = false;
 /*逐个字符读入文件内容*/
 int CharCount(char* argv[])
@@ -49,31 +49,12 @@ int LineCount(char* argv[])
 	return num;
 }
 
-/*统计单词个数*/
-void CountWord(stringstream&ss)
-{
-	string strTmp;
-	while (ss >> strTmp)
-	{
-		unordered_map<string, int>::iterator it = strMap.find(strTmp);
-		if (it == strMap.end())//strMap中如果不存在当前单词则插入一个新键值对，出现频率为1
-		{
-			strMap.insert(unordered_map<string, int>::value_type(strTmp, 1));
-
-		}
-		else //如果存在则出现频率加1
-			strMap[strTmp]++;
-	}
-	
-
-}
-
-/*输出结果*/
-int main(int argc, char* argv[])
+/*统计单词个数及频率*/
+void WordCount(char *argv[])
 {
 	//读入文档
 	fstream file2;
-	string strfile,stmp;
+	string strfile, stmp;
 	file2.open(argv[1]);
 	while (getline(file2, strfile))
 	{
@@ -82,7 +63,7 @@ int main(int argc, char* argv[])
 
 
 
-		//去除间隔符
+		//去除间隔符，单词统计
 		for (int i = 0; i < strfile.length(); i++)
 		{
 			if (ispunct(strfile[i]))
@@ -92,21 +73,33 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		
 
-		//统计字符
+
+		//统计字符频率
 		stringstream ss(strfile);
+		string strTmp;
+		while (ss >> strTmp)
+		{
+			unordered_map<string, int>::iterator it = strMap.find(strTmp);
+			if (it == strMap.end())//strMap中如果不存在当前单词则插入一个新键值对，出现频率为1
+			{
+				strMap.insert(unordered_map<string, int>::value_type(strTmp, 1));
 
-		CountWord(ss);
+			}
+			else //如果存在则出现频率加1
+				strMap[strTmp]++;
+		}
+		//CountWordFrequency(ss);
 	}
+	//单词数等于分隔符+1
 	if (numWordCount > 0)
 		numWordCount++;
-	numCharCount = CharCount(argv);
-	numLineCount = LineCount(argv);
+	file2.close();
+}
 
-	
-
-	//Output();
+/*输出结果*/
+void Output()
+{
 	ofstream OutputFile("result.txt");
 	if (OutputFile.is_open())
 	{
@@ -134,8 +127,22 @@ int main(int argc, char* argv[])
 		}
 
 	}
-	
-	file2.close();
+}
+int main(int argc, char* argv[])
+{
+
+
+	WordCount(argv);
+
+	numCharCount = CharCount(argv);
+
+	numLineCount = LineCount(argv);
+
+
+
+	Output();
+
+
 
 	return 0;
 }
