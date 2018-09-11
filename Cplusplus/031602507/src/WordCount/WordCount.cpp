@@ -1,9 +1,9 @@
 /********************************************************************************
 * @File name: wc.cpp
 * @Author: ChenYuXin
-* @Version: 3.0
+* @Version: 3.1
 * @Date: 2018-09-11
-* @Description: final version
+* @Description: add error handling
 ********************************************************************************/
 
 

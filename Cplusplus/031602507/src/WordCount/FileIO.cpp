@@ -5,12 +5,17 @@ string FileIO::readChar(int argc, char *argv[])
 {
 	string filename = FileIO::getFileName(argc, argv);
 	ifstream rf(filename);
+	if (!rf) {
+		cout << "open file failed. trying open default file:input.txt" << endl;
+		rf.open("input.txt", ios::in);
+	}
 	string charBuf;
 	char c;
 	while ((c = rf.get()) != EOF)
 	{
 		charBuf += c;
 	}
+	rf.close();
 	return charBuf;
 }
 //逐行读取文件
@@ -18,6 +23,10 @@ vector<string> FileIO::readLines(int argc, char *argv[])
 {
 	string filename = FileIO::getFileName(argc, argv);
 	ifstream rf(filename);
+	if (!rf) {
+		cout << "open file failed. trying open default file:input.txt" << endl;
+		rf.open("input.txt", ios::in);
+	}
 	string tempStr;
 	vector<string> lineBuf;
 	while (getline(rf, tempStr)) 
@@ -44,6 +53,8 @@ void FileIO::outputToFile(int characterCount, int wordCount,int lineCount, vecto
 			wf << endl << "<" << top10Word[i].first << ">: " << top10Word[i].second;
 		}
 	}
+	wf.close();
+	cout << "Output Completed";
 }
 //获取文件名
 string FileIO::getFileName(int argc, char *argv[])
@@ -54,7 +65,7 @@ string FileIO::getFileName(int argc, char *argv[])
 	}
 	else
 	{
-		cout << "Wrong Parameter! trying open input.txt" << endl;
+		cout << "Wrong Parameter! trying open default file:input.txt" << endl;
 		return "input.txt";
 	}
 }
