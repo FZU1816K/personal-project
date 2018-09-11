@@ -1,0 +1,48 @@
+[2018-09-11 17:17:21] [info] Start Program:
+Path:"F:\VS2017\WokeSpace\WordCount\Debug\WordCount.exe"
+Arguments:
+Working directory: "F:\VS2017\WokeSpace\WordCount\WordCount\"
+Modules: Selected: F:\VS2017\WokeSpace\WordCount\Debug\WordCount.exe F:\VS2017\WokeSpace\WordCount\Debug\UnitTest1.dll Excluded: 
+Sources: Selected: F:\VS2017\WokeSpace\WordCount\WordCount F:\VS2017\WokeSpace\WordCount\UnitTest1 Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\jawell\AppData\Local\Temp\ry22yu2i.jqe 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+
+[2018-09-11 17:17:21] [info] Module: F:\VS2017\WokeSpace\WordCount\Debug\WordCount.exe is selected because it matches selected pattern: 
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\pch.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [warning] f:\vs2017\wokespace\wordcount\wordcount\wordcount.cpp line 15732480 does not exist, skipped
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\ntdll.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\kernel32.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\KernelBase.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\vcruntime140d.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\ucrtbased.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\vcruntime140d.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:21] [info] Module: C:\Windows\SysWOW64\ucrtbased.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] Module: C:\Windows\SysWOW64\kernel.appcore.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] Module: C:\Windows\SysWOW64\msvcrt.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] Module: C:\Windows\SysWOW64\rpcrt4.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] Module: C:\Windows\SysWOW64\sspicli.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] Module: C:\Windows\SysWOW64\cryptbase.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] Module: C:\Windows\SysWOW64\bcryptprimitives.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] Module: C:\Windows\SysWOW64\sechost.dll is skipped because it matches no selected patterns
+[2018-09-11 17:17:28] [info] ----------------------------------------------------
+[2018-09-11 17:17:28] [info] Coverage binary generated in file: C:\Users\jawell\AppData\Local\Temp\ry22yu2i.jqe
+[2018-09-11 17:17:28] [info] ----------------------------------------------------

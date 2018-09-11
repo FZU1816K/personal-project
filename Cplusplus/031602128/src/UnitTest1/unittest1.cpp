@@ -23,6 +23,7 @@ namespace UnitTest1
 			A->init();
 			A->MYscanf("1.in");
 			Assert::AreEqual(A->eft_num,(int) 13);
+			//统计行数
 		}
 		TEST_METHOD(Testword)
 		{
@@ -74,7 +75,7 @@ namespace UnitTest1
 			Assert::AreEqual(A->eft_char, (int)0);
 			A->eft_word = A->CountWord();
 			Assert::AreEqual(A->eft_word, (int)0);
-			// 传入空文件
+			// 文件不存在。
 		}
 		TEST_METHOD(Test5)
 		{
@@ -105,6 +106,21 @@ namespace UnitTest1
 			Assert::AreEqual(A->it->second, (string) "jieorl");
 			// 测试最后一个输出单词
 		}
+		TEST_METHOD(Testmxword5)
+		{
+			A->init();
+			A->MYscanf("11.in");
+			A->eft_char = A->CountChar();
+			Assert::AreEqual(A->eft_char, (int)1000000);
+			A->eft_word = A->CountWord();
+			Assert::AreEqual(A->eft_word, (int)200000);
+			A->CountMxWord();
+			A->it = A->qur.begin();
+			Assert::AreEqual(-A->it->first, (int)2);
+			Assert::AreEqual(A->it->second, (string) "aaaa");
+			// 输入一百万个字符，二十万个单词，其中有十万种不同单词，用于测试性能
+		}
 	};
-
 }
+
+
