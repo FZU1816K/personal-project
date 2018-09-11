@@ -1,0 +1,10 @@
+characters:105
+lines:14
+words:7
+<file>:3
+<abcd>:2
+<file1234>:1
+<windows2000>:1
+<windows2001>:1
+<windows95>:1
+<windows98>:1
