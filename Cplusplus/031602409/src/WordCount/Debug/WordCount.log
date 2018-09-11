@@ -1,0 +1,6 @@
+﻿  stdafx.cpp
+  WordCount.cpp
+d:\learning\academic\软工实践\wordcount\wordcount\wordcount.cpp(46): warning C4101: “f2”: 未引用的局部变量
+LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/PROFILE”规范)
+stdafx.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:REF”规范)
+  WordCount.vcxproj -> D:\learning\academic\软工实践\WordCount\Debug\WordCount.exe
