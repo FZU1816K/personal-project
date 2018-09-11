@@ -71,12 +71,12 @@ namespace wordTest
 			vector<string> linesBuf = readLines("test6.txt");
 			Assert::AreEqual(112, count.countWordNum(linesBuf));
 		}
-		TEST_METHOD(TestMethod7)//测试单词统计功能
+		TEST_METHOD(TestMethod7)//测试高频单词统计功能
 		{
 			Count count;
 			vector<string> linesBuf = readLines("test7.txt");
 			int wordCount = count.countWordNum(linesBuf);
-			vector<pair<string, int> > top10Word = count.countTop10Word();
+			vector<pair<string, int> > top10Word = count.countTop10Word();//小于10个单词
 			vector<pair<string, int> > stdAns;
 			stdAns.push_back(make_pair("abcd", 2));
 			stdAns.push_back(make_pair("abdd", 2));
@@ -87,11 +87,30 @@ namespace wordTest
 			{
 				Assert::AreEqual(stdAns[i].first, top10Word[i].first);
 				Assert::AreEqual(stdAns[i].second, top10Word[i].second);
+			}		
+		}
+		TEST_METHOD(TestMethod8)//测试高频单词统计功能
+		{
+			Count count;
+			vector<string> linesBuf = readLines("test8.txt");
+			int wordCount = count.countWordNum(linesBuf);
+			vector<pair<string, int> > top10Word = count.countTop10Word();
+			vector<pair<string, int> > stdAns;
+			stdAns.push_back(make_pair("izva6", 15));
+			stdAns.push_back(make_pair("euad", 13));
+			stdAns.push_back(make_pair("hlxr", 12));
+			stdAns.push_back(make_pair("iogtu", 12));
+			stdAns.push_back(make_pair("ffexms", 9));
+			stdAns.push_back(make_pair("ziisq29", 7));
+			stdAns.push_back(make_pair("iano3", 6));
+			stdAns.push_back(make_pair("iddul", 6));
+			stdAns.push_back(make_pair("bkfxr9p", 4));
+			stdAns.push_back(make_pair("nzue6n", 4));
+			for (int i = 0; i < 10; i++)
+			{
+				Assert::AreEqual(stdAns[i].first, top10Word[i].first);
+				Assert::AreEqual(stdAns[i].second, top10Word[i].second);
 			}
-			
-
-
-			
 		}
 	};
 }
