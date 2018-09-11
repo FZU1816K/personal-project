@@ -104,8 +104,35 @@ namespace UnitTest1
 		TEST_METHOD(TestMethod1)
 		{
 			// TODO: 在此输入测试代码
-			int count = CountChar("error.txt");  //  input a error filename
-			Assert::IsTrue(count == 0);
+			;  //  input a error filename
+			Assert::IsTrue(CountChar("error.txt") == 0);
+		}
+
+	};
+	TEST_CLASS(VerylargewordText)
+	{
+	public:
+
+		TEST_METHOD(TestMethod1)
+		{
+			// TODO: 在此输入测试代码
+			;  //  input a error filename
+			int count = Countwords_num(Countwords("verylargeword.txt")); //No a word
+			Assert::IsTrue(count == 1);
+		}
+
+	};
+	
+	TEST_CLASS(SeparatorText)
+	{
+	public:
+
+		TEST_METHOD(TestMethod1)
+		{
+			// TODO: 在此输入测试代码
+			;  //  input a error filename
+			int count = Countwords_num(Countwords("Separator.txt")); //No a word
+			Assert::IsTrue(count == 4);
 		}
 
 	};
