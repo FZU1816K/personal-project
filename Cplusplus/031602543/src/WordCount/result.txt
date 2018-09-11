@@ -1,4 +1,0 @@
-characters: 6
-words: 0
-lines: 3
-
