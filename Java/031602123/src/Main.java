@@ -5,6 +5,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		Map<String, Integer> words = new TreeMap<String, Integer>();
 		String directory = "D:\\java\\031602123\\src";
+		PrintStream relust = new PrintStream("D:\\java\\031602123\\src\\relust.txt");
 		if (args.length != 1) {
 			System.out.println("Please input any txt");
 			System.exit(0);
@@ -24,6 +25,7 @@ public class Main {
 				countOfLine ++;
 				countOfWords += CountWords.countWords(line, words); //CountWords内的static方法countWords
 			}
+			System.setOut(relust);
 			System.out.println("characters: " + countOfCharacters);
 			System.out.println("words: " +countOfWords);
 			System.out.println("lines: " +countOfLine);
