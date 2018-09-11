@@ -73,4 +73,40 @@ namespace UnitTest1
 		}
 
 	};
+	TEST_CLASS(ViodWordText)
+	{
+	public:
+
+		TEST_METHOD(TestMethod1)
+		{
+			// TODO: 在此输入测试代码
+			int count = Countwords_num(Countwords("void.txt")); //  character like (space) \t \n \r
+			Assert::IsTrue(count == 0);
+		}
+
+	};
+	TEST_CLASS(ViodlinesText)
+	{
+	public:
+
+		TEST_METHOD(TestMethod1)
+		{
+			// TODO: 在此输入测试代码
+			int count = Countlines("void.txt"); //  character like (space) \t \n \r
+			Assert::IsTrue(count == 0);
+		}
+
+	};
+	TEST_CLASS(ErrorFilenameText)
+	{
+	public:
+
+		TEST_METHOD(TestMethod1)
+		{
+			// TODO: 在此输入测试代码
+			int count = CountChar("error.txt");  //  input a error filename
+			Assert::IsTrue(count == 0);
+		}
+
+	};
 }
