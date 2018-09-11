@@ -5,8 +5,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	for (int i = 0; i<argc; i++)
-		cout << argv[i] << endl;
+
 	const char* filename;
 	if(argv[1]==NULL)
 		filename = "input.txt";
@@ -20,7 +19,9 @@ int main(int argc, char *argv[])
 	cout << "words:" << A.WordNum() << endl;
 	cout << "lines:"<< A.LineCount() << endl;
 	A.LetterCount();
+	A.result();
 	fclose(fp);
+
 	system("pause");
 	return 0;
 }

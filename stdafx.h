@@ -26,8 +26,10 @@ public:
 		f = a;
 		target_file = b;
 	}
+	~WordCount() {};
 	int WordNum();
 	int CharCount();
 	int LineCount();
 	void LetterCount();
+	void result();
 };
