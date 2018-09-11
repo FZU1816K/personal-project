@@ -1,5 +1,6 @@
 #include "FileIO.h"
 
+//逐个字符读取文件
 string FileIO::readChar(int argc, char *argv[])
 {
 	string filename = FileIO::getFileName(argc, argv);
@@ -12,6 +13,7 @@ string FileIO::readChar(int argc, char *argv[])
 	}
 	return charBuf;
 }
+//逐行读取文件
 vector<string> FileIO::readLines(int argc, char *argv[])
 {
 	string filename = FileIO::getFileName(argc, argv);
@@ -24,6 +26,7 @@ vector<string> FileIO::readLines(int argc, char *argv[])
 	}
 	return lineBuf;
 }
+//输出文件
 void FileIO::outputToFile(int characterCount, int wordCount,int lineCount, vector<pair<string, int> > &top10Word)
 {
 	ofstream wf("result.txt", ios::out);
@@ -42,7 +45,7 @@ void FileIO::outputToFile(int characterCount, int wordCount,int lineCount, vecto
 		}
 	}
 }
-
+//获取文件名
 string FileIO::getFileName(int argc, char *argv[])
 {
 	if (argc == 2)

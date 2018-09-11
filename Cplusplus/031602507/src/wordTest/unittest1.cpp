@@ -95,7 +95,7 @@ namespace wordTest
 			vector<string> linesBuf = readLines("test8.txt");
 			int wordCount = count.countWordNum(linesBuf);
 			vector<pair<string, int> > top10Word = count.countTop10Word();
-			vector<pair<string, int> > stdAns;
+			vector<pair<string, int> > stdAns;			
 			stdAns.push_back(make_pair("izva6", 15));
 			stdAns.push_back(make_pair("euad", 13));
 			stdAns.push_back(make_pair("hlxr", 12));

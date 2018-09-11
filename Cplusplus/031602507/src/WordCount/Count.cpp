@@ -1,9 +1,11 @@
 #include "Count.h"
 
+//计算字符数
 int Count::countCharNum(string &charBuf)
 {
 	return int(charBuf.size());
 }
+//计算行数
 int Count::countLineNum(vector<string> &linesBuf)
 {
 	int lineCount = 0;
@@ -20,6 +22,7 @@ int Count::countLineNum(vector<string> &linesBuf)
 	}
 	return lineCount;
 }
+//计算单词数
 int Count::countWordNum(vector<string> &linesBuf)
 {
 	int wordCount = 0;
@@ -63,6 +66,7 @@ int Count::countWordNum(vector<string> &linesBuf)
 	}
 	return wordCount;
 }
+//统计出现频率最高的10个单词
 vector<pair<string, int> >  Count::countTop10Word()
 {
 	vector<pair<string, int> > wordVector;
@@ -86,6 +90,7 @@ vector<pair<string, int> >  Count::countTop10Word()
 	return top10Word;
 }
 
+//判断是否为字母
 inline bool Count::isLetter(string::iterator it) {
 	if ((*it >= 65 && *it <= 90) || (*it >= 97 && *it <= 122)) {
 		return true;
@@ -95,6 +100,7 @@ inline bool Count::isLetter(string::iterator it) {
 
 	}
 }
+//判断是否为字母(重载)
 inline bool Count::isLetter(const char ch) {
 	if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122)) {
 		return true;
@@ -104,6 +110,7 @@ inline bool Count::isLetter(const char ch) {
 
 	}
 }
+//判断是否为数字
 inline bool Count::isDigit(string::iterator it) {
 	if (*it >= 48 && *it <= 57) {
 		return true;
