@@ -1,4 +1,5 @@
-#include "head.h"
+#include "char_cnt.h"
+#include "file.h"
 
 int Char_counter::char_count(istream &f, Files &fn)
 {

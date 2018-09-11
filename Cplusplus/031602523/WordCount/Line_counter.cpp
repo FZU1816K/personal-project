@@ -1,5 +1,5 @@
-#include "head.h"
-
+#include "line_cnt.h"
+#include "file.h"
 
 int Line_counter::lines_counter(istream &f, Files &fn)
 {

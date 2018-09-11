@@ -15,7 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="head.h">
+    <ClInclude Include="char_cnt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="line_cnt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="word_op.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="file.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pre.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

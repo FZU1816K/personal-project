@@ -1,4 +1,8 @@
-#include "head.h"
+#include "pre.h"
+#include "word_op.h"
+#include "line_cnt.h"
+#include "char_cnt.h"
+#include "file.h"
 
 int main(int argc, char *argv[])
 {

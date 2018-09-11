@@ -121,7 +121,11 @@
     <ClCompile Include="Word_operater.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="head.h" />
+    <ClInclude Include="char_cnt.h" />
+    <ClInclude Include="file.h" />
+    <ClInclude Include="line_cnt.h" />
+    <ClInclude Include="pre.h" />
+    <ClInclude Include="word_op.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,5 @@
-#include "head.h"
+#include "word_op.h"
+#include "file.h"
 
 void Word_operater::insert(string w)//把单词插入哈希表
 {
