@@ -25,7 +25,10 @@ map<string, int>  Countwords(char *filename)
 	{
 		infile.open("input.txt");
 	}
+
 	else infile.open(filename);
+	assert(infile.is_open());
+
 	int count = 0, row_count = 1;
 	char c;
 

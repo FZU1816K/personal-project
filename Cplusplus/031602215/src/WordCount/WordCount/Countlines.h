@@ -12,9 +12,9 @@ int Countlines(char *filename)
 		infile.open("input.txt");
 	}
 	else infile.open(filename);
-
+	assert(infile.is_open());
 	char c;
-	int row_count = 0,flag1=0,flag2=0;
+	int row_count = 0,flag1=0;
 	infile >> noskipws;
 	while (!infile.eof())
 	{
