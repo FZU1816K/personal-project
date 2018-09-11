@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+stdafx.cpp(195): warning C4018: '<': signed/unsigned mismatch
+  WordCount.cpp
+  Generating code
+  All 576 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  WordCount.vcxproj -> E:\ALL\github\personal-project\Cplusplus\031602423\src\Release\WordCount.exe
+  WordCount.vcxproj -> E:\ALL\github\personal-project\Cplusplus\031602423\src\Release\WordCount.pdb (Full PDB)

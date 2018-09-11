@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+stdafx.cpp(56): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  WordCount.cpp
+  Generating code
+  All 576 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  WordCount.vcxproj -> E:\ALL\github\personal-project\Cplusplus\031602423\src\x64\Release\WordCount.exe
+  WordCount.vcxproj -> E:\ALL\github\personal-project\Cplusplus\031602423\src\x64\Release\WordCount.pdb (Full PDB)

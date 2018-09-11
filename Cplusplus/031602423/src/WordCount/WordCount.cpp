@@ -1,8 +1,11 @@
 #include "stdafx.h"
 
 int main(int args,char* argv[])
+
 {
 	char* a = NULL;
+	//char* a = "input.txt";
+	
 	a = argv[1];
 	if (argv[1] == NULL)
 	{
@@ -23,6 +26,7 @@ int main(int args,char* argv[])
 		return 3;
 	}
 	input.close();
+	
 	int characters,words;
 	//Í³¼Æ×Ö·ûÊý
 	ofstream fout("characters.txt");

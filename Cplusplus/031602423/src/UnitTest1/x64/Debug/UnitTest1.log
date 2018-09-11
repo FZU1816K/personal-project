@@ -1,3 +1,0 @@
-﻿     Creating library E:\ALL\github\personal-project\Cplusplus\031602423\src\x64\Debug\UnitTest1.lib and object E:\ALL\github\personal-project\Cplusplus\031602423\src\x64\Debug\UnitTest1.exp
-unittest1.obj : error LNK2019: unresolved external symbol "void __cdecl WordsFrequency(char *)" (?WordsFrequency@@YAXPEAD@Z) referenced in function "public: void __cdecl UnitTest1::UnitTest1::TestMethod1(void)" (?TestMethod1@UnitTest1@1@QEAAXXZ)
-E:\ALL\github\personal-project\Cplusplus\031602423\src\x64\Debug\UnitTest1.dll : fatal error LNK1120: 1 unresolved externals

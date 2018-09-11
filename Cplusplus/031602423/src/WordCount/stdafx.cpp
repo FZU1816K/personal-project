@@ -86,7 +86,7 @@ int character(char* path) {
 	{
 		infile >> c;
 		if (c == '\0'){
-			printf("空白文本！");
+			//printf("空白文本！");
 			return 0;
 		}
 			
@@ -104,6 +104,8 @@ int character(char* path) {
 	infile.close();
 	count--;
 	lines++;
+	ofstream fout("lines.txt");
+	fout << "lines: " << lines << endl;
 	return count;
 }
 //统计单词数
@@ -174,7 +176,7 @@ void WordsFrequency(char* path) {
 		//cout << split[i] << endl;
 		string key = split[i];
 		if (key.size() >= 4 && isstring(key) == 1) {
-			cout << "符合条件的字符串是：" << key << endl;
+			//cout << "符合条件的字符串是：" << key << endl;
 			if (m1.count(key) == 0)
 			{
 				m1.insert(pair <string, int>(key, 1));
