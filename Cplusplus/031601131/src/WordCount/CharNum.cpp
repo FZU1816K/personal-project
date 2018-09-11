@@ -5,10 +5,10 @@
 int CharNum(char * filename)
 {
 	int count = 0;
-	char c;
+
 	FILE *file;
 	fopen_s(&file,filename, "rt");
-	for (; fgetc(file) != EOF;) {
+	while (fgetc(file) != EOF) {
 		count++;
 	}
 	fclose(file);

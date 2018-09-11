@@ -41,6 +41,6 @@ int WordNum(char * filename)
 	if (flag == 4) {
 		count++;
 	}
-
+	fclose(file);
 	return count;
 }

@@ -56,26 +56,29 @@ int Word_Fre(char * filename)
 
 	vector <PAIR> Word_Num_vec(Word_Num_map.begin(), Word_Num_map.end());
 	sort(Word_Num_vec.begin(), Word_Num_vec.end(), CmpByValue());
-		/*
-		for (int i = 0; i != Word_Num_vec.size(); ++i) {
-			const char *ss = Word_Num_vec[i].first.c_str();
-			
-			cout << ss << ":" << Word_Num_vec[i].second << endl;
-		}
-		*/
+		
+
+
 	ofstream outfile("result.txt", ios::out);
-	printf("The Top 10:\n");
+	//char fil[30] = "result.txt";
+	//FILE *outfile;
+	//fopen_s(&outfile, fil, "wt");
 	if(Word_Num_vec.size()<10)
 		for (int i = 0; i != Word_Num_vec.size(); ++i) {
 			const char *ss = Word_Num_vec[i].first.c_str();
+			//cout << ss << ":" << Word_Num_vec[i].second << endl;
 			printf("<%s>: %d\n", ss, Word_Num_vec[i].second);
+			
 			outfile <<"<"<< ss << ">"<<":" << Word_Num_vec[i].second << endl;
+			//fprintf(outfile, "<%s>: %d\n", ss, Word_Num_vec[i].second);
 		}
 	else
 		for (int i = 0; i != 10; ++i) {
 			const char *ss = Word_Num_vec[i].first.c_str();
+			//cout << ss << ":" << Word_Num_vec[i].second << endl;
 			printf("%s: %d\n", ss, Word_Num_vec[i].second);
-			outfile << "<" << ss << ">" << ":" << Word_Num_vec[i].second << endl;
+			outfile <<"<"<< ss << ">"<<":" << Word_Num_vec[i].second << endl;
+			//fprintf(outfile, "<%s>: %d\n", ss, Word_Num_vec[i].second);
 		}
 	fclose(file);
 	return 0;
