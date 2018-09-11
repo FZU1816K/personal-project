@@ -26,7 +26,6 @@ public class FileRead {
             return text;
         }catch (Exception e){
             System.out.println("文本读入失败！");
-            System.out.println(e);
         }
         return "";
     }
