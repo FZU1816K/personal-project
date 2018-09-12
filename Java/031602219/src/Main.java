@@ -10,9 +10,15 @@ import java.util.Map;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		int Origin = 0;
-		String filepath;
-		if(args==null) {
+		
+		int Origin = 0;	//初始化变量
+		int c_count = 0;
+		int v_count = 0;
+		int l_count = 0;
+		String filepath = "";
+		String textcontent = "";
+		
+		if(args.length==0) {
 			filepath = "input.txt";
 		}	
 		else {
@@ -21,10 +27,15 @@ public class Main {
 		Writer file = new FileWriter("output.txt");
 		BufferedWriter out = new BufferedWriter(file);
 		
-		int c_count = lib.countChar(filepath,Origin)-1;		//文本的末尾默认无换行，故需剔除
-		int v_count = lib.countVec(Origin);
-		int l_count = lib.countLine();
-		List<Map.Entry<String,Integer>> wordTree = lib.createTree();
+		c_count = lib.countChar(filepath,Origin)-1;		//得到文本字符的个数(不考虑汉字),文本的末尾默认无换行，故需剔除
+		textcontent = lib.getText();	//获取文件流读入的文本
+		
+		v_count = countVer.countwords(Origin,textcontent);	//得到文本的单词个数(开头4个字母后含若干个字母数字的形式)
+		List<String> wordslist = countVer.getList();
+		
+		l_count = lib.countLine();	//得到文本的行数
+		
+		List<Map.Entry<String,Integer>> wordTree = createMap.createHashMap(wordslist);	//构造单词分类词频HashMap
 		
 		System.out.println("characters: " + c_count);
 		out.write("characters: " + c_count+"\r\n");

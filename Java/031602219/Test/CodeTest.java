@@ -10,7 +10,7 @@ import java.util.Map;
 
 import org.junit.*;
 
-import src.lib;
+import src.*;
 
 public class CodeTest {
 	/**
@@ -21,12 +21,17 @@ public class CodeTest {
 	public  void PortTest() throws IOException {	
 		
 		for(int i=0;i<5000;i++) {
+		
 			
 			String filepath = "test.txt";
+			String text = "";
+			
 			int c_count = lib.countChar(filepath,0)-1;
-			int v_count = lib.countVec(0);
+			text = lib.getText();
+			int v_count = countVer.countwords(0,text);
+			List<String> list = countVer.getList();
 			int l_count = lib.countLine();
-			List<Map.Entry<String,Integer>> wordTree = lib.createTree();
+			List<Map.Entry<String,Integer>> wordTree = createMap.createHashMap(list);;
 		
 			assertEquals(254,c_count);
 			assertEquals(21,v_count);
