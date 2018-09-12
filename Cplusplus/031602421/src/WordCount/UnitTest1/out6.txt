@@ -1,0 +1,6 @@
+characters: 24
+words: 3
+lines: 3
+<bcd1aaa>: 1
+<bcd2aaa>: 1
+<bcd3bbb>: 1

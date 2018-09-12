@@ -1,0 +1,7 @@
+characters: 36
+words: 6
+lines: 4
+<abcd>: 3
+<bbbd>: 1
+<bcdd>: 1
+<cccd>: 1

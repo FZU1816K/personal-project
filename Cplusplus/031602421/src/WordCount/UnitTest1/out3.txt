@@ -1,0 +1,6 @@
+characters: 32
+words: 3
+lines: 1
+<windows2000>: 1
+<windows95>: 1
+<windows98>: 1

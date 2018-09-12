@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+characters: 692
+words: 65
+lines: 5
+<friend>: 4
+<johnson>: 4
+<about>: 2
+<flight>: 2
+<take>: 2
+<that>: 2
+<very>: 2
+<accepting>: 1
+<accidents>: 1
+<aerophane>: 1
+=======
+characters: 0
+words: 0
+lines: 0
+>>>>>>> 7072636e6a6bda741936a4123836db7e8ee069b3
