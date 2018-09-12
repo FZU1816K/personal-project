@@ -2,18 +2,17 @@ package lib;
 
 import java.io.BufferedReader;
 import java.io.CharArrayWriter;
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.Scanner;
 
 public class Read {
-	public static String Read() throws Exception {
-		Scanner scanner=new Scanner(System.in);
-    	String pathname=scanner.nextLine();
+	public static String Read(String pathname) throws Exception {
+//		Scanner scanner=new Scanner(System.in);
+//    	String pathname=scanner.nextLine();
 
     	
 
