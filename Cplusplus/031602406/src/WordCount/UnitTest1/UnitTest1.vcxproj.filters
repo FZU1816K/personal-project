@@ -15,16 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WordCount.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Tool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tool.h">
+    <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="unittest1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

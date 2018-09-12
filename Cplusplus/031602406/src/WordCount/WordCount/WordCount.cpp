@@ -9,63 +9,36 @@
 #include<io.h>
 #include<unordered_map>
 #include<iterator>
+#include "Tool.h"
 using namespace std;
 
 /*全局变量定义*/
 unordered_map<string, int> strMap;
-int numCharCount = 0, numLineCount = 0, numWordCount = 0;
-bool flag = false;
-/*逐个字符读入文件内容*/
-int CharCount(char* argv[])
-{
-	ifstream file1;
-	file1.open(argv[1]);
-	char c;
-	int num = 0;
-	while (!file1.eof())
-	{
-		file1 >> c;
-		if (c >= 0 && c <= 127)
-			num++;
-	}
-	file1.close();
-	return num;
 
-}
 
 /*统计行数*/
-int LineCount(char* argv[])
-{
-	int num = 0;
-	ifstream file1;
-	file1.open(argv[1]);
-	string str;
-	while (!file1.eof())
-	{
-		getline(file1, str);
-		num++;
-	}
-	file1.close();
-	return num;
-}
 
 /*统计单词个数及频率*/
-void WordCount(char *argv[])
+int WordCount(char *argv)
 {
 	//读入文档
 	fstream file2;
 	string strfile, stmp;
-	file2.open(argv[1]);
+	file2.open(argv);
+	int numWordCount = 0;
 	while (getline(file2, strfile))
 	{
 		strfile.append(stmp);
 		stmp.clear();
 
-
+		
 
 		//去除间隔符，单词统计
 		for (int i = 0; i < strfile.length(); i++)
-		{
+		{   
+			//小写处理
+			strfile[i] = tolower(strfile[i]);
+
 			if (ispunct(strfile[i]))
 			{
 				strfile[i] = ' ';
@@ -95,11 +68,37 @@ void WordCount(char *argv[])
 	if (numWordCount > 0)
 		numWordCount++;
 	file2.close();
+	return numWordCount;
 }
 
 /*输出结果*/
-void Output()
+
+int main(int argc, char* argv[])
 {
+	//读入文件异常处理
+	if(argv == NULL)
+	{
+		cout << "error: you do not put a file " << endl;
+	}
+	if (argc > 2)
+	{
+		cout << "error: you put too many files" << endl;
+	}
+
+	//unordered_map<string, int> strMap;
+	int numCharCount = 0, numLineCount = 0, numWordCount = 0;
+
+	
+
+	numCharCount = Tool::CharCount(argv[1]);
+
+	numLineCount = Tool::LineCount(argv[1]);
+
+	numWordCount = WordCount(argv[1]);
+
+
+
+	//Output(strMap);
 	ofstream OutputFile("result.txt");
 	if (OutputFile.is_open())
 	{
@@ -125,22 +124,9 @@ void Output()
 			OutputFile << it->first << ':' << it->second << endl;
 			count++;
 		}
+		//cout << count << endl;
 
 	}
-}
-int main(int argc, char* argv[])
-{
-
-
-	WordCount(argv);
-
-	numCharCount = CharCount(argv);
-
-	numLineCount = LineCount(argv);
-
-
-
-	Output();
 
 
 
