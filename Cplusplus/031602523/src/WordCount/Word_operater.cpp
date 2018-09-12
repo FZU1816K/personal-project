@@ -2,24 +2,24 @@
 #include "file.h"
 #include "pre.h"
 
-void Word_operater::insert(string w)//°Ñµ¥´Ê²åÈë¹þÏ£±í
+void Word_operater::insert(string w)//æŠŠå•è¯æ’å…¥å“ˆå¸Œè¡¨
 {
-	int hash = ((w[0] - 96)) + ((w[1] - 96) * 26) + ((w[2] - 96) * 26 * 26);//¼ÆËã¹þÏ£Öµ
+	int hash = ((w[0] - 96)) + ((w[1] - 96) * 26) + ((w[2] - 96) * 26 * 26);//è®¡ç®—å“ˆå¸Œå€¼
 	node *p = new node("", 1);
 	node *q = new node("", 1);
-	if (this->hash_table[hash]->next == NULL)//¿Õ±í²åÈë
+	if (this->hash_table[hash]->next == NULL)
 	{
 		p = this->hash_table[hash];
 		this->hash_table[hash] = new node(w, 1);
 		this->hash_table[hash]->next = p;
 	}
-	else//·Ç¿Õ±í
+	else//éžç©ºè¡¨
 	{
 		int flag = 0;
 		q = p = this->hash_table[hash];
-		while (p->next != NULL)//±éÀúÁ´±í
+		while (p->next != NULL)
 		{
-			if (p->name == w)//ÔÚ±íÖÐÕÒµ½¸Ãµ¥´Ê£¬²¢ÇÒtimes¼Ó1
+			if (p->name == w)
 			{
 				p->times++;
 				flag = 1;
@@ -27,7 +27,7 @@ void Word_operater::insert(string w)//°Ñµ¥´Ê²åÈë¹þÏ£±í
 			q = p;
 			p = p->next;
 		}
-		if (flag == 0)//ÔÚÁ´±íÖÐÃ»ÓÐÕÒµ½¸Ãµ¥´Ê£¬ÔòÔÚÁ´±íÎ²²¿²åÈëÐÂ½áµã
+		if (flag == 0)
 		{
 			node *newnode = new node(w, 1);
 			q->next = newnode;
@@ -46,7 +46,7 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 	int cnt = 0;
 	for (int i = 0; i < len; i++)
 	{
-		if ((temp[i] >= 65 && temp[i] <= 90) || (temp[i] >= 97 && temp[i] <= 122))//ÕÒµ½µÚÒ»¸ö×ÖÄ¸  ÅÐ¶ÏÊÇ²»ÊÇµ¥´Ê
+		if ((temp[i] >= 65 && temp[i] <= 90) || (temp[i] >= 97 && temp[i] <= 122))
 		{
 			flag = 0;
 			for (int j = i; j <= i + 3; j++)
@@ -57,7 +57,7 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 					break;
 				}
 			}
-			if (flag == 0)//Èç¹ûÊÇµ¥´Ê¾ÍÌáÈ¡µ¥´Êµ½thisword
+			if (flag == 0)//å¦‚æžœæ˜¯å•è¯å°±æå–å•è¯åˆ°thisword
 			{
 				thisword = "";
 				for (; i < len && ((temp[i] >= 65 && temp[i] <= 90) || (temp[i] >= 97 && temp[i] <= 122) || (temp[i] >= 48 && temp[i] <= 57)); i++)
@@ -70,7 +70,7 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 				insert(thisword);
 				
 			}
-			else//Èç¹û²»ÊÇµ¥´Ê¾ÍÌøµ½ÏÂÒ»¸öµ¥´ÊµÄµÚÒ»¸ö×ÖÄ¸
+			else
 			{
 				for (; (temp[i] >= 65 && temp[i] <= 90) || (temp[i] >= 97 && temp[i] <= 122) || (temp[i] >= 48 && temp[i] <= 57); i++) {}
 			}
@@ -84,19 +84,19 @@ int Word_operater::words_counter(ifstream &f, Files &fn)
 	return cnt;
 }
 
-void Word_operater::file_rank(Files &fn, Word_operater &wn, ofstream &outfile)//Í³¼Æ´ÊÆµ
+void Word_operater::file_rank(Files &fn, Word_operater &wn, ofstream &outfile)//ç»Ÿè®¡è¯é¢‘
 {
 	int num;
-	int flag = 0;//ÅÐ¶Ï³öÏÖ´ÎÊý×î´óµÄ½áµãÊÇ²»ÊÇ±íÊ× 0²»ÊÇ 1ÊÇ
+	int flag = 0;
 	node *max, *q, *p, *front_max;
 	front_max = new node("", 0);
-	for (int j = 0; j < 10 && j < wn.get_wrdcnt(); j++)//±éÀú10´Î¹þÏ£±í
+	for (int j = 0; j < 10 && j < wn.get_wrdcnt(); j++)
 	{
-		max = new node("", 0);//³õÊ¼»¯max
+		max = new node("", 0);
 		for (int i = 0; i <= 18279; i++)
 		{
-			if (this->hash_table[i]->next == NULL) continue;//¿Õ±íÌø¹ý
-			else//·Ç¿Õ±í
+			if (this->hash_table[i]->next == NULL) continue;
+			else//éžç©ºè¡¨
 			{
 				q = p = this->hash_table[i];
 				while (p->next != NULL)
@@ -106,10 +106,10 @@ void Word_operater::file_rank(Files &fn, Word_operater &wn, ofstream &outfile)//
 
 						if (p == this->hash_table[i])
 						{
-							flag = 1;//±íÊ¾¸Ãµ¥´ÊÔÚ±íÍ·
+							flag = 1;
 							num = i;
 						}
-						else flag = 0;//±íÊ¾¸Ãµ¥´ÊÔÚ±íÖÐ
+						else flag = 0;
 						max = p;
 						front_max = q;
 					}
@@ -120,16 +120,14 @@ void Word_operater::file_rank(Files &fn, Word_operater &wn, ofstream &outfile)//
 		}
 		if (max->times != 0)
 		{
-			//cout << "<" << max->name << ">:" << max->times << endl;//Êä³öÒ»¸ö½á¹û
 			wn.word_times[j] = max->times;
 			wn.word_str[j] = max->name;
-			//cout << wn.word_times[j] << " " << wn.word_str[j] << endl;
-			outfile << "<" << max->name << ">:" << max->times << endl;//Êä³öÒ»¸ö½á¹û
+			outfile << "<" << max->name << ">:" << max->times << endl;
 		}
-		else  break;//Èç¹ûmaxÃ»ÓÐ±»Ìæ»»£¬Ôò´ËÊ±¹þÏ£±íÊÇ¿ÕµÄ£¬²»ÐèÒªÊä³ö
+		else  break;
 
-		if (flag == 1)	this->hash_table[num] = max->next;//Èç¹ûÆµ´Î×î´óµÄµ¥´ÊÔÚ±íÊ×£¬Ìæ»»±íÊ×Ö¸Õë
-		else front_max->next = max->next;//Èç¹ûÆµ´Î×î´óµÄµ¥´ÊÔÚ±íÖÐ£¬É¾³ý½áµã
+		if (flag == 1)	this->hash_table[num] = max->next;
+		else front_max->next = max->next;
 	}
 	return;
 }
