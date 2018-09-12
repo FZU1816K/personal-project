@@ -1,6 +1,6 @@
 #include<fstream>  //ifstream
 #include<iostream>
-#include<string>     //°üº¬getline()
+#include<string>     //åŒ…å«getline()
 #include<algorithm>
 #include <vector>
 #include<map>
@@ -17,19 +17,19 @@ void Frequency::get_filename(string s)
 void Frequency::word_map()
 {
 	string word = "";
-	int ch_count = 0;//µ¥´Ê³¤¶È
-	int i = 0;//µ¥´ÊÊıÄ¿
+	int ch_count = 0;//å•è¯é•¿åº¦
+	int i = 0;//å•è¯æ•°ç›®
 	ifstream infile;
 	char c;
 	infile.open(Filename);
 
-	while (infile.get(c))//ÊäÈë
+	while (infile.get(c))//è¾“å…¥
 	{
-		if ('A' <= c && c <= 'Z')//°Ñ´óĞ´»»³ÉĞ¡Ğ´
+		if ('A' <= c && c <= 'Z')//æŠŠå¤§å†™æ¢æˆå°å†™
 		{
 			c = c + 32;
 		}
-		if (ch_count < 4)//ÅĞ¶Ïµ¥´Ê³¤¶ÈÊÇ·ñ´óÓÚ4
+		if (ch_count < 4)//åˆ¤æ–­å•è¯é•¿åº¦æ˜¯å¦å¤§äº4
 		{
 			if (c >= 'a'&&c <= 'z')
 			{
@@ -38,8 +38,8 @@ void Frequency::word_map()
 			}
 			else
 			{
-				ch_count = 0;//µ¥´Ê³¤¶È³õÊ¼»¯
-				word = "";//µ¥´Ê³õÊ¼»¯
+				ch_count = 0;//å•è¯é•¿åº¦åˆå§‹åŒ–
+				word = "";//å•è¯åˆå§‹åŒ–
 				continue;
 			}
 		}
@@ -70,6 +70,7 @@ void Frequency::put_map()
 {
 	int a[10];
 	string b[10];
+	int num=0;
 	map<string, int>::iterator it;
 	for (int i = 0; i < 10; i++)
 	{
@@ -90,6 +91,7 @@ void Frequency::put_map()
 			if (p == 1) continue;
 			if (it->second > flag)
 			{
+				num++;
 				flag = it->second;
 				a[i] = flag;
 				b[i] = it->first;
@@ -98,7 +100,9 @@ void Frequency::put_map()
 		}
 	}
 	int i = 0;
-	for (i = 0; i < 10; i++)
+	if (num < 10)
+		cout << "ä¸æ»¡åä¸ªï¼š" << endl;
+	for (i = 0; i < num; i++)
 	{
 		cout << b[i] << " : " << a[i] << endl;
 	}
