@@ -1,91 +1,49 @@
-/*#include"WordFrequency.h"
-
-
-void display_map(map<string, int> &wmap)
-{
-	map<string, int>::const_iterator map_it;
-	for (map_it = wmap.begin(); map_it != wmap.end(); map_it++)
-	{
-		cout << "(\"" << map_it->first << "\"," << map_it->second << ")" << endl;
-	}
-}
-
-int WordFrequency(char *filename)   //³õ¸å£¬Ö»Íê³ÉÁË´ÊÆµÍ³¼Æ£¬²¢Î´Íê³ÉTop10µÄ¹¦ÄÜ
-{
-	using namespace std;
-	const char *k;
-	std::fstream file;
-	int i, sign;
-	string  temp;
-	cin.get();
-	ifstream fin(filename.c_str());
-	map<string, int> wmap;
-
-	while (fin >> temp)
-	{
-		k = temp.c_str();
-		sign = 0;
-		if (temp.length() >= 4)
-		{
-			for (i = 0; i < 4; i++)
-			{
-				if (k[i] <= '9'&&k[i] >= '0')
-					sign = 1;
-
-			}
-			if (sign == 0)
-				wmap[temp]++;
-		}
-	}
-	display_map(wmap);
-	fin.close();
-}
-*/
-
 #include"WordFrequency.h"
 #include"Sort.h"
-
-
 
 void WordFrequency(string filename)
 {
 	ofstream fout;
-	const char *k;
-	int i, sign = 0,mm=0;
-	ifstream fin(filename.c_str());      //×Ö·û¶ÁÈ¡ÎÄ¼þ 
-	string  temp;
-	unordered_map<string, int> wmap;   //Ê¹ÓÃunordered_map¸üÎª¸ßÐ§£¬Æäµ×²ãÎªhash±í£¬¶ømapÊÇºìºÚÊ÷£¬Ð§ÂÊ¶øÑÔ×ÔÈ»ÊÇÇ°Õß¸ßÀ²~
+	const char *t;
+	int flag = 0;
+	int cnt = 0;
+	string temp;
+	unordered_map<string, int> newmap;   //ä½¿ç”¨unordered_mapæ›´ä¸ºé«˜æ•ˆï¼Œå…¶åº•å±‚ä¸ºhashè¡¨ï¼Œè€Œmapæ˜¯çº¢é»‘æ ‘ï¼Œæ•ˆçŽ‡è€Œè¨€è‡ªç„¶æ˜¯å‰è€…é«˜å•¦~
+	ifstream File(filename.c_str());      //å­—ç¬¦è¯»å–æ–‡ä»¶
 
-	while (fin >> temp)
+	while (File >> temp)
 	{
-		transform(temp.begin(), temp.end(), temp.begin(), ::tolower);  //Ê×ÏÈ£¬½«ÎÄ¼þÄÚÈÝ×ªÎªÐ¡Ð´£¬´Ó¶øÂú×ãÌâÄ¿ÒªÇó¡£Ò²·½±ãÁËÊä³ö¡£							
-		 k = temp.c_str();
-		sign = 0;
-		 if (temp.length() >= 4)
+		flag = 0;
+		transform(temp.begin(), temp.end(), temp.begin(), ::tolower);  //é¦–å…ˆï¼Œå°†æ–‡ä»¶å†…å®¹è½¬ä¸ºå°å†™ï¼Œä»Žè€Œæ»¡è¶³é¢˜ç›®è¦æ±‚ã€‚ä¹Ÿæ–¹ä¾¿äº†è¾“å‡ºã€‚							
+		t = temp.c_str();
+		if (temp.length() >= 4)
 		{
-			for (i = 0; i < 4; i++)
+			for (int i = 0; i < 4; i++)
 			{
-				if (k[i] <= 'z'&&k[i] >= 'a') 
-					sign += 1;
-				 
-			} 	 
-			if (sign == 4)                      //¼´ÊÇÂú×ã³ÉÎªµ¥´ÊµÄÌõ¼þ£¡sign=4£¬¼´±íÊ¾ÓÐÇ°ËÄ¸ö×Ö·ûÎª×ÖÄ¸¡£
+				if (t[i] >= 97 && t[i] <= 122)
+					flag = flag + 1;
+
+			}
+			if (flag == 4)                      //å³æ˜¯æ»¡è¶³æˆä¸ºå•è¯çš„æ¡ä»¶ï¼sign=4ï¼Œå³è¡¨ç¤ºæœ‰å‰å››ä¸ªå­—ç¬¦ä¸ºå­—æ¯ã€‚
 			{
-				if (wmap[temp] == 0)
-					mm++;
-				wmap[temp]++;                //Í¨¹ýKeyÖµ£¨´Ë´¦Îªstring£©À´²éÔÄ¡°hash¡°±í£¬½«Æävalue£¨¼´ÀÛ¼Æ×ÖÄ¸ÊýÄ¿£©+1£»
+				if (newmap[temp] == 0)
+				{
+					cnt++;
+				}
+				newmap[temp]++;                //é€šè¿‡Keyå€¼ï¼ˆæ­¤å¤„ä¸ºstringï¼‰æ¥æŸ¥é˜…â€œhashâ€œè¡¨ï¼Œå°†å…¶valueï¼ˆå³ç´¯è®¡å­—æ¯æ•°ç›®ï¼‰+1ï¼›
 			}
 		}
 	}
-	cout << "words:" << mm << endl;
-	vector<pair<string, int> > tVector;
+	                                       //cout << "words:" << mm << endl;
+	vector<pair<string, int> > newvector;
 
-	Sort(wmap, tVector);                                  //½øÐÐÅÅÐò¡££¨¹Ø¼ü£©
-       //Êä³öÎÄ¼þresult.txt                                                 //	cout << "Top10:" << endl;
-	fout.open("result.txt");
-	for (int i = 0; i < tVector.size() && i < 10; i++)        //Êä³ö´ÊÆµTop10µÄµ¥´Ê£¬Í¬Ê±¿¼ÂÇÁËÃ»ÓÐ10¸öµ¥´ÊµÄÇé¿ö¡£
+	Sort(newmap, newvector);                                  //è¿›è¡ŒæŽ’åºã€‚ï¼ˆå…³é”®ï¼‰
+       //è¾“å‡ºæ–‡ä»¶result.txt                                                 //	cout << "Top10:" << endl;
+	fout.open("result.txt", std::ios::out | std::ios::app);
+	for (int i = 0; i < newvector.size() && i < 10; i++)        //è¾“å‡ºè¯é¢‘Top10çš„å•è¯ï¼ŒåŒæ—¶è€ƒè™‘äº†æ²¡æœ‰10ä¸ªå•è¯çš„æƒ…å†µã€‚
 	                                                     
-	     fout << tVector[i].first << ": " << tVector[i].second << endl;  //cout << tVector[i].first << ": " << tVector[i].second << endl; 
+	     fout <<"<"<< newvector[i].first <<">"<< ": " << newvector[i].second << endl;  //cout << tVector[i].first << ": " << tVector[i].second << endl; 
 	
 	fout.close();
 }
+
