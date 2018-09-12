@@ -7,7 +7,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace CountWordscorrect   //能正确正确统计单词数，测试
+namespace CountWordscorrect   //能正确统计单词数，测试
 {
 	TEST_CLASS(UnitTest1)
 	{
