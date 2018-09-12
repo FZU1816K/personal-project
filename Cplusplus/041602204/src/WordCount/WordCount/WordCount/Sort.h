@@ -17,4 +17,4 @@ using namespace std;
 
 
 int Compare(const pair <string, int> & x, const pair<string, int>& y);
-void Sort(unordered_map<string, int>& tMap, vector<pair<string, int> >& tVector);
+void Sort(unordered_map<string, int>& newmap, vector<pair<string, int> >& newvector);
