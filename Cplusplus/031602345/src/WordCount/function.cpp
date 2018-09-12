@@ -85,9 +85,11 @@ void GetWordCountMap(string file_location)
 	g_lines = 0;
 	g_characters = 0;
 	g_word_count_map.clear();
-
+	// int cnt = 0;
 	while (true)
 	{
+		// if ((cnt % 100) == 0) printf("当前正在处理%d行 map.size=%d\n", cnt, g_word_count_map.size());
+		// cnt += 1;
 		bool have_next_line = GetLine(instream, line);
 
 		int word_left_pos = 0;
@@ -139,8 +141,13 @@ vector<map<string, int>::iterator> GetFirstTenWords(string file_location)
 
 	map<string, int>::iterator it = g_word_count_map.begin();
 
+	// int cnt = 0;
 	for (; it != g_word_count_map.end(); it++)
+	{
 		word_node_vectors.push_back(it);
+		// if (cnt % 1000 == 0) printf("已经迁移%d个节点\n", cnt);
+		// cnt += 1;
+	}
 
 	int length = word_node_vectors.size();
 	int num_show_node = min(10, length);
@@ -232,7 +239,7 @@ void ShowResult(int characters, int words, int lines, vector<map<string, int>::i
 	int length = first_ten_words.size();
 	for (int i = 0; i < length; i++)
 	{
-		outstream << first_ten_words[i]->first << ": " << first_ten_words[i]->second << endl;
+		outstream << '<' << first_ten_words[i]->first << '>' << ": " << first_ten_words[i]->second << endl;
 	}
 
 	outstream.close();
