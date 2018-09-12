@@ -99,7 +99,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>..\WordCount\Debug\Calculator.obj;..\WordCount\Debug\pch.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\WordCount\Debug\WordCount.obj;..\WordCount\Debug\pch.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
