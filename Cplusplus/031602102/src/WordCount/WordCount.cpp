@@ -4,10 +4,9 @@ using namespace std;
 
 int lines = 0, characters = 0, wordNum = 0;
 
-void countWord(unordered_map<string, int>& words, string filename, ifstream& infile)//统计词频
+void countWord(unordered_map<string, int>& words, ifstream& infile)//统计词频
 {
 	unordered_map<string, int>::iterator iter;
-	infile.open(filename);
 	string word;
 	while (infile >> word)//利用文件输入流将字符串与分隔符分离，将字符串输入到word里面，再来判断是否属于单词与统计
 	{
@@ -65,8 +64,13 @@ int main(int argc, char* argv[])
 	unordered_map<string, int> words;
 	ifstream infile;
 	ofstream outfile;
-	string filename = argv[1];//这句是在进行控制台操作时使用
-	countWord(words, filename, infile);
+	infile.open(argv[1]);
+	if (!infile)
+	{
+		cout << "open error" << endl;//未能打开文件
+		exit(0);
+	}
+	countWord(words, infile);
 	infile.clear();
 	infile.seekg(0, ios::beg);//将指针重新定位到文件头
 	countLine(infile);
