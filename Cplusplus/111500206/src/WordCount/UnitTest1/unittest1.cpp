@@ -124,7 +124,7 @@ namespace ValidWord
 		{
 			char filename[100] = "ValidWord.txt";
 			int numOfWord = CountWords(filename);
-			Assert::IsTrue(numOfWord == 8);
+			Assert::IsTrue(numOfWord == 10);
 			// TODO: 在此输入测试代码
 		}
 
@@ -141,8 +141,8 @@ namespace CaseInsensitive
 		{
 			char filename[100] = "CaseInsensitive.txt";
 			WordFrequency(filename);
-			int count = TopTenWords();
-			Assert::IsTrue(count == 1);
+			auto topTenWordList = TopTenWords();
+			Assert::IsTrue(topTenWordList.size() == 1);
 			// TODO: 在此输入测试代码
 		}
 
@@ -159,8 +159,8 @@ namespace WordWithNumber
 		{
 			char filename[100] = "WordWithNumber.txt";
 			WordFrequency(filename);
-			int count = TopTenWords();
-			Assert::IsTrue(count == 1);
+			auto topTenWordList = TopTenWords();
+			Assert::IsTrue(topTenWordList.size() == 1);
 			// TODO: 在此输入测试代码
 		}
 
@@ -177,8 +177,8 @@ namespace MoreThanTenWords
 		{
 			char filename[100] = "MoreThanTenWords.txt";
 			WordFrequency(filename);
-			int count = TopTenWords();
-			Assert::IsTrue(count == 10);
+			auto topTenWordList = TopTenWords();
+			Assert::IsTrue(topTenWordList.size() == 10);
 			// TODO: 在此输入测试代码
 		}
 

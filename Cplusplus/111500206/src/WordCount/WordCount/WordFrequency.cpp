@@ -20,18 +20,26 @@ int TransitionStoreWord(int state, char input, string & word)
 	switch (state)
 	{
 	case OUTWORD:
-		if (!isalpha(input) || isspace(input)) return OUTWORD;
-		else if (isalpha(input)) { word += input; return P1; }
+		if (Separator(input)) return OUTWORD;
+		if (isalpha(input)) { word += input; return P1; }
+		if (IsNum(input)) return NotAWord;
+
+	case NotAWord:
+		if (Separator(input)) return OUTWORD;
+		else return NotAWord;
 
 	case P1:
+		if (IsNum(input)) { word.clear(); return NotAWord; }
 		if (isalpha(input)) { word += input; return  P2; }
 		else { word.clear(); return OUTWORD; }
 
 	case P2:
+		if (IsNum(input)) { word.clear(); return NotAWord; }
 		if (isalpha(input)) { word += input; return  P3; }
 		else { word.clear(); return OUTWORD; }
 
 	case P3:
+		if (IsNum(input)) { word.clear(); return NotAWord; }
 		if (isalpha(input)) { word += input; return VALIDWORD; }
 		else { word.clear(); return OUTWORD; }
 
@@ -39,6 +47,7 @@ int TransitionStoreWord(int state, char input, string & word)
 		if (isalnum(input)) { word += input; return VALIDWORD; }
 		else {
 			InsertToHashTable(word);
+			//cout << word << endl;
 			word.clear();
 			return OUTWORD;
 		}
@@ -74,7 +83,7 @@ void WordFrequency(char * filename)
 	}
 }
 
-int TopTenWords()
+vector<pair<int, string>> TopTenWords()
 {
 	for (hash_iter = hash_table.begin(); hash_iter != hash_table.end(); hash_iter++) {
 		pair<int, string> currentWord = make_pair(hash_iter->second, hash_iter->first);
@@ -90,10 +99,7 @@ int TopTenWords()
 			wordQueue.push(currentWord);
 		}
 	}
-	if (wordQueue.size() == 0) {
-		return -1;
-	}
-	int count = wordQueue.size();
+
 	vector<pair<int, string>> Top10words;
 	
 	while (!wordQueue.empty()) {
@@ -102,12 +108,44 @@ int TopTenWords()
 	}
 	
 	sort(Top10words.begin(), Top10words.end(), MySort);
+	hash_table.clear();
+	return Top10words;
+}
+
+int OutputToFile(vector<pair<int, string>>& Top10words)
+{
+	if (Top10words.size() == 0) {
+		return -1;
+	}
+
+	fstream file;
+	file.open("result.txt", ios::app);
+	if (!file) {
+		printf("Failed to create output file.\n");
+		return -1;
+	}
 	vector<pair<int, string>>::iterator iter;
 	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
-		//cout << iter->first << " " << iter->second << endl;
+		const char *word = iter->second.c_str();
+		file << word;
+		file << " ";
+		file << iter->first;
+		file << endl;
+	}
+	printf("Top 10 words have been stored in result.txt\n");
+	return 0;
+}
+
+int StandardOutput(vector<pair<int, string>>& Top10words)
+{
+	if (Top10words.size() == 0) {
+		return -1;
+	}
+
+	vector<pair<int, string>>::iterator iter;
+	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
 		const char *word = iter->second.c_str();
 		printf("%s: %d\n", word, iter->first);
 	}
-	hash_table.clear();
-	return count;
+	return 0;
 }
