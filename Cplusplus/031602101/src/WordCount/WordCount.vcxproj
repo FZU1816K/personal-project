@@ -18,12 +18,25 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="WordCount.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dll.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dll.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="dll.lib" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{55B22BA4-70B0-491E-8C31-F646C95B510D}</ProjectGuid>
-    <RootNamespace>statistics</RootNamespace>
+    <ProjectGuid>{89CE15CF-D370-4C4D-BB84-B9D34B2D3671}</ProjectGuid>
+    <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
-    <ProjectName>WordCount</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -111,26 +124,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="WordCount.cpp" />
-    <ClCompile Include="stdafx.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="dll.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="WordCount.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="1.txt" />
-    <Text Include="input.txt" />
-    <Text Include="Text.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="dll.lib" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

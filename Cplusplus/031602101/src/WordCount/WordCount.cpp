@@ -13,7 +13,7 @@ typedef struct
 void wordsta(FILE *fp, sq t_word, sq *word)  //统计单词频数
 {
 	int characters = 0, lines = 0, numberC = 0;
-	int i, j, K, n=0;
+	int i, j, K, n = 0;
 	while (!feof(fp))//feof()检测是否达到文件尾部
 	{
 		char ch;
@@ -68,7 +68,7 @@ void wordsta(FILE *fp, sq t_word, sq *word)  //统计单词频数
 }
 sq* namemath(sq *word) //利用冒泡法排序前十单词
 {
-	int i, j, n=0;
+	int i, j, n = 0;
 	sq *frequency_max = new sq[11];
 	sq temp;
 	for (i = 0; i<10; i++)
@@ -107,18 +107,18 @@ sq* namemath(sq *word) //利用冒泡法排序前十单词
 	}
 	return frequency_max;
 }
-void main(int arg,char* argv[])
+void main(int arg, char* argv[])
 {
 	int i;
-	sq *word=new sq[M];
-	sq t_word = {0,0};
+	sq *word = new sq[M];
+	sq t_word = { 0,0 };
 	FILE *fp;
 	fp = fopen(argv[1], "r");
 	cout << argv[1] << endl;
 	if (!fp) cout << "error" << endl;
-	cout << "统计文件下频率最高的十个单词"<<endl;
+	cout << "统计文件下频率最高的十个单词" << endl;
 	wordsta(fp, t_word, word);
-	sq* frequency_max= namemath(word);
+	sq* frequency_max = namemath(word);
 	for (i = 0; i<10; i++)
 	{
 		cout << setiosflags(ios::left) << setw(10) << frequency_max[i].danci << frequency_max[i].count << endl;//setw()设置输出域宽，默认右对齐
