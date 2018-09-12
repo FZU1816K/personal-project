@@ -145,7 +145,7 @@ void Statistics::display(ofstream& out)//将结果输出至指定文档
 		{
 			if ((*it).second == t)
 			{
-				out << "<" << (*it).first << "> :" << t << endl;
+				out << "<" << (*it).first << ">: " << t << endl;
 				(*it).second = 0;
 				break;
 			}
