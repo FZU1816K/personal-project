@@ -1,22 +1,7 @@
 #include "stdafx.h"
-
+#include "Statistics.h"
 using namespace std;
 
-class Statistics
-{
-public :
-	vector<int>a;//排序用
-	map<string, int> word;//记录单词及词频
-	void set(ifstream& in);//进行统计
-	void display(ofstream& out);//输出统计结果
-	int characters(ifstream& in);//统计字符数
-	int	words(ifstream& in);//统计单词数
-	int lines(ifstream& in);//统计行数
-private:
-	int cnum;//字符数
-	int wnum;//单词数
-	int lnum;//行数
-};
 bool cmp(int a, int b)
 {
 	return a > b;
@@ -40,6 +25,20 @@ int Statistics::words(ifstream& in)//词频统计
 		}
 		for (unsigned j = 0; j < str.length(); j++)//提取合法单词并统计 
 		{
+			if (j == str.length()-1 && str[j] >= 'a'&&str[j] <= 'z'&&flag >= 3)//特殊处理
+			{
+				flag++;
+				temp = str.substr(star, flag);//截取合法单词 
+				if (word.count(temp))
+				{
+					word[temp]++;
+				}
+				else
+				{
+					word[temp] = 1;
+					sum++;
+				}
+			}
 			if (str[j] >= 'a'&&str[j] <= 'z')
 			{
 				if (flag == 0)
@@ -138,53 +137,18 @@ void Statistics::display(ofstream& out)//将结果输出至指定文档
 		a.push_back(t);
 	}
 	sort(a.begin(), a.end(), cmp);
-	if (wnum == 0)
+	for (int i = 0; i < wnum && i <= 10; i++)
 	{
-		out << "该文档不存在合法单词！" << endl;
-	}
-	else
-	{
-		for (int i = 0; i < wnum && i<=10; i++)
-		{
 
-			int t = a[i];
-			for (it = word.begin(); it != word.end(); it++)
+		int t = a[i];
+		for (it = word.begin(); it != word.end(); it++)
+		{
+			if ((*it).second == t)
 			{
-				if ((*it).second == t)
-				{
-					out << "<" << (*it).first << "> :" << t << endl;
-					(*it).second = 0;
-					break;
-				}
+				out << "<" << (*it).first << "> :" << t << endl;
+				(*it).second = 0;
+				break;
 			}
 		}
 	}
-}
-int main(int argc, char *argv[])
-{
-	if (argc != 2)//检测输入的命令行参数是否正确
-	{
-		cout << "输入参数错误！" << endl;
-		exit(1);
-	}
-	ifstream infile;
-	ofstream outfile;
-	infile.open(argv[1], ios::in);
-	if (infile.fail())
-	{
-		cout << "输入文件打开失败！" << endl;
-		exit(1);
-	}
-	outfile.open("result.txt", ios::out);
-	if (outfile.fail())
-	{
-		cout << "输出文件打开失败！" << endl;
-		exit(1);
-	}
-	Statistics	s;
-	s.set(infile);
-	s.display(outfile);
-	infile.close();
-	outfile.close();
-	return 0;
 }
