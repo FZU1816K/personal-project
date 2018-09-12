@@ -13,7 +13,10 @@ string FileIO::readChar(int argc, char *argv[])
 	char c;
 	while ((c = rf.get()) != EOF)
 	{
-		charBuf += c;
+		if ((c  >= 32 && c <= 126) || c == 9 || c == 10)
+		{
+			charBuf += c;
+		}
 	}
 	rf.close();
 	return charBuf;
