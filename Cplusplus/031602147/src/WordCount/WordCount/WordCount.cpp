@@ -220,12 +220,13 @@ void PrintResult(int characters, int lines, int words)
 		cerr << "open error!" << endl;
 		exit(1);
 	}
-	outfile << "characters:" << characters << endl << "lines:" << lines << endl << "words:" << words;
+	outfile << "characters: " << characters << endl << "words: " << words << endl << "lines: " << lines ;
 	for (unsigned i = 0; i < 10 && i < vec.size(); i++)
 	{
-		outfile << endl << "<" << vec[i].s << ">:" << vec[i].frequency;
+		outfile << endl << "<" << vec[i].s << ">: " << vec[i].frequency;
 	}
 	outfile.close();
+	cout << endl << "The result has been exported to result.txt.";
 	return;
 }
 
