@@ -27,9 +27,12 @@ public class print {
         bi.write("characters: "+characterscount+"\r\n");
         bi.write("words: "+wordcount+"\r\n");
         bi.write("lines: "+wordline+"\r\n");
+        int flag = 0;
         for(int i = 0; i<list.size(); i++){  
+        	if(flag>10) break;
         	if(list.get(i).getKey().length()>=4)
-        		bi.write("<"+list.get(i).getKey()+">"+ ": " +list.get(i).getValue()+"\r\n");  
+        		bi.write("<"+list.get(i).getKey()+">"+ ": " +list.get(i).getValue()+"\r\n"); 
+        	flag++;
         }
         bi.close();
     }  
