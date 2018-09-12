@@ -24,9 +24,15 @@ vector <pair<string, int>> vtMap;
 int characters = 0, words = 0, lines;
 Core core;
 
-int main() {
-	string strTxt;
-	string txtName = "input.txt";
+int main(int argc, char* argv[]) {
+	string strTxt, txtName;
+	if (argc == 2) {
+		txtName = argv[1];
+	}
+	else {
+		cerr << "命令行程序输入参数错误" << endl;
+		exit(1);
+	}
 	strTxt = readTxt(txtName);
 	wordCount(strTxt);
 	writeTxt();
@@ -71,12 +77,8 @@ void writeTxt() {
 	outfile << "characters: " << characters << endl;
 	outfile << "words: " << words << endl;
 	outfile << "lines: " << lines << endl;
-	for (auto it = vtMap.begin(); it != vtMap.end(); ++it) {
+	for (auto it = vtMap.begin(); t<10 && it != vtMap.end(); ++it, t++) {
 		outfile << "<" << it->first << ">: " << it->second << endl;
-		t++;
-		if (t == 10) {
-			break;
-		}
 	}
 	outfile.close();
 }
