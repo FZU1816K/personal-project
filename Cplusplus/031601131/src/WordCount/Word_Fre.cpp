@@ -40,7 +40,6 @@ int Word_Fre(char * filename)
 			if (ch >= 'a'&&ch <= 'z' || (ch >= '0'&&ch <= '9')) { word = word + ch; }
 			else {
 				Word_Num_map[word]++;
-			
 				word = "";
 				flag = 0;
 			
@@ -59,27 +58,25 @@ int Word_Fre(char * filename)
 		
 
 
-	ofstream outfile("result.txt", ios::out);
-	//char fil[30] = "result.txt";
-	//FILE *outfile;
-	//fopen_s(&outfile, fil, "wt");
+	FILE * stream;
+	freopen_s(&stream, "result.txt", "a", stderr);
+	
 	if(Word_Num_vec.size()<10)
 		for (int i = 0; i != Word_Num_vec.size(); ++i) {
 			const char *ss = Word_Num_vec[i].first.c_str();
 			//cout << ss << ":" << Word_Num_vec[i].second << endl;
-			printf("<%s>: %d\n", ss, Word_Num_vec[i].second);
+			fprintf(stream, "<%s>: %d\n", ss, Word_Num_vec[i].second);
 			
-			outfile <<"<"<< ss << ">"<<":" << Word_Num_vec[i].second << endl;
-			//fprintf(outfile, "<%s>: %d\n", ss, Word_Num_vec[i].second);
+			//outfile <<"<"<< ss << ">"<<":" << Word_Num_vec[i].second << endl;);
 		}
 	else
 		for (int i = 0; i != 10; ++i) {
 			const char *ss = Word_Num_vec[i].first.c_str();
-			//cout << ss << ":" << Word_Num_vec[i].second << endl;
-			printf("%s: %d\n", ss, Word_Num_vec[i].second);
-			outfile <<"<"<< ss << ">"<<":" << Word_Num_vec[i].second << endl;
-			//fprintf(outfile, "<%s>: %d\n", ss, Word_Num_vec[i].second);
+			fprintf(stream, "<%s>: %d\n", ss, Word_Num_vec[i].second);
+
 		}
+	Word_Num_vec.clear();
+	
 	fclose(file);
 	return 0;
 }
