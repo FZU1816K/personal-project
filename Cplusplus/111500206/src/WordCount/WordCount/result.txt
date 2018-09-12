@@ -1,0 +1,6 @@
+characters: 87
+words: 8
+lines: 12
+file 4
+abcd 3
+abcd1234 1

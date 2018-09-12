@@ -7,12 +7,17 @@
 
 using namespace std;
 
-#define OUTWORD 0  // 5 DFA states
+#define Separator(x) (isspace(x) || (!IsNum(x) && !isalpha(x))) 
+#define IsNum(x) (x >= '0' && x <= '9')
+
+#define OUTWORD 0 // 6 DFA states
 #define P1 1
 #define P2 2
 #define P3 3
-#define VALIDWORD 4
-#define ERROR 5
+#define NotAWord 4 
+#define VALIDWORD 5
+
+#define ERROR 6
 
 /* 
 * Function name: Transition
@@ -67,6 +72,28 @@ void WordFrequency(char * filename);
 * Parameter:
 *	none
 * Return:
-*	int: Total count of top ten words
+*	vector<pair<int, string>> & : List of top ten words with their counter.
 */
-int TopTenWords();
+vector<pair<int, string>> TopTenWords();
+
+/*
+* Function name: OutputToFile
+* Description:
+*	Output the Top 10 words to a file named "result.txt"
+* Parameter:
+*	@Top10words: Top 10 words list
+* Return:
+*	int: 0 if output correctly, -1 otherwise.
+*/
+int OutputToFile(vector<pair<int, string>> & Top10words);
+
+/*
+* Function name: StandardOutput
+* Description:
+*	Output the Top 10 words to standard output
+* Parameter:
+*	@Top10words: Top 10 words list
+* Return:
+*	int: 0 if output correctly, -1 otherwise.
+*/
+int StandardOutput(vector<pair<int, string>> & Top10words);
