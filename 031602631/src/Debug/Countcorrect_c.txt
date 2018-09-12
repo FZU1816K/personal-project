@@ -1,0 +1,2 @@
+this .txt include nout only "&#$",
+ but also "жпнд".

@@ -1,0 +1,14 @@
+this test.txt includes not only ASCII
+but also "ÖÐÎÄ".
+
+And we have:
+wordfrequency
+WORDfrequency
+WORDFREQUENCY
+WordFREQUENCY
+           
+    &*£¤# and yhsao#£¤& and shu8
+and #$shussi1892~!@
+
+and 1892 12sdayu     
+aop90
