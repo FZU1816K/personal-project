@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>e:\vs2017\vc\auxiliary\vs\unittest\include\</FILEPATH>
+      <FILENAME>cppunittest.h</FILENAME>
+      <LINE>333</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::{dtor}</FUNCTION>
+    <DECORATED>??1TestClassImpl@CppUnitTestFramework@VisualStudio@Microsoft@@UAE@XZ</DECORATED>
+    <FUNCLINE>333</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>e:\vs2017\vc\auxiliary\vs\unittest\include\</FILEPATH>
+      <FILENAME>cppunittest.h</FILENAME>
+      <LINE>349</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::CrtHandlersSetter::oldReportFile' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::CrtHandlersSetter::{ctor}</FUNCTION>
+    <DECORATED>??0CrtHandlersSetter@TestClassImpl@CppUnitTestFramework@VisualStudio@Microsoft@@QAE@XZ</DECORATED>
+    <FUNCLINE>349</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>e:\vs2017\vc\auxiliary\vs\unittest\include\</FILEPATH>
+      <FILENAME>cppunittest.h</FILENAME>
+      <LINE>349</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::CrtHandlersSetter::oldInvalidParameterHandler' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::CrtHandlersSetter::{ctor}</FUNCTION>
+    <DECORATED>??0CrtHandlersSetter@TestClassImpl@CppUnitTestFramework@VisualStudio@Microsoft@@QAE@XZ</DECORATED>
+    <FUNCLINE>349</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>e:\vs2017\vc\auxiliary\vs\unittest\include\</FILEPATH>
+      <FILENAME>cppunittest.h</FILENAME>
+      <LINE>349</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::CrtHandlersSetter::oldReportMode' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Microsoft::VisualStudio::CppUnitTestFramework::TestClassImpl::CrtHandlersSetter::{ctor}</FUNCTION>
+    <DECORATED>??0CrtHandlersSetter@TestClassImpl@CppUnitTestFramework@VisualStudio@Microsoft@@QAE@XZ</DECORATED>
+    <FUNCLINE>349</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

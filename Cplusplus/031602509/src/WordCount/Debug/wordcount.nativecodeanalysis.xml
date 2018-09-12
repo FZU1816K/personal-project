@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\project\first_work\cplusplus\031602509\src\wordcount\</FILEPATH>
+      <FILENAME>work_2.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Words::count_rank' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Words::{ctor}</FUNCTION>
+    <DECORATED>??0Words@@QAE@XZ</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\project\first_work\cplusplus\031602509\src\wordcount\</FILEPATH>
+      <FILENAME>work_2.h</FILENAME>
+      <LINE>34</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Words::word_rank' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Words::{ctor}</FUNCTION>
+    <DECORATED>??0Words@@QAE@XZ</DECORATED>
+    <FUNCLINE>34</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\project\first_work\cplusplus\031602509\src\wordcount\</FILEPATH>
+      <FILENAME>work_2.h</FILENAME>
+      <LINE>49</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Wordnode::next' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Wordnode::{ctor}</FUNCTION>
+    <DECORATED>??0Wordnode@@QAE@XZ</DECORATED>
+    <FUNCLINE>49</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\project\first_work\cplusplus\031602509\src\wordcount\</FILEPATH>
+      <FILENAME>wordcount.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>6262</DEFECTCODE>
+    <DESCRIPTION>函数使用了堆栈的“23520”个字节: 超过了 /analyze:stacksize '16384'。 请考虑将某些数据移到堆中。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
