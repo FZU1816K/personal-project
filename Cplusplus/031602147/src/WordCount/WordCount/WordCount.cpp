@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
 #include<iostream>
@@ -45,8 +46,7 @@ int CountCharacters(char *file)
 	int number = 0;
 	char ch;
 	FILE *fp;
-	errno_t err;
-	if ((err = fopen_s(&fp, file, "r")) != 0)
+	if ((fp = fopen(file, "r")) == NULL)
 	{
 		printf("Can not open this file.\n");
 		exit(0);
@@ -75,8 +75,7 @@ int CountLines(char *file)
 	int number = 0;//lines
 	FILE *fp;
 	char ch;
-	errno_t err;
-	if ((err = fopen_s(&fp, file, "r")) != 0)
+	if ((fp = fopen(file, "r")) == NULL)
 	{
 		printf("Can not open this file.\n");
 		exit(0);
@@ -141,8 +140,7 @@ int CountWords(char *file)
 	int number = 0;
 	char ch;
 	FILE *fp;
-	errno_t err;
-	if ((err = fopen_s(&fp, file, "r")) != 0)
+	if ((fp = fopen(file, "r")) == NULL)
 	{
 		printf("Can not open this file.\n");
 		exit(0);
@@ -236,11 +234,9 @@ int main(int argc, char *argv[])
 	int characters;
 	int lines;
 	int words;
-	char filename[30] = { 0 };
-	gets_s(filename);
-	characters = CountCharacters(filename);
-	lines = CountLines(filename);
-	words = CountWords(filename);
+	characters = CountCharacters(argv[1]);
+	lines = CountLines(argv[1]);
+	words = CountWords(argv[1]);
 	SortWords();
 	PrintResult(characters, lines, words);
 	return 0;
