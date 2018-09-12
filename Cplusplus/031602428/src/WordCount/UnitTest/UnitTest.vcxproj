@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{5C376795-882F-4C6D-9D5D-3D5C975B2AFD}</ProjectGuid>
+    <ProjectGuid>{A8204D79-B53C-4AD5-9FC1-2FE1AE503832}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CountCharsTest</RootNamespace>
+    <RootNamespace>UnitTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
   </PropertyGroup>

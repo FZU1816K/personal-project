@@ -6,9 +6,11 @@ int CountChars(char* file)
 	string temp;
 	ifstream inFile(file);
 	while (getline(inFile, temp)) {
-		count += temp.size() + 1;
+		for (int i = 0; i < (int)temp.length(); i++)
+			if (isascii(temp[i]))	count++;
+		count++;
 	}
-	count--;
+	if (count > 1)	count--;
 	inFile.close();
 	return count;
 }

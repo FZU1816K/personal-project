@@ -6,7 +6,7 @@ typedef struct wordFrequency {
 	string word = "";
 	int frequency = 0;
 }WF;
-WF wordFre[1000010] = { "",0 };
+WF wordFre[1000010];
 string SwitchToLower(string words)
 {
 	int len = words.length();
@@ -17,18 +17,18 @@ string SwitchToLower(string words)
 	}
 	return words;
 }
-void CutWord(string words)
+void CutWord2(string words)
 {
 	string temp;
-	temp.resize(words.size());
+	temp.resize(words.length());
 	int count = 0;
 	int tempi = 0;
-	if (words.size() < 4)	return ;
-	for (int i = 0; i < (int)words.size(); i++)
+	if (words.length() < 4)	return ;
+	for (int i = 0; i < (int)words.length(); i++)
 	{
 		if (tempi < 4 && (('a' <= words[i] && words[i] <= 'z') || ('A' <= words[i] && words[i] <= 'Z'))) {
 			temp[tempi++] = words[i];
-			if (i == words.size() - 1) {
+			if (i == words.length() - 1) {
 				temp.resize(tempi);
 				word[++cnt] = SwitchToLower(temp);
 			}
@@ -36,7 +36,7 @@ void CutWord(string words)
 		else if (tempi >= 4) {
 			if (('a' <= words[i] && words[i] <= 'z') || ('A' <= words[i] && words[i] <= 'Z') || ('0' <= words[i] && words[i] <= '9')) {
 				temp[tempi++] = words[i];
-				if (i == words.size() - 1) {
+				if (i == words.length() - 1) {
 					temp.resize(tempi);
 					word[++cnt] = SwitchToLower(temp);
 				}
@@ -44,7 +44,7 @@ void CutWord(string words)
 			else {
 				temp.resize(tempi);
 				word[++cnt] = SwitchToLower(temp);
-				if (i + 4 >= (int)words.size()) {
+				if (i + 4 >= (int)words.length()) {
 					//cout << words << "1:" << count << endl;
 					return ;
 				}
@@ -52,7 +52,7 @@ void CutWord(string words)
 			}
 		}
 		else {
-			if (i + 4 >= (int)words.size()) {
+			if (i + 4 >= (int)words.length()) {
 				//cout << words << "3:" << count << endl;
 				return ;
 			}
@@ -77,7 +77,7 @@ void WordFrequency(char* file)
 	inFile.open(file, ios::in);
 	while (!inFile.eof()) {
 		inFile >> words;
-		CutWord(words);
+		CutWord2(words);
 	}
 	inFile.close();
 	sort(word + 1, word + cnt + 1, cmp);
@@ -102,10 +102,9 @@ void WordFrequency(char* file)
 	sort(wordFre + 1, wordFre + count2 + 1, cmp2);
 	ofstream outFile;
 	outFile.open("result.txt", ios::app);
-	outFile << "123" << endl;
 	for (int i = 1; i <= min(count2, 10); i++)
 	{
-		outFile << "<"<<wordFre[i].word << ">:" << wordFre[i].frequency <<endl;
+		outFile << "<"<<wordFre[i].word << ">: " << wordFre[i].frequency <<endl;
 	}
 	outFile.close();
 	return;
