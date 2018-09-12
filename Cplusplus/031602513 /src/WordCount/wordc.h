@@ -7,6 +7,7 @@ using namespace std;
 
 class Core {
 public:
+
 	int countCnum(string str);
 	int countWnum(string str);
 	void wordHigh(string str);
