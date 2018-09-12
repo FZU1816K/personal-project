@@ -29,11 +29,12 @@ int Count::countWordNum(vector<string> &linesBuf)
 	string wordBuf;
 	for (int i = 0; i != linesBuf.size(); i++) 
 	{
-		for (string::iterator it = linesBuf[i].begin(); it != linesBuf[i].end(); it++)
+		int len = linesBuf[i].length();
+		for(int j = 0;j < len;j++)
 		{
-			if (isLetter(it) || isDigit(it)) 
+			if (isLetter(linesBuf[i][j]) || isDigit(linesBuf[i][j])) 
 			{
-				wordBuf += *it;
+				wordBuf += linesBuf[i][j];
 			}
 			else {
 				if (wordBuf.length() >= 4 && isLetter(wordBuf[0]) && isLetter(wordBuf[1]) && isLetter(wordBuf[2]) && isLetter(wordBuf[3])) 
@@ -112,6 +113,15 @@ inline bool Count::isLetter(const char ch) {
 //判断是否为数字
 inline bool Count::isDigit(string::iterator it) {
 	if (*it >= 48 && *it <= 57) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+//判断是否为数字(重载)
+inline bool Count::isDigit(const char ch) {
+	if (ch >= 48 && ch <= 57) {
 		return true;
 	}
 	else {

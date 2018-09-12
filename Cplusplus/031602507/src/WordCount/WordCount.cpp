@@ -22,7 +22,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) 
 {
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 1000; i++)
 	{
 		int lineCount = 0;			//ÐÐÊý
 		int characterCount = 0;		//×Ö·ûÊý

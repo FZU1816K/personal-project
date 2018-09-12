@@ -19,6 +19,7 @@ private:
 	inline bool isLetter(string::iterator it);
 	inline bool isLetter(const char ch);
 	inline bool isDigit(string::iterator it);
+	inline bool isDigit(const char ch);
 };
 
 
