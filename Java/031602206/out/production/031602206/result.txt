@@ -1,0 +1,5 @@
+characters: 18
+words: 2
+lines: 3
+abcd: 1
+anbcf: 1
