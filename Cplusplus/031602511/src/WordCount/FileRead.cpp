@@ -122,12 +122,12 @@ bool cmp::operator()(pair<string, int> &a, pair<string, int> &b) {
 }
 /*将单词按要求排序后保存到orderWord容器中*/
 void FileRead::wordPair() {
-	/*通过迭代器将map中的pair数据复制到vector中*/
+	/*通过迭代器将unordered_map中的pair数据复制到vector中*/
 	for (itor = wordMap.begin(); itor != wordMap.end(); itor++) {
 		orderWord.push_back(make_pair(itor->first, itor->second));
 	}
-	/*通过sort函数对vector中的单词按题目要求排序*/
-	partial_sort(orderWord.begin(), orderWord.begin() + 6, orderWord.end(), cmp());
+	/*通过paritial_sort函数对vector中的单词按题目要求排序*/
+	partial_sort(orderWord.begin(), orderWord.begin() + 10, orderWord.end(), cmp());
 }
 
 int FileRead::getCrtNum() {
