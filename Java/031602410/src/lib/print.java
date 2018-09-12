@@ -23,7 +23,7 @@ public class print {
         System.out.println("lines: "+wordline);
         for(int i = 0; i<list.size(); i++){  
         	if(list.get(i).getKey().length()>=4)
-            System.out.println(list.get(i).getKey()+ ": " +list.get(i).getValue());  
+            System.out.println("<"+list.get(i).getKey()+">"+ ": " +list.get(i).getValue());  
         }     
     }  
 }

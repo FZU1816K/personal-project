@@ -1,16 +1,12 @@
 
 import java.io.BufferedReader;
-import java.io.CharArrayWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.Reader;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.TreeMap;
 
+import lib.Read;
 import lib.print;  
  
   
@@ -18,37 +14,12 @@ public class Main {
   
     public static void main(String[] args) throws Exception {  
     	
-    	Scanner scanner=new Scanner(System.in);
-    	String pathname=scanner.nextLine();
-
+    	String pathname = new Read().Read();
+    	
+    	    	
+    	BufferedReader br = new BufferedReader(new FileReader(pathname));  
     	
     	int characterscount=0;
-    	
-    	Reader myReader = new FileReader(pathname);
-    	Reader myBufferedReader = new BufferedReader(myReader);
-    	
-
-    	//先对文本处理
-    	
-    	CharArrayWriter  tempStream = new CharArrayWriter();
-    	int i = -1;
-    	do {
-    	if(i!=-1)
-    	tempStream.write(i);
-    	i = myBufferedReader.read();
-    	if(i >= 65 && i <= 90){
-    	i += 32;
-    	}
-    	}while(i != -1);
-    	myBufferedReader.close();
-    	Writer myWriter = new FileWriter(pathname);
-    	tempStream.writeTo(myWriter);
-    	tempStream.flush();
-    	tempStream.close();
-    	myWriter.close();
-    	
-    	BufferedReader br = new BufferedReader(new FileReader(pathname));  
-        
         int wordline = 0;
         int wordcount = 0;
         List<String> lists = new ArrayList<String>();  //存储过滤后单词的列表  
@@ -93,8 +64,9 @@ public class Main {
         print.SortMap(wordsCount,wordline,wordcount,characterscount+wordline);    //排序并输出
  
       
-    }  
-      
+    }
+
+
 
 }  
 
