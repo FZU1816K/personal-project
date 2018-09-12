@@ -11,15 +11,41 @@ extern int lines;
 extern int words;
 
 //FILE * stream;
-
-int main(int argc, char* argv[])
+int main()
+//int main(int argc, char* argv[])
 {
 	
 	//freopen_s(&stream, "result.txt", "w", stderr);
 
+	for (int i = 0; i < 10000; i++) {
+		freopen("result.txt", "w", stdout);
+         
+		char argv[] = "D:\\软件工程\\cs.txt";
+		ifstream f;
+		f.open(argv, ios::in);
+		if (!f)
+		{
+			printf("无法打开文件\n");
+			return -1;
+		}
+		f.close();
 
+		int charsss = CountCharacters(argv);
+		int linesss = CountLines(argv);
+		int wordsss = CountWords(argv);
+
+		printf("characters: %d\n", charsss);
+		printf("words: %d\n", wordsss);
+		printf("lines: %d\n", linesss);
+
+		vector<pair<string, int>> v;
+		CountAndSort(argv, v);
+		int num = Display(v);
+		v.clear();
+
+	}
 	
-	freopen("result.txt", "w", stdout);
+	/*freopen("result.txt", "w", stdout);
 
 		if (argv[1] == NULL)
 		{
@@ -60,7 +86,7 @@ int main(int argc, char* argv[])
 		vector<pair<string, int>> v;
 		CountAndSort(argv[1], v);
 		int num = Display(v);
-		v.clear();
+		v.clear();*/
 		
 		
 		

@@ -91,7 +91,6 @@ int Display(vector<pair<string, int>>& v)
 
 		printf("<%s>: %d\n", vec->first, vec->second);
 
-
 		vecflag++;
 		if (vecflag == 10) break;
 
