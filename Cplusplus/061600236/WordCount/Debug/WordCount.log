@@ -1,0 +1,4 @@
+﻿  pch.cpp
+  WordCount.cpp
+c:\users\hasee\desktop\新建文件夹 (5)\wordcount\wordcount\wordcount.cpp(72): warning C4018: “<”: 有符号/无符号不匹配
+  WordCount.vcxproj -> C:\Users\hasee\Desktop\新建文件夹 (5)\WordCount\Debug\WordCount.exe
