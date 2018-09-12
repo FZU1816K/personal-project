@@ -1,17 +1,8 @@
 #include"CountAndSort.h"
 using namespace std;
 
-struct SortByValue {
-	bool operator()(const pair<string, int> & a, const pair<string, int> & b) {
-		if (a.second == b.second) {
-			return a.first < b.first;
-		}
-		else return a.second > b.second;
-	}
-};
 
-
-void CountAndSort(char* filemm,vector<pair<string, int>>& v)//统计词数词频
+void CountAndSort(char* filemm, vector<pair<string, int>>& x)//统计词数词频
 {
 	map<string, int> mapp;
 	string s;
@@ -71,26 +62,64 @@ void CountAndSort(char* filemm,vector<pair<string, int>>& v)//统计词数词频
 
 	f.close();
 
+	/*vector<pair<string, int>> w(mapp.begin(), mapp.end());//词频排序
+	x=w;
+	sort(x.begin(), x.end(), SortByValue());*/
 
 
-	
-	vector<pair<string, int>> w(mapp.begin(), mapp.end());//词频排序
-	v = w;
-	sort(v.begin(), v.end(), SortByValue());
-	
-	
+	vector<pair<string, int>> v(mapp.begin(), mapp.end());//词频排序
+
+
+	for (int i = 0; i < mapp.size(); i++)
+	{
+		if (i == 10) break;
+		int max = 0;
+		string maxword;
+		int enflag = 0;
+		for (vector<pair<string, int>>::iterator vec = v.begin(); vec != v.end(); vec++)
+		{
+			if (vec->second > max)
+			{
+				max = vec->second;//存下当前最大数单词
+				maxword = vec->first;
+			}
+			else if (vec->second == max)//字典序
+			{
+				if (vec->first < maxword)
+				{
+					max = vec->second;//存下当前最大数单词
+					maxword = vec->first;
+				}
+			}
+		}
+
+		if (max) x.push_back(make_pair(maxword, max));
+
+		for (vector<pair<string, int>>::iterator vec = v.begin(); vec != v.end(); vec++)
+		{
+			if (vec->first == maxword)
+			{
+				vec->second = -1;
+				break;
+			}
+
+		}
+	}
+
+
+
 
 }
 
-int Display(vector<pair<string, int>>& v)
+
+int Display(vector<pair<string, int>>& x)
 {
 	int vecflag = 0;
 
-	for (vector<pair<string, int>>::iterator vec = v.begin(); vec != v.end(); vec++)
+	for (vector<pair<string, int>>::iterator vec = x.begin(); vec != x.end(); vec++)
 	{
 
 		printf("<%s>: %d\n", vec->first, vec->second);
-
 
 		vecflag++;
 		if (vecflag == 10) break;
@@ -99,4 +128,3 @@ int Display(vector<pair<string, int>>& v)
 
 	return vecflag;
 }
-		
