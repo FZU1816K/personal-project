@@ -1,0 +1,9 @@
+﻿  TenFrequency.cpp
+  main.cpp
+  CountWordnumber.cpp
+  CountLines.cpp
+  CountChar.cpp
+  正在生成代码...
+LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/PROFILE”规范)
+CountChar.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:REF”规范)
+  WordCount.vcxproj -> C:\Users\pite\Desktop\WordCount\Debug\WordCount.exe
