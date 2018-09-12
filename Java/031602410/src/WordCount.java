@@ -1,5 +1,6 @@
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +11,14 @@ import lib.Read;
 import lib.print;  
  
   
-public class Main {  
+public class WordCount {  
   
     public static void main(String[] args) throws Exception {  
     	
-    	String pathname = new Read().Read();
+    	File file = new File(args[0]);
+    	String temppathname = file.getPath();
+    	new Read();
+		String pathname = Read.Read(temppathname);
     	
     	    	
     	BufferedReader br = new BufferedReader(new FileReader(pathname));  
