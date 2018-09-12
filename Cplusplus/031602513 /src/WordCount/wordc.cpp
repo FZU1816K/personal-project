@@ -229,6 +229,6 @@ bool myFunc(const pair<string, int> &x, const pair<string, int> &y) {
 		else
 			return false;
 	}
-	else if (x.second < y.second)
+	else
 		return false;
 }
