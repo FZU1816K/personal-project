@@ -1,0 +1,3 @@
+﻿  WordCount.cpp
+c:\users\lenovo\desktop\wordcount\wordcount\wordcount.cpp(44): warning C4018: “<”: 有符号/无符号不匹配
+  WordCount.vcxproj -> C:\Users\Lenovo\Desktop\WordCount\Debug\WordCount.exe
