@@ -71,6 +71,10 @@ bool HaveVisibleChar(string line)
 // 得到词频字典和字符数
 void GetWordCountMap(string file_location)
 {
+	// 在得到词频字典的过程中，可以顺路统计出字符数、有效行数
+	// 在得到字典、字符数、有效行数后
+	// 直接修改全局变量g_has_got_map、g_has_got_line、g_has_got_map三个标志位
+	// 在CountLine、CountChar、CountWord三个函数中就不需要再计算
 	ifstream instream;
 	instream.open(file_location, ios::binary);
 	assert(instream.is_open());
@@ -116,7 +120,7 @@ void GetWordCountMap(string file_location)
 		if (!have_next_line) break;
 	}
 
-	// 修改标记位
+	// 获得字典后修改标记位
 	g_has_got_map = true;
 	g_has_got_lines = true;
 	g_has_got_characters = true;
@@ -209,7 +213,11 @@ int CountWord(string file_location)
 	if (!g_has_got_map)
 		GetWordCountMap(file_location);
 
-	int count_word = g_word_count_map.size();
+	// int count_word = g_word_count_map.size();
+	int count_word = 0;
+	map<string, int>::iterator it = g_word_count_map.begin();
+	for (; it != g_word_count_map.end(); it++)
+		count_word += it->second;
 	return count_word;
 }
 
