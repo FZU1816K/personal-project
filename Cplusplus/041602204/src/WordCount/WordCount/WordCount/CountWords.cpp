@@ -1,35 +1,38 @@
-#include"CountWords.h"
+ #include"CountWords.h"
 #include"Sort.h"
 
 
 int CountWords(string filename)
 {
-	const char *k;
-	int i, sign = 0, mm = 0;
-	ifstream file(filename.c_str());      //×Ö·û¶ÁÈ¡ÎÄ¼ş 
-	string  temp;
-	unordered_map<string, int> ttmap;   //Ê¹ÓÃunordered_map¸üÎª¸ßĞ§£¬Æäµ×²ãÎªhash±í£¬¶ømapÊÇºìºÚÊ÷£¬Ğ§ÂÊ¶øÑÔ×ÔÈ»ÊÇÇ°Õß¸ßÀ²~
+	const char *t;
+	int flag = 0;
+	int cnt = 0;
+	string temp; 
+	unordered_map<string, int> newmap;   //ä½¿ç”¨unordered_mapæ›´ä¸ºé«˜æ•ˆï¼Œå…¶åº•å±‚ä¸ºhashè¡¨ï¼Œè€Œmapæ˜¯çº¢é»‘æ ‘ï¼Œæ•ˆç‡è€Œè¨€è‡ªç„¶æ˜¯å‰è€…é«˜å•¦~
+	ifstream File(filename.c_str());      //å­—ç¬¦è¯»å–æ–‡ä»¶
 
-	while (file >> temp)
-	{
-		transform(temp.begin(), temp.end(), temp.begin(), ::tolower);  //Ê×ÏÈ£¬½«ÎÄ¼şÄÚÈİ×ªÎªĞ¡Ğ´£¬´Ó¶øÂú×ãÌâÄ¿ÒªÇó¡£Ò²·½±ãÁËÊä³ö¡£							
-		k = temp.c_str();
-		sign = 0;
+	while (File >> temp)
+	{   
+		flag = 0;
+		transform(temp.begin(), temp.end(), temp.begin(), ::tolower);  //é¦–å…ˆï¼Œå°†æ–‡ä»¶å†…å®¹è½¬ä¸ºå°å†™ï¼Œä»è€Œæ»¡è¶³é¢˜ç›®è¦æ±‚ã€‚ä¹Ÿæ–¹ä¾¿äº†è¾“å‡ºã€‚							
+		t = temp.c_str();
 		if (temp.length() >= 4)
 		{
-			for (i = 0; i < 4; i++)
+			for (int i = 0; i < 4; i++)
 			{
-				if (k[i] <= 'z'&&k[i] >= 'a')
-					sign += 1;
+				if ( t[i] >= 97  &&  t[i] <= 122)
+					flag = flag+ 1;
 
 			}
-			if (sign == 4)                      //¼´ÊÇÂú×ã³ÉÎªµ¥´ÊµÄÌõ¼ş£¡sign=4£¬¼´±íÊ¾ÓĞÇ°ËÄ¸ö×Ö·ûÎª×ÖÄ¸¡£
+			if (flag == 4)                      //å³æ˜¯æ»¡è¶³æˆä¸ºå•è¯çš„æ¡ä»¶ï¼sign=4ï¼Œå³è¡¨ç¤ºæœ‰å‰å››ä¸ªå­—ç¬¦ä¸ºå­—æ¯ã€‚
 			{
-				if (ttmap[temp] == 0)
-					mm++;
-				ttmap[temp]++;                //Í¨¹ıKeyÖµ£¨´Ë´¦Îªstring£©À´²éÔÄ¡°hash¡°±í£¬½«Æävalue£¨¼´ÀÛ¼Æ×ÖÄ¸ÊıÄ¿£©+1£»
+				if (newmap[temp] == 0)
+				{
+					cnt++;
+				}
+				newmap[temp]++;                //é€šè¿‡Keyå€¼ï¼ˆæ­¤å¤„ä¸ºstringï¼‰æ¥æŸ¥é˜…â€œhashâ€œè¡¨ï¼Œå°†å…¶valueï¼ˆå³ç´¯è®¡å­—æ¯æ•°ç›®ï¼‰+1ï¼›
 			}
 		}
 	}
-	return mm;
+	return cnt;
 }
