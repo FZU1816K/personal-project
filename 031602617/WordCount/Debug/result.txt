@@ -1,0 +1,9 @@
+characters: 99
+words: 9
+lines: 9
+<okok>: 3
+<home>: 2
+<sdas>: 1
+<ooiiu>: 1
+<saaaa>: 1
+<wewoi12>: 1
