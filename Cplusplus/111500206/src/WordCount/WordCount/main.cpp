@@ -28,6 +28,14 @@ int main(int argc, char **argv)
 
 	auto topTenWordList = TopTenWords();
 	StandardOutput(topTenWordList);
+
+	fstream file;
+	file.open("result.txt", ios::out);
+	file << "characters: " << numberOfChar << endl;
+	file << "words: " << numberOfWords << endl;
+	file << "lines: " << numberOfLines << endl;
+	file.close();
+
 	OutputToFile(topTenWordList);
 
 	return 0;

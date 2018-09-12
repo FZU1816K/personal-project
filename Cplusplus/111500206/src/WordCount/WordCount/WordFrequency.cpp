@@ -108,8 +108,6 @@ vector<pair<int, string>> TopTenWords()
 	}
 	
 	sort(Top10words.begin(), Top10words.end(), MySort);
-	//StandardOutput(Top10words);
-	//OutputToFile(Top10words);
 	hash_table.clear();
 	return Top10words;
 }
@@ -121,7 +119,7 @@ int OutputToFile(vector<pair<int, string>>& Top10words)
 	}
 
 	fstream file;
-	file.open("output.txt", ios::out);
+	file.open("result.txt", ios::app);
 	if (!file) {
 		printf("Failed to create output file.\n");
 		return -1;
