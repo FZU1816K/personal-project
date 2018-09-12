@@ -115,7 +115,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CountCharacters.cpp" />
+    <ClCompile Include="CountLines.cpp" />
+    <ClCompile Include="CountWords.cpp" />
+    <ClCompile Include="MatchWord.cpp" />
+    <ClCompile Include="PrintResult.cpp" />
+    <ClCompile Include="SortWords.cpp" />
     <ClCompile Include="WordCount.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CountCharacters.h" />
+    <ClInclude Include="CountLines.h" />
+    <ClInclude Include="CountWords.h" />
+    <ClInclude Include="MatchWord.h" />
+    <ClInclude Include="PrintResult.h" />
+    <ClInclude Include="SortWords.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

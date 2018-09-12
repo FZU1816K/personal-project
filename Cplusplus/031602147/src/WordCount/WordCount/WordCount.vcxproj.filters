@@ -18,5 +18,46 @@
     <ClCompile Include="WordCount.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CountLines.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountCharacters.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountWords.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchWord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SortWords.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintResult.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CountLines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Word.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountWords.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MatchWord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SortWords.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintResult.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountCharacters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
