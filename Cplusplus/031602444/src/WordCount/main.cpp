@@ -11,86 +11,60 @@ extern int lines;
 extern int words;
 
 //FILE * stream;
-int main()
-//int main(int argc, char* argv[])
+
+int main(int argc, char* argv[])
 {
-	
+
 	//freopen_s(&stream, "result.txt", "w", stderr);
 
-	for (int i = 0; i < 10000; i++) {
-		freopen("result.txt", "w", stdout);
-         
-		char argv[] = "D:\\软件工程\\cs.txt";
-		ifstream f;
-		f.open(argv, ios::in);
-		if (!f)
-		{
-			printf("无法打开文件\n");
-			return -1;
-		}
-		f.close();
 
-		int charsss = CountCharacters(argv);
-		int linesss = CountLines(argv);
-		int wordsss = CountWords(argv);
 
-		printf("characters: %d\n", charsss);
-		printf("words: %d\n", wordsss);
-		printf("lines: %d\n", linesss);
+	freopen("result.txt", "w", stdout);
 
-		vector<pair<string, int>> v;
-		CountAndSort(argv, v);
-		int num = Display(v);
-		v.clear();
-
+	if (argv[1] == NULL)
+	{
+		printf("请输入文件路径\n");
+		return -1;
 	}
-	
-	/*freopen("result.txt", "w", stdout);
+	if (argc > 2)
+	{
+		printf("输入文件过多\n");
+		return -1;
+	}
+	int len = strlen(argv[1]);
+	if (!(*(argv[1] + len - 1) == 't'&&
+		*(argv[1] + len - 2) == 'x'&&
+		*(argv[1] + len - 3) == 't'))
+	{
+		printf("输入文件不是txt形式\n");
+		return -1;
+	}
 
-		if (argv[1] == NULL)
-		{
-			printf("请输入文件路径\n");
-			return -1;
-		}
-		if (argc > 2)
-		{
-			printf("输入文件过多\n");
-			return -1;
-		}
-		int len = strlen(argv[1]);
-		if (!(*(argv[1] + len - 1) == 't'&&
-			*(argv[1] + len - 2) == 'x'&&
-			*(argv[1] + len - 3) == 't'))
-		{
-			printf("输入文件不是txt形式\n");
-			return -1;
-		}
+	ifstream f;
+	f.open(argv[1], ios::in);
+	if (!f)
+	{
+		printf("无法打开文件\n");
+		return -1;
+	}
+	f.close();
 
-		ifstream f;
-		f.open(argv[1], ios::in);
-		if (!f)
-		{
-			printf("无法打开文件\n");
-			return -1;
-		}
-		f.close();
+	int charsss = CountCharacters(argv[1]);
+	int linesss = CountLines(argv[1]);
+	int wordsss = CountWords(argv[1]);
 
-		int charsss = CountCharacters(argv[1]);
-		int linesss = CountLines(argv[1]);
-		int wordsss = CountWords(argv[1]);
+	printf("characters: %d\n", charsss);
+	printf("words: %d\n", wordsss);
+	printf("lines: %d\n", linesss);
 
-		printf("characters: %d\n", charsss);
-		printf("words: %d\n", wordsss);
-		printf("lines: %d\n", linesss);
+	vector<pair<string, int>> v;
+	CountAndSort(argv[1], v);
+	int num = Display(v);
+	v.clear();
 
-		vector<pair<string, int>> v;
-		CountAndSort(argv[1], v);
-		int num = Display(v);
-		v.clear();*/
-		
-		
-		
 
-	
+
+
+
 	return 0;
 }

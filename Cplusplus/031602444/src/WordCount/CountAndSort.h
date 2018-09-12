@@ -14,8 +14,8 @@
 using namespace std;
 
 
-void CountAndSort(char* filemm, vector<pair<string, int>>& v);//´ÊÆµÅÅĞò
+void CountAndSort(char* filemm, vector<pair<string, int>>& x);//´ÊÆµÅÅĞò
 
-int Display(vector<pair<string, int>>& v);//Êä³ö
+int Display(vector<pair<string, int>>& x);//Êä³ö
 
 #endif
