@@ -1,9 +1,13 @@
 package HomeWork;
 
 import java.io.BufferedReader;
+
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Lib {
 
@@ -13,8 +17,8 @@ public class Lib {
 		int wordLength = 0;
 		int countline = 0;
 		int notWord = 0;
-
 		InputStreamReader isr = new InputStreamReader(new FileInputStream(path));
+		@SuppressWarnings("resource")
 		BufferedReader br = new BufferedReader(isr);
 		String str = null;
 		Jiegou[] tree = new Jiegou[max];
@@ -25,11 +29,12 @@ public class Lib {
 		}
 		int ForCount = 0;
 		char[] refinement = new char[20];
+		
 		while ((str = br.readLine()) != null) // 读取
 		{
 			int wordsCount = 0;
 			countChar += str.length();
-			String[] words = str.split("[,.:|;+ ]");//
+			String[] words = str.split("[ ,.:|;+?!<>\\-#$%&]");//
 			if (str.isEmpty()) // 9-11 19:41
 			{
 				countline++;
@@ -70,17 +75,12 @@ public class Lib {
 					if (tree[q].temp.equals(tree[p].temp)) {
 						tree[q].flag++;
 						tree[p].flag = -1;
-						/* System.out.println(temp[q]+" 单词数:"+Flag[q]); */
 					}
 				} else if (tree[q].flag == -1) {
 					break;
 				}
 			}
 		}
-		/* 使用新的数组记录大小与顺序 */
-		int[] CountNumber = new int[max];
-		int Current = 0;
-		String current;
 		for (int CountFirst = 0; CountFirst < wordLength - 1; CountFirst++) {// 可以用临时类优化
 			for (int InTurn = CountFirst + 1; InTurn < wordLength; InTurn++) {
 				if (tree[CountFirst].flag != -1) {
@@ -122,7 +122,6 @@ public class Lib {
 			}
 		}
 		/* 词频统计并输出 9-11 0：11 */
-
 		if (countline > 0) {
 			countChar += countline - 1; // 9-11 19:35
 		}
@@ -132,11 +131,15 @@ public class Lib {
 		System.out.println("word : " + wordLength);
 		System.out.println("line:  " + countline);
 		int countEnd = 0;
+		StringBuilder result = new StringBuilder();
 		for (int count = 0; count < wordLength; count++) {
 			if (tree[count].flag != -1) {
 				System.out.println("<" + tree[count].temp + ">:" + tree[count].flag);
+				result.append(tree[count].temp)
+				    .append("\r\n");
 				countEnd++;
 			}
+			Files.write(Paths.get("result.txt"), result.toString().getBytes());
 			if (countEnd == 10 || countEnd == (wordLength - notWord))
 				break;
 			if (tree[count].flag == -1) {
