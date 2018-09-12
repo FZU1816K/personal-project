@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{90AA2F22-4088-4655-952F-56F64EFB55A6}</ProjectGuid>
+    <ProjectGuid>{842CEE0E-0B43-4DEF-A043-5B216E7F9734}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
@@ -147,10 +147,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AnalyzeArguments.h" />
+    <ClInclude Include="CountChar.h" />
+    <ClInclude Include="CountLines.h" />
+    <ClInclude Include="CountWords.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="WordsFrequency.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnalyzeArguments.cpp" />
+    <ClCompile Include="CountChar.cpp" />
+    <ClCompile Include="CountLines.cpp" />
+    <ClCompile Include="CountWords.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -158,6 +167,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="WordCount.cpp" />
+    <ClCompile Include="WordsFrequency.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

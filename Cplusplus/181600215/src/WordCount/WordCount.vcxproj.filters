@@ -21,12 +21,42 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="AnalyzeArguments.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountChar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountLines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountWords.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WordsFrequency.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="WordCount.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalyzeArguments.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountChar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountLines.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountWords.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WordsFrequency.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
