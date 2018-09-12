@@ -60,7 +60,7 @@ struct ww
 {
 	char word[20];
 	int number;
-}w[100];
+}w[1000];
 void display_map(map<string, int> &wmap)
 {
 
@@ -103,5 +103,12 @@ void display_map(map<string, int> &wmap)
 	{
 		cout << w[j].word << ":" << w[j].number << endl;
 	}
-
+	ofstream outfile;
+	outfile.open("result.txt");
+	int z ;
+	for (z = 0; z < num; z++)
+	{
+		outfile << w[z].word ;
+	}
+	outfile.close();
 }
