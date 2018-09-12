@@ -1,5 +1,5 @@
 #include"stdafx.h"
-#include<time.h>
+//#include<time.h>
 using namespace std;
 
 int lines = 0, characters = 0, wordNum = 0;
@@ -61,12 +61,12 @@ void countLine(ifstream& infile)//统计行数以及字符数
 
 int main(int argc, char* argv[])
 {
-	long start = clock();
+	//long start = clock();
 	unordered_map<string, int> words;
 	ifstream infile;
 	ofstream outfile;
-	//string filename = argv[1];//这句是在进行控制台操作时使用
-	countWord(words, "input.txt", infile);
+	string filename = argv[1];//这句是在进行控制台操作时使用
+	countWord(words, filename, infile);
 	infile.clear();
 	infile.seekg(0, ios::beg);//将指针重新定位到文件头
 	countLine(infile);
@@ -77,8 +77,8 @@ int main(int argc, char* argv[])
 	outfile << "lines:" << lines << endl;
 	wordSort(words, outfile);
 	outfile.close();
-	long end = clock();
-	cout << "程序执行结束,共花费秒数:" << ( end - start )/ CLOCKS_PER_SEC << endl;
+	//long end = clock();
+	//cout << "程序执行结束,共花费秒数:" << (end - start) / CLOCKS_PER_SEC << endl;
 	system("pause");
 	return 0;
 }
