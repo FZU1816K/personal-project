@@ -5,18 +5,18 @@ using namespace std;
 class Statistics
 {
 public :
-	int cnum;//字符数
-	int wnum;//单词数
-	int lnum;//行数
 	vector<int>a;//排序用
 	map<string, int> word;//记录单词及词频
-	void set(ifstream& in);//统计
-	void output(ofstream& out);//输出
+	void set(ifstream& in);//进行统计
+	void display(ofstream& out);//输出统计结果
 	int characters(ifstream& in);//统计字符数
 	int	words(ifstream& in);//统计单词数
 	int lines(ifstream& in);//统计行数
+private:
+	int cnum;//字符数
+	int wnum;//单词数
+	int lnum;//行数
 };
-
 bool cmp(int a, int b)
 {
 	return a > b;
@@ -28,7 +28,7 @@ int Statistics::words(ifstream& in)//词频统计
 	int flag = 0;
 	int sum = 0;
 	int star = 0;
-	while (getline(in, str))
+	while (getline(in, str))//逐行读取
 	{
 		flag = 0;
 		for (unsigned i = 0; i < str.length(); i++)//将大写字母转为小写字母 
@@ -65,7 +65,6 @@ int Statistics::words(ifstream& in)//词频统计
 						}
 					}
 					temp = str.substr(star, flag);//截取合法单词 
-					//cout<<"temp:"<<temp<<endl;
 					if (word.count(temp))
 					{
 						word[temp]++;
@@ -88,7 +87,7 @@ int Statistics::characters(ifstream& in)//统计字符数
 {
 	int num = 0;
 	char ch;
-	while (in.peek() != EOF)
+	while (in.peek() != EOF)//按字符读取
 	{
 		in.get(ch);
 		if (ch >= 0 && ch <= 255)
@@ -120,11 +119,14 @@ int Statistics::lines(ifstream& in)	//统计有效行数
 }
 void Statistics::set(ifstream& in)//调用统计功能
 {
+	cnum = 0;
+	lnum = 0;
+	wnum = 0;
 	cnum = characters(in);
 	lnum = lines(in);
 	wnum = words(in);
 }
-void Statistics::output(ofstream& out)//将结果输出至指定文档
+void Statistics::display(ofstream& out)//将结果输出至指定文档
 {
 	out << "characters: " << cnum << endl;
 	out << "words: " << wnum << endl;
@@ -132,45 +134,57 @@ void Statistics::output(ofstream& out)//将结果输出至指定文档
 	map<string, int>::iterator it;
 	for (it = word.begin(); it != word.end(); it++)
 	{
-		int m = (*it).second;
-		a.push_back(m);
+		int t = (*it).second;
+		a.push_back(t);
 	}
 	sort(a.begin(), a.end(), cmp);
-	for (int i = 0; i < wnum; i++)
+	if (wnum == 0)
 	{
-		int m = a[i];
-		for (it = word.begin(); it != word.end(); it++)
+		out << "该文档不存在合法单词！" << endl;
+	}
+	else
+	{
+		for (int i = 0; i < wnum && i<=10; i++)
 		{
-			if ((*it).second == m)
+
+			int t = a[i];
+			for (it = word.begin(); it != word.end(); it++)
 			{
-				out << "<" << (*it).first << "> :" << m << endl;
-				(*it).second = 0;
-				break;
+				if ((*it).second == t)
+				{
+					out << "<" << (*it).first << "> :" << t << endl;
+					(*it).second = 0;
+					break;
+				}
 			}
 		}
 	}
 }
 int main(int argc, char *argv[])
 {
+	if (argc != 2)//检测输入的命令行参数是否正确
+	{
+		cout << "输入参数错误！" << endl;
+		exit(1);
+	}
 	ifstream infile;
 	ofstream outfile;
 	infile.open(argv[1], ios::in);
 	if (infile.fail())
 	{
-		cout << "Open readfile failed!" << endl;
+		cout << "输入文件打开失败！" << endl;
 		exit(1);
 	}
 	outfile.open("result.txt", ios::out);
 	if (outfile.fail())
 	{
-		cout << "Open writefile failed!" << endl;
+		cout << "输出文件打开失败！" << endl;
 		exit(1);
 	}
 	Statistics	s;
 	s.set(infile);
-	s.output(outfile);
+	s.display(outfile);
 	infile.close();
 	outfile.close();
-	system("pause");
 	return 0;
 }
