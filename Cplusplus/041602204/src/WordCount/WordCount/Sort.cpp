@@ -1,6 +1,6 @@
 #include"Sort.h"
 
-//Ê¹ÓÃÈİÆ÷vectorÀïÊ®·Ö·½±ãµÄsortÀ´½øĞĞ½µĞòÅÅÁĞ¡£
+//ä½¿ç”¨å®¹å™¨vectoré‡Œååˆ†æ–¹ä¾¿çš„sortæ¥è¿›è¡Œé™åºæ’åˆ—ã€‚
 
 
 int Compare(const pair <string, int> & x, const pair<string, int>& y)
@@ -8,10 +8,10 @@ int Compare(const pair <string, int> & x, const pair<string, int>& y)
 	return x.second > y.second;
 }
 
-void Sort(unordered_map<string, int>& tMap, vector<pair<string, int> >& tVector)
+void Sort(unordered_map<string, int>& newmap, vector<pair<string, int> >& newvector)
 {
-	for (unordered_map<string, int>::iterator curr = tMap.begin(); curr != tMap.end(); curr++)
-		tVector.push_back(make_pair(curr->first, curr->second));
+	for (unordered_map<string, int>::iterator curr = newmap.begin(); curr != newmap.end(); curr++)
+		newvector.push_back(make_pair(curr->first, curr->second));
 
-	sort(tVector.begin(), tVector.end(), Compare);
+	sort(newvector.begin(), newvector.end(), Compare);
 }
