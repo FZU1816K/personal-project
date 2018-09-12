@@ -101,6 +101,7 @@ int character(char* path) {
 	count--;
 	if(count !=0)
 		lines++;
+	//行数单独输出
 	ofstream fout("lines.txt");
 	fout << "lines: " << lines << endl;
 	return count;
@@ -146,7 +147,7 @@ int word(char* path) {
 	return count;
 }
 //统计词频并输出
-void WordsFrequency(char* path) {
+vector<pair<string, int>> WordsFrequency(char* path) {
 	ifstream infile;
 	infile.open(path); //将文件流对象与文件连接起来 
 	infile >> noskipws;
@@ -188,12 +189,5 @@ void WordsFrequency(char* path) {
 	for (map<string, int>::iterator curr = m1.begin(); curr != m1.end(); curr++)
 		tVector.push_back(make_pair(curr->first, curr->second));
 	sort(tVector.begin(), tVector.end(), cmp);
-	ofstream fout("WordsFrequency.txt");
-	for (int i = 0; i<tVector.size(); i++)
-	{
-		if (i == 10)
-			break;
-		fout << "<" << tVector[i].first << ">" << ": " << tVector[i].second << endl;
-	}
-	fout.close();
+	return tVector;
 }

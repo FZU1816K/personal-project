@@ -62,7 +62,7 @@ namespace UnitTest2
 		TEST_METHOD(TestMethod7)
 		{
 			// TODO: 在此输入测试代码
-			char *a = "huanhuang.txt";
+			char *a = "huanhang.txt";
 			int cnt = 0;
 			cnt = word(a);
 			Assert::AreEqual(0, cnt);
@@ -79,7 +79,7 @@ namespace UnitTest2
 		TEST_METHOD(TestMethod9)
 		{
 			// TODO: 在此输入测试代码
-			char *a = "新建文本文档.txt";
+			char *a = "新建.txt";
 			int cnt = 0;
 			cnt = character(a);
 			Assert::AreEqual(0, cnt);
@@ -87,7 +87,8 @@ namespace UnitTest2
 		TEST_METHOD(TestMethod10)
 		{
 			// TODO: 在此输入测试代码
-			char *a = NULL;
+			char *a = "inputlarge.txt";
+			//Assert::AreEqual()
 		}
 	};
 }

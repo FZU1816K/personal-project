@@ -1,11 +1,11 @@
 #include "stdafx.h"
 
 int main(int args,char* argv[])
-
 {
 	char* a = NULL;
+	vector<pair<string, int>> tVector;
 	//char* a = "input.txt";
-	
+	ofstream fout("result.txt");
 	a = argv[1];
 	if (argv[1] == NULL)
 	{
@@ -26,19 +26,22 @@ int main(int args,char* argv[])
 		return 3;
 	}
 	input.close();
-	
+
 	int characters,words;
-	//统计字符数
-	ofstream fout("characters.txt");
+	//输出统计字符数
 	characters = character(a);
 	fout << "characters: " << characters << endl;
-	fout.close();
-	//统计单词数
-	ofstream foutt("words.txt");
+	//输出统计单词数
 	words = word(a);
-	foutt << "words: " << words << endl;
-	foutt.close();
-	//统计前十词频
-	WordsFrequency(a);
+	fout << "words: " << words << endl;
+	//输出统计前十词频
+	tVector=WordsFrequency(a);
+	for (int i = 0; i<tVector.size(); i++)
+	{
+		if (i == 10)
+			break;
+		fout << "<" << tVector[i].first << ">" << ": " << tVector[i].second << endl;
+	}
+	fout.close();
 	return 0;
 }

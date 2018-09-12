@@ -1,3 +1,0 @@
-<windows95>: 2
-<windows2000>: 1
-<windows98>: 1
