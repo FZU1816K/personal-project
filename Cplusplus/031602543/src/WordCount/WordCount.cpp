@@ -282,7 +282,7 @@ void Counter::Write()
 	infile.close();
 
 	ofstream outfile;
-	outfile.open(dfn);
+	outfile.open(dfn,ios::out);
 	DetectOutfileOpen(outfile);
 	
 	outfile << result << endl;
