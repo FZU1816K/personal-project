@@ -100,10 +100,12 @@ void Frequency::put_map()
 		}
 	}
 	int i = 0;
-	if (num < 10)
-		cout << "不满十个：" << endl;
-	for (i = 0; i < num; i++)
+	for (i = 0; i < 10; i++)
 	{
+		if (b[i].size()==0)
+		{
+			break;
+		}
 		cout << b[i] << " : " << a[i] << endl;
 	}
 }
