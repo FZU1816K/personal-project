@@ -1,3 +1,2 @@
 ﻿  WordCount.cpp
-f:\software engineering\personal-project\project1\cplusplus\031602421\src\wordcount\wordcount\wordcount.cpp(13): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
   WordCount.vcxproj -> F:\software engineering\personal-project\project1\Cplusplus\031602421\src\WordCount\Debug\WordCount.exe

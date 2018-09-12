@@ -1,0 +1,7 @@
+characters: 32
+words: 5
+lines: 5
+<aaabb>: 2
+<abbccc>: 1
+<dddeee>: 1
+<fffff>: 1

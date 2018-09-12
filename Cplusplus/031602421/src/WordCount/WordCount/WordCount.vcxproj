@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="WordCount.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
