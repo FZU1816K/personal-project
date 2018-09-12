@@ -1,0 +1,45 @@
+[2018-09-11 18:28:16] [info] Start Program:
+Path:"E:\Git\personal-project\Cplusplus\031602114\src\x64\Debug\WordCount.exe"
+Arguments:
+Working directory: "E:\Git\personal-project\Cplusplus\031602114\src\WordCount\"
+Modules: Selected: E:\Git\personal-project\Cplusplus\031602114\src\x64\Debug\WordCount.exe E:\Git\personal-project\Cplusplus\031602114\src\x64\Debug\WordCountUnitTest.dll Excluded: 
+Sources: Selected: E:\Git\personal-project\Cplusplus\031602114\src\WordCount E:\Git\personal-project\Cplusplus\031602114\src\WordCountUnitTest Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\胡绪佩\AppData\Local\Temp\fiwohx1d.f2a 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+
+[2018-09-11 18:28:16] [info] Module: E:\Git\personal-project\Cplusplus\031602114\src\x64\Debug\WordCount.exe is selected because it matches selected pattern: 
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.h line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.h line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\word_count.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\wordcount.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 147 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 147 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\top_ten.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\line_count.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [warning] e:\git\personal-project\cplusplus\031602114\src\wordcount\char_count.cpp line 15732480 does not exist, skipped
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\ntdll.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\kernel32.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\KernelBase.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\vcruntime140d.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\msvcp140d.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\ucrtbased.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\kernel.appcore.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\msvcrt.dll is skipped because it matches no selected patterns
+[2018-09-11 18:28:16] [info] Module: C:\Windows\System32\rpcmsvcrt.dll is skipped because it matches no selected patterns
+[2018-09-11 18:27:32] [info] Module: C:\Windows\System32\rpcrt4.dll is skipped because it matches no selected patterns
+[2018-09-11 18:27:32] [info] ----------------------------------------------------
+[2018-09-11 18:27:32] [info] Coverage binary generated in file: C:\Users\胡绪佩\AppData\Local\Temp\wi03utvh.1ku
+[2018-09-11 18:27:32] [info] ----------------------------------------------------
