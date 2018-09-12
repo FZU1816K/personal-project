@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
 #include<iostream>
@@ -46,7 +45,8 @@ int CountCharacters(char *file)
 	int number = 0;
 	char ch;
 	FILE *fp;
-	if ((fp = fopen(file, "r")) == NULL)
+	errno_t err;
+	if ((err = fopen_s(&fp, file, "r")) != 0)
 	{
 		printf("Can not open this file.\n");
 		exit(0);
@@ -75,7 +75,8 @@ int CountLines(char *file)
 	int number = 0;//lines
 	FILE *fp;
 	char ch;
-	if ((fp = fopen(file, "r")) == NULL)
+	errno_t err;
+	if ((err = fopen_s(&fp, file, "r")) != 0)
 	{
 		printf("Can not open this file.\n");
 		exit(0);
@@ -140,36 +141,49 @@ int CountWords(char *file)
 	int number = 0;
 	char ch;
 	FILE *fp;
-	if ((fp = fopen(file, "r")) == NULL)
+	errno_t err;
+	if ((err = fopen_s(&fp, file, "r")) != 0)
 	{
 		printf("Can not open this file.\n");
 		exit(0);
 	}
 	string s;
 	int cnt = 0;
+	int sign = 0;
 	while (!feof(fp))
 	{
 		if ((ch = getc(fp)) != EOF)
 		{
 			if (0 <= ch && ch <= 255)
 			{
-				if (65 <= ch && ch <= 90)
+				if (65 <= ch && ch <= 90)//A-Z
 				{
-					cnt++;
-					ch = ch + 32;
-					s = s + ch;
+					if (!sign)
+					{
+						cnt++;
+						ch = ch + 32;//תСд
+						s = s + ch;
+					}
+					
 				}
-				else if (97 <= ch && ch <= 122)
+				else if (97 <= ch && ch <= 122)//a-z
 				{
-					cnt++;
-					s = s + ch;
+					if (!sign)
+					{
+						cnt++;
+						s = s + ch;
+					}
 				}
-				else if (48 <= ch && ch <= 57)
+				else if (48 <= ch && ch <= 57)//0-9
 				{
 					if (cnt >= 4)
 					{
 						cnt++;
 						s = s + ch;
+					}
+					else
+					{
+						sign=1;
 					}
 				}
 				else
@@ -180,6 +194,7 @@ int CountWords(char *file)
 					}
 					s = "";
 					cnt = 0;
+					sign = 0;
 				}
 			}
 		}
@@ -226,7 +241,7 @@ void PrintResult(int characters, int lines, int words)
 		outfile << endl << "<" << vec[i].s << ">: " << vec[i].frequency;
 	}
 	outfile.close();
-	cout << endl << "The result has been exported to result.txt.";
+	cout << endl << "The result has been exported to result.txt!";
 	return;
 }
 
