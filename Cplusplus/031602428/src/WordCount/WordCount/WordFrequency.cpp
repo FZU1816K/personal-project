@@ -1,11 +1,12 @@
 #include "WordFrequency.h"
 
-string word[1010];
+string word[1000010];
 int cnt = 0;
-struct wordFrequency {
-	string word;
+typedef struct wordFrequency {
+	string word = "";
 	int frequency = 0;
-}wordFre[1010];
+}WF;
+WF wordFre[1000010] = { "",0 };
 string SwitchToLower(string words)
 {
 	int len = words.length();
@@ -99,9 +100,13 @@ void WordFrequency(char* file)
 		cout << wordFre[i].word << ":" << wordFre[i].frequency << endl;
 	}*/
 	sort(wordFre + 1, wordFre + count2 + 1, cmp2);
+	ofstream outFile;
+	outFile.open("result.txt", ios::app);
+	outFile << "123" << endl;
 	for (int i = 1; i <= min(count2, 10); i++)
 	{
-		cout << wordFre[i].word << ":" << wordFre[i].frequency <<endl;
+		outFile << "<"<<wordFre[i].word << ">:" << wordFre[i].frequency <<endl;
 	}
+	outFile.close();
 	return;
 }

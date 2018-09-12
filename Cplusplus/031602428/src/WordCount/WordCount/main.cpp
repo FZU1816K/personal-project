@@ -18,9 +18,12 @@ int main(int argc, char* argv[])
 		if (temp != "")
 			lines++;
 	}
-	cout << "characters:" << chars << endl;
-	cout << "words:" << words << endl;
-	cout << "lines:" << lines << endl;
+	ofstream outFile;
+	outFile.open("result.txt", ios::out);
+	outFile << "characters:" << chars << endl;
+	outFile << "words:" << words << endl;
+	outFile << "lines:" << lines << endl;
+	outFile.close();
 	WordFrequency(argv[1]);
 	return 0;
 }
