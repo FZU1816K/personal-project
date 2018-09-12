@@ -1,0 +1,5 @@
+characters: 35
+words: 3
+lines: 2
+asdf :2
+addfc :1

@@ -20,14 +20,14 @@ namespace UnitTest_Scanner
 			ScanProcesser* scanProcesser = new ScanProcesser(strMap);
 			Scanner* scanner = new Scanner("../test/UnitTest_Scanner/input.txt", scanProcesser);
 			scanner->scan();
-			scanner->processTop10Words();
+			scanProcesser->processTop10Words();
 
-			struct Top10Words tp = scanner->getTop10words();
+			struct Top10Words tp = scanProcesser->getTop10words();
 
 
-			int charNum = scanner->getCharNum();
-			int lineNum = scanner->getLineNum();
-			int wordNum = scanner->getWordNum();
+			int charNum = scanProcesser->getCharNum();
+			int lineNum = scanProcesser->getLineNum();
+			int wordNumTotal = scanProcesser->getWordNumTotal();
 
 
 			// Except numbers
@@ -35,11 +35,11 @@ namespace UnitTest_Scanner
 			int countTop[10] = { 1,1,1,1,0 };
 			int expCharNum = 40;
 			int expLineNum = 4;
-			int expWordNum = 4;
+			int expWordNumTotal = 4;
 
 			Assert::AreEqual<int>(expCharNum, charNum);
 			Assert::AreEqual<int>(expLineNum, lineNum);
-			Assert::AreEqual<int>(expWordNum, wordNum);
+			Assert::AreEqual<int>(expWordNumTotal, wordNumTotal);
 
 			for (int i = 0; i < 10; i++) {
 				Assert::AreEqual<string>(strTop[i], tp.str[i]);

@@ -45,6 +45,7 @@ namespace UnitTest_ScanProcesser
 			Assert::AreEqual<int>(25, sp.getCharNum());
 			Assert::AreEqual<int>(3, sp.getLineNum());
 			Assert::AreEqual<int>(1, sp.getWordNum());
+			Assert::AreEqual<int>(2, sp.getWordNumTotal());
 
 			map<string, int>::iterator iter;
 

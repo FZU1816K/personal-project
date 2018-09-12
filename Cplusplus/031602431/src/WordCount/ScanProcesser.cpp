@@ -3,6 +3,9 @@
 #include <cctype>
 #include <sstream>
 #include "ScanProcesser.h"
+#include <cstdio>
+#include <string>
+#include <queue>
 
 using namespace std;
 
@@ -13,12 +16,18 @@ const int OLD = 1;
 int ScanProcesser::processChar(char c){
 	string nowWord;
 
+
+
 	if (c == EOF) {
 		if (newLine == OLD)
 			lineNum++;
 	}
 	else {
-		charNum++;
+		if (isascii(c))
+			charNum++;
+		else {
+			c = TAB;
+		}
 	}
 
 	if (c == LINESYM) {
@@ -29,12 +38,13 @@ int ScanProcesser::processChar(char c){
 	}
 	else {
 		if (newLine == NEW) {
-			newLine = OLD;
+			if (!(c == SPACE || c == TAB))
+				newLine = OLD;
 		}
 	}
 	
-
-	if (c == SPACE || c == TAB || c == LINKWORDSYM || c == LINESYM || c==EOF ) {
+	if (!(isalnum(c))){
+	//if (c == SPACE || c == TAB || c == LINKWORDSYM || c == LINESYM || c==EOF ) {
 		if (inWord == IN) {
 			*ss >> nowWord;
 			if (checkWordValid(nowWord)) {
@@ -43,12 +53,14 @@ int ScanProcesser::processChar(char c){
 				iter = strMap->find(nowWord);
 
 				if (iter != strMap->end()) {
+					wordNumTotal++;
 					int count = (iter->second) + 1;
 					strMap->erase(iter);
 					strMap->insert(pair<string, int>(nowWord, count));
 				}
 				else {
 					wordNum++;
+					wordNumTotal++;
 					strMap->insert(pair<string, int>(nowWord, 1));
 				}
 			}
@@ -80,4 +92,39 @@ int ScanProcesser::checkWordValid(string str){
 	else {
 		return 0;//False
 	}
+}
+
+
+struct cmp {
+	bool operator() (pair<int, string> a, pair<int, string> b) {
+		if (a.first < b.first) {
+			return 1;
+		}
+		else if (a.first == b.first) {
+			return a.second > b.second;
+		}
+		return 0;
+	}
+};
+
+int ScanProcesser::processTop10Words() {
+	map<string, int>::iterator iter;
+	priority_queue<pair<int, string>, vector<pair<int, string>>, cmp> que;
+
+	iter = strMap->begin();
+
+	while (iter != strMap->end())
+	{
+		que.push(make_pair(iter->second, iter->first));
+		iter++;
+	}
+	for (int i = 0; i < 10 && i < wordNum; i++) {
+		if (!que.empty()) {
+			pair<int, string> wordPair = que.top();
+			que.pop();
+			top10Words[i] = wordPair.second;
+			top10WordsCount[i] = wordPair.first;
+		}
+	}
+	return 0;
 }
