@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WordCount", "WordCount\WordCount.vcxproj", "{4426E4DD-702F-484A-8C54-6DD1CC0EE660}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest1", "UnitTest1\UnitTest1.vcxproj", "{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}"
+EndProject
+Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Debug|x64.ActiveCfg = Debug|x64
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Debug|x64.Build.0 = Debug|x64
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Debug|x86.ActiveCfg = Debug|Win32
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Debug|x86.Build.0 = Debug|Win32
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Release|x64.ActiveCfg = Release|x64
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Release|x64.Build.0 = Release|x64
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Release|x86.ActiveCfg = Release|Win32
+		{4426E4DD-702F-484A-8C54-6DD1CC0EE660}.Release|x86.Build.0 = Release|Win32
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Debug|x64.ActiveCfg = Debug|x64
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Debug|x64.Build.0 = Debug|x64
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Debug|x86.ActiveCfg = Debug|Win32
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Debug|x86.Build.0 = Debug|Win32
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Release|x64.ActiveCfg = Release|x64
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Release|x64.Build.0 = Release|x64
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Release|x86.ActiveCfg = Release|Win32
+		{BFA32405-B5AF-4C90-8D88-B5CDDE1CEF9B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31DE1A78-A450-4DE5-BDF6-9ED82C27D546}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal
