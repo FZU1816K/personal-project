@@ -1,26 +1,31 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+
 
 public class FileRead {
+
+
     /**
      * 文本读入
      * @param file
      */
     public String Input(File file){
-        int len;
 
         try{
             FileInputStream data = new FileInputStream(file);
-            len = (int)file.length();
-            byte[] buf = new byte[len];
-            int length = data.read(buf);
-            return new String(buf,0,length);
+            BufferedInputStream bis = new BufferedInputStream(data);
+            BufferedReader in = new BufferedReader(new InputStreamReader(bis, "utf-8"), 10 * 1024 * 1024);//10M缓存
+            String text = "";
+            while(in.ready()){
+                text += in.readLine();
+                text += "\r\n";
+            }
+            in.close();
+            return text;
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("文本读入失败！");
         }
         return "";
     }
@@ -32,7 +37,7 @@ public class FileRead {
      * @param lines
      * @param wList
      */
-    public void Output(int length,int wordAmount,int lines,List<HashMap.Entry<String, Integer>> wList){
+    public void Output(int length, int wordAmount, int lines, List<HashMap.Entry<String, Integer>> wList){
 
         try{
             FileOutputStream res = new FileOutputStream("result.txt");
@@ -49,6 +54,7 @@ public class FileRead {
             res.write(t.getBytes());
             res.close();
         }catch (Exception e){
+            System.out.println("文本写出失败！");
             System.out.println(e.getMessage());
         }
     }
