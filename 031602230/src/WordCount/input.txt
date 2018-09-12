@@ -1,0 +1,3 @@
+windows2000
+windows98
+windows96
