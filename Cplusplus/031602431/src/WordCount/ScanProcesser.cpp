@@ -14,7 +14,8 @@ int ScanProcesser::processChar(char c){
 	string nowWord;
 
 	if (c == EOF) {
-		lineNum++;
+		if (newLine == OLD)
+			lineNum++;
 	}
 	else {
 		charNum++;
@@ -60,7 +61,6 @@ int ScanProcesser::processChar(char c){
 	else if (isalnum(c)){
 		if (isalpha(c))
 			c = tolower(c);
-		string stest;
 		if (inWord == IN);
 		else{
 			inWord = IN;

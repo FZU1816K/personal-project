@@ -9,7 +9,7 @@ using namespace std;
 
 
 Scanner::Scanner(std::string inFileName, ScanProcesser* inProcesser)
-	:processer(inProcesser){
+	:processer(inProcesser), charNum(0), wordNum(0), lineNum(0) {
 
 	strMap = processer->getStrMapPointer();
 

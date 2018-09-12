@@ -18,7 +18,7 @@ namespace UnitTest_Scanner
 		{
 			map<string, int>* strMap = new map<string, int>();
 			ScanProcesser* scanProcesser = new ScanProcesser(strMap);
-			Scanner* scanner = new Scanner("../UnitTest_Scanner/input.txt", scanProcesser);
+			Scanner* scanner = new Scanner("../test/UnitTest_Scanner/input.txt", scanProcesser);
 			scanner->scan();
 			scanner->processTop10Words();
 

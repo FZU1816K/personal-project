@@ -10,15 +10,17 @@
 
 using namespace std;
 
+// to store the top10 words
 struct Top10Words {
 	string str[10];
 	int count[10];
 };
 
-
+// This class will open the file and convert every character to ScanProcesser
+// Then get result from ScanProcesser
 class Scanner{
 public:
-	Scanner() {}
+	Scanner():file(NULL),processer(NULL) {}
     Scanner(string inFilename, ScanProcesser* inProcesser);
 	~Scanner() {
 		if (file != nullptr) {

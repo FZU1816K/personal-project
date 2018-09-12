@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// This class process every character using processChar(char c)
 class ScanProcesser{
 public:
     ScanProcesser(map<string,int> * inStrMap):charNum(0), wordNum(0), lineNum(0), inWord(0),newLine(0) {
