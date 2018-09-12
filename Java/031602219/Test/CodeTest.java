@@ -28,9 +28,12 @@ public class CodeTest {
 			
 			int c_count = lib.countChar(filepath,0)-1;
 			text = lib.getText();
+			
 			int v_count = countVer.countwords(0,text);
 			List<String> list = countVer.getList();
+			
 			int l_count = lib.countLine();
+			
 			List<Map.Entry<String,Integer>> wordTree = createMap.createHashMap(list);;
 		
 			assertEquals(254,c_count);
