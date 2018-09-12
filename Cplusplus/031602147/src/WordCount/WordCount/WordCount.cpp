@@ -15,7 +15,6 @@ struct Word {
 	int frequency;
 };
 
-vector<Word> vec;
 /**
  * Function:  cmp
  * Description:  The comparison function of vector sorting method sort
@@ -100,10 +99,11 @@ int CountLines(char *file)
 * Description:  Judge whether the word is in the vector.
 * Parameter:
   s:word that need to be judged
+  vec:the vector
 * Return:
   bool:the word is in the vector or not
 */
-bool MatchWord(string s)
+bool MatchWord(string s,vector<Word> & vec)
 {
 	bool flag = false;
 	unsigned i;
@@ -133,10 +133,11 @@ bool MatchWord(string s)
 * Description:  Count the number of words of the file
 * Parameter:
   file:File that need to be counted
+  vec:the vector
 * Return:
   int:the number of words
 */
-int CountWords(char *file)
+int CountWords(char *file,vector<Word>& vec)
 {
 	int number = 0;
 	char ch;
@@ -161,7 +162,8 @@ int CountWords(char *file)
 					if (!sign)
 					{
 						cnt++;
-						ch = ch + 32;//תСд
+						ch = ch + 32;
+						//capitalization of English letters into lowercase letters
 						s = s + ch;
 					}
 					
@@ -184,13 +186,14 @@ int CountWords(char *file)
 					else
 					{
 						sign=1;
+						//exclude words beginning with numbers.
 					}
 				}
 				else
 				{
 					if (cnt >= 4)
 					{
-						if (!MatchWord(s)) number++;
+						if (!MatchWord(s,vec)) number++;
 					}
 					s = "";
 					cnt = 0;
@@ -201,7 +204,7 @@ int CountWords(char *file)
 	}
 	if (cnt >= 4)
 	{
-		if (!MatchWord(s)) number++;
+		if (!MatchWord(s,vec)) number++;
 	}
 	s = "";
 	cnt = 0;
@@ -212,8 +215,10 @@ int CountWords(char *file)
 /**
 * Function:  SortWords
 * Description:  Sort the words
+* Parameter:
+  vec:the vector
 */
-void SortWords()
+void SortWords(vector<Word>& vec)
 {
 	sort(vec.begin(), vec.end(), cmp);
 	return;
@@ -226,8 +231,9 @@ void SortWords()
   characters:the number of characters
   lines:the number of lines
   words:the number of words
+  vec:the vector
 */
-void PrintResult(int characters, int lines, int words)
+void PrintResult(int characters, int lines, int words,vector<Word>& vec)
 {
 	ofstream outfile("result.txt", ios::out);
 	if (!outfile)
@@ -241,7 +247,7 @@ void PrintResult(int characters, int lines, int words)
 		outfile << endl << "<" << vec[i].s << ">: " << vec[i].frequency;
 	}
 	outfile.close();
-	cout << endl << "The result has been exported to result.txt!";
+	cout << "The result has been exported to result.txt!";
 	return;
 }
 
@@ -250,10 +256,11 @@ int main(int argc, char *argv[])
 	int characters;
 	int lines;
 	int words;
+	vector<Word> vec;
 	characters = CountCharacters(argv[1]);
 	lines = CountLines(argv[1]);
-	words = CountWords(argv[1]);
-	SortWords();
-	PrintResult(characters, lines, words);
+	words = CountWords(argv[1],vec);
+	SortWords(vec);
+	PrintResult(characters, lines, words,vec);
 	return 0;
 }
