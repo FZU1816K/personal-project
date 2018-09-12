@@ -15,7 +15,7 @@ char lower(char c)
 }
 bool whether_char(char c)
 {
-	if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z')) return true;
+	if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z') || (c >= '0'&&c <= '9')) return true;
 	else return false;
 }
 map<string, int>  Countwords(char *filename)
