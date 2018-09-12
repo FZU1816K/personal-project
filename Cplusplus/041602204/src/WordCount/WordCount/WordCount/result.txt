@@ -1,0 +1,13 @@
+characters:1065
+lines:14
+words:12
+<bbbb7>: 28
+<eeee>: 14
+<cccc>: 14
+<aaaa>: 14
+<dddd>: 14
+<bbbb>: 14
+<ffff3>: 14
+<ffff12>: 14
+<ffff4>: 14
+<aaaa5>: 14
