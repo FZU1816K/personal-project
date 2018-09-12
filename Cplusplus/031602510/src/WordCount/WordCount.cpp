@@ -11,7 +11,9 @@ bool mysort(pair < int, string > a, pair < int, string > b)
 	else
 		return a.second < b.second;
 }
-void countWord(stringstream &ss)
+
+//生成string中单词的键值对
+void GetMap(stringstream &ss)
 {
 	//依次读入单词
 	string strTmp;
@@ -26,6 +28,7 @@ void countWord(stringstream &ss)
 			strMap[strTmp]++;
 	}
 }
+
 void LetterCount() //字符统计函数
 {
 	string strFile, tmp;
@@ -45,7 +48,7 @@ void LetterCount() //字符统计函数
 	}
 	stringstream ss(strFile);
 	
-	countWord(ss);
+	GetMap(ss);
 	//打印结果
 	vector < pair < int, string > > v;
 	for (unordered_map<string, int>::iterator it = strMap.begin(); it != strMap.end(); ++it)
@@ -64,7 +67,7 @@ void LetterCount() //字符统计函数
 			cout << '<' << a<< '>' << ":" << v[k].first<< endl;
 			i++;
 		}
-			if (i >= 9)
+			if (i > 9)
 				break;
 		}
 	
@@ -135,7 +138,7 @@ void WordCount() //单词统计函数
 void LineCount() //行数统计函数
 {
 	FILE *fp;
-	int l = 1,e=0;
+	int l = 1,e=1;
 	errno_t err = fopen_s(&fp, "input.txt", "r");
 	char ch;
 	if (err != NULL)
@@ -149,6 +152,10 @@ void LineCount() //行数统计函数
 		{
 			l++;
 			ch = fgetc(fp);
+			while (ch == ' ')
+			{
+				ch = fgetc(fp);
+			}
 			while(ch == '\n')
 			{
 				e++;
