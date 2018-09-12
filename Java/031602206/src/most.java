@@ -24,7 +24,7 @@ public class most {
         }
 
     }
-
+/*
     public static void main(String[] args) {
 
         HashMap<String, Integer> test = new HashMap<>();
@@ -33,5 +33,5 @@ public class most {
         List<Map.Entry<String, Integer>> list = most.mostWord(test);
         list.forEach(System.out::println);
     }
-
+*/
 }

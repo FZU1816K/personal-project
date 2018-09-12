@@ -33,10 +33,10 @@ public class WordCount {
             }
         }
     }
-
+/*
     public static void main(String[] args) {
         WordCount test = new WordCount("abcd\nabcd   mancd及bvcx1");
         System.out.println(test.getWords());
         System.out.println(test.getMap().toString());
-    }
+    }*/
 }
