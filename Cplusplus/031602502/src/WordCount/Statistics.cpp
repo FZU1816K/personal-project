@@ -1,5 +1,11 @@
-﻿#include "Statistics.h"
+﻿#include "pch.h"
+#include "Statistics.h"
 
+
+inline int min(int a, int b)
+{
+	return a < b ? a : b;
+}
 
 Statistics::Statistics(vector<string> &file_lines)//构造，文件内容按vector<string>传入
 	:m_file_lines(file_lines), m_char_num(0), m_word_num(0), m_line_num(0), calculated(false)
@@ -27,7 +33,7 @@ void Statistics::calc()//统计功能，可不必手动调用
 	for (unsigned int i = 0; i < m_file_lines.size(); i++)
 	{
 		const string &thisline = m_file_lines[i];
-		m_char_num += thisline.size();
+		m_char_num += int(thisline.size());
 
 		bool is_a_line = false;
 		for (unsigned int k = 0; k < thisline.size(); k++)//判断是否为空白行
@@ -79,6 +85,11 @@ void Statistics::calc()//统计功能，可不必手动调用
 		}
 	}
 	calculated = true;
+
+	/*for (auto it = m_wd_mp.begin(); it != m_wd_mp.end(); it++)
+	{
+		cout << it->first << " " << it->second << endl;
+	}*/
 }
 
 int Statistics::getCharNumber()//获取字符个数。若尚未进行统计，会自动调用calc()
@@ -102,12 +113,13 @@ int Statistics::getLineNumber()//获取字符个数。若尚未进行统计，�
 	return m_line_num;
 }
 
-vector<map<string, int>::iterator> &Statistics::getTopWords(unsigned int top_num)//获取出现次数排名前几的单词
+vector<map<string, int>::iterator> &Statistics::getTopWords(int top_num)//获取出现次数排名前几的单词
 {
-	top_num = min(m_wd_mp.size(), top_num);
-	for (unsigned int i = 0; i < top_num; i++)
+	if (!calculated)
+		calc();
+	top_num = min(int(m_wd_mp.size()), top_num);
+	for (int i = 0; i < top_num; i++)
 	{
-		int maxval = -1;
 		string maxstr;
 		map<string, int>::iterator maxit = m_wd_mp.begin();
 		for (map<string, int>::iterator it = m_wd_mp.begin(); it != m_wd_mp.end(); it++)
