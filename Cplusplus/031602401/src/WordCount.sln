@@ -5,10 +5,9 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WordCount", "WordCount\WordCount.vcxproj", "{B6065A0A-12A7-4E37-A339-97645BD744FD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest1", "UnitTest1\UnitTest1.vcxproj", "{6A5900A1-B021-43B2-834F-93C71D42ABCC}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -24,12 +23,23 @@ Global
 		{B6065A0A-12A7-4E37-A339-97645BD744FD}.Release|x64.Build.0 = Release|x64
 		{B6065A0A-12A7-4E37-A339-97645BD744FD}.Release|x86.ActiveCfg = Release|Win32
 		{B6065A0A-12A7-4E37-A339-97645BD744FD}.Release|x86.Build.0 = Release|Win32
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Debug|x64.ActiveCfg = Debug|x64
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Debug|x64.Build.0 = Debug|x64
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Debug|x86.ActiveCfg = Debug|Win32
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Debug|x86.Build.0 = Debug|Win32
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Release|x64.ActiveCfg = Release|x64
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Release|x64.Build.0 = Release|x64
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Release|x86.ActiveCfg = Release|Win32
+		{6A5900A1-B021-43B2-834F-93C71D42ABCC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E35B0959-7DE6-42D5-8015-7BD9B35F69D0}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true

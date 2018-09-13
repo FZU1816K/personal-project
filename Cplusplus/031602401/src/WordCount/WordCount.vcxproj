@@ -153,9 +153,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="change.h" />
+    <ClInclude Include="judge.h" />
+    <ClInclude Include="lower.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="change.cpp" />
+    <ClCompile Include="judge.cpp" />
+    <ClCompile Include="lower.cpp" />
     <ClCompile Include="WordCount.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,11 +4,7 @@
 #include <cassert>
 #include <string>
 #include <map>
-
 using namespace std;
-
-
-
 char lower(char c)
 {
 	if ((c >= 'A'&&c <= 'Z'))
@@ -17,11 +13,22 @@ char lower(char c)
 	}
 	return c;
 }
-
-map<string, int>  Countwords()
+bool whether_char(char c)
+{
+	if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z') || (c >= '0'&&c <= '9')) return true;
+	else return false;
+}
+map<string, int>  Countwords(char *filename)
 {
 	ifstream infile;
-	infile.open("input.txt");
+	if (filename == nullptr)
+	{
+		infile.open("input.txt");
+	}
+
+	else infile.open(filename);
+	if (!infile) exit(1);
+
 	int count = 0, row_count = 1;
 	char c;
 
@@ -31,9 +38,8 @@ map<string, int>  Countwords()
 	while (!infile.eof())
 	{
 		
-		infile >> c;  //按照字符输出
-		//cout << c << endl;
-		//cout << i++ << endl;
+		infile >> c;  //read character
+
 		if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))
 		{
 			c = lower(c);
@@ -41,7 +47,7 @@ map<string, int>  Countwords()
 			int k = 0, c_count = 0;
 			int num = 0;
 			int flag = 0;
-			while ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))  //前四个是否为字母
+			while ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))  //Whether the first four are character
 			{
 				word[k++] = c;
 				infile >> c;
@@ -56,8 +62,8 @@ map<string, int>  Countwords()
 			}
 			//cout << c << endl;
 			//cout << flag;
-			int i = 0;
-			while (c != 32 && c != 10 && c !=03&&!infile.eof()) 
+			//int i = 0;
+			while (whether_char(c)&&!infile.eof()) 
 			{
 				//cout << i++ << endl;
 				if (flag == 1)

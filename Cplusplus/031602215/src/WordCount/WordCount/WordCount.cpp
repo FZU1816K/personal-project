@@ -13,13 +13,20 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	ifstream infile;
-	infile.open("input.txt");
-	cout << "characters: "<<CountChar() << endl;
-	cout << "words: " << Countwords_num(Countwords()) << endl;
-	cout << "lines: " << Countlines() << endl;
-	Countwords_words(Countwords());
-	getchar();
-	
+
+	ofstream fout("result.txt"); //output---->result
+	fout << "characters: "<<CountChar(argv[1]) << endl;   //no. of characters
+	fout << "words: " << Countwords_num(Countwords(argv[1])) << endl;  //no. of words
+	fout << "lines: " << Countlines(argv[1]) << endl;  //no. of lines
+	vector<pair<string, int>> tVector;
+	tVector =Countwords_words(Countwords(argv[1])); //words sorting
+	 //getchar();
+	for (int i = 0; i < tVector.size(); i++)
+	{
+		fout << "<"<<tVector[i].first << ">: " << tVector[i].second << endl;
+		if (i == 9) break;
+	}
+	fout.close();
+	//getchar();
 	return 0;
 }

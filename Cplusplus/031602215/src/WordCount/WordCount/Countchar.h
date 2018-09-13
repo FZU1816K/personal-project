@@ -4,17 +4,29 @@
 using namespace std;
 
 
-int CountChar()
+int CountChar(char *filename)
 {	//char *filename
+
 	ifstream infile;
-	infile.open("input.txt");
+	
+	if (filename == nullptr)
+	{
+		infile.open("input.txt");
+	}
+	else infile.open(filename);
+
+	if (!infile)
+	{ 
+		cout << "you file is error" << endl;
+		return 0;
+	}
+
+	infile >> noskipws; //To force read in each character, do not filter whitespace, including line breaks
 	char c;
 	int count = 0;
-	infile >> noskipws;
 	while (!infile.eof())
 	{
-		infile >> c;  //°´ÕÕ×Ö·ûÊä³ö
-		//cout << c << endl;
+		infile >> c;  //read character
 		count++;
 	}
 	infile.close();

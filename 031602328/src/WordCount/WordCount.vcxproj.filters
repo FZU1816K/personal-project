@@ -18,27 +18,12 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lower.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="judge.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="change.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="WordCount.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="lower.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="judge.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="change.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

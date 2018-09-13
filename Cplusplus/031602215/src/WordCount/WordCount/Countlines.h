@@ -7,25 +7,31 @@ using namespace std;
 int Countlines(char *filename)
 {	//
 	ifstream infile;
-	if (filename == nullptr)  //为了vs调试方便
+	if (filename == nullptr)  //Easy to debug
 	{
 		infile.open("input.txt");
 	}
 	else infile.open(filename);
+
+	if (!infile) exit(1);
 	char c;
-	int row_count = 0,flag1=0,flag2=0;
+	int row_count = 0,flag1=0;
 	infile >> noskipws;
+
+	if (!infile.eof()) return 0;
+
 	while (!infile.eof())
 	{
-		infile >> c;  //按照字符输出
-		if (c != 10 && c!=' ')
+		infile >> c; 
+		if (c != 10 && c!=' '&&c!='\t') //Filter spaces, carriage returns, horizontal tabs
 		{
 			flag1 = 1;
-			cout << int(c+1)<< endl;
 		}
+		if (infile.eof()&& flag1==1) row_count++;
 		if (c == 10)
-		{
-			cout << "1" << endl;
+		{	
+		
+			//cout << "1" << endl;
 			if (flag1 == 1)
 			{
 				flag1 = 0;
@@ -34,5 +40,5 @@ int Countlines(char *filename)
 		}
 	}
 	infile.close();
-	return row_count + 1;
+	return row_count ;
 }

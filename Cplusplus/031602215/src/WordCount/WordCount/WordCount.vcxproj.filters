@@ -15,25 +15,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Countwords_words.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Countchar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Countlines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Countwords.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Countwords_num.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="WordCount.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Countchar.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Countwords.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Countwords_num.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Countwords_words.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Countlines.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

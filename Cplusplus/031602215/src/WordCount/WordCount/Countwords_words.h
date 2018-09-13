@@ -18,14 +18,14 @@ void sortMapByValue(map<string, int>& tMap, vector<pair<string, int> >& tVector)
 	sort(tVector.begin(), tVector.end(), cmp);
 }
 
-void Countwords_words(map<string, int> strMap)
+vector<pair<string, int>>  Countwords_words(map<string, int> strMap)
 {
 	map<string, int>::iterator iter;
 	int numwords = 0;
 	vector<pair<string, int>> tVector;
 	sortMapByValue(strMap, tVector);
-	for (int i = 0; i < tVector.size(); i++)
-		cout << tVector[i].first << ": " << tVector[i].second << endl;
+	return tVector;
+		
 	//for (iter = strMap.begin(); iter != strMap.end(); iter++)
 
 	//{
