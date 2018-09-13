@@ -36,26 +36,15 @@ vector<pair<string, int>> CountWord() //调用这个函数把文字传进来。
 	return resultvec;
 }
 
-void PrintWord(vector<pair<string, int>> resultvec)
-{
-	int j = 0;
-	for (auto i : resultvec) 
-	{
-		cout << '<' << i.first << ">:"<< i.second << endl;
-		j++;
-		if (j >= 10) {
-			break;
-		}
-	}
-}
 
-void PrintSum(vector<pair<string, int>> resultvec)
+
+int WordSum(vector<pair<string, int>> resultvec)
 {
 	int sum = 0;
 	for (auto i : resultvec)
 	{
 		sum += i.second;
 	}
-	printf("words:%d\n", sum);
+	return sum;
 }
 

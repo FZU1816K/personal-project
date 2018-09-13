@@ -8,5 +8,4 @@
 using namespace std;
 typedef pair<string, int> PAIR;
 vector<pair<string, int>> CountWord();
-void PrintWord(vector<pair<string, int>> resultvec);
-void PrintSum(vector<pair<string, int>> resultvec);
+int WordSum(vector<pair<string, int>> resultvec);
