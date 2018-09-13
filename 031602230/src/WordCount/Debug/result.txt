@@ -1,7 +1,0 @@
-characters:31
-words:3
-lines:3
-
-windows2000:1
-windows96:1
-windows98:1

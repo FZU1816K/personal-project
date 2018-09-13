@@ -1,4 +1,0 @@
-﻿  WordCount.cpp
-d:\github\personal-project\031602230\wordcount\wordcount\wordcount.cpp(31): warning C4018: “<”: 有符号/无符号不匹配
-d:\github\personal-project\031602230\wordcount\wordcount\wordcount.cpp(94): warning C4018: “<”: 有符号/无符号不匹配
-  WordCount.vcxproj -> D:\Github\personal-project\031602230\WordCount\Debug\WordCount.exe
