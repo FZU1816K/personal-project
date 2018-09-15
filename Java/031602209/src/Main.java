@@ -34,11 +34,11 @@ public class Main {
             PrintStream printStream = new PrintStream("result.txt");
             System.setOut(printStream);
 
-            System.out.println("characters:" + characters);
-            System.out.println("words:" + words);
-            System.out.println("lines:" + lines);
+            System.out.println("characters: " + characters);
+            System.out.println("words: " + words);
+            System.out.println("lines: " + lines);
             for (Map.Entry<String, Integer> i : mostList) {
-                System.out.println(i.getKey() + ":" + i.getValue());
+                System.out.println("<"+i.getKey()+">: " + i.getValue());
             }
 
             printStream.close();

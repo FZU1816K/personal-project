@@ -1,0 +1,8 @@
+characters: 85
+words: 7
+lines: 4
+<fjskl>: 3
+<afjksl%&^>: 1
+<hsfgfsd124>: 1
+<jflks>: 1
+<jkljkl32>: 1
