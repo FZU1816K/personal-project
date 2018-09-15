@@ -1,4 +1,4 @@
-package HomeWork;
+
 
 public class IsChinese {
 		int dWord=0;

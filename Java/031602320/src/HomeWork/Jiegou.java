@@ -1,4 +1,4 @@
-package HomeWork;
+
 
 public class Jiegou {
 		public String temp = null;
