@@ -3,6 +3,7 @@ package HomeWork;
 import java.io.BufferedReader;
 
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,12 +12,17 @@ import java.nio.file.Paths;
 
 public class Lib {
 
-	public static void yourMethodName(String path) throws IOException {
+
+	public static void yourMethodName(String path) throws IOException {		
+		
+		
 		int max = 999;
 		int countChar = 0;
 		int wordLength = 0;
 		int countline = 0;
 		int notWord = 0;
+		int chinesecount =0;
+		int chineselength=0;
 		InputStreamReader isr = new InputStreamReader(new FileInputStream(path));
 		@SuppressWarnings("resource")
 		BufferedReader br = new BufferedReader(isr);
@@ -29,13 +35,14 @@ public class Lib {
 		}
 		int ForCount = 0;
 		char[] refinement = new char[20];
+		IsChinese ischinese = new IsChinese();			//调用中文判断
 		
-		while ((str = br.readLine()) != null) // 读取
+		while ((str = br.readLine()) != null) 
 		{
 			int wordsCount = 0;
 			countChar += str.length();
 			String[] words = str.split("[ ,.:|;+?!<>\\-#$%&]");//
-			if (str.isEmpty()) // 9-11 19:41
+			if (str.isEmpty()) 
 			{
 				countline++;
 				continue;
@@ -43,7 +50,13 @@ public class Lib {
 			wordLength += words.length;// 可以补充分隔符
 			for (int i = ForCount; i < wordLength; i++) {
 				tree[i].temp = words[wordsCount];// 对每个数组赋字符串
-				// Tree[CountTree].Flag=1;//填上标记；
+				Partion Par=new Partion(tree[i].temp);
+				 chinesecount+=Par.count;//累计中文字符
+				 if(ischinese.isChinese(tree[i].temp))
+				 {
+					 chineselength++;
+				 }
+				
 				tree[i].temp = words[wordsCount].toLowerCase();// 全便小写
 				ForCount = wordLength;
 				if (words[wordsCount].length() >= 4) {
@@ -81,7 +94,7 @@ public class Lib {
 				}
 			}
 		}
-		for (int CountFirst = 0; CountFirst < wordLength - 1; CountFirst++) {// 可以用临时类优化
+		for (int CountFirst = 0; CountFirst < wordLength - 1; CountFirst++) {
 			for (int InTurn = CountFirst + 1; InTurn < wordLength; InTurn++) {
 				if (tree[CountFirst].flag != -1) {
 					if (tree[CountFirst].flag < tree[InTurn].flag) {
@@ -126,7 +139,8 @@ public class Lib {
 			countChar += countline - 1; // 9-11 19:35
 		}
 
-		// wordLength -= NotWord; 单词总数可以删去
+		countChar-=chinesecount;
+	    wordLength-=chineselength;
 		System.out.println("characters: " + countChar);
 		System.out.println("word : " + wordLength);
 		System.out.println("line:  " + countline);
@@ -147,4 +161,5 @@ public class Lib {
 			}
 		}
 	}
+
 }
