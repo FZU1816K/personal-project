@@ -1,5 +1,4 @@
 characters: 42
-words: 5
+words: 2
 lines: 7
-<abc123>: 3
 <dddd>: 2

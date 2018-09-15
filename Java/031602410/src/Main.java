@@ -1,5 +1,6 @@
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,11 @@ public class Main {
   
     public static void main(String[] args) throws Exception {  
     	
-    	String pathname = new Read().Read();
+    	File file = new File(args[0]);
+    	String temppathname = file.getPath();
+    	
+    	new Read();
+		String pathname = Read.Read(temppathname);
     	
     	    	
     	BufferedReader br = new BufferedReader(new FileReader(pathname));  
@@ -38,9 +43,13 @@ public class Main {
                 	{
                 		word = word.substring(1, word.length());
                 	}
-                	if(word.length()>=4) wordcount++;
+                	if((word.length()>=4)&&(Character.isLetter(word.charAt(0))&&Character.isLetter(word.charAt(1))&&Character.isLetter(word.charAt(2))&&Character.isLetter(word.charAt(3)))) 
                 	
+                	{
+                		
+                	wordcount++;
                     lists.add(word);  
+                	}
                 }  
             }  
         }  
