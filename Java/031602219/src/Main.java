@@ -24,7 +24,7 @@ public class Main {
 		else {
 			filepath = args[0];
 		}
-		Writer file = new FileWriter("output.txt");
+		Writer file = new FileWriter("result.txt");
 		BufferedWriter out = new BufferedWriter(file);
 		
 		c_count = lib.countChar(filepath,Origin)-1;		//得到文本字符的个数(不考虑汉字),文本的末尾默认无换行，故需剔除
