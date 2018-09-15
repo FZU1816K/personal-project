@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /*
- * InputStreamReader(new FileInputStream(¾ø¶ÔÎÄ¼şÃû))½øĞĞÎÄ¼şµÄ¶ÁÈ¡
- * BufferedReader(ÎÄ¼ş¶ÁÈ¡)µ÷ÓÃreadLine()µÄ·½·¨
+ * InputStreamReader(new FileInputStream(ç»å¯¹æ–‡ä»¶å))è¿›è¡Œæ–‡ä»¶çš„è¯»å–
+ * BufferedReader(æ–‡ä»¶è¯»å–)è°ƒç”¨readLine()çš„æ–¹æ³•
  */
 
 public class Main {
@@ -22,11 +22,13 @@ public class Main {
 			File file =new File(name);
 			if(!file.exists())
 			{
-				System.err.println("Ã»ÓĞÕÒµ½¸ÃÎÄ¼ş");
+				System.err.println("æ²¡æœ‰æ‰¾åˆ°è¯¥æ–‡ä»¶");
+				return ;
 			}
 			if(name=="")
 			{
-				System.err.println("ÇëÊäÈëÕıÈ·ÎÄ¼şÃû£¡");
+				System.err.println("è¯·è¾“å…¥æ­£ç¡®æ–‡ä»¶åï¼");
+				return;
 			}
 
 		//Scanner scanner =new Scanner(System.in);
