@@ -1,9 +1,9 @@
 /********************************************************************************
 * @File name: wc.cpp
 * @Author: ChenYuXin
-* @Version: 3.1
+* @Version: 4.0
 * @Date: 2018-09-11
-* @Description: add error handling
+* @Description: update FileIO.h & FileIO.cpp
 ********************************************************************************/
 
 
@@ -29,9 +29,13 @@ int main(int argc, char *argv[])
 		int wordCount = 0;			//单词数
 
 		Count count;
-		string charBuf = FileIO::readChar(argc, argv);			//逐个字符读取文件，存入charBuf
-		vector<string> linesBuf = FileIO::readLines(argc, argv);//逐行读取文件，存入linesBuf
-
+		string charBuf;
+		vector<string> linesBuf;
+		FileIO::readChar(argc, argv,charBuf,linesBuf);			//逐个字符读取文件，存入charBuf
+		/*for (auto it = linesBuf.begin(); it != linesBuf.end(); it++)
+		{
+			cout << *it << endl;
+		}*/
 		characterCount = count.countCharNum(charBuf);			//计算字符数
 		lineCount = count.countLineNum(linesBuf);				//计算行数
 		wordCount = count.countWordNum(linesBuf);				//计算单词数

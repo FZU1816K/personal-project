@@ -39,7 +39,6 @@ int Count::countWordNum(vector<string> &linesBuf)
 			else {
 				if (wordBuf.length() >= 4 && isLetter(wordBuf[0]) && isLetter(wordBuf[1]) && isLetter(wordBuf[2]) && isLetter(wordBuf[3])) 
 				{
-					transform(wordBuf.begin(), wordBuf.end(), wordBuf.begin(), ::tolower); 
 					pair<map<string, int>::iterator, bool> ret = wordMap.insert(make_pair(wordBuf, 1));
 					if (!ret.second) 
 					{
@@ -92,39 +91,17 @@ vector<pair<string, int> >  Count::countTop10Word()
 
 //ÅÐ¶ÏÊÇ·ñÎª×ÖÄ¸
 inline bool Count::isLetter(string::iterator it) {
-	if ((*it >= 65 && *it <= 90) || (*it >= 97 && *it <= 122)) {
-		return true;
-	}
-	else {
-		return false;
-
-	}
+	return (*it >= 'a' && *it <= 'z') ;
 }
 //ÅÐ¶ÏÊÇ·ñÎª×ÖÄ¸(ÖØÔØ)
 inline bool Count::isLetter(const char ch) {
-	if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122)) {
-		return true;
-	}
-	else {
-		return false;
-
-	}
+	return (ch >= 'a' && ch <= 'z');
 }
 //ÅÐ¶ÏÊÇ·ñÎªÊý×Ö
 inline bool Count::isDigit(string::iterator it) {
-	if (*it >= 48 && *it <= 57) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return *it >= '0' && *it <= '9';
 }
 //ÅÐ¶ÏÊÇ·ñÎªÊý×Ö(ÖØÔØ)
 inline bool Count::isDigit(const char ch) {
-	if (ch >= 48 && ch <= 57) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return ch >= '0' && ch <= '9';
 }
