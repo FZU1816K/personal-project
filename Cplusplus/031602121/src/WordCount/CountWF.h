@@ -82,10 +82,10 @@ void CountWF(char *filename, ofstream &fout)
 		cerr << "无法打开输入文件" << endl;
 		exit(0);
 	}
-	char word[1000];
+	char word[10000];
 	string ss;
 	unordered_map<string, int> essay;
-	while (in.getline(word, 1000))         //   istream &in 遇到空白字符（空格符、制表符和换行符）即停止读入。
+	while (in.getline(word, 10000))         //   istream &in 遇到空白字符（空格符、制表符和换行符）即停止读入。
 	{
 		//num++;//统计行数
 		ss = word;

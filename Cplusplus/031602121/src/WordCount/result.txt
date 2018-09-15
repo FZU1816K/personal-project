@@ -1,0 +1,13 @@
+characters£º4317185
+words: 420935
+lines: 32413
+<that>: 12907
+<shall>: 9832
+<unto>: 8997
+<lord>: 7968
+<they>: 7375
+<them>: 6427
+<with>: 6013
+<thou>: 5473
+<which>: 4410
+<said>: 4002
