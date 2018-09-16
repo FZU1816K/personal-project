@@ -1,6 +1,2 @@
-abcd,abcd,abcd,abcd
-abca,abca,abca,abca
-WiLe123,wile123
-жа
-
-Windows2000,Windows98,Windows90
+200,200,windows98,windows2000
+snow

@@ -1,45 +1,29 @@
 
 import java.io.File;
-import java.io.FileNotFoundException;
-
 import java.io.IOException;
-
-/*
- * InputStreamReader(new FileInputStream(¾ø¶ÔÎÄ¼şÃû))½øĞĞÎÄ¼şµÄ¶ÁÈ¡
- * BufferedReader(ÎÄ¼ş¶ÁÈ¡)µ÷ÓÃreadLine()µÄ·½·¨
- */
-
 public class Main {
-	   
-	public static void main(String[] args) throws FileNotFoundException  {
-		//new Scanner(System.in).nextLine();
-			String name="";
 
-			for(int i=0;i<args.length;i++)
-		{
-			name+=args[i];
-		}
-			File file =new File(name);
-			if(!file.exists())
-			{
-				System.err.println("Ã»ÓĞÕÒµ½¸ÃÎÄ¼ş");
-			}
-			if(name=="")
-			{
-				System.err.println("ÇëÊäÈëÕıÈ·ÎÄ¼şÃû£¡");
-			}
+    public static void main(String[] args) throws IOException{
+        String name =args[0];
+        //C:\Users\Only_ZziTai\eclipse-workspace\SofewaveProgram\Input.txt
+        //"input.txt"
+        if (name == null || name.isEmpty()) {
+            System.err.println("Please Enter Right Filenameï¼");
+            return;
+        }
+        File file = new File(name);
+        FilesOu fileout = new FilesOu();
+        FileRead file1 = new FileRead();
+        if (!file.exists()) {
+            System.err.println("Not Find");
+            return;
+        }
+        try {
+            file1.count(name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        fileout.output(file1.charscount, file1.wordscount, file1.linecount, file1.mapCount);
 
-		//Scanner scanner =new Scanner(System.in);
-		try {
-		    Lib.yourMethodName(name);
-		} catch(IOException e) {
-			e.printStackTrace();
-		
-			// Your error handling method
-			// If any error occurs, you should notify users about this exception here
-		}
-	 //Remember to close any resources in the end
-      
-	   }
-	
+    }
 }
