@@ -43,17 +43,16 @@ public class Tools {
         try {
             while (words.hasMoreTokens()) {
                 String word = words.nextToken();
-                if (word.length() >= 4) {  //判断单词长度是否大于等于4
-                    if (Character.isLetter(word.charAt(0)) && Character.isLetter(word.charAt(1)) && Character.isLetter(word.charAt(2)) && Character.isLetter(word.charAt(3))) {  //判断单词前4个是否为字母
-                        amount++;
-                        if (!wordCount.containsKey(word)) {
-                            wordCount.put(word, new Integer(1));
-                        } else {
-                            int count = wordCount.get(word) + 1;
-                            wordCount.put(word, count);
-                        }
+                if (word.length() >= 4 && Character.isLetter(word.charAt(0)) && Character.isLetter(word.charAt(1)) && Character.isLetter(word.charAt(2)) && Character.isLetter(word.charAt(3))) {  //判断单词前4个是否为字母
+                    amount++;
+                    if (!wordCount.containsKey(word)) {
+                        wordCount.put(word, new Integer(1));
+                    } else {
+                        int count = wordCount.get(word) + 1;
+                        wordCount.put(word, count);
                     }
                 }
+
             }
         }catch (Exception e){
             System.out.println("词频统计报错：");

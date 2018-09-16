@@ -1,8 +1,5 @@
-import sun.util.resources.LocaleData;
 
 import java.io.*;
-
-import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,18 +15,17 @@ public class FileRead {
     public String Input(File file){
 
         try{
-            BufferedReader in = new BufferedReader(new FileReader(file));
+            InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "utf-8");
+            BufferedReader in = new BufferedReader(isr);
             StringBuilder str = new StringBuilder();
-            char c;
             int c_byte = 0;
             while((c_byte = in.read()) != -1){
-                c = (char) c_byte;
-                str.append(c);
+                str.append((char) c_byte);
             }
             in.close();
             return str.toString();
         }catch (Exception e){
-            System.out.println("文本读入失败！");
+                    System.out.println("文本读入失败！<error> :" + e.getMessage());
         }
         return "";
     }
@@ -46,13 +42,13 @@ public class FileRead {
         try{
             FileOutputStream res = new FileOutputStream("result.txt");
             BufferedOutputStream bos = new BufferedOutputStream(res);
-            String t = "characters： " + length +"\r\n"
-                    +"words： " + wordAmount +"\r\n"
-                    +"lines： " + lines +"\r\n";
+            String t = "characters: " + length +"\r\n"
+                    +"words: " + wordAmount +"\r\n"
+                    +"lines: " + lines +"\r\n";
             int count = 0;
             for(HashMap.Entry<String,Integer> entry:wList){
                 count++;
-                t += "<"+entry.getKey() + ">：" + entry.getValue();
+                t += "<"+entry.getKey() + ">: " + entry.getValue();
                 if(count<=9){
                     t += "\r\n";
                 }else{
