@@ -1,0 +1,14 @@
+characters: 337
+words: 13
+lines: 16
+<dddd>: 2
+<adjfiajsfiasifjsadifji>: 1
+<asdfji>: 1
+<asdfjia>: 1
+<asdjfiafjdasi3232>: 1
+<asdjifasdjfjfidsjfisa>: 1
+<dsfjiasdfdsajifj>: 1
+<fjdisajfjd>: 1
+<jfidsjifjs324134ajafigjaiadsfas>: 1
+<jsaidfjasjasdi24231>: 1
+<sadjfisdajjdsiafjiasdfjiads>: 1
