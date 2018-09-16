@@ -22,7 +22,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) 
 {
-	for (int i = 0; i < 1000; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		int lineCount = 0;			//行数
 		int characterCount = 0;		//字符数
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		characterCount = count.countCharNum(charBuf);			//计算字符数
 		lineCount = count.countLineNum(linesBuf);				//计算行数
 		wordCount = count.countWordNum(linesBuf);				//计算单词数
-		vector<pair<string, int> > top10Word = count.countTop10Word();	//统计出现频率最高的10个单词（有可能单词数没有10个）
+		vector<map<string,int>::iterator> top10Word = count.countTop10Word();	//统计出现频率最高的10个单词（有可能单词数没有10个）
 
 		FileIO::outputToFile(characterCount, wordCount, lineCount, top10Word);	//将结果输出到文件
 	}

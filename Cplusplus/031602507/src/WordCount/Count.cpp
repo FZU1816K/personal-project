@@ -26,8 +26,9 @@ int Count::countLineNum(vector<string> &linesBuf)
 int Count::countWordNum(vector<string> &linesBuf)
 {
 	int wordCount = 0;
+	int linesBufSize = linesBuf.size();
 	string wordBuf;
-	for (int i = 0; i != linesBuf.size(); i++) 
+	for (int i = 0; i != linesBufSize; i++) 
 	{
 		int len = linesBuf[i].length();
 		for(int j = 0;j < len;j++)
@@ -39,11 +40,7 @@ int Count::countWordNum(vector<string> &linesBuf)
 			else {
 				if (wordBuf.length() >= 4 && isLetter(wordBuf[0]) && isLetter(wordBuf[1]) && isLetter(wordBuf[2]) && isLetter(wordBuf[3])) 
 				{
-					pair<map<string, int>::iterator, bool> ret = wordMap.insert(make_pair(wordBuf, 1));
-					if (!ret.second) 
-					{
-						++ret.first->second;
-					}
+					wordMap[wordBuf]++;
 					wordCount++;
 				}
 				wordBuf = "";
@@ -52,12 +49,7 @@ int Count::countWordNum(vector<string> &linesBuf)
 		}
 		if (wordBuf.length() >= 4 && isLetter(wordBuf[0]) && isLetter(wordBuf[1]) && isLetter(wordBuf[2]) && isLetter(wordBuf[3])) 
 		{
-			transform(wordBuf.begin(), wordBuf.end(), wordBuf.begin(), ::tolower); 
-			pair<map<string, int>::iterator, bool> ret = wordMap.insert(make_pair(wordBuf, 1));
-			if (!ret.second) 
-			{
-				++ret.first->second;
-			}
+			wordMap[wordBuf]++;
 			wordCount++;
 		}
 		wordBuf = "";
@@ -66,42 +58,38 @@ int Count::countWordNum(vector<string> &linesBuf)
 	return wordCount;
 }
 //统计出现频率最高的10个单词
-vector<pair<string, int> >  Count::countTop10Word()
+vector<map<string,int>::iterator> & Count::countTop10Word()
 {
-	vector<pair<string, int> > wordVector;
-	for (map<string, int>::iterator it = wordMap.begin(); it != wordMap.end(); it++) 
-	{
-		wordVector.push_back(make_pair(it->first, it->second));
-	}
-	for (int i = 0; i < int(wordMap.size()) && i < 10; i++)
+	int wordMapSize = wordMap.size();
+	for (int i = 0; i < wordMapSize && i < 10; i++)
 	{
 		auto maxFreWord = wordMap.begin();
-		for (auto it = wordMap.begin(); it != wordMap.end(); it++)
+		for (map<string,int>::iterator it = wordMap.begin(); it != wordMap.end(); it++)
 		{
 			if (it->second > maxFreWord->second)
 			{
 				maxFreWord = it;
 			}
 		}
-		top10Word.push_back(make_pair(maxFreWord->first, maxFreWord->second));
-		maxFreWord->second = -1;
+		top10Word.push_back(maxFreWord);
+		maxFreWord->second = -maxFreWord->second;
 	}
 	return top10Word;
 }
 
 //判断是否为字母
 inline bool Count::isLetter(string::iterator it) {
-	return (*it >= 'a' && *it <= 'z') ;
+	return (*it >= 97 && *it <= 122) ;
 }
 //判断是否为字母(重载)
-inline bool Count::isLetter(const char ch) {
-	return (ch >= 'a' && ch <= 'z');
+inline bool Count::isLetter(const char & ch) {
+	return (ch >= 97 && ch <= 122);
 }
 //判断是否为数字
 inline bool Count::isDigit(string::iterator it) {
 	return *it >= '0' && *it <= '9';
 }
 //判断是否为数字(重载)
-inline bool Count::isDigit(const char ch) {
+inline bool Count::isDigit(const char  & ch) {
 	return ch >= '0' && ch <= '9';
 }

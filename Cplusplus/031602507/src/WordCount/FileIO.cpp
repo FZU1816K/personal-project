@@ -16,10 +16,6 @@ bool FileIO::readChar(int argc, char *argv[],string &charBuf,vector<string> &lin
 		while (1)
 		{
 			c = rf.get();
-			if ((c >= 32 && c <= 126) || c == 9 || c == 10)
-			{
-				charBuf += c;
-			}
 			if (c == EOF)	//文件末尾
 			{
 				if (tempLine.size() > 0)
@@ -29,6 +25,7 @@ bool FileIO::readChar(int argc, char *argv[],string &charBuf,vector<string> &lin
 				}
 				break;
 			}
+			charBuf += c;
 			tempLine += c;
 			if (c == '\n')
 			{
@@ -42,21 +39,21 @@ bool FileIO::readChar(int argc, char *argv[],string &charBuf,vector<string> &lin
 	}
 }
 //输出文件
-void FileIO::outputToFile(int characterCount, int wordCount,int lineCount, vector<pair<string, int> > &top10Word)
+void FileIO::outputToFile(int characterCount, int wordCount,int lineCount, vector<map<string,int>::iterator> &top10Word)
 {
 	ofstream wf("result.txt", ios::out);
-	wf << "characters: " << characterCount << endl
-		<< "words: " << wordCount << endl
-		<< "lines: " << lineCount << endl;
+	wf << "characters: " << characterCount << endl;
+	wf << "words: " << wordCount << endl;
+	wf << "lines: " << lineCount << endl;
 	for (int i = 0; i < int(top10Word.size()); i++)
 	{
 		if (i == 0)
 		{
-			wf << "<" << top10Word[i].first << ">: " << top10Word[i].second;
+			wf << "<" << top10Word[i]->first << ">: " << -top10Word[i]->second;
 		}
 		else
 		{
-			wf << endl << "<" << top10Word[i].first << ">: " << top10Word[i].second;
+			wf << endl << "<" << top10Word[i]->first << ">: " << -top10Word[i]->second;
 		}
 	}
 	wf.close();
