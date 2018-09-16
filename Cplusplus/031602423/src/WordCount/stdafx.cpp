@@ -74,9 +74,7 @@ int isstring(string c) {
 
 //统计字符数
 int character(char* path) {
-	int lines = 0;
 	int count = 0;
-	string ff = ".";
 	char c;
 	int i = 0;
 	ifstream infile;
@@ -85,25 +83,11 @@ int character(char* path) {
 	while (!infile.eof())
 	{
 		infile >> c;
-			
-		if (c == '\n') {
-			if (ff[i] != ' '&&i != 0) {
-				lines++;
-			}
-			c = ' ';
-		}
-		ff += c;
 		count++;
 		i++;
 	}
-	ff[i] = '\0';
 	infile.close();
 	count--;
-	if(count !=0)
-		lines++;
-	//行数单独输出
-	ofstream fout("lines.txt");
-	fout << "lines: " << lines << endl;
 	return count;
 }
 //统计单词数
@@ -132,19 +116,57 @@ int word(char* path) {
 	vector<string> split = splitt(ff);
 	for (vector<string>::size_type i = 0; i != split.size(); ++i) {
 		string key = split[i];
+		//cout << "before:"<<key << endl;
 		if (key.size() >= 4 && isstring(key) == 1) {
 			if (m1.count(key) == 0)
 			{
+				//cout << "ok:" << key << endl;
 				count++;
 				m1.insert(pair <string, int>(key, 1));
 			}
 			else
 			{
+				count++;
 				m1[key]++;
 			}
 		}
 	}
 	return count;
+}
+//统计行数
+int line(char* path) {
+	int lines = 0;
+	int count = 0;
+	string ff = ".";
+	char c;
+	int i = 0;
+	int flag = 0;
+	ifstream infile;
+	infile.open(path);   //将文件流对象与文件连接起来 
+	infile >> noskipws;
+	while (!infile.eof())
+	{
+		infile >> c;
+		if (c!=' '&&c!='\0'&&c!='\n')
+			flag = 1;
+		if (c == '\n') {
+			if (flag==1) {
+				lines++;
+			}
+			flag = 0;
+			c = ' ';
+		}
+		ff += c;
+		count++;
+		i++;
+	}
+	ff[i] = '\0';
+	infile.close();
+	count--;
+	if (count != 0 && flag !=0) {
+		lines++;
+	}
+	return lines;
 }
 //统计词频并输出
 vector<pair<string, int>> WordsFrequency(char* path) {
