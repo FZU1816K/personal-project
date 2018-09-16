@@ -138,6 +138,7 @@ vector<map<string, int>::iterator> GetFirstTenWords(string file_location)
 		GetWordCountMap(file_location);
 
 	vector<map<string, int>::iterator> word_node_vectors;
+	vector<map<string, int>::iterator> first_ten_words;
 
 	map<string, int>::iterator it = g_word_count_map.begin();
 
@@ -168,7 +169,11 @@ vector<map<string, int>::iterator> GetFirstTenWords(string file_location)
 		swap(word_node_vectors[step], word_node_vectors[max_node_id]);
 	}
 
-	return word_node_vectors;
+	// 修改了一处BUG,应该只返回前十个词，旧版本改来改去最后疏忽了这一点
+	for (int i = 0; i < num_show_node; i++)
+		first_ten_words.push_back(word_node_vectors[i]);
+
+	return first_ten_words;
 }
 
 int CountLine(string file_location)
