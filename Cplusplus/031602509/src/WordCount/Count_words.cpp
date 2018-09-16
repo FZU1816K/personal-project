@@ -28,13 +28,13 @@ int C_words(istream &fl, File &fn, Words &wn, Wordnode **l, vector <string> &str
 		{
 			//cout<<temp_line.size();
 			temp_chr = temp_line[k];
-			if (temp_chr <= '9'&&temp_chr >= '0')
+			if (temp_chr <= 57&&temp_chr >= 48)
 			{
 				k++;								//数字开头判断
-				while (k <= temp_line.size() - 1 && ((temp_line[k] <= '9'&&temp_line[k] >= '0') || (temp_line[k] <= 'z'&&temp_line[k] >= 'a')))
+				while (k <= temp_line.size() - 1 && ((temp_line[k] <= 57&&temp_line[k] >= 48) || (temp_line[k] <= 122&&temp_line[k] >= 97)))
 					k++;
 			}
-			else if (temp_chr <= 'z' && temp_chr >= 'a')
+			else if (temp_chr <= 122 && temp_chr >= 97)
 			{
 				temp_word = "";
 				temp_word += temp_chr;		//字符补足
@@ -42,17 +42,17 @@ int C_words(istream &fl, File &fn, Words &wn, Wordnode **l, vector <string> &str
 				k += 1;
 				if (temp_line.size() - 2 > k)	//判断余下位数是否够装下一个单词
 				{
-					while (k < temp_line.size() && ((temp_line[k] <= 'z' && temp_line[k] >= 'a') || (temp_line[k] <= '9' && temp_line[k] >= '0')))
+					while (k < temp_line.size() && ((temp_line[k] <= 122 && temp_line[k] >= 97) || (temp_line[k] <= 57 && temp_line[k] >= 48)))
 					{
 						temp_word += temp_line[k];
 						//cout << temp_word << endl;
 						k += 1;
 					}
 				}
-				if (3 < temp_word.size() && (temp_word[0] <= 'z'&&temp_word[0] >= 'a') && (temp_word[1] <= 'z'&&temp_word[1] >= 'a') && (temp_word[2] <= 'z'&&temp_word[2] >= 'a') && (temp_word[3] <= 'z'&&temp_word[3] >= 'a'))
+				if ((3 < temp_word.size() )&& (temp_word[0] <= 122&&temp_word[0] >= 97) && (temp_word[1] <= 122 &&temp_word[1] >= 97) && (temp_word[2] <= 122&&temp_word[2] >= 97) && (temp_word[3] <= 122&&temp_word[3] >= 97))
 				{
 					hash_insert(l, temp_word);	//判断是否4个字母开头
-					count_words++;
+					count_words++;				//hash节点插入
 				}
 			}
 			else
