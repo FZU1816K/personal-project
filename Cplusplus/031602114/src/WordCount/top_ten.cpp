@@ -10,7 +10,7 @@ using namespace std;
 
 ostream  &operator<<(ostream &os, const Top_Ten &top_ten)
 {
-	os << "<" << top_ten.word << ">:" << top_ten.number;
+	os << "<" << top_ten.word << ">: " << top_ten.number;
 	return os;
 }
 bool Cmp(const Top_Ten& top1, const Top_Ten& top2)
