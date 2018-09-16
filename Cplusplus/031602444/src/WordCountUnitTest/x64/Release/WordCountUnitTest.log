@@ -1,8 +1,0 @@
-﻿LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/LTCG”规范)
-    正在创建库 D:\github\personal-project\Cplusplus\031602444\src\x64\Release\WordCountUnitTest.lib 和对象 D:\github\personal-project\Cplusplus\031602444\src\x64\Release\WordCountUnitTest.exp
-  正在生成代码
-  0 of 637 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    5 functions had inline decision re-evaluated but remain unchanged
-  已完成代码的生成
-  WordCountUnitTest.vcxproj -> D:\github\personal-project\Cplusplus\031602444\src\x64\Release\WordCountUnitTest.dll
