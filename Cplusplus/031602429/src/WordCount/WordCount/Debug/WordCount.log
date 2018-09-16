@@ -1,0 +1,6 @@
+﻿  Countlines.cpp
+e:\visual studio\031602429\src\workcount\workcount\countlines.cpp(18): warning C4018: “<”: 有符号/无符号不匹配
+  main.cpp
+e:\visual studio\031602429\src\workcount\workcount\main.cpp(21): warning C4101: “filename”: 未引用的局部变量
+  正在生成代码...
+  WorkCount.vcxproj -> E:\visual studio\031602429\src\WorkCount\Debug\WorkCount.exe
