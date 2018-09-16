@@ -71,6 +71,18 @@ bool Is_Num(char ch)					//字符是0~9之间的数字
 	}
 }
 
+int In_Top(Top_Ten words[],string word)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		if (words[i].word == word)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
 void Top_Tenwords(Top_Ten words[],char *filename)
 {
 	fstream f_tmp;
@@ -92,26 +104,41 @@ void Top_Tenwords(Top_Ten words[],char *filename)
 			if (word.length() >= 4)
 			{
 				all_words[word]++;
-				if (all_words.size() < 10 && all_words[word] == 1)
+				int loca_tmp = In_Top(words, word);
+				if (all_words.size() < 10 && loca_tmp == -1)
 				{
 					int tmp = all_words[word];
 					words[i].number = tmp;
 					words[i].word = word;
 					i++;
 				}
-				else if (all_words.size() == 10)
+				else if (all_words.size() < 10 && loca_tmp != -1)
+				{
+					words[loca_tmp].number = all_words[word];
+				}
+				else if (all_words.size() == 10 && loca_tmp == -1)
 				{
 					int tmp = all_words[word];
 					words[i].number = tmp;
 					words[i].word = word;
 					sort(words, words + 10, Cmp);
 				}
-				else if(all_words.size() > 10)
+				else if (all_words.size() == 10 && loca_tmp != -1)
 				{
-					if (all_words[word] > words[9].number)
+					words[loca_tmp].number = all_words[word];
+					sort(words, words + 10, Cmp);
+				}
+				else if(all_words.size() > 10 )
+				{
+					if (all_words[word] > words[9].number && loca_tmp == -1)
 					{
 						words[9].word = word;
 						words[9].number = all_words[word];
+						sort(words, words + 10, Cmp);
+					}
+					else if (all_words[word] > words[9].number && loca_tmp != -1)
+					{
+						words[loca_tmp].number = all_words[word];
 						sort(words, words + 10, Cmp);
 					}
 					else if (all_words[word] == words[9].number)
@@ -140,7 +167,6 @@ void Top_Tenwords(Top_Ten words[],char *filename)
 				continue;
 			}
 		}
-		
 	}
 	f_tmp.close();
 }
