@@ -2,23 +2,16 @@
 
 int CountLines(char * filename)
 {
-    int t,lines=0;
-    FILE *fp;
-    fp = fopen(filename,"rt"); 
-    if(fp!=NULL)
-    {
-        while((t=fgetc(fp))!=EOF)
-    	{
-            if(t=='\n')
-            {
-                lines++;
-            }
-        }
-    }
-    else 
-    {
-    	printf("文件名或文件地址输入错误\n");
-    }
-    fclose(fp);
-    return lines;
+	ifstream file(filename);
+	string str;
+	int count = 0;
+	while (file) {
+		getline(file, str);//从文件中读取一行
+		remove(str.begin(), str.end(), ' ');//这个算法函数在algorithm头文件中，删除一行中的空格
+		remove(str.begin(), str.end(), '\t');//删除一行中的制表符，因为制表符和空格都是空的
+		if (str.length() > 0) {//如果删除制表符和空格之后的一行数据还有其他字符就算有效行
+			count++;
+		}
+	}
+	return count;
 }

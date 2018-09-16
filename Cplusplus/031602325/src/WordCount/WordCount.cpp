@@ -38,7 +38,7 @@ vector<pair<string, int>> CountWord() //调用这个函数把文字传进来。
 
 
 
-int WordSum(vector<pair<string, int>> resultvec)
+int WordSum(vector<pair<string, int>> &resultvec)
 {
 	int sum = 0;
 	for (auto i : resultvec)
@@ -47,4 +47,3 @@ int WordSum(vector<pair<string, int>> resultvec)
 	}
 	return sum;
 }
-
