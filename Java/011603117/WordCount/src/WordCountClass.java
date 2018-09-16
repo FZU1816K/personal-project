@@ -21,8 +21,8 @@ public class WordCountClass extends Thread
         String ToRead = "";
         TreeMap<String,Integer> MainMap = new TreeMap<>();
         try {
-            OutputResult = new BufferedWriter(new FileWriter(InputFilePath.concat("result.txt")));
-            BufferedReader InputFile = new BufferedReader(new FileReader(InputFilePath.concat(InputFileName)));
+            OutputResult = new BufferedWriter(new FileWriter("result.txt"));
+            BufferedReader InputFile = new BufferedReader(new FileReader(InputFileName));
             while (true) {
                 ch1 = InputFile.read();
                 if (ch1 > 122) continue;//不是ASCII则继续读取
