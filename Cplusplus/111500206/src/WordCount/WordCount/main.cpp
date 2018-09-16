@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	WordFrequency(argv[1]);
 
 	auto topTenWordList = TopTenWords();
-	StandardOutput(topTenWordList);
+	//StandardOutput(topTenWordList);
 
 	fstream file;
 	file.open("result.txt", ios::out);
