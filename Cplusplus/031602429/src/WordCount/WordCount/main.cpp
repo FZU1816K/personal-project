@@ -6,22 +6,24 @@
 #include <string> 
 #include <regex>
 #include "Countlines.h"
+
 using namespace std;
 
 int cnt[3] = { 0 };
-
 
 
 void display_map(map<string, int> &wmap);
 /**
 *function：统计文本中每个单词出现的次数
 */
-int main(int argc, char* argv[]) {
-
+int main(int argc, char* argv[]) 
+	{
+	string str;
 	char filename[256];
 	//int cnt[3] = { 0 };
 	//const char *mInputFileName = "1.txt";
 	ifstream ifs(argv[1]);
+	
 	string mStrTemp;
 	map<string, int> mCountMap;
 	//按行读入文件，用正则找出单词，进行统计
@@ -41,6 +43,7 @@ int main(int argc, char* argv[]) {
 	//cin.getline(filename, 256);
 	fstream outfile(argv[1], ios::in);
 	count(outfile, cnt);
+
 	ofstream oufile;
 	oufile.open("1.txt");
 	oufile << "characters: " << cnt[0] << endl;
@@ -86,7 +89,16 @@ void display_map(map<string, int> &wmap)
 		t++;
 
 	}
-
+	for (int i = 0; i < t; i++)
+	{
+		for (int j = 0; j < strlen(w[i].word); j++)
+		{
+			if (w[i].word[j] >= 'A'&& w[i].word[j] <= 'Z')
+			{
+				w[i].word[j] += 32;
+			}
+		}
+	}
 	ttt = t - 2;
 	for (j = tt; j < ttt; j++)
 	{
@@ -99,6 +111,21 @@ void display_map(map<string, int> &wmap)
 				strcpy(w[i].word, w[i + 1].word);
 				strcpy(w[i + 1].word, cc);
 			}
+			
+		}
+	}
+	int p;
+	for (p = 0; p < t; p++)
+	{
+		if (w[p].number = w[p + 1].number)
+		{
+			if (strcmp(w[p].word, w[p + 1].word) > 0)
+			{
+				strcpy(cc, w[p].word);
+				strcpy(w[p].word, w[p + 1].word);
+				strcpy(w[p + 1].word, cc);
+			}
+			
 		}
 	}
 	ofstream outfile;

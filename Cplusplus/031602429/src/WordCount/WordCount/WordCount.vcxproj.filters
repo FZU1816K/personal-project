@@ -21,9 +21,15 @@
     <ClCompile Include="Countlines.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SwitchToLower.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Countlines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SwithToLower.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

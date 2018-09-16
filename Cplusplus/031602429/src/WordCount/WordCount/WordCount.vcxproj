@@ -117,9 +117,11 @@
   <ItemGroup>
     <ClCompile Include="Countlines.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SwitchToLower.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Countlines.h" />
+    <ClInclude Include="SwithToLower.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
