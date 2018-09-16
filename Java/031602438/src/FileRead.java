@@ -1,4 +1,8 @@
+import sun.util.resources.LocaleData;
+
 import java.io.*;
+
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,16 +18,16 @@ public class FileRead {
     public String Input(File file){
 
         try{
-            FileInputStream data = new FileInputStream(file);
-            BufferedInputStream bis = new BufferedInputStream(data);
-            BufferedReader in = new BufferedReader(new InputStreamReader(bis, "utf-8"), 10 * 1024 * 1024);//10M缓存
-            String text = "";
-            while(in.ready()){
-                text += in.readLine();
-                text += "\r\n";
+            BufferedReader in = new BufferedReader(new FileReader(file));
+            StringBuilder str = new StringBuilder();
+            char c;
+            int c_byte = 0;
+            while((c_byte = in.read()) != -1){
+                c = (char) c_byte;
+                str.append(c);
             }
             in.close();
-            return text;
+            return str.toString();
         }catch (Exception e){
             System.out.println("文本读入失败！");
         }
@@ -41,18 +45,23 @@ public class FileRead {
 
         try{
             FileOutputStream res = new FileOutputStream("result.txt");
+            BufferedOutputStream bos = new BufferedOutputStream(res);
             String t = "characters： " + length +"\r\n"
                     +"words： " + wordAmount +"\r\n"
                     +"lines： " + lines +"\r\n";
             int count = 0;
             for(HashMap.Entry<String,Integer> entry:wList){
                 count++;
-                if(count == 11)
+                t += "<"+entry.getKey() + ">：" + entry.getValue();
+                if(count<=9){
+                    t += "\r\n";
+                }else{
                     break;
-                t += "<"+entry.getKey() + ">：" + entry.getValue() +"\r\n";
+                }
             }
-            res.write(t.getBytes());
-            res.close();
+            bos.write(t.getBytes(),0,t.getBytes().length);
+            bos.flush();
+            bos.close();
         }catch (Exception e){
             System.out.println("文本写出失败！");
             System.out.println(e.getMessage());
