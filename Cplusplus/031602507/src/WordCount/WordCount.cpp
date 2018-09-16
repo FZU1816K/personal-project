@@ -31,17 +31,19 @@ int main(int argc, char *argv[])
 		Count count;
 		string charBuf;
 		vector<string> linesBuf;
-		FileIO::readChar(argc, argv,charBuf,linesBuf);			//逐个字符读取文件，存入charBuf
-		/*for (auto it = linesBuf.begin(); it != linesBuf.end(); it++)
+		if(FileIO::readChar(argc, argv,charBuf,linesBuf))			
 		{
-			cout << *it << endl;
-		}*/
-		characterCount = count.countCharNum(charBuf);			//计算字符数
-		lineCount = count.countLineNum(linesBuf);				//计算行数
-		wordCount = count.countWordNum(linesBuf);				//计算单词数
-		vector<map<string,int>::iterator> top10Word = count.countTop10Word();	//统计出现频率最高的10个单词（有可能单词数没有10个）
+			characterCount = count.countCharNum(charBuf);			//计算字符数
+			lineCount = count.countLineNum(linesBuf);				//计算行数
+			wordCount = count.countWordNum(linesBuf);				//计算单词数
+			vector<map<string, int>::iterator> top10Word = count.countTop10Word();	//统计出现频率最高的10个单词（有可能单词数没有10个）
 
-		FileIO::outputToFile(characterCount, wordCount, lineCount, top10Word);	//将结果输出到文件
+			FileIO::outputToFile(characterCount, wordCount, lineCount, top10Word);	//将结果输出到文件
+		}
+		else
+		{
+			cout << "read file fail";
+		}
 	}
 
 	//system("pause");

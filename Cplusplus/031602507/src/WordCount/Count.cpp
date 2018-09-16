@@ -26,11 +26,11 @@ int Count::countLineNum(vector<string> &linesBuf)
 int Count::countWordNum(vector<string> &linesBuf)
 {
 	int wordCount = 0;
-	int linesBufSize = linesBuf.size();
+	int linesBufSize = int(linesBuf.size());
 	string wordBuf;
 	for (int i = 0; i != linesBufSize; i++) 
 	{
-		int len = linesBuf[i].length();
+		int len = int(linesBuf[i].length());
 		for(int j = 0;j < len;j++)
 		{
 			if (isLetter(linesBuf[i][j]) || isDigit(linesBuf[i][j])) 
@@ -60,7 +60,7 @@ int Count::countWordNum(vector<string> &linesBuf)
 //统计出现频率最高的10个单词
 vector<map<string,int>::iterator> & Count::countTop10Word()
 {
-	int wordMapSize = wordMap.size();
+	int wordMapSize = int(wordMap.size());
 	for (int i = 0; i < wordMapSize && i < 10; i++)
 	{
 		auto maxFreWord = wordMap.begin();

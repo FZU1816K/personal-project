@@ -6,7 +6,6 @@ bool FileIO::readChar(int argc, char *argv[],string &charBuf,vector<string> &lin
 	string filename = FileIO::getFileName(argc, argv);
 	ifstream rf(filename);
 	if (!rf) {
-		throw "open file fail";
 		return false;
 	}
 	else
@@ -68,7 +67,7 @@ string FileIO::getFileName(int argc, char *argv[])
 	}
 	else
 	{
-		//cout << "Wrong Parameter! trying open default file:input.txt" << endl;
+		cout << "Wrong Parameter! trying open default file:input.txt" << endl;
 		return "input.txt";
 	}
 }
