@@ -5,7 +5,7 @@ using namespace std;
 
 
 int Countlines(char *filename)
-{	//
+{
 	ifstream infile;
 	if (filename == nullptr)  //Easy to debug
 	{
@@ -15,22 +15,20 @@ int Countlines(char *filename)
 
 	if (!infile) exit(1);
 	char c;
-	int row_count = 0,flag1=0;
+	int row_count = 0, flag1 = 0;
 	infile >> noskipws;
 
-	if (!infile.eof()) return 0;
+	// if (!infile.eof()) return 0;
 
-	while (!infile.eof())
+	while (infile >> c)
 	{
-		infile >> c; 
-		if (c != 10 && c!=' '&&c!='\t') //Filter spaces, carriage returns, horizontal tabs
+		if (infile.eof()) break;
+		if (c != 10 && c != ' '&&c != '\t') //Filter spaces, carriage returns, horizontal tabs
 		{
 			flag1 = 1;
 		}
-		if (infile.eof()&& flag1==1) row_count++;
 		if (c == 10)
-		{	
-		
+		{
 			//cout << "1" << endl;
 			if (flag1 == 1)
 			{
@@ -39,6 +37,7 @@ int Countlines(char *filename)
 			}
 		}
 	}
+	if (flag1 == 1) row_count++;
 	infile.close();
-	return row_count ;
+	return row_count;
 }
