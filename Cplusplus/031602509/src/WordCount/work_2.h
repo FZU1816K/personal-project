@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <regex>
+#include<vector>
 #include <algorithm>
 using namespace std;
 #define MAX_LENGTH   100
@@ -29,8 +30,8 @@ struct File
 struct Words
 {
 	string all_string;				//文件内容
-	int count_rank[11];				//词频排名
-	string word_rank[11];			//词频对应词
+	int count_rank[11] = { 0 };				//词频排名
+	string word_rank[11] = { "" };			//词频对应词
 	Words()
 	{								//构造函数初始化
 		all_string = "";
@@ -44,12 +45,12 @@ struct Words
 struct Wordnode
 {
 	string word;					//哈希节点构造
-	int count;
-	struct Wordnode *next ;
+	int count = 1;
+	struct Wordnode *next = NULL;
 };
 
-int C_chars(istream &fl, File &fn, Words &wn);		//统计字符数
-int C_words(istream &fl, Words &wn, Wordnode **l);	//统计单词数
+int C_chars(istream &fl, File &fn, Words &wn, vector <string> &str_lines);		//统计字符数
+int C_words(istream &fl, File &fn, Words &wn, Wordnode **l, vector <string> &str_lines);	//统计单词数
 int hash_index(string word_str);					//哈希值计算
 void hash_insert(Wordnode **l, string word_str);	//开散列插入哈希节点
 void rank_word(Wordnode **l, Words &nw);			//词频排名

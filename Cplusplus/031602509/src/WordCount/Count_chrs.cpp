@@ -1,30 +1,48 @@
 #include "pch.h"
 #include "work_2.h"
-
-int C_chars(istream &fl, File &fn, Words &wn)
+bool Letter_test(char &chr_test)
 {
-	char chr;
-	int count_c = 0, flag = 0;		//flag判断有效行
-	while (!fl.eof())				//是否读到文件尾
+	return chr_test <= 'z' && chr_test >= 'a';	//字母判断
+}
+
+void reset_string(string &str)
+{
+	str = "";
+}
+
+bool Number_test(char &chr_test)
+{
+	return chr_test <= '9' && chr_test >= '0';	//数字判断
+}
+
+
+int C_chars(istream &fl, File &fn, Words &wn, vector <string> &str_lines)
+{
+	int count_chr = 0;
+	string buffer_line;
+	string lower_letter_str;
+	char chr;					//单字符判断
+	while (1)
 	{
-		fl.get(chr);
-		if ((chr <= 126 && chr >= 32) || chr == 9 || chr == 10)
+		chr = fl.get();
+		count_chr++;
+		if (chr == EOF)
 		{
-			if (fl.eof())
-				break;
-			if (chr <= 126 && chr >= 33)
-				flag = 1;
-			wn.all_string += chr;	//完整字符串构建
-			count_c++;
-			if (chr == 10 && flag == 1)
+			count_chr -= 1;		//避免结尾字符
+			if (buffer_line.size() > 0)
 			{
-				fn.count_lines++;
-				flag = 0;
-			}
-			//cout << chr <<" "<<count_c<< endl;
+				transform(buffer_line.begin(), buffer_line.end(), buffer_line.begin(), ::tolower);	//小写字母转换
+				str_lines.push_back(buffer_line);				//回推新行
+			}break;
+		}
+		buffer_line += chr;
+		if (chr == '\n')
+		{
+			transform(buffer_line.begin(), buffer_line.end(), buffer_line.begin(), ::tolower);		//小写字母转换
+			str_lines.push_back(buffer_line);					//回推新行
+			reset_string(buffer_line);																//重置新行
 		}
 	}
-	if (flag == 1)
-		fn.count_lines++;		//最末有效行不换行情况处理
-	return count_c;
+	fn.count_chars = count_chr;
+	return count_chr;
 }
