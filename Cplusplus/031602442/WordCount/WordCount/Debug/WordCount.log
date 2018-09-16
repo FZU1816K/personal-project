@@ -1,0 +1,3 @@
+﻿  WordCount.cpp
+f:\项目\词频统计\wordcount\wordcount\wordcount.cpp(89): warning C4129: “;”: 不可识别的字符转义序列
+  WordCount.vcxproj -> F:\项目\词频统计\WordCount\Debug\WordCount.exe
