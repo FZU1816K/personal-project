@@ -21,36 +21,12 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="charcount.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="linecount.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wordcount.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="wordmaxsort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="WordCount.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="charcount.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="linecount.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wdct.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="wordcountsort.cpp">
+    <ClCompile Include="wordcount.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

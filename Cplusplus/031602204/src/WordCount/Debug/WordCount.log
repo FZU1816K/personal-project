@@ -1,2 +1,3 @@
-﻿  WordCount.cpp
-  WordCount.vcxproj -> C:\Users\我\Desktop\SoftWare\personal-project\Cplusplus\031602204\src\Debug\WordCount.exe
+﻿  stdafx.cpp
+  wordcount.cpp
+  wordcount.vcxproj -> C:\Users\我\Desktop\wordcount\Debug\wordcount.exe
