@@ -14,12 +14,16 @@ void topTen()
 	int c = 0;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
+	//ifstream f;
+	//f.open(argv[1], ios::in);
 	file f("C:/Users/Matthew Li/Desktop/input.txt");
 	f.countChar_Line(f.Filename);
 	f.countWord1();
-	ofstream fout("C:/Users/Matthew Li/Desktop/output.txt");
+	ofstream fout("result.txt");
+	ofstream fout;
+	fout.open("result.txt");
 	cout << "characters: " << f.numChar << endl;
 	cout << "words: " << f.numWords << endl;
 	cout << "lines: " << f.numLine << endl;
