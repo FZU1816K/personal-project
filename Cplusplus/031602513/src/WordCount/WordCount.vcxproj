@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{C4F0881A-C0AE-4DF0-9C5F-2E3EB3B2079F}</ProjectGuid>
+    <ProjectGuid>{1721752E-6C5D-4407-8CF0-3A4A4D44E887}</ProjectGuid>
     <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -69,13 +69,16 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <Profile>true</Profile>
@@ -121,17 +124,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CountChar.cpp" />
-    <ClCompile Include="CountLines.cpp" />
-    <ClCompile Include="CountWordnumber.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="TenFrequency.cpp" />
+    <ClCompile Include="wordc.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CountChar.h" />
-    <ClInclude Include="CountLines.h" />
-    <ClInclude Include="CountWordnumber.h" />
-    <ClInclude Include="TenFrequency.h" />
+    <ClInclude Include="wordc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
