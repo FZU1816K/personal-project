@@ -28,10 +28,19 @@ int Statistics::words(ifstream& in)//词频统计
 			if (j == str.length()-1 && str[j] >= 'a'&&str[j] <= 'z'&&flag >= 3)//特殊处理
 			{
 				flag++;
+				if (star >= 1)//修改部分
+				{
+					if (str[star - 1] >= '0'&&str[star - 1] <= '9')
+					{
+						flag = 0;
+						continue;
+					}	
+				}
 				temp = str.substr(star, flag);//截取合法单词 
 				if (word.count(temp))
 				{
 					word[temp]++;
+					sum++;//修改部分
 				}
 				else
 				{
@@ -63,10 +72,19 @@ int Statistics::words(ifstream& in)//词频统计
 							continue;
 						}
 					}
+					if (star >= 1)//修改部分
+					{
+						if (str[star - 1] >= '0'&&str[star - 1] <= '9')
+						{
+							flag = 0;
+							continue;
+						}
+					}
 					temp = str.substr(star, flag);//截取合法单词 
 					if (word.count(temp))
 					{
 						word[temp]++;
+						sum++;//修改部分
 					}
 					else
 					{
@@ -89,10 +107,10 @@ int Statistics::characters(ifstream& in)//统计字符数
 	while (in.peek() != EOF)//按字符读取
 	{
 		in.get(ch);
-		if (ch >= 0 && ch <= 255)
-		{
+		//if (ch >= 0 && ch <= 255)//修改部分
+		//{
 			num++;
-		}
+		//}
 	}
 	in.clear();//指针重新定位至文件头部 
 	in.seekg(0, ios::beg);
@@ -137,7 +155,7 @@ void Statistics::display(ofstream& out)//将结果输出至指定文档
 		a.push_back(t);
 	}
 	sort(a.begin(), a.end(), cmp);
-	for (int i = 0; i < wnum && i <= 10; i++)
+	for (int i = 0; i < wnum && i < 10; i++)//修改部分
 	{
 
 		int t = a[i];
