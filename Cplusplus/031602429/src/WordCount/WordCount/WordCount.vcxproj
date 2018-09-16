@@ -20,10 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{7048FDBC-3ED0-459C-ACCF-6E9EA238979B}</ProjectGuid>
-    <RootNamespace>WorkCount</RootNamespace>
+    <ProjectGuid>{4C3B62EF-F70C-476E-80FA-401AE4665CA5}</ProjectGuid>
+    <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
-    <ProjectName>WordCount</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
