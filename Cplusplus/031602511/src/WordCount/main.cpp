@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char * argv[]) {
 	string reading_flie;
-	if (argc == 2) {				
+	if (argc == 2) {
 		reading_flie = argv[1];
 	}
 	else {									//命令行参数传递错误
