@@ -41,7 +41,7 @@ namespace UnitTest_ScanProcesser
 			sp.processChar(' ');
 			sp.processChar('c');
 			sp.processChar(EOF);
-
+			sp.setWordNumByMap();
 			Assert::AreEqual<int>(25, sp.getCharNum());
 			Assert::AreEqual<int>(3, sp.getLineNum());
 			Assert::AreEqual<int>(1, sp.getWordNum());

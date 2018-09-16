@@ -14,7 +14,7 @@ const int OUT = 0;
 const int NEW = 0;
 const int OLD = 1;
 
-string nowWord;
+
 
 int ScanProcesser::processChar(char c){
 
@@ -45,14 +45,11 @@ int ScanProcesser::processChar(char c){
 	
 	if (!(isalnum(c))){
 		if (inWord == IN) {
-			*ss >> nowWord;
 			if (checkWordValid(nowWord)) {
 				(*strMap)[nowWord]++;
 				wordNumTotal++;
 			}
 			inWord = OUT;
-			ss->clear();
-			ss->str("");
 			nowWord.clear();
 		}
 		else;
@@ -64,11 +61,11 @@ int ScanProcesser::processChar(char c){
 		else{
 			inWord = IN;
 		}
-		*ss << c;
+		nowWord.append(1, c);
 	}
 	else;
 
-	wordNum = strMap->size();
+	
 	return 0;
 }
 

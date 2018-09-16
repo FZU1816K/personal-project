@@ -31,5 +31,6 @@ int Scanner::scan() {
 		processer->processChar(EOF);
 	}
 
+	processer->setWordNumByMap();
 	return 0;
 }
