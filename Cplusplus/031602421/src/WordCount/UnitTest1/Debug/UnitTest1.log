@@ -1,2 +1,1 @@
-﻿  unittest1.cpp
-  UnitTest1.vcxproj -> F:\software engineering\personal-project\project1\Cplusplus\031602421\src\WordCount\Debug\UnitTest1.dll
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(314,5): error MSB6003: 指定的任务可执行文件“CL.exe”未能运行。文件“F:\SOFTWARE ENGINEERING\PERSONAL-PROJECT\PROJECT1\PERSONAL-PROJECT\CPLUSPLUS\031602421\SRC\WORDCOUNT\UNITTEST1\DEBUG\UNITTEST1.PCH”正由另一进程使用，因此该进程无法访问此文件。
