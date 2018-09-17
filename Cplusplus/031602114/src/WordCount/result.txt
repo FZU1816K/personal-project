@@ -1,0 +1,7 @@
+characters: 40
+words: 5
+lines: 1
+<hkafhihin>: 1
+<joajloln>: 1
+<sjaofjla>: 1
+<kljjk>: 2
