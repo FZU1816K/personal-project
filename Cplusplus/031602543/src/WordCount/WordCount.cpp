@@ -1,8 +1,13 @@
 #include "stdafx.h"
+int WordExist = 0;
 using namespace std;
 bool cmp(const struct WF& a, const struct WF& b)
 {
 	return a.value > b.value;
+}
+int isLetter(const char &c)//判断给定字符是否为字母
+{
+	return c >= 'a' && c <= 'z';
 }
 string Conventor(int src)//转换itos
 {
@@ -55,12 +60,19 @@ int Counter::CharCount()
 	DetectFileOpen(infile);
 	string str[Linethreshold];
 	int ch = 0, line = 0;
-
 	while (infile)//文件处理 
 	{
 		getline(infile, str[line]);//按行读取
 		line++;
 	}
+	int LineCount = 0;
+	for (int i = 0; i<line; i++)
+	{
+		if (str[i] != "\0") {
+			LineCount = 1; break;
+		}
+	}
+	if (LineCount == 0)return 0;
 	line--;
 
 	for (int i = 0; i < line; i++)
@@ -98,20 +110,21 @@ int Counter::WordCount()
 		}
 	}
 	int j = 0;
-
+	
 	for (int i = 0; i<line; i++)//将空格处理后的文档转化为单词 
 	{
 		istringstream stream(str[i]);
 		while (stream)stream >> str1[j++];
 	}
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
-
 	j --;
 	words = 0;
 	int k = 0;
 	int isword = 1;
+	
 	for (int i = 0; i<j ; i++)//单词统计 
 	{
+		if (str1[i].size() < 4)continue;
 		isword = 1; 
 		if (isword)
 		for (k = 0; k<4; k++)//除去数字开头
@@ -129,9 +142,11 @@ int Counter::WordCount()
 		}
 
 		if (isword) {
+			WordExist = 1;
 			words++;
 		}
 	}
+	//for (int k = 0; str[k] != ""; k++)cout << str[k];
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
 	//cout << "words==" << words << endl;
 	//for (int i = 0; i<j - 1; i++)
@@ -177,7 +192,6 @@ string Counter::WordFreq()
 			j++;
 		}
 	}
-
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
 	
 	words = 0;
@@ -185,22 +199,25 @@ string Counter::WordFreq()
 
 	for (int i = 0; i<j; i++)//单词筛选
 	{
-		isword = true;
-		for (k = 0; k<4; k++)//除去数字开头
-		{
-			if (str1[i][0] == '\0')
+		if (str1[i].size() < 4)continue;
+		isword = 1;
+		if (isword)
+			for (k = 0; k < 4; k++)//除去数字开头
 			{
-				isword = false;
-				break;
+				if (str1[i][0] == '\0')
+				{
+					isword = 0;
+					break;
+				}
+				if (str1[i][k] == '\0')break;
+				else if (!isalpha(str1[i][k])) {
+					isword = 0;
+					break;
+				}
 			}
-			if (str1[i][k] == '\0')break;
-			else if (!isalpha(str1[i][k])) {
-				isword = false;
-				break;
-			}
-		}
-		if (!isword) {
-			str1[i] = '\0';
+
+		if (isword) {
+			words++;
 		}
 	}
 	
@@ -211,6 +228,7 @@ string Counter::WordFreq()
 	{
 		//查找 是否有key 有的话 value++
 		//否则加入这个key 
+		if (str1[i] == "\0"||str1[i]==" ")continue;
 		it = mymap.find(str1[i]);
 		if (it == mymap.end())
 		{
@@ -230,7 +248,7 @@ string Counter::WordFreq()
 	stringstream ss;
 	int i = 0;
 	
-	WF a[100];
+	WF a[Wordthreshold];
 
 	for (i = 0; it != mymap.end(); it++, i++)
 	{	
@@ -246,20 +264,26 @@ string Counter::WordFreq()
 		str[j] = "\0";
 		ss << a[j].value;
 		ss >> temps;
-		str[j] = "<" + a[j].key + "" + ">: " + temps;
+		str[j] = "<" + a[j].key + ">: " + temps;
 	}
-	//cout << "i==" << i;
-
-	//str[i] = "\0";
-	//for (i = 0; str[i] != "\0"; i++)
-		//cout << str[i] << endl<<endl;
+	
+	//for (int j = 0; str[j] != "\0"; j++)cout << str[j];
+	//cout << str[0];
+	int CT = 0;
 	for (i = 0; str[i] != "\0"; i++)
 	{
-		if (i >= 10)break;
-		if(str[i][0]=='<')
-			result += str[i] + "\n";
+		if (CT >= 10)break;
+		if (str[i][0] == '<')
+		{
+			if (str[i][1] != '\0')
+			{
+				result += str[i] + "\n";
+				CT++;
+			}
+		}
 		else break;
 	}
+	result[result.size() - 1]='\0';
 	//cout << result;
 	infile.close();
 	return result;
@@ -277,8 +301,10 @@ void Counter::Write()
 	
 	result += "characters: " + Conventor(CharCount()) + "\n";
 	result += "words: " + Conventor(WordCount()) + "\n";
-	result += "lines: " + Conventor(LineCount()) + "\n";
-	result += WordFreq();
+	result += "lines: " + Conventor(LineCount())  ;
+	if(WordExist)
+	result += "\n"+WordFreq();
+	//cout << WordFreq();
 	infile.close();
 
 	ofstream outfile;
