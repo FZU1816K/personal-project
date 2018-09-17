@@ -5,10 +5,6 @@ bool cmp(const struct WF& a, const struct WF& b)
 {
 	return a.value > b.value;
 }
-int isLetter(const char &c)//判断给定字符是否为字母
-{
-	return c >= 'a' && c <= 'z';
-}
 string Conventor(int src)//转换itos
 {
 	stringstream ss;
@@ -124,8 +120,10 @@ int Counter::WordCount()
 	
 	for (int i = 0; i<j ; i++)//单词统计 
 	{
-		if (str1[i].size() < 4)continue;
-		isword = 1; 
+		isword = 1;
+		if (str1[i].size() < 4) {
+			isword = 0; continue;
+		}
 		if (isword)
 		for (k = 0; k<4; k++)//除去数字开头
 		{
@@ -199,25 +197,22 @@ string Counter::WordFreq()
 
 	for (int i = 0; i<j; i++)//单词筛选
 	{
-		if (str1[i].size() < 4)continue;
-		isword = 1;
-		if (isword)
-			for (k = 0; k < 4; k++)//除去数字开头
+		isword = true;
+		for (k = 0; k<4; k++)//除去数字开头
+		{
+			if (str1[i][0] == '\0')
 			{
-				if (str1[i][0] == '\0')
-				{
-					isword = 0;
-					break;
-				}
-				if (str1[i][k] == '\0')break;
-				else if (!isalpha(str1[i][k])) {
-					isword = 0;
-					break;
-				}
+				isword = false;
+				break;
 			}
-
-		if (isword) {
-			words++;
+			if (str1[i][k] == '\0')break;
+			else if (!isalpha(str1[i][k])) {
+				isword = false;
+				break;
+			}
+		}
+		if (!isword) {
+			str1[i] = '\0';
 		}
 	}
 	
@@ -304,7 +299,7 @@ void Counter::Write()
 	result += "lines: " + Conventor(LineCount())  ;
 	if(WordExist)
 	result += "\n"+WordFreq();
-	//cout << WordFreq();
+	
 	infile.close();
 
 	ofstream outfile;

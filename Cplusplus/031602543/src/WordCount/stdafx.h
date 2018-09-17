@@ -5,9 +5,9 @@
 #include<ctype.h>
 #include<algorithm>
 #include<map>
-#define Linethreshold 10000
+#define Linethreshold 5000
 #define Charthreshold 50000
-#define Wordthreshold 30000
+#define Wordthreshold 10000
 using namespace std;
 struct WF
 {
