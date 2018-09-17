@@ -13,6 +13,7 @@ public class lib {
 	
 	public static String text;
 	public static StringBuilder words = new StringBuilder();
+	public static StringBuilder originwords = new StringBuilder();
 	public static int linenum;
 	
 	public static int countChar(String path,int count) throws IOException{
@@ -27,7 +28,7 @@ public class lib {
 	        while((strline = buffReader.readLine())!=null){
 	        	linenum+=1;		//每当读取任意一行默认该行存在换行符 
 	            words.append(strline).append(" ");
-	            count+=strline.length()+linenum;
+	            originwords.append(strline);
 	            Matcher b_mat = b_pat.matcher(strline);
 	            if(b_mat.matches())
 	            	linenum--;
@@ -37,8 +38,8 @@ public class lib {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-//			text = text.toLowerCase();	//大写字母同意转化为小写字母
-		return count;
+		text = text.toLowerCase();	//大写字母同意转化为小写字母
+		return originwords.length();
 	}
 	
 	public static String getText(){
