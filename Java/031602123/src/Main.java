@@ -4,13 +4,13 @@ import lib.*;
 public class Main {
 	public static void main(String[] args) throws Exception {
 		Map<String, Integer> words = new TreeMap<String, Integer>();
-		String directory = "D:\\java\\031602123\\src";
-		PrintStream relust = new PrintStream("D:\\java\\031602123\\src\\relust.txt");
+		//String directory = "Java\\031602123\\src";
+		PrintStream relust = new PrintStream("relust.txt");
 		if (args.length != 1) {
 			System.out.println("Please input any txt");
 			System.exit(0);
 		}
-		File f = new File(directory,args[0]);
+		File f = new File(args[0]);
 		if (!f.exists()) {
 			System.out.println("The txt does not exist.");
 			System.exit(0);
