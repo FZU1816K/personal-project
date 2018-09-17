@@ -37,13 +37,13 @@ map<string, int>  Countwords(char *filename)
 	map<string, int> strMap;
 	while (!infile.eof())
 	{
-		
+
 		infile >> c;  //read character
 
 		if ((c >= 'a'&&c <= 'z') || (c >= 'A'&&c <= 'Z'))
 		{
 			c = lower(c);
-			char word[20] = {};
+			char word[2000] = {};
 			int k = 0, c_count = 0;
 			int num = 0;
 			int flag = 0;
@@ -63,7 +63,7 @@ map<string, int>  Countwords(char *filename)
 			//cout << c << endl;
 			//cout << flag;
 			//int i = 0;
-			while (whether_char(c)&&!infile.eof()) 
+			while (whether_char(c) && !infile.eof())
 			{
 				//cout << i++ << endl;
 				if (flag == 1)
