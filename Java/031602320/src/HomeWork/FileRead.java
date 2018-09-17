@@ -21,7 +21,7 @@ public class FileRead {
 
             str=str.toLowerCase();
             charscount += str.length();
-            String[] words = str.split("[ /^,*_=.：()|;+?!<>\\-#$%&'\"%\\[\\]]");
+            String[] words = str.split("[@\t\\s+/ ^,*_=.：()|;+?!<>\\-#$%&'\"%\\[\\]]");
             if (str.isEmpty()) {
                 continue;
             }

@@ -18,16 +18,7 @@ public class FilesOu {
         StringBuilder result = new StringBuilder();
         result.append("characters: ").append(charscount).append("\r\n").append("words: ").append(wordscount).append("\r\n")
                 .append("lines: ").append(linecount).append("\r\n");
-//        for (Map.Entry<String, Integer> entry : wList.entrySet()) {
-//            {
-//                String key = entry.getKey();
-//                int value = entry.getValue();
-//                System.out.println("<" + key + ">: " + value);
-//                result.append("<").append(key).append(">: ").append(value).append("\r\n");
-//                count++;
-//                if (count == 10)
-//                    break;
-//            }
+
             List<Map.Entry<String,Integer>> list =new ArrayList<Map.Entry<String,Integer>>(wList.entrySet());
             Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
                 @Override
@@ -46,6 +37,7 @@ public class FilesOu {
                 if (count == 10)
                     break;
             }
+
 
 
 
