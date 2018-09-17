@@ -38,6 +38,7 @@ public class Main {
 		List<Map.Entry<String,Integer>> wordMap = createMap.createHashMap(wordslist);	//构造单词分类词频HashMap
 		
 		System.out.println("characters: " + c_count);
+		out.write("characters: "+ c_count+"\r\n");
 		System.out.println("words: "+ v_count);
 		out.write("words: "+ v_count+"\r\n");
 		System.out.println("lines: "+ l_count);
