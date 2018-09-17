@@ -18,7 +18,7 @@ void SortWords(pair<string, int> top[],map<string, int> &MapWord,int words)
 		map<string, int>::iterator iter;
 		for (iter = MapWord.begin(); iter != MapWord.end(); ++iter)
 		{
-			if (max.second <= iter->second)
+			if (max.second < iter->second)
 			{
 				max.first = iter->first;
 				max.second = iter->second;

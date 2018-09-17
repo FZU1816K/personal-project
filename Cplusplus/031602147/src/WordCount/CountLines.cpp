@@ -17,9 +17,8 @@ int CountLines(char *file)
 	}
 	string str;
 	int number = 0;//lines
-	while(infile)
+	while(getline(infile, str))
 	{
-		getline(infile, str);
 		remove(str.begin(), str.end(), ' ');/*delete spaces in a row*/
 		remove(str.begin(), str.end(), '\t');/*delete tab in a row*/
 		/*Statistically valid rows*/
