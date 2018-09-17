@@ -5,7 +5,7 @@
 #include<ctype.h>
 #include<algorithm>
 #include<map>
-#define Linethreshold 5000
+#define Linethreshold 10000
 #define Charthreshold 50000
 #define Wordthreshold 10000
 using namespace std;

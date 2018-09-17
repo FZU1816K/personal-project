@@ -308,7 +308,6 @@ void Counter::Write()
 	result += "lines: " + Conventor(LineCount())  ;
 	if(WordExist)
 	result += "\n"+WordFreq();
-	
 	infile.close();
 
 	ofstream outfile;
