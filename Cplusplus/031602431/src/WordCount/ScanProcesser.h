@@ -19,20 +19,21 @@ class ScanProcesser{
 public:
     ScanProcesser(map<string,int> * inStrMap):charNum(0), wordNum(0), lineNum(0), inWord(0),newLine(0),wordNumTotal(0) {
 		strMap = inStrMap;
-		ss = new stringstream();
 		for (int i = 0; i < 10; i++) {
 			top10Words[i] = string();
 			top10WordsCount[i] = 0;
 		}
-	}
-	~ScanProcesser() {
-		delete ss;
 	}
 
     int processChar(char c);
     int getCharNum(){
         return charNum;
     }
+
+	int setWordNumByMap() {
+		wordNum = strMap->size();
+		return 0;
+	}
     int getWordNum(){
         return wordNum;
     }
@@ -70,7 +71,7 @@ private:
     int lineNum;
     int inWord;// IN = 1, OUT = 0
 	int newLine;// OLD = 1, NEW = 0;
-	stringstream* ss;
+	string nowWord;
     const int SPACE = ' ';
     const int LINESYM = '\n';
     const int TAB = '\t';

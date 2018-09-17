@@ -13,10 +13,10 @@ const int IN = 1;
 const int OUT = 0;
 const int NEW = 0;
 const int OLD = 1;
+
+
+
 int ScanProcesser::processChar(char c){
-	string nowWord;
-
-
 
 	if (c == EOF) {
 		if (newLine == OLD)
@@ -44,29 +44,13 @@ int ScanProcesser::processChar(char c){
 	}
 	
 	if (!(isalnum(c))){
-	//if (c == SPACE || c == TAB || c == LINKWORDSYM || c == LINESYM || c==EOF ) {
 		if (inWord == IN) {
-			*ss >> nowWord;
 			if (checkWordValid(nowWord)) {
-				map<string, int>::iterator iter;
-
-				iter = strMap->find(nowWord);
-
-				if (iter != strMap->end()) {
-					wordNumTotal++;
-					int count = (iter->second) + 1;
-					strMap->erase(iter);
-					strMap->insert(pair<string, int>(nowWord, count));
-				}
-				else {
-					wordNum++;
-					wordNumTotal++;
-					strMap->insert(pair<string, int>(nowWord, 1));
-				}
+				(*strMap)[nowWord]++;
+				wordNumTotal++;
 			}
 			inWord = OUT;
-			delete ss;
-			ss = new stringstream();
+			nowWord.clear();
 		}
 		else;
 	}
@@ -77,9 +61,11 @@ int ScanProcesser::processChar(char c){
 		else{
 			inWord = IN;
 		}
-		*ss << c;
+		nowWord.append(1, c);
 	}
 	else;
+
+	
 	return 0;
 }
 
