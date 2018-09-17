@@ -92,6 +92,7 @@ int Counter::WordCount()
 	while (infile)//文件处理 
 		getline(infile, str[line++]);//按行读取
 	line--;
+	if (line == 0)return 0;
 	for (int i = 0; i<line; i++)//特殊符号处理
 	{
 		int j = 0;
@@ -110,7 +111,10 @@ int Counter::WordCount()
 	for (int i = 0; i<line; i++)//将空格处理后的文档转化为单词 
 	{
 		istringstream stream(str[i]);
-		while (stream)stream >> str1[j++];
+		while (stream) {
+			stream >> str1[j];
+			j++;
+		}
 	}
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
 	j --;
@@ -166,6 +170,8 @@ string Counter::WordFreq()
 	while (infile)//文件处理 
 		getline(infile, str[line++]);//按行读取
 	line--;
+	if (line == 0)return "\0";
+//	cout << line;
 	for (int i = 0; i<line; i++)//特殊符号处理
 	{
 		int j = 0;
@@ -179,17 +185,20 @@ string Counter::WordFreq()
 			j++;
 		}
 	}
-
 	int j = 0;
 	
 	for (int i = 0; i<line; i++)//将空格处理后的文档转化为单词 
 	{
-		if (str[i]!="\0") {
+		if (str[i] != "\0") {
 			istringstream stream(str[i]);
-			while (stream)stream >> str1[j];
-			j++;
+			while (stream)
+			{
+				stream >> str1[j];
+				j++;
+			}
 		}
 	}
+
 	//for (int k = 0; k < line; k++)cout << str1[k] << endl;
 	
 	words = 0;
