@@ -75,9 +75,9 @@ void File::ShuChufile()
 {
 	ofstream coutfile;
 	coutfile.open("result.txt");
-	coutfile << "characters:" << characters << endl;
-	coutfile << "words:" << wordscount << endl;
-	coutfile << "lines:" << lines << endl;
+	coutfile << "characters: " << characters << endl;
+	coutfile << "words: " << wordscount << endl;
+	coutfile << "lines: " << lines << endl;
 
 	Wordlist::iterator i;
 	words_count.sort();
