@@ -16,7 +16,7 @@ vector<pair<int, string> > vec2;
 
 
 bool cmp(pair<int, string> a, pair<int, string> b) {
-	return a.second < b.second; //°´×ÖµäĞò´ÓĞ¡µ½´óÅÅÁĞ 
+	return a.second < b.second; //æŒ‰å­—å…¸åºä»å°åˆ°å¤§æ’åˆ— 
 }
 
 bool cmpi(pair<int,string> a, pair<int, string> b)
@@ -32,12 +32,12 @@ void MapSortOfValue(vector<pair<int, string> >& vec, map<string, int>& m)
 }
 
 /*
-º¯Êı¹¦ÄÜ£ºÅĞ¶ÏÊÇ·ñÎªºº×Ö
+å‡½æ•°åŠŸèƒ½ï¼šåˆ¤æ–­æ˜¯å¦ä¸ºæ±‰å­—
 */
 int Cal::isChinese(char a,char b)
 {
 	int nRet = 0;
-		//Èç¹û×Ö·û¸ßÎ»Îª1ÇÒÏÂÒ»×Ö·û¸ßÎ»Ò²ÊÇ1ÔòÓĞÖĞÎÄ×Ö·û
+		//å¦‚æœå­—ç¬¦é«˜ä½ä¸º1ä¸”ä¸‹ä¸€å­—ç¬¦é«˜ä½ä¹Ÿæ˜¯1åˆ™æœ‰ä¸­æ–‡å­—ç¬¦
 	if ((a & 0x80) && (b & 0x80))
 	{
 		nRet = 1;
@@ -45,7 +45,7 @@ int Cal::isChinese(char a,char b)
 	return nRet;
 }
 /*
-º¯Êı¹¦ÄÜ£ºÅĞ¶ÏÊÇ·ñÎª·Ö¸ô·û
+å‡½æ•°åŠŸèƒ½ï¼šåˆ¤æ–­æ˜¯å¦ä¸ºåˆ†éš”ç¬¦
 */
 int Cal::isSign(char c)
 {
@@ -57,7 +57,7 @@ int Cal::isSign(char c)
 	return nRet;
 }
 /*
-º¯Êı¹¦ÄÜ£ºÅĞ¶ÏÊÇ·ñÎªµ¥´Ê
+å‡½æ•°åŠŸèƒ½ï¼šåˆ¤æ–­æ˜¯å¦ä¸ºå•è¯
 */
 int Cal::isWord(string word)
 {
@@ -66,12 +66,12 @@ int Cal::isWord(string word)
 	{
 		if (i < 4)
 		{
-			if ((word[i] < 65 || word[i]>122) || (word[i] > 90 && word[i] < 97)) // A-Z£¬a-z
+			if ((word[i] < 65 || word[i]>122) || (word[i] > 90 && word[i] < 97)) // A-Zï¼Œa-z
 				return 0;
 		}
 		else
 		{
-			if ((word[i] < 48 || word[i]>122) || (word[i] > 57 && word[i] < 65) || (word[i] > 90 && word[i] < 97)) // A-Z£¬a-z,0-9
+			if ((word[i] < 48 || word[i]>122) || (word[i] > 57 && word[i] < 65) || (word[i] > 90 && word[i] < 97)) // A-Zï¼Œa-z,0-9
 				return 0;
 		}
 
@@ -92,12 +92,12 @@ int Cal::isChar(char c)
 	}
 }
 /*
-º¯Êı¹¦ÄÜ£ºÍ³¼Æ×Ö·ûÊı
+å‡½æ•°åŠŸèƒ½ï¼šç»Ÿè®¡å­—ç¬¦æ•°
 */
 int Cal::CountChar(char *strr)
 {
-	ifstream infile(strr, ios::in); //ÒÔÊäÈë·½Ê½´ò¿ªÎÄ¼ş
-		//ÅĞ¶ÏÊÇ·ñ´ò¿ª³É¹¦
+	ifstream infile(strr, ios::in); //ä»¥è¾“å…¥æ–¹å¼æ‰“å¼€æ–‡ä»¶
+		//åˆ¤æ–­æ˜¯å¦æ‰“å¼€æˆåŠŸ
 	if (!infile) {
 		cout << "open error!" << endl;
 		exit(1);
@@ -108,11 +108,18 @@ int Cal::CountChar(char *strr)
 	{
 		for (int i = 0; i < s.size(); i++)
 		{
-			if ((isChinese(s[i],s[i+1])!=1)&&(isChar(s[i]==1)))//²»ÊÇºº×Ö
+			if ((isChinese(s[i],s[i+1])!=1))//ä¸æ˜¯æ±‰å­—
 			{
-				count++;
+				if ((isChar(s[i]) == 1))
+				{
+					count++;
+				}
+				else
+				{
+					continue;
+				}
 			}
-			else //ÊÇºº×Ö£¬ÔòÌø¹ı
+			else //æ˜¯æ±‰å­—ï¼Œåˆ™è·³è¿‡
 			{
 				i++;
 			}
@@ -125,13 +132,13 @@ int Cal::CountChar(char *strr)
 	return count;
 }
 /*
-º¯Êı¹¦ÄÜ:Í³¼ÆÎÄ¼şµÄµ¥´Ê×ÜÊı
+å‡½æ•°åŠŸèƒ½:ç»Ÿè®¡æ–‡ä»¶çš„å•è¯æ€»æ•°
 */
 int Cal::CountWord(char *strr)
 {
 	int count=0;
-	ifstream infile(strr, ios::in); //ÒÔÊäÈë·½Ê½´ò¿ªÎÄ¼ş
-	//ÅĞ¶ÏÊÇ·ñ´ò¿ª³É¹¦
+	ifstream infile(strr, ios::in); //ä»¥è¾“å…¥æ–¹å¼æ‰“å¼€æ–‡ä»¶
+	//åˆ¤æ–­æ˜¯å¦æ‰“å¼€æˆåŠŸ
 	if (!infile) {
 		cout << "open error!" << endl;
 		exit(1);
@@ -141,13 +148,13 @@ int Cal::CountWord(char *strr)
 	{
 		for (int i = 0; i < s.size(); i++)
 		{
-			if (isChinese(s[i],s[i+1]) == 1)//ÊÇºº×ÖÔòÌø¹ı
+			if (isChinese(s[i],s[i+1]) == 1)//æ˜¯æ±‰å­—åˆ™è·³è¿‡
 			{
 				i++;
 			}
 			else
 			{
-				if (isSign(s[i]) == 1)//ÊÇ·Ö¸ô·û
+				if (isSign(s[i]) == 1)//æ˜¯åˆ†éš”ç¬¦
 				{
 					s[i] = ' ';
 				}
@@ -158,7 +165,7 @@ int Cal::CountWord(char *strr)
 	}
 	transform(str.begin(), str.end(), str.begin(), ::tolower);
 	stringstream ss(str);
-	unordered_map<string, int> strMap;  //±£´æµÄ½á¹û
+	unordered_map<string, int> strMap;  //ä¿å­˜çš„ç»“æœ
 	string strTmp;
 	while (ss >> strTmp)
 	{
@@ -172,12 +179,12 @@ int Cal::CountWord(char *strr)
 	return count;
 }
 /*
-º¯Êı¹¦ÄÜ:Í³¼ÆÎÄ¼şµÄÓĞĞ§ĞĞÊı
+å‡½æ•°åŠŸèƒ½:ç»Ÿè®¡æ–‡ä»¶çš„æœ‰æ•ˆè¡Œæ•°
 */
 int Cal::CountLine(char *strr)
 {
-	ifstream infile(strr, ios::in); //ÒÔÊäÈë·½Ê½´ò¿ªÎÄ¼ş
-	//ÅĞ¶ÏÊÇ·ñ´ò¿ª³É¹¦
+	ifstream infile(strr, ios::in); //ä»¥è¾“å…¥æ–¹å¼æ‰“å¼€æ–‡ä»¶
+	//åˆ¤æ–­æ˜¯å¦æ‰“å¼€æˆåŠŸ
 	if (!infile) {
 		cout << "open error!" << endl;
 		exit(1);
@@ -194,13 +201,13 @@ int Cal::CountLine(char *strr)
 }
 
 /*
-º¯Êı¹¦ÄÜ£ºÍ³¼ÆÎÄ¼şÖĞ¸÷µ¥´ÊµÄ³öÏÖ´ÎÊı
+å‡½æ•°åŠŸèƒ½ï¼šç»Ÿè®¡æ–‡ä»¶ä¸­å„å•è¯çš„å‡ºç°æ¬¡æ•°
 */
 int Cal::CountTime(char *strr)
 {
 	int count = 0, n = 0;
-	ifstream infile(strr, ios::in); //ÒÔÊäÈë·½Ê½´ò¿ªÎÄ¼ş
-	//ÅĞ¶ÏÊÇ·ñ´ò¿ª³É¹¦
+	ifstream infile(strr, ios::in); //ä»¥è¾“å…¥æ–¹å¼æ‰“å¼€æ–‡ä»¶
+	//åˆ¤æ–­æ˜¯å¦æ‰“å¼€æˆåŠŸ
 	if (!infile) {
 		cout << "open error!" << endl;
 		exit(1);
@@ -210,13 +217,13 @@ int Cal::CountTime(char *strr)
 	{
 		for (int i = 0; i < s.size(); i++)
 		{
-			if (isChinese(s[i], s[i + 1]) == 1)//ÊÇºº×ÖÔòÌø¹ı
+			if (isChinese(s[i], s[i + 1]) == 1)//æ˜¯æ±‰å­—åˆ™è·³è¿‡
 			{
 				i++;
 			}
 			else
 			{
-				if (isSign(s[i]) == 1)//ÊÇ·Ö¸ô·û
+				if (isSign(s[i]) == 1)//æ˜¯åˆ†éš”ç¬¦
 				{
 					s[i] = ' ';
 				}
@@ -227,7 +234,7 @@ int Cal::CountTime(char *strr)
 	}
 	transform(str.begin(), str.end(), str.begin(), ::tolower);
 	stringstream ss(str);
-	map<string, int> strMap;  //±£´æµÄ½á¹û
+	map<string, int> strMap;  //ä¿å­˜çš„ç»“æœ
 	string strTmp;
 	while (ss >> strTmp)
 	{
