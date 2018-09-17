@@ -39,7 +39,7 @@ void wordSort(unordered_map<string, int>& words, ofstream& outfile)
 		tmp.push_back(pair<string, int>(iter->first, iter->second));
 	sort(tmp.begin(), tmp.end(), cmp);
 	for (unsigned int i = 0; i < (tmp.size() < 10 ? tmp.size() : 10); i++)
-		outfile << "<" << tmp[i].first << ">:" << " " << tmp[i].second << endl;
+		outfile << "<" << tmp[i].first << ">: " << " " << tmp[i].second << endl;
 }
 
 void countLine(ifstream& infile)//统计行数以及字符数
@@ -76,13 +76,12 @@ int main(int argc, char* argv[])
 	countLine(infile);
 	infile.close();
 	outfile.open("result.txt");
-	outfile << "characters:" << characters + lines << endl;
-	outfile << "words:" << wordNum << endl;
-	outfile << "lines:" << lines << endl;
+	outfile << "characters: " << characters + lines << endl;
+	outfile << "words: " << wordNum << endl;
+	outfile << "lines: " << lines << endl;
 	wordSort(words, outfile);
 	outfile.close();
 	//long end = clock();
 	//cout << "程序执行结束,共花费秒数:" << (end - start) / CLOCKS_PER_SEC << endl;
-	system("pause");
 	return 0;
 }
