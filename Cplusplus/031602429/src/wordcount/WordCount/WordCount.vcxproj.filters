@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="fengzhuang.cpp">
+    <ClCompile Include="Countlines.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SwitchToLower.cpp">
@@ -26,7 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fengzhuang.h">
+    <ClInclude Include="Countlines.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="SwithToLower.h">
