@@ -29,9 +29,10 @@ string Is_Word(string word)
 {
 	int lenth = word.length();
 	string true_word;
+	string fal_word = "";
 	if (lenth < 4 || (lenth >= 4 && (!Is_Engch(word[0]) || !Is_Engch(word[1]) || !Is_Engch(word[2]) || !Is_Engch(word[3]))))
 	{
-		return "";
+		return fal_word;
 	}
 	else
 	{
@@ -96,8 +97,64 @@ void Top_Tenwords(Top_Ten words[],char *filename)
 		printf("Can't open file :s% \n Usage:countch filename", filename);
 		exit(0);
 	}
-	while (f_tmp.get(ch))
+	while (1)
 	{
+		if (!f_tmp.get(ch))
+		{
+			word = Is_Word(word);
+			if (word.length() >= 4)
+			{
+				all_words[word]++;
+				int loca_tmp = In_Top(words, word);
+				if (all_words.size() < 10 && loca_tmp == -1)
+				{
+					int tmp = all_words[word];
+					words[i].number = tmp;
+					words[i].word = word;
+					i++;
+				}
+				else if (all_words.size() < 10 && loca_tmp != -1)
+				{
+					words[loca_tmp].number = all_words[word];
+				}
+				else if (all_words.size() == 10 && loca_tmp == -1)
+				{
+					int tmp = all_words[word];
+					words[i].number = tmp;
+					words[i].word = word;
+					sort(words, words + 10, Cmp);
+				}
+				else if (all_words.size() == 10 && loca_tmp != -1)
+				{
+					words[loca_tmp].number = all_words[word];
+					sort(words, words + 10, Cmp);
+				}
+				else if (all_words.size() > 10)
+				{
+					if (all_words[word] > words[9].number && loca_tmp == -1)
+					{
+						words[9].word = word;
+						words[9].number = all_words[word];
+						sort(words, words + 10, Cmp);
+					}
+					else if (all_words[word] > words[9].number && loca_tmp != -1)
+					{
+						words[loca_tmp].number = all_words[word];
+						sort(words, words + 10, Cmp);
+					}
+					else if (all_words[word] == words[9].number)
+					{
+						if (word < words[9].word)
+						{
+							words[9].word = word;
+							words[9].number = all_words[word];
+							sort(words, words + 10, Cmp);
+						}
+					}
+				}
+			}
+			break;
+		}
 		if (!Is_Engch(ch) && !Is_Num(ch))
 		{
 			word = Is_Word(word);

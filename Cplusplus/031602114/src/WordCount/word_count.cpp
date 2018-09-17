@@ -19,8 +19,18 @@ int Word_Count(char *filename)						//
 		printf("Can't open file :s% \n Usage:countch filename",filename);
 		exit(0);
 	}
-	while (f_tmp.get(ch))
+	while (1)
 	{
+		if (!f_tmp.get(ch))
+		{
+			word = Is_Word(word);
+			if (word.length() >= 4)
+			{
+				word_cnt++;
+				word = "";
+			}
+			break;
+		}
 		if (!Is_Engch(ch) && !Is_Num(ch))
 		{
 			word = Is_Word(word);
@@ -43,7 +53,8 @@ int Word_Count(char *filename)						//
 			{
 				continue;
 			}
-		}	
+		}
+		
 	}
 	f_tmp.close();
 //	printf("words:%d\n", word_cnt);
