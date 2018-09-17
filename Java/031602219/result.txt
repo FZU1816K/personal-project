@@ -1,0 +1,12 @@
+words: 400985
+lines: 98682
+<that>: 13207
+<with>: 8653
+<have>: 6527
+<which>: 4625
+<from>: 4296
+<said>: 4213
+<this>: 3738
+<will>: 3497
+<your>: 3235
+<were>: 2926
