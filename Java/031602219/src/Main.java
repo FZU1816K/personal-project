@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException{
 		
 		int Origin = 0;	//初始化变量
 		int c_count = 0;
@@ -24,7 +24,7 @@ public class Main {
 		else {
 			filepath = args[0];
 		}
-		Writer file = new FileWriter("output.txt");
+		Writer file = new FileWriter("result.txt");
 		BufferedWriter out = new BufferedWriter(file);
 		
 		c_count = lib.countChar(filepath,Origin)-1;		//得到文本字符的个数(不考虑汉字),文本的末尾默认无换行，故需剔除
@@ -35,18 +35,18 @@ public class Main {
 		
 		l_count = lib.countLine();	//得到文本的行数
 		
-		List<Map.Entry<String,Integer>> wordTree = createMap.createHashMap(wordslist);	//构造单词分类词频HashMap
+		List<Map.Entry<String,Integer>> wordMap = createMap.createHashMap(wordslist);	//构造单词分类词频HashMap
 		
 		System.out.println("characters: " + c_count);
-		out.write("characters: " + c_count+"\r\n");
+		out.write("characters: "+ c_count+"\r\n");
 		System.out.println("words: "+ v_count);
 		out.write("words: "+ v_count+"\r\n");
 		System.out.println("lines: "+ l_count);
 		out.write("lines: "+ l_count+"\r\n");
-		int upLimit = wordTree.size()>=10?10:wordTree.size();
+		int upLimit = wordMap.size()>=10?10:wordMap.size();
 		for(int i=0;i<upLimit;i++){
-			System.out.println("<"+wordTree.get(i).getKey()+">: "+wordTree.get(i).getValue());
-			out.write("<"+wordTree.get(i).getKey()+">: "+wordTree.get(i).getValue()+"\r\n");
+			System.out.println("<"+wordMap.get(i).getKey()+">: "+wordMap.get(i).getValue());
+			out.write("<"+wordMap.get(i).getKey()+">: "+wordMap.get(i).getValue()+"\r\n");
 		}
 		out.flush(); // 把缓存区内容压入文件
 		out.close(); // 最后记得关闭文件

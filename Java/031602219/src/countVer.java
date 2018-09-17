@@ -13,7 +13,7 @@ public class countVer {
 	public static List<String> list = new ArrayList<String>();
 	
 	public static int countwords(int count,String text){
-		list.clear();	//做初始化清空字符集处理
+//		list.clear();	//做初始化清空字符集处理
 		String regex ="[^0-9a-zA-Z]";	//剔除文本中的非字母和数字的部分并以！作为暂时的分隔符
 		Pattern pat = Pattern.compile(regex);
 		Matcher mat = pat.matcher(text);

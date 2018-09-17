@@ -1,0 +1,13 @@
+characters: 6003913
+words: 589899
+lines: 98682
+<that>: 15689
+<with>: 8962
+<have>: 6820
+<said>: 5114
+<this>: 5006
+<which>: 4920
+<from>: 4564
+<what>: 4152
+<will>: 3804
+<there>: 3708
