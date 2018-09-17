@@ -1,4 +1,4 @@
-#include "zuoye.h"
+#include "stdafx.h"
 
 File::File()
 {
@@ -17,7 +17,7 @@ void File::ShuRufile(string filename)
 	while (getline(cinfile, s))
 	{
 		characters += s.length();
-		lines=lines+1;
+		lines = lines + 1;
 	}
 	characters += lines;
 	cinfile.close();
@@ -53,11 +53,11 @@ void File::Wordscount(string filename)
 			countWord *w = new countWord;
 			s = *i;
 			w->name = s;
-			temp= 1;
+			temp = 1;
 			for (j = ++i; j != words.end(); ++j)
 			{
 				if (s == *j)
-					temp ++;
+					temp++;
 				else
 					break;
 			}
@@ -71,41 +71,53 @@ void File::Wordscount(string filename)
 
 
 
-void File::ShuChufile(string filename)
+void File::ShuChufile()
 {
-	ofstream coutfile(filename);
-	string s;
-	List::iterator i;
-	if (!words.empty())
-	{
-		for (i = words.begin(); i != words.end(); ++i)
-		{
-			s = *i;
-			coutfile << s << endl;
-		}
-	}
-	else
-	coutfile.close();
-}
+	ofstream coutfile;
+	coutfile.open("result.txt");
+	coutfile << "characters:" << characters << endl;
+	coutfile << "words:" << wordscount << endl;
+	coutfile << "lines:" << lines << endl;
 
-void File::Show()
-{
 	Wordlist::iterator i;
-	cout << "characters:" << characters << endl;
-	cout << "words:" << wordscount << endl;
-	cout << "lines" << lines << endl;
 	words_count.sort();
 	if (!words_count.empty())
 	{
-		words.sort();
 		string s;
-		int flag = 0;
+		int k = 0;
 		for (i = words_count.begin(); i != words_count.end(); ++i)
 		{
-			flag++;
-			cout << "<" << i->name << ">:" << i->count << endl;
-			if (flag== 10)
+			k++;
+			coutfile << "<" << i->name << ">: " << i->count << endl;
+			if (k == 10)
 				break;
 		}
 	}
+	else
+	{
+		cout << "words_count listÖÐÃ»ÔªËØ";
+	}
+	coutfile.close();
 }
+
+//void File::Show()
+//{
+//	Wordlist::iterator i;
+//	cout << "characters:" << characters << endl;
+//	cout << "words:" << wordscount << endl;
+//	cout << "lines" << lines << endl;
+//	words_count.sort();
+//	if (!words_count.empty())
+//	{
+//		words.sort();
+//		string s;
+//		int flag = 0;
+//		for (i = words_count.begin(); i != words_count.end(); ++i)
+//		{
+//			flag++;
+//			cout << "<" << i->name << ">:" << i->count << endl;
+//			if (flag == 10)
+//				break;
+//		}
+//	}
+//}

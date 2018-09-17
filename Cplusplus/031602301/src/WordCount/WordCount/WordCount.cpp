@@ -1,4 +1,4 @@
-#include "zuoye.h"
+#include "stdafx.h"
 
 int main()
 {
@@ -8,10 +8,9 @@ int main()
 	File file;
 	file.ShuRufile(filename);
 	file.Wordscount(filename);
-	file.Show();
-	cout << "输入要读取的文件路径及文件名：" << endl;
-	cin >> filename;
-	file.ShuChufile(filename);
+	//cout << "输入要读取的文件路径及文件名：" << endl;
+	//cin >> filename;
+	file.ShuChufile();
 	system("pause");
 	return 0;
 }
