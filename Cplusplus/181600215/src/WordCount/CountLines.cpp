@@ -7,7 +7,7 @@ int CountLines(char *filename)
 	file.open(filename);
 	string str;
 	int count = 0;
-	regex rx("^\\s*$");//¿ÕĞĞ±í´ïÊ½
+	regex rx("^\\s*$");//ç©ºè¡Œè¡¨è¾¾å¼
 	while (getline(file, str)) {
 		if (!regex_match(str, rx)) count++;
 	}

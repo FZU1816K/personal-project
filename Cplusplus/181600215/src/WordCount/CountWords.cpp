@@ -6,10 +6,14 @@ int CountWords(char *filename)
 	ifstream fin(filename);
 	string str;
 	int count = 0;
-	regex rx("\\b[a-zA-Z]{4}[a-zA-Z0-9]*"); //ÖÁÉÙÒÔËÄ¸öÓ¢ÎÄ×ÖÄ¸¿ªÍ·
-	while (fin >> str) {
-		if (regex_match(str, rx))
+	regex rx("\\b[a-zA-Z]{4}[a-zA-Z0-9]*"); //å•è¯è‡³å°‘ä»¥å››ä¸ªå­—æ¯å¼€å¤´
+	while (getline(fin, str)) {
+		smatch m;
+		while (regex_search(str, m, rx)) {
+			string s = m[0];
 			count++;
+			str = m.suffix().str();
+		}
 	}
 
 	return count;

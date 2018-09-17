@@ -3,8 +3,9 @@
 
 int AnalyseParameter(int argc, char **argv)
 {
+	cout << argc << " " << argv[0] << endl;
 	if (argc != 2) {
-		cout << "input error.\n";
+		cout << "argument error.\n";
 		return -1;
 	}
 	ifstream fin(argv[1]);

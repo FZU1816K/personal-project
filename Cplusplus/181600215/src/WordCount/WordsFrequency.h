@@ -5,4 +5,6 @@
 #include<map>
 using namespace std;
 
-void WordsFrequency(char *filename);
+void init();
+void WordsFreq(char *filename);
+void TopTenWords(char *filename);
