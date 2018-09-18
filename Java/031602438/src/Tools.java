@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Tools {
 
-    HashMap<String,Integer> wordCount = new HashMap<String, Integer>();
+    Map<String,Integer> wordCount = new HashMap<String, Integer>();
 
 
     /**
@@ -14,7 +14,7 @@ public class Tools {
         int lines=0;
         boolean flag = false;
         for(int i=0;i<data.length();i++){
-            if(data.charAt(i)!='\r'&&data.charAt(i)!='\n'&& data.charAt(i)!=' '){
+            if(data.charAt(i)>' '){
                 flag=true;
             }
             else if(data.charAt(i)=='\n'){
@@ -43,17 +43,16 @@ public class Tools {
         try {
             while (words.hasMoreTokens()) {
                 String word = words.nextToken();
-                if (word.length() >= 4) {  //判断单词长度是否大于等于4
-                    if (Character.isLetter(word.charAt(0)) && Character.isLetter(word.charAt(1)) && Character.isLetter(word.charAt(2)) && Character.isLetter(word.charAt(3))) {  //判断单词前4个是否为字母
-                        amount++;
-                        if (!wordCount.containsKey(word)) {
-                            wordCount.put(word, new Integer(1));
-                        } else {
-                            int count = wordCount.get(word) + 1;
-                            wordCount.put(word, count);
-                        }
+                if (word.length() >= 4 && Character.isLetter(word.charAt(0)) && Character.isLetter(word.charAt(1)) && Character.isLetter(word.charAt(2)) && Character.isLetter(word.charAt(3))) {  //判断单词前4个是否为字母
+                    amount++;
+                    if (!wordCount.containsKey(word)) {
+                        wordCount.put(word, new Integer(1));
+                    } else {
+                        int count = wordCount.get(word) + 1;
+                        wordCount.put(word, count);
                     }
                 }
+
             }
         }catch (Exception e){
             System.out.println("词频统计报错：");
@@ -67,16 +66,20 @@ public class Tools {
      * @return list
      */
     public List<HashMap.Entry<String, Integer>> WordSort(){
-        Set<HashMap.Entry<String,Integer>> mapEntries = wordCount.entrySet();
-        List<HashMap.Entry<String, Integer>> wordList = new ArrayList<HashMap.Entry<String, Integer>>(mapEntries);
-        wordList.sort(new Comparator<Map.Entry<String, Integer>>(){
+        List<HashMap.Entry<String, Integer>> wordList = new ArrayList<>();
+        for(Map.Entry<String, Integer> entry : wordCount.entrySet()){
+            wordList.add(entry); //将map中的元素放入list中
+        }
+        Comparator<Map.Entry<String, Integer>> cmp = new Comparator<Map.Entry<String, Integer>>(){
             @Override
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                if(o1.getValue()==o2.getValue())
+                if(o1.getValue().equals(o2.getValue()))
                     return o1.getKey().compareTo(o2.getKey());     //值相同 按键返回字典序.
-                return o2.getValue()-o1.getValue();}
+                return o2.getValue()-o1.getValue();
+            }
             //逆序（从大到小）排列，正序为“return o1.getValue()-o2.getValue”
-        });
+        };
+        wordList.sort(cmp);
         return wordList;
     }
 }
