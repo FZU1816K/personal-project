@@ -19,6 +19,8 @@ using namespace std;
 
 #define ERROR 6
 
+#define WORDCOUNT 20
+
 /* 
 * Function name: Transition
 * Description:

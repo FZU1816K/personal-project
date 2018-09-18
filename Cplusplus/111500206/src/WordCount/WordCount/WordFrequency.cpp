@@ -2,16 +2,15 @@
 
 unordered_map<string, int> hash_table;
 unordered_map<string, int>::iterator hash_iter;
-priority_queue<pair<int, string>, vector<pair<int, string>>, greater<pair<int, string>>> wordQueue;
+priority_queue<pair<int, string>, vector<pair<int, string>>, greater<pair<int,string>>> wordQueue;
 
 bool MySort(const pair<int, string>& word1, const pair<int, string>& word2)
 {
-	if (word1.first != word2.first) {  // Sort word with frequency, high to low
-		return word1.first > word2.first;
-	}
-	else // if words have the same frequency, output in dictionary order
-	{
+	if (word1.first == word2.first) { // if words have the same frequency, output in dictionary order
 		return word1.second < word2.second;
+	}
+	else  {  // Sort word with frequency, high to low
+		return word1.first > word2.first;
 	}
 }
 
@@ -87,10 +86,9 @@ vector<pair<int, string>> TopTenWords()
 {
 	for (hash_iter = hash_table.begin(); hash_iter != hash_table.end(); hash_iter++) {
 		pair<int, string> currentWord = make_pair(hash_iter->second, hash_iter->first);
-		if (wordQueue.size() == 10) {
+		if (wordQueue.size() == WORDCOUNT) {
 			pair<int, string> minFreqWord = wordQueue.top();
-			if (currentWord.first > minFreqWord.first || (currentWord.first == minFreqWord.first
-				&&currentWord.second > minFreqWord.second)) {
+			if ((currentWord.first == minFreqWord.first && currentWord.second < minFreqWord.second) || (currentWord.first > minFreqWord.first)) {
 				wordQueue.pop();
 				wordQueue.push(currentWord);
 			}
@@ -101,7 +99,6 @@ vector<pair<int, string>> TopTenWords()
 	}
 
 	vector<pair<int, string>> Top10words;
-	
 	while (!wordQueue.empty()) {
 		Top10words.push_back(wordQueue.top());
 		wordQueue.pop();
@@ -124,12 +121,13 @@ int OutputToFile(vector<pair<int, string>>& Top10words)
 		printf("Failed to create output file.\n");
 		return -1;
 	}
-	vector<pair<int, string>>::iterator iter;
-	for (iter = Top10words.begin(); iter != Top10words.end(); iter++) {
-		const char *word = iter->second.c_str();
+	int size = Top10words.size();
+	for (int i = 0;i < size && i < 10; i++) {
+		const char *word = (Top10words[i]).second.c_str();
+		file << "<";
 		file << word;
-		file << " ";
-		file << iter->first;
+		file << ">: ";
+		file << (Top10words[i]).first;
 		file << endl;
 	}
 	printf("Top 10 words have been stored in result.txt\n");
