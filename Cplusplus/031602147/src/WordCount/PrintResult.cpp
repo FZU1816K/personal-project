@@ -1,4 +1,3 @@
-
 /**
 * Function:  PrintResult
 * Description:  Print the Result
@@ -6,10 +5,10 @@
   characters:the number of characters
   lines:the number of lines
   words:the number of words
-  vec:the vector
+  top:the highest frequency word array
 */
 #include"PrintResult.h"
-void PrintResult(int characters, int lines, int words, vector<Word>& vec)
+void PrintResult(int characters, int lines, int words, pair<string, int> top[])
 {
 	ofstream outfile("result.txt", ios::out);
 	if (!outfile)
@@ -18,11 +17,10 @@ void PrintResult(int characters, int lines, int words, vector<Word>& vec)
 		exit(1);
 	}
 	outfile << "characters: " << characters << endl << "words: " << words << endl << "lines: " << lines;
-	for (unsigned i = 0; i < 10 && i < vec.size(); i++)
+	for (int i = 0; i < 10 && i<words; i++)
 	{
-		outfile << endl << "<" << vec[i].s << ">: " << vec[i].frequency;
+		outfile << endl << "<" << top[i].first<< ">: " << top[i].second;
 	}
 	outfile.close();
-	cout << "The result has been exported to result.txt!";
 	return;
 }

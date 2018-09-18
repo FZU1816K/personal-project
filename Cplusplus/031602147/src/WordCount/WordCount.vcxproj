@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{D017E889-E932-4DE0-958F-42B34C0D8EFD}</ProjectGuid>
+    <ProjectGuid>{B71D680F-503D-4A5A-AEE2-95AD3C0DBDF3}</ProjectGuid>
     <RootNamespace>WordCount</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -130,7 +130,6 @@
     <ClInclude Include="MatchWord.h" />
     <ClInclude Include="PrintResult.h" />
     <ClInclude Include="SortWords.h" />
-    <ClInclude Include="Word.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

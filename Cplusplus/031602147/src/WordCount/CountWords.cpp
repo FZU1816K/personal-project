@@ -3,15 +3,14 @@
 * Description:  Count the number of words of the file
 * Parameter:
   file:File that need to be counted
-  vec:the vector
+  MapWord:the words map
 * Return:
   int:the number of words
 */
 #include"CountWords.h"
 #include"MatchWord.h"
-int CountWords(char *file, vector<Word>& vec)
+int CountWords(char *file, map<string, int> &MapWord)
 {
-	int number = 0;
 	char ch;
 	FILE *fp;
 	errno_t err;
@@ -35,7 +34,7 @@ int CountWords(char *file, vector<Word>& vec)
 					{
 						cnt++;
 						ch = ch + 32;
-						//capitalization of English letters into lowercase letters
+						/*capitalization of English letters into lowercase letters*/
 						s = s + ch;
 					}
 
@@ -58,14 +57,14 @@ int CountWords(char *file, vector<Word>& vec)
 					else
 					{
 						sign = 1;
-						//exclude words beginning with numbers.
+						/*exclude words beginning with numbers.*/
 					}
 				}
 				else
 				{
 					if (cnt >= 4)
 					{
-						if (!MatchWord(s, vec)) number++;
+						MatchWord(s, MapWord);
 					}
 					s = "";
 					cnt = 0;
@@ -76,7 +75,13 @@ int CountWords(char *file, vector<Word>& vec)
 	}
 	if (cnt >= 4)
 	{
-		if (!MatchWord(s, vec)) number++;
+		MatchWord(s, MapWord);
+	}
+	int number = 0;
+	map<string, int>::iterator iter;
+	for (iter = MapWord.begin(); iter != MapWord.end(); ++iter)
+	{
+		number += iter->second;/*Count words*/
 	}
 	s = "";
 	cnt = 0;
