@@ -34,6 +34,8 @@ int main(int args,char* argv[])
 	//输出统计单词数
 	words = word(a);
 	fout << "words: " << words << endl;
+	int lines = line(a);
+	fout << "lines: " << lines << endl;
 	//输出统计前十词频
 	tVector=WordsFrequency(a);
 	for (int i = 0; i<tVector.size(); i++)
