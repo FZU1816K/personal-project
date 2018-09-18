@@ -17,7 +17,7 @@ int CountChar(char *filename)
 
 	if (!infile)
 	{ 
-		cout << "you file is error" << endl;
+		cout << "you filename is error" << endl;
 		return 0;
 	}
 
