@@ -18,9 +18,33 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CountChar.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountLines.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CountWords.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="topten.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountChar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountLines.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CountWords.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="topten.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="WordCount.cpp">

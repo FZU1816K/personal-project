@@ -1,6 +1,5 @@
 #pragma once
-#ifndef _COUNTLINES_H_
-#define _COUNTLINES_H_  
+#include "pch.h"
 #include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
@@ -9,12 +8,9 @@
 #include<string>
 #include<vector>
 #include<map>
-#include<string.h>
+#include<string>
 #include<regex>
 
 using namespace std;
 
-int CountWords(char *filename);//统计单词数 
-
-
-#endif
+int CountLines(char *filename);//统计行数 

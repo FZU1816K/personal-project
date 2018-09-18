@@ -1,6 +1,5 @@
 #pragma once
-#ifndef _COUNTLINES_H_
-#define _COUNTLINES_H_  
+#include "pch.h"
 #include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
@@ -9,11 +8,9 @@
 #include<string>
 #include<vector>
 #include<map>
-#include<string.h>
+#include<string>
 #include<regex>
 
 using namespace std;
 
-void topten(char *filename);//频率最高的十个单词 
-
-#endif
+int CountWords(char *filename);//统计单词数 
