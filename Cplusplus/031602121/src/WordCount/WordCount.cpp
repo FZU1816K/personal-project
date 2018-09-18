@@ -23,7 +23,5 @@ int main(int argc, char **argv)
 	fout << "characters£º" << CharNum << endl << "words: " << WordNum << endl << "lines: " << LineNum << endl;
 	fout.close();
 	CountWF(argv[1],fout);
-	getchar();
-	getchar();
 	return 0;
 }

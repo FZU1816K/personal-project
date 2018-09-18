@@ -45,7 +45,7 @@ void Character::count()
 
 void Character::show()
 {
-	printf("characters:%d\n", number);
+	printf("characters: %d\n", number);
 }
 
 void Character::fwrite()
@@ -57,6 +57,6 @@ void Character::fwrite()
 		cerr << "Cant't open" << foutname << endl;
 		exit(EXIT_FAILURE);
 	}
-	fout << "characters:" << number << endl;
+	fout << "characters: " << number << endl;
 	fout.close();
 }

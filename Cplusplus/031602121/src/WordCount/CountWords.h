@@ -15,10 +15,10 @@ int CountWords(char *filename)
 		cerr << "无法打开输入文件" << endl;
 		return -1;
 	}
-	char word[1000];
+	char word[10000];
 	string ss;
 	int WordNum=0;
-	while (in.getline(word, 1000))         //   istream &in 遇到空白字符（空格符、制表符和换行符）即停止读入。
+	while (in.getline(word, 10000))         //   istream &in 遇到空白字符（空格符、制表符和换行符）即停止读入。
 	{
 		ss = word;
 		for (int i = 0; i < ss.length(); i++)//对每行的操作

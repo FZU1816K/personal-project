@@ -16,8 +16,9 @@ void CountAndSort(char* filemm, vector<pair<string, int>>& x)//统计词数词频
 	{
 
 		ans.clear();
-
-		for (int i = 0; i < s.size(); i++)
+		int i;
+		int ssize = s.size();
+		for (i = 0; i < ssize; i++) 
 		{
 			if (s[i] >= 65 && s[i] <= 90)
 			{
@@ -28,8 +29,9 @@ void CountAndSort(char* filemm, vector<pair<string, int>>& x)//统计词数词频
 				ans.push_back(i);
 			}
 		}
+		int sss = ans.size();
 
-		if (ans.size() == 0)//如果分割符数目等于0，就是只有一个字符串
+		if (sss == 0)//如果分割符数目等于0，就是只有一个字符串
 		{
 			//如果从该符号起四个字符都是字母
 			if ((s[0] >= 97 && s[0] <= 122) && (s[1] >= 97 && s[1] <= 122) && (s[2] >= 97 && s[2] <= 122) && (s[3] >= 97 && s[3] <= 122))
@@ -47,14 +49,24 @@ void CountAndSort(char* filemm, vector<pair<string, int>>& x)//统计词数词频
 			mapp[temp]++;
 		}
 
-		for (int i = 0; i < ans.size(); i++)
+		for (i = 0; i < sss; i++)
 		{
 			//满足分隔符后四个字符是字母
 			if ((s[ans[i] + 1] >= 97 && s[ans[i] + 1] <= 122) && (s[ans[i] + 2] >= 97 && s[ans[i] + 2] <= 122) &&
 				(s[ans[i] + 3] >= 97 && s[ans[i] + 3] <= 122) && (s[ans[i] + 4] >= 97 && s[ans[i] + 4] <= 122))
 			{
-				string temp(s.substr(ans[i] + 1, ans[i + 1] - ans[i] - 1));
-				mapp[temp]++;
+				string a;
+				if (i == sss - 1)
+				{
+					string temp(s.substr(ans[i] + 1, s.size() - ans[i] - 1));
+					a = temp;
+				} 
+				else
+				{
+					string temp(s.substr(ans[i] + 1, ans[i + 1] - ans[i] - 1));
+					a = temp;
+				}
+				mapp[a]++;
 			}
 		}
 	}
@@ -105,8 +117,6 @@ void CountAndSort(char* filemm, vector<pair<string, int>>& x)//统计词数词频
 
 		}
 	}
-
-
 
 
 }

@@ -56,7 +56,7 @@ void Line::count()
 
 void Line::show()
 {
-	printf("lines:%d\n", number);
+	printf("lines: %d\n", number);
 }
 
 void Line::fwrite()
@@ -68,6 +68,6 @@ void Line::fwrite()
 		cerr << "Cant't open" << foutname << endl;
 		exit(EXIT_FAILURE);
 	}
-	fout << "lines:" << number << endl;
+	fout << "lines: " << number << endl;
 	fout.close();
 }

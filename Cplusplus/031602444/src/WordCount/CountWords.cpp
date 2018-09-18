@@ -17,16 +17,16 @@ int CountWords(char* filemm)//统计词数
 	{
 
 		ans.clear();
-
-		for (int i = 0; i < s.size(); i++)
+		int ssize = s.size();
+		for (int i = 0; i < ssize; i++)
 		{
 			if (s[i] >= 65 && s[i] <= 90)
 			{
 				s[i] += 32;
 			}
 			if (s[i] < 48 || (s[i] > 57 && s[i] < 65) || (s[i] > 90 && s[i] < 97) || s[i]>122)
-			{
-				ans.push_back(i);
+			{	 
+				 ans.push_back(i);
 			}
 		}
 
@@ -44,7 +44,6 @@ int CountWords(char* filemm)//统计词数
 		//先判断第一个，因为第一个没有分隔符做开头标记
 		if ((s[0] >= 97 && s[0] <= 122) && (s[1] >= 97 && s[1] <= 122) && (s[2] >= 97 && s[2] <= 122) && (s[3] >= 97 && s[3] <= 122))
 		{
-			string temp(s.substr(0, ans[0]));//满足前四个字符是字母，截取
 			words++;
 		}
 
@@ -54,7 +53,6 @@ int CountWords(char* filemm)//统计词数
 			if ((s[ans[i] + 1] >= 97 && s[ans[i] + 1] <= 122) && (s[ans[i] + 2] >= 97 && s[ans[i] + 2] <= 122) &&
 				(s[ans[i] + 3] >= 97 && s[ans[i] + 3] <= 122) && (s[ans[i] + 4] >= 97 && s[ans[i] + 4] <= 122))
 			{
-				string temp(s.substr(ans[i] + 1, ans[i + 1] - ans[i] - 1));
 				words++;
 			}
 		}

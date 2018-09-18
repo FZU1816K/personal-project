@@ -21,8 +21,8 @@ public class WordCountClass extends Thread
         String ToRead = "";
         TreeMap<String,Integer> MainMap = new TreeMap<>();
         try {
-            OutputResult = new BufferedWriter(new FileWriter(InputFilePath.concat("result.txt")));
-            BufferedReader InputFile = new BufferedReader(new FileReader(InputFilePath.concat(InputFileName)));
+            OutputResult = new BufferedWriter(new FileWriter("result.txt"));
+            BufferedReader InputFile = new BufferedReader(new FileReader(InputFileName));
             while (true) {
                 ch1 = InputFile.read();
                 if (ch1 > 122) continue;//不是ASCII则继续读取
@@ -116,7 +116,18 @@ public class WordCountClass extends Thread
                     LineChar = 0;
                     for(int i = 0;i < 9;i++)
                     {
-                        if(t1[i].compareTo(t1[i+1]) > 0)
+                        if(t2[i] < t2[i+1])
+                        {
+                            LineChar = 1;
+                            ToRead = t1[i];
+                            ch1 = t2[i];
+                            t1[i] = t1[i+1];
+                            t2[i] = t2[i+1];
+                            t1[i+1] = ToRead;
+                            t2[i+1] = ch1;
+                            continue;
+                        }
+                        if(t1[i].compareTo(t1[i+1]) > 0 && t2[i] == t2[i+1])
                         {
                             LineChar = 1;
                             ToRead = t1[i];
@@ -172,7 +183,7 @@ public class WordCountClass extends Thread
     {
         try {
             for (int i = 0; i < WorkingMode; i++) {
-                OutputResult.write(ResultWord[i].concat(" : ").concat(String.valueOf(ResultInt[i])).concat("\n"));
+                OutputResult.write("<".concat(ResultWord[i]).concat(">").concat(" : ").concat(String.valueOf(ResultInt[i])).concat("\n"));
             }
             OutputResult.flush();
         }

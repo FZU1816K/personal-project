@@ -29,7 +29,7 @@ public class print {
         bi.write("lines: "+wordline+"\r\n");
         int flag = 0;
         for(int i = 0; i<list.size(); i++){  
-        	if(flag>10) break;
+        	if(flag>=10) break;
         	if(list.get(i).getKey().length()>=4)
         		bi.write("<"+list.get(i).getKey()+">"+ ": " +list.get(i).getValue()+"\r\n"); 
         	flag++;

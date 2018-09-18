@@ -61,7 +61,7 @@ void Word::count()
 
 void Word::show()
 {
-	printf("words:%d\n", number);
+	printf("words: %d\n", number);
 }
 
 void Word::fwrite()
@@ -73,6 +73,6 @@ void Word::fwrite()
 		cerr << "Cant't open" << foutname << endl;
 		exit(EXIT_FAILURE);
 	}
-	fout << "words:" << number << endl;
+	fout << "words: " << number << endl;
 	fout.close();
 }

@@ -10,8 +10,6 @@ extern int characters;
 extern int lines;
 extern int words;
 
-//FILE * stream;
-
 int main(int argc, char* argv[])
 {
 
