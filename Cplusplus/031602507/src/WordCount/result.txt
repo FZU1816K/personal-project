@@ -1,13 +1,13 @@
-characters:1703
-words: 119
-lines:25
-<agto>: 1
-<agva>: 1
-<azwvyo0>: 1
-<basqqtr>: 1
-<bksk>: 1
-<bual>: 1
-<budnv4>: 1
-<bxpqxc>: 1
-<cfld>: 1
-<chle6>: 1
+characters: 1026
+words: 63
+lines: 21
+<govf>: 14
+<hmwu4e>: 9
+<hclfpra>: 7
+<mjwm6>: 7
+<feevkj>: 6
+<acep2je>: 4
+<ernus>: 2
+<lxerdjc>: 2
+<irhr>: 1
+<mfcl>: 1
