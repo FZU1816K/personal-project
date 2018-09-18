@@ -126,8 +126,10 @@ void FileRead::wordPair() {
 	for (itor = wordMap.begin(); itor != wordMap.end(); itor++) {
 		orderWord.push_back(make_pair(itor->first, itor->second));
 	}
+	int i = wordMap.size();								//i保证单词种类小于10时不会出现异常
+	if (i > 10)	i = 10;
 	/*通过paritial_sort函数对vector中的单词按题目要求排序*/
-	partial_sort(orderWord.begin(), orderWord.begin() + 10, orderWord.end(), cmp());
+	partial_sort(orderWord.begin(), orderWord.begin() + i, orderWord.end(), cmp());
 }
 
 int FileRead::getCrtNum() {
