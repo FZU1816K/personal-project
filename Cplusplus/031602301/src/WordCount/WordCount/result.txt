@@ -1,0 +1,9 @@
+characters:48
+words:6
+lines:6
+<cshdsf>: 1
+<file>: 1
+<sdhgcshdv>: 1
+<sdhgv>: 1
+<sdjgshdb>: 1
+<ssdfscjhsv>: 1

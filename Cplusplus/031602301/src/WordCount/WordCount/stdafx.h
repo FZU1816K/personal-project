@@ -25,9 +25,8 @@ class File
 public:
 	File();
 	void ShuRufile(string filename);
-	void ShuChufile(string filename);
+	void ShuChufile();
 	void Wordscount(string filename);
-	void Show();
 private:
 	int characters;
 	int wordscount;
