@@ -14,12 +14,12 @@ struct CmpByValue {
 };
 
 
-int countWord() //调用这个函数把文字传进来。
+vector<pair<string, int>> CountWord() //调用这个函数把文字传进来。
 {
-	std::ifstream in("temp.txt");
-	std::ostringstream tmp;
+	ifstream in("temp.txt");
+	ostringstream tmp;
 	tmp << in.rdbuf();
-	std::string str = tmp.str();
+	string str = tmp.str();
 	map<string, int> result;
 	regex repPattern("[a-zA-Z]{4,}[a-z0-9A-Z]*");
 	// 声明匹配结果变量
@@ -33,20 +33,17 @@ int countWord() //调用这个函数把文字传进来。
 	}
 	vector<pair<string, int>> resultvec(result.begin(), result.end());
 	sort(resultvec.begin(), resultvec.end(), CmpByValue());
+	return resultvec;
+}
+
+
+
+int WordSum(vector<pair<string, int>> &resultvec)
+{
 	int sum = 0;
 	for (auto i : resultvec)
 	{
 		sum += i.second;
 	}
-	cout << "words:" << sum << endl;
-	int j = 0;
-	for (auto i : resultvec) {
-		cout <<'<'<< i.first << '>'<<':'<< i.second << endl;
-		j++;
-		if (j >= 10) {
-			break;
-		}
-	}
-
 	return sum;
 }

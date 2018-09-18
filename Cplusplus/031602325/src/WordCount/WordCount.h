@@ -7,4 +7,5 @@
 #include<sstream>
 using namespace std;
 typedef pair<string, int> PAIR;
-int countWord();
+vector<pair<string, int>> CountWord();
+int WordSum(vector<pair<string, int>> &resultvec);

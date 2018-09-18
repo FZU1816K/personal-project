@@ -1,7 +1,0 @@
-characters£º220
-words: 19
-lines£º14
-<donot>£º4
-<like>£º4
-<should>£º4
-<file123>£º3

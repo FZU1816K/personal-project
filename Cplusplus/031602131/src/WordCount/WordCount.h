@@ -7,6 +7,7 @@ public:
 	int isChinese(char a, char b);
 	int isSign(char c);
 	int isWord(string word);
+	int isChar(char c);
 	int CountChar(char *strr);
 	int CountLine(char *strr);
 	int CountWord(char *strr);
