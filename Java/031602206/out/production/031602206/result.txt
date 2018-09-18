@@ -1,5 +1,9 @@
-characters: 18
-words: 2
+characters: 43
+words: 8
 lines: 3
-abcd: 1
-anbcf: 1
+<abcdf>: 2
+<ijgn>: 2
+<jisdhu>: 1
+<mkoi>: 1
+<zaxc>: 1
+<zzzz>: 1

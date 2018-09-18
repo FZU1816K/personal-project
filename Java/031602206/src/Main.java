@@ -32,16 +32,24 @@ public class Main {
                 int characters = characterCount.charCount(s);
                 int words = wordsCount.getWords();
                 int lines = linesCount.lineCount(path);
-                List<Map.Entry<String, Integer>> mostList = new most().mostWord(wordsCount.getMap());
+                List<Map.Entry<String, Integer>> mostList;
+                mostList= new most().mostWord(wordsCount.getMap());
 
                 PrintStream printout = new PrintStream("result.txt");
                 System.setOut(printout);
-                System.out.println("characters: " + characters);
-                System.out.println("words: " + words);
-                System.out.println("lines: " + lines);
+                System.out.print("characters: ");
+                System.out.println(characters);
+                System.out.print("words: ");
+                System.out.println(words);
+                System.out.print("lines: ");
+                System.out.println(lines);
                 for (int i = 0; i < mostList.size(); i++) {
                     Map.Entry<String, Integer> temp = mostList.get(i);
-                    System.out.println(temp.getKey() + ": " + temp.getValue());
+                    System.out.print("<");
+                    System.out.print(temp.getKey());
+                    System.out.print(">");
+                    System.out.print(": ");
+                    System.out.println(temp.getValue());
                 }
                 printout.close();
             } catch(IOException e) {
